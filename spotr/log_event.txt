@@ -1,0 +1,18 @@
+
+2022-06-03 22:31:07.660994 spotify.py - getNewAccessToken --> <class 'TypeError'> - ("abspath() missing 1 required positional argument: 'path'",) - abspath() missing 1 required positional argument: 'path'
+2022-06-03 22:31:07.661994 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 34, in getNewAccessToken
+    folder_name = os.path.abspath()
+TypeError: abspath() missing 1 required positional argument: 'path'
+
+2022-06-03 22:31:23.707337 spotify.py - getNewAccessToken --> <class 'TypeError'> - ("abspath() missing 1 required positional argument: 'path'",) - abspath() missing 1 required positional argument: 'path'
+2022-06-03 22:31:23.707337 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 35, in getNewAccessToken
+    folder_name = os.path.abspath()
+TypeError: abspath() missing 1 required positional argument: 'path'
+
+2022-06-03 22:34:03.101738 spotify.py - getNewAccessToken --> <class 'OSError'> - (22, 'Invalid argument') - [Errno 22] Invalid argument: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr\\static\refresh_token.txt'
+2022-06-03 22:34:03.103741 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 34, in getNewAccessToken
+    fileOpen = open(ROOT_DIR + "\static\refresh_token.txt", "r")
+OSError: [Errno 22] Invalid argument: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr\\static\refresh_token.txt'

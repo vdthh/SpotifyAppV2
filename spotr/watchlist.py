@@ -1,8 +1,10 @@
 import functools
 from flask import (Blueprint, flash, g, redirect, render_template, request, url_for)
+from spotr.common import logAction
 from spotr.db import get_db
 from datetime import datetime
 import json
+import os
 
 bp = Blueprint('watchlist', __name__, url_prefix="/watchlist")
 
@@ -64,15 +66,21 @@ def watchlist_main():
         for row in data:
             # print("type: " + str(type(row)))
             print(str(row))
-            decode = json.loads(row[1])
+            parsed = json.loads(row[1])
             print(row[1])
-            print(decode["album"])
+            print(parsed["album"])
+            data_parsed.append(parsed)
             # data_parsed.append(json.loads(row))
 
         # print("parsed: " + data_parsed[9]["trackList"]["album"])
+        ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr
+        print("ROOT_DIR: " + str(ROOT_DIR))
+        CONFIG_PATH= os.path.join(ROOT_DIR, 'watchlist.py') #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py
+        print('CONFIG_PATH: ' + str(CONFIG_PATH))
+        logAction("TESTTEST")
 
         flash(error)
-        return render_template('watchlist.html', data = data)
+        return render_template('watchlist.html', data = data_parsed)
 
 
 
