@@ -19,6 +19,14 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    #register close_db and init_db_command functions with the app - before returning app
+    from . import db
+    db.init_app(app)
+
+    #register blueprint(s)
+    from . import watchlist
+    app.register_blueprint(watchlist.bp)
+
     return app
 
 #To run app from terminal, first set FLASK_APP via command: $env:FLASK_APP = "spotr"

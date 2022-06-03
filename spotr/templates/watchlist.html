@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Submit data for testing purposes{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    <input type="submit" value="Add random entry to DB">
+</form>
+
+<br>
+
+<h2>Data to display:</h2>
+    {% if data %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Album</th>
+            <th>Artist</th>
+            <th>Date</th>
+        </tr>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.album }}</td>
+                <td>{{ item.artist }}</td>
+                <td>{{ item.date_added }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <br>
+    {% if data3 %}
+        {{ data3 }}
+    {% endif %}
+{% endblock %}
