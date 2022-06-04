@@ -16,10 +16,77 @@ from config import spotify_client_id, spotify_client_secret
 
 ########################################################################################
 ###################################### API REQUESTS ####################################
-####################### General procedure for every API request ########################
+####################### General procedure(s) for every API request ########################
 ########################################################################################
 def apiReqSpotify(urlExtension):
-    pass
+    '''--> General procedure for every Spotify API request <--'''
+    '''Returns a valid response in json format'''
+    '''return empty string in case of error'''
+    '''if everything went ok, nothing (None) is returned'''
+
+
+    '''--> always request a new access token'''
+    result = getNewAccessToken()
+    if result == '':
+        '''error'''
+        logAction("err - spotify.py - apiReqSpotify --> error getNewAccessToken()")
+    elif result == None:
+        '''ok'''
+        pass
+    else:
+        '''not possible?'''
+        logAction("err - spotify.py - apiReqSpotify2 --> something unusual with getNewAccessToken()")
+
+
+    '''--> wait given timespan'''
+    waitForGivenTimeIns(0.01,0.1)
+
+
+    '''--> create and perform request'''
+    if urlExtension.startswith("https://"):
+        url = urlExtension
+    else:
+        url = 'https://api.spotify.com/v1/' + urlExtension
+
+    headers = {'Authorization': 'Bearer ' + gv_access_token}
+
+    try:
+        response = requests.get(url, headers=headers, verify=False)
+    except Exception as ex:
+        logAction("err - spotify.py - apiReqSpotify3 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> check for error in response'''
+    try:
+        retryCnt = 0
+        while (response.status_code != 200) :
+            waitForGivenTimeIns(0.5,1)
+            logAction("msg - spotify.py - apiReqSpotify4 --> retrying request #" + str(retryCnt))
+
+            if retryCnt >= 10:
+                logAction("err - spotify.py - apiReqSpotify5 --> too many retries requesting acces token.")
+
+                '''--> save last result for debugging'''
+                with open (ROOT_DIR + "/logs/spotify_apiReqSpotify_LAST.json", 'w') as fi:
+                    fi.write(str(response.json()))
+                return ''
+
+            response = requests.get(url, headers=headers, verify=False)
+            retryCnt+=1
+    except Exception as ex:
+        logAction("err - spotify.py - apiReqSpotify6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+    '''--> save last result for debugging'''
+    with open (ROOT_DIR + "/logs/spotify_apiReqSpotify_LAST.json", 'w') as fi:
+        fi.write(str(response.json()))
+
+    '''--> finally, return a valid response in json format'''
+    return response.json()
+
 ########################################################################################
 
 
@@ -33,6 +100,8 @@ def getNewAccessToken():
     '''Load the saved 'refresh_token' from external file'''
     '''return empty string in case of error'''
     '''if everything went ok, nothing (None) is returned'''
+
+
     try:
         fileOpen = open(ROOT_DIR + "/static/refresh_token.txt", "r")      
         refresh_token = fileOpen.read()
@@ -65,21 +134,26 @@ def getNewAccessToken():
 
 
     '''--> check for error in response'''
-    retryCnt = 0
-    while (response.status_code != 200) :
-        waitForGivenTimeIns(0.5,1)
-        logAction("msg - spotify.py - getNewAccessToken3 --> retrying request #" + str(retryCnt))
+    try:
+        retryCnt = 0
+        while (response.status_code != 200) :
+            waitForGivenTimeIns(0.5,1)
+            logAction("msg - spotify.py - getNewAccessToken3 --> retrying request #" + str(retryCnt))
 
-        if retryCnt >= 10:
-            logAction("err - spotify.py - getNewAccessToken4 --> too many retries requesting acces token.")
+            if retryCnt >= 10:
+                logAction("err - spotify.py - getNewAccessToken4 --> too many retries requesting acces token.")
+
+            response = requests.post(url, data=body_params, auth=(spotify_client_id, spotify_client_secret), verify=False)
+            retryCnt+=1
 
             '''--> save last result for debugging'''
             with open (ROOT_DIR + "/logs/spotify_getNewAccessToken_LAST.json", 'w') as fi:
                 fi.write(str(response.json()))
             return ''
-
-        response = requests.post(url, data=body_params, auth=(spotify_client_id, spotify_client_secret), verify=False)
-        retryCnt+=1
+    except Exception as ex:
+        logAction("err - spotify.py - getNewAccessToken4.5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
 
 
     '''--> save last result for debugging'''
@@ -121,9 +195,18 @@ def getNewAccessToken():
 # TESTING - - - - - - - - - - -  - - -- - - - - - - - -- - - 
 print('starting - - - ')
 
-if getNewAccessToken() == '':
+res = apiReqSpotify("https://api.spotify.com/v1/tracks/3hRBphWJJ2JSymfZJr99yh")
+
+if res == '':
     print('ERR')
-elif getNewAccessToken() == None:
+elif res == None:
     print("NONE")
 else:
     print("OK")
+
+# if getNewAccessToken() == '':
+#     print('ERR')
+# elif getNewAccessToken() == None:
+#     print("NONE")
+# else:
+#     print("OK")
