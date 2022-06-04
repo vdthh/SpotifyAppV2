@@ -16,3 +16,15 @@ TypeError: abspath() missing 1 required positional argument: 'path'
   File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 34, in getNewAccessToken
     fileOpen = open(ROOT_DIR + "\static\refresh_token.txt", "r")
 OSError: [Errno 22] Invalid argument: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr\\static\refresh_token.txt'
+
+2022-06-04 22:11:51.232890 err - spotify.py - getNewAccessToken1 --> <class 'FileNotFoundError'> - (2, 'No such file or directory') - [Errno 2] No such file or directory: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr/static/refresh_token.txt'
+2022-06-04 22:11:51.233890 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 36, in getNewAccessToken
+    fileOpen = open(ROOT_DIR + "/static/refresh_token.txt", "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr/static/refresh_token.txt'
+
+2022-06-04 22:25:21.972451 err - spotify.py - getNewAccessToken1 --> <class 'FileNotFoundError'> - (2, 'No such file or directory') - [Errno 2] No such file or directory: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr/static/refresh_token.txt'
+2022-06-04 22:25:21.972451 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 37, in getNewAccessToken
+    fileOpen = open(ROOT_DIR + "/static/refresh_token.txt", "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr/static/refresh_token.txt'

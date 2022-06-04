@@ -14,3 +14,6 @@ build/
 *.egg-info/
 
 config.py
+
+access_token.txt
+refresh_token.txt

@@ -29,7 +29,7 @@ CONFIG_PATH= os.path.join(ROOT_DIR, 'watchlist.py') #result --> E:\docs\phyton p
 ######################################### LOGGING ######################################
 ########################################################################################
 def logAction(msg):
-    fl1 = open(ROOT_DIR + "\log_event.txt", "a", encoding="utf-8")        #https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters
+    fl1 = open(ROOT_DIR + "\logs\log_event.txt", "a", encoding="utf-8")        #https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters
     timedetail = str(datetime.datetime.now())
     fl1.write('\n' + timedetail + " " + str(msg))
     fl1.close()
