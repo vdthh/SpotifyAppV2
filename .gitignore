@@ -17,5 +17,9 @@ config.py
 
 access_token.txt
 refresh_token.txt
+spotr/static/access_token.txt
+spotr/static/refresh_token.txt
+*access_token.txt
+*refresh_token.txt
 
 *.json
