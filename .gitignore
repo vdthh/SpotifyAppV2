@@ -15,5 +15,7 @@ build/
 
 config.py
 
-access_token.txt
-refresh_token.txt
+*access_token.txt
+*refresh_token.txt
+
+*.json
