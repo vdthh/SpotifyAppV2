@@ -20,7 +20,7 @@ from config import spotify_client_id, spotify_client_secret
 ########################################################################################
 def apiReqSpotify(urlExtension):
     '''--> General procedure for every Spotify API request <--'''
-    '''Returns a valid response in json format'''
+    '''Returns a valid response in json format (request.responseObject.json())'''
     '''return empty string in case of error'''
     '''if everything went ok, nothing (None) is returned'''
 

@@ -12,6 +12,7 @@ import datetime
 import os
 import time
 import random
+from .spotify import apiReqSpotify
 ########################################################################################
 
 
@@ -19,6 +20,7 @@ import random
 ########################################################################################
 ######################################## VARIABLES #####################################
 ########################################################################################
+'''--> Used for file locating'''
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr
 CONFIG_PATH= os.path.join(ROOT_DIR, 'watchlist.py') #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py
 ########################################################################################
@@ -29,6 +31,7 @@ CONFIG_PATH= os.path.join(ROOT_DIR, 'watchlist.py') #result --> E:\docs\phyton p
 ######################################### LOGGING ######################################
 ########################################################################################
 def logAction(msg):
+    '''--> General log call'''
     fl1 = open(ROOT_DIR + "\logs\log_event.txt", "a", encoding="utf-8")        #https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters
     timedetail = str(datetime.datetime.now())
     fl1.write('\n' + timedetail + " " + str(msg))
@@ -44,4 +47,17 @@ def waitForGivenTimeIns(secondsMin, secondsMax):
     '''--> Wait for given time in s, timespan between min and max'''
     time.sleep(random.uniform(secondsMin, secondsMax))
 ########################################################################################
+
+
+
+########################################################################################
+######################################### SPOTIFY ######################################
+########################################################################################
+def getTrackInfo(trackID, artistsAsList):
+    '''--> Get track details via API'''
+    '''Returns a dict containing track info:'''
+    '''{"trackid": string, "title": string, "artists": list of string, "album": string, "href": string, "popularity": string}'''
+    HIER OBJECT IN SCEMA.SQL VAN MAKEN??
+########################################################################################
+
 
