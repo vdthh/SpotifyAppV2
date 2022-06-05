@@ -38,7 +38,7 @@ def apiReqSpotify(urlExtension):
         logAction("err - spotify.py - apiReqSpotify2 --> something unusual with getNewAccessToken()")
 
 
-    '''--> wait given timespan'''
+    '''-->  wait given timespan'''
     waitForGivenTimeIns(0.01,0.1)
 
 
