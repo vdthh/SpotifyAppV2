@@ -28,3 +28,18 @@ FileNotFoundError: [Errno 2] No such file or directory: 'e:\\docs\\phyton projec
   File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\spotify.py", line 37, in getNewAccessToken
     fileOpen = open(ROOT_DIR + "/static/refresh_token.txt", "r")
 FileNotFoundError: [Errno 2] No such file or directory: 'e:\\docs\\phyton projects\\SpotifyWebAppV2.0\\spotr/static/refresh_token.txt'
+
+2022-06-06 21:15:29.196671 msg - common.py - getTrackInfo --> requesting track info for trackID: 3OWAyHmNMACLPQNPEFEZNY
+2022-06-06 21:15:29.211671 err - spotify.py - getNewAccessToken2 --> <class 'NameError'> - ("name 'requests' is not defined",) - name 'requests' is not defined
+2022-06-06 21:15:29.211671 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 161, in getNewAccessToken
+    response = requests.post(url, data=body_params, auth=(spotify_client_id, spotify_client_secret), verify=False)
+NameError: name 'requests' is not defined
+
+2022-06-06 21:15:29.212670 err - spotify.py - apiReqSpotify --> error getNewAccessToken()
+2022-06-06 21:17:14.031371 msg - common.py - getTrackInfo --> requesting track info for trackID: 3OWAyHmNMACLPQNPEFEZNY
+2022-06-06 21:18:01.035427 msg - common.py - getTrackInfo --> requesting track info for trackID: 3OWAyHmNMACLPQNPEFEZNY
+2022-06-06 21:38:10.655726 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
+2022-06-06 21:40:51.203281 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
+2022-06-06 21:43:05.953544 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
+2022-06-06 21:43:39.288586 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
