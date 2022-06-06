@@ -43,3 +43,4 @@ NameError: name 'requests' is not defined
 2022-06-06 21:40:51.203281 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
 2022-06-06 21:43:05.953544 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
 2022-06-06 21:43:39.288586 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
+2022-06-06 23:01:20.375255 msg - common.py - getTracksFromArtist --> requesting albums from artist 0V7j0A3N5hup0XNQVKYvrQ.
