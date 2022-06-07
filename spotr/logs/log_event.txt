@@ -59,3 +59,45 @@ KeyError: 'id'
 KeyError: 'id'
 
 2022-06-07 21:32:54.706372 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:35:33.304294 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:40:44.216260 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:41:35.888413 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:43:06.053467 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:48:18.688375 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:49:58.035954 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:52:46.415671 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 6okeRq2A2cNvZEOUnrqIXW.
+2022-06-07 23:08:37.740882 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 6okeRq2A2cNvZEOUnrqIXW.
+2022-06-07 23:08:38.732959 err - common.py - getTracksFromPlaylist6 --> <class 'TypeError'> - ("'NoneType' object is not subscriptable",) - 'NoneType' object is not subscriptable
+2022-06-07 23:08:38.734963 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 426, in getTracksFromPlaylist
+    if track["track"]["id"]: #check if valid item
+TypeError: 'NoneType' object is not subscriptable
+
+2022-06-07 23:09:39.576050 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:09:40.665913 err - common.py - getTracksFromPlaylist6 --> <class 'TypeError'> - ('must be real number, not str',) - must be real number, not str
+2022-06-07 23:09:40.666914 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 441, in getTracksFromPlaylist
+    log("err - common.py - getTracksFromPlaylist3 --> invalid track[\"ID\"] in playlist " + playlistID + ".")
+TypeError: must be real number, not str
+
+2022-06-07 23:12:03.545419 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:12:04.603087 err - common.py - getTracksFromPlaylist6 --> <class 'TypeError'> - ('must be real number, not str',) - must be real number, not str
+2022-06-07 23:12:04.604086 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 441, in getTracksFromPlaylist
+    log("err - common.py - getTracksFromPlaylist3 --> invalid track[ID] in playlist " + playlistID + ".")
+TypeError: must be real number, not str
+
+2022-06-07 23:12:48.393636 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:12:49.406855 err - common.py - getTracksFromPlaylist6 --> <class 'TypeError'> - ('must be real number, not str',) - must be real number, not str
+2022-06-07 23:12:49.406855 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 441, in getTracksFromPlaylist
+    log("err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist " + playlistID + ".")
+TypeError: must be real number, not str
+
+2022-06-07 23:13:27.758386 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:13:28.858187 err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:21:23.456083 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:21:24.621390 err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:22:27.155494 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:22:28.250626 err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 23:23:07.873553 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 0HGCkTEihw72V8Eltpzpig.

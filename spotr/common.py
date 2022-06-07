@@ -312,10 +312,11 @@ def getTracksFromLikedList():
                     return ''
                 continue
 
+        logAction("msg - common.py - getTracksFromLikedList4 --> finished, returned list of " + str(len(resultList)) + " tracks from liked list.")
         return resultList
 
     except Exception as ex:
-        logAction("err - common.py - getTracksFromLikedList4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getTracksFromLikedList5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -379,10 +380,11 @@ def getTracksFromArtist(artistID, trackDetails):
                     return ''
                 continue
 
+        logAction("msg - common.py - getTracksFromArtist6 --> finished, returned list of " + str(len(resultList)) + " tracks from artist " + artistID)
         return resultList
 
     except Exception as ex:
-        logAction("err - common.py - getTracksFromArtist6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getTracksFromArtist7 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -414,23 +416,21 @@ def getTracksFromPlaylist(playlistID, trackDetails):
         limit = playlist_trcks["limit"]
         offset = playlist_trcks["offset"]
 
-        while offset < total:
+        while offset < total:          
             if playlist_trcks != "": #valid api response
                 for track in playlist_trcks["items"]: #playlist tracks
                     if track["track"]["id"]: #check if valid item
-                        if trackDetails:
-                            #detailed track info
+                        if trackDetails: #detailed track info                            
                             #grab artist name(s)
                             artist_list = []
                             for artist in track["track"]["artists"]:
                                 artist_list.append(artist["name"])
                             playlist_trck_dict_obj = {"id" : track["track"]["id"], "artists" : artist_list, "title" : track["track"]['name']}
                             resultList.append(playlist_trck_dict_obj)         
-                        else:
-                            #only track ID
+                        else: #only track ID                          
                             resultList.append(track["track"]["id"])
                     else: #invalid track
-                        log("err - common.py - getTracksFromPlaylist3 --> invalid track[\"ID\"] in playlist " + playlistID + ".")
+                        logAction("err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist " + playlistID + ".")
                         continue
             else:#invalid api response                  
                 logAction("err - common.py - getTracksFromPlaylist4 --> empty api response for playlist tracks " + playlistID + ".")
@@ -438,17 +438,18 @@ def getTracksFromPlaylist(playlistID, trackDetails):
 
             offset = offset + limit
             if offset < total: #new request
-                playlist_tracks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
-                if playlist_tracks == '': #invalid api response
+                playlist_trcks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                if playlist_trcks == '': #invalid api response
                     logAction("err - common.py - getTracksFromPlaylist5 --> empty api response for playlist tracks - offset=" + str(offset) + ", limit=" + str(limit) + ".")
                     return ''
                 continue
 
+        logAction("msg - common.py - getTracksFromPlaylist6 --> finished, returned list of " + str(len(resultList)) + " tracks from playlist that contains " + str(total) + " tracks.")
         return resultList
 
     except Exception as ex:
-        logAction("err - common.py - getTracksFromPlaylist6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getTracksFromPlaylist7 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
-        
 ########################################################################################
+
