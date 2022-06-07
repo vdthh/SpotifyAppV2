@@ -44,3 +44,18 @@ NameError: name 'requests' is not defined
 2022-06-06 21:43:05.953544 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
 2022-06-06 21:43:39.288586 msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.
 2022-06-06 23:01:20.375255 msg - common.py - getTracksFromArtist --> requesting albums from artist 0V7j0A3N5hup0XNQVKYvrQ.
+2022-06-07 21:23:22.834172 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:23:23.539168 err - common.py - getTracksFromPlaylist6 --> <class 'KeyError'> - ('id',) - 'id'
+2022-06-07 21:23:23.540167 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 420, in getTracksFromPlaylist
+    if track["id"]: #check if valid item
+KeyError: 'id'
+
+2022-06-07 21:29:22.333734 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
+2022-06-07 21:29:22.958569 err - common.py - getTracksFromPlaylist6 --> <class 'KeyError'> - ('id',) - 'id'
+2022-06-07 21:29:22.959570 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 420, in getTracksFromPlaylist
+    if track["id"]: #check if valid item
+KeyError: 'id'
+
+2022-06-07 21:32:54.706372 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.

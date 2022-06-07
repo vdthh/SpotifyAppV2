@@ -8,6 +8,7 @@
 ########################################################################################
 ######################################### IMPORTS ######################################
 ########################################################################################
+from cmath import log
 import datetime
 import os
 import time
@@ -121,7 +122,7 @@ def apiReqSpotify(urlExtension):
 
     '''--> save last result for debugging'''
     with open (ROOT_DIR + "/logs/spotify_apiReqSpotify_LAST.json", 'w', encoding="utf-8") as fi:
-        fi.write(str(response.json()))
+        fi.write(json.dumps(response.json(), indent = 4))
 
     '''--> finally, return a valid response in json format'''
     return response.json()
@@ -347,11 +348,10 @@ def getTracksFromArtist(artistID, trackDetails):
         offset = artist_albums["offset"]
 
         while offset < total:
-            for album in artist_albums["items"]:
-                #album tracks
-                artist_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks")
-                if artist_tracks != "": #valid api response
-                    for track in artist_tracks["items"]:
+            for album in artist_albums["items"]: #album tracks            
+                artist_album_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks")
+                if artist_album_tracks != "": #valid api response
+                    for track in artist_album_tracks["items"]:
                         if track["id"]: #check if valid item
                             if trackDetails:
                                 #detailed track info
@@ -364,24 +364,91 @@ def getTracksFromArtist(artistID, trackDetails):
                             else:
                                 #only track ID
                                 resultList.append(track["id"])
+                        else: #invalid track
+                            log("err - common.py - getTracksFromArtist3 --> invalid track[\"ID\"] for album " + str(album["id"]) + ".")
+                            continue
                 else: #invalid api response                  
-                    logAction("err - common.py - getTracksFromArtist3 --> empty api response for artist's album tracks (" + album["id"] + ").")
+                    logAction("err - common.py - getTracksFromArtist4 --> empty api response for artist's album tracks (" + album["id"] + ").")
                     return ''
 
             offset = offset + limit
             if offset < total: #new request
-                artist_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
-                if artist_tracks == '': #invalid api response
-                    logAction("err - common.py - getTracksFromArtist4 --> empty api response for artist's album tracks!")
+                artist_album_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                if artist_album_tracks == '': #invalid api response
+                    logAction("err - common.py - getTracksFromArtist5 --> empty api response for artist's album tracks!")
                     return ''
                 continue
 
         return resultList
 
     except Exception as ex:
-        logAction("err - common.py - getTracksFromArtist5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getTracksFromArtist6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
 
+########################################################################################
+######################################### SPOTIFY ######################################
+def getTracksFromPlaylist(playlistID, trackDetails):
+    '''--> Returns list with all track ID's or trackdetails for the given playlist - pagination taken into account'''
+    '''In case of error, '' is returned'''
+    '''if trackDetails is TRUE, a list with dicts is returned containing detailed track info.  {id: trackid, artists: list with artists, title: title}'''
+    '''if FALSE, a list containing only the track ID's is returned'''
+
+
+    '''--> perform request, artist albums'''
+    logAction("msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist " + playlistID + ".") 
+    playlist_trcks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=0&limit=100")
+
+
+    '''--> check response before continuing'''
+    if playlist_trcks == '':
+        logAction("err - common.py - getTracksFromPlaylist2 --> empty api response for playlist tracks!")
+        return ''
+
+    
+    try:
+        '''--> check pagination - fill resultlist'''
+        resultList = []
+        total = playlist_trcks["total"]
+        limit = playlist_trcks["limit"]
+        offset = playlist_trcks["offset"]
+
+        while offset < total:
+            if playlist_trcks != "": #valid api response
+                for track in playlist_trcks["items"]: #playlist tracks
+                    if track["track"]["id"]: #check if valid item
+                        if trackDetails:
+                            #detailed track info
+                            #grab artist name(s)
+                            artist_list = []
+                            for artist in track["track"]["artists"]:
+                                artist_list.append(artist["name"])
+                            playlist_trck_dict_obj = {"id" : track["track"]["id"], "artists" : artist_list, "title" : track["track"]['name']}
+                            resultList.append(playlist_trck_dict_obj)         
+                        else:
+                            #only track ID
+                            resultList.append(track["track"]["id"])
+                    else: #invalid track
+                        log("err - common.py - getTracksFromPlaylist3 --> invalid track[\"ID\"] in playlist " + playlistID + ".")
+                        continue
+            else:#invalid api response                  
+                logAction("err - common.py - getTracksFromPlaylist4 --> empty api response for playlist tracks " + playlistID + ".")
+                return ''
+
+            offset = offset + limit
+            if offset < total: #new request
+                playlist_tracks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                if playlist_tracks == '': #invalid api response
+                    logAction("err - common.py - getTracksFromPlaylist5 --> empty api response for playlist tracks - offset=" + str(offset) + ", limit=" + str(limit) + ".")
+                    return ''
+                continue
+
+        return resultList
+
+    except Exception as ex:
+        logAction("err - common.py - getTracksFromPlaylist6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+        
 ########################################################################################
