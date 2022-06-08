@@ -109,3 +109,193 @@ TypeError: must be real number, not str
 2022-06-08 11:53:12.708746 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
 2022-06-08 13:03:29.637083 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
 2022-06-08 13:03:47.582242 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 13:25:12.799340 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:27:52.388397 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:28:22.067528 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:28:22.365033 msg - common.py - createPlaylist6 --> Succesfully created playlist BLAblaBLA
+2022-06-08 13:28:46.164086 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:38:50.396504 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:53:50.149877 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:55:10.467246 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:56:02.605712 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 13:56:02.740201 msg - common.py - createPlaylist7 --> Succesfully created playlist BLAblaBLA
+2022-06-08 14:02:01.045603 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:02:01.191530 msg - common.py - createPlaylist7 --> Succesfully created playlist BLAblaBLA
+2022-06-08 14:03:30.192298 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:03:30.349821 msg - common.py - createPlaylist7 --> Succesfully created playlist BLAblaBLA
+2022-06-08 14:05:04.258296 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:05:54.063344 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:05:54.211752 err - common.py - createPlaylist4 --> <class 'TypeError'> - ('can only concatenate str (not "Response") to str',) - can only concatenate str (not "Response") to str
+2022-06-08 14:05:54.212753 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 546, in createPlaylist
+    print('RESPONSE: ' + response)
+TypeError: can only concatenate str (not "Response") to str
+
+2022-06-08 14:06:44.913354 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:07:35.218611 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:52:09.447441 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:52:15.356099 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:52:43.419585 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:53:01.706253 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:53:22.318747 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:53:33.437368 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 14:53:33.568495 err - common.py - createPlaylist4 --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-06-08 14:53:33.570496 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 546, in createPlaylist
+    print('RESPONSE: ' + str(response.json()))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
+
+2022-06-08 14:53:49.411862 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 15:00:32.463449 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:00:32.713939 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:00:55.607547 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:00:55.820243 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:01:08.612457 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:01:08.840348 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:01:33.015282 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 15:01:33.171346 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:21:20.371251 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:21:20.640564 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:21:21.769998 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 16:21:40.782248 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:21:41.028819 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:21:41.384899 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 16:22:41.635887 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:22:41.853744 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:22:42.875206 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 16:23:01.316911 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:23:01.558300 msg - common.py - addTracksToPlaylist6 --> Succesfully added 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 16:23:02.417541 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 21:20:04.966046 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 21:20:05.133220 err - common.py - createPlaylist4 --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-06-08 21:20:05.137219 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 545, in createPlaylist
+    response_json = response.json()
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
+
+2022-06-08 21:37:59.571282 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 21:37:59.749441 err - common.py - createPlaylist4 --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-06-08 21:37:59.751440 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 545, in createPlaylist
+    response_json = response.json() #extra line to trigger error in case of faulty response object
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
+
+2022-06-08 21:38:12.320372 msg - common.py - createPlaylist3 --> about to create a new playlist: BLAblaBLA
+2022-06-08 21:38:12.607051 msg - common.py - createPlaylist7 --> Succesfully created playlist BLAblaBLA
+2022-06-08 21:55:01.428731 err - common.py - searchSpotify --> <class 'AttributeError'> - ("'dict' object has no attribute 'json'",) - 'dict' object has no attribute 'json'
+2022-06-08 21:55:01.429731 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 586, in searchSpotify
+    response_json = response.json() #extra line to trigger error in case of faulty response object
+AttributeError: 'dict' object has no attribute 'json'
+
+2022-06-08 22:00:14.587689 err - common.py - searchSpotify --> <class 'AttributeError'> - ("'dict' object has no attribute 'text'",) - 'dict' object has no attribute 'text'
+2022-06-08 22:00:14.588704 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 587, in searchSpotify
+    print("TEXT: " + response.text)
+AttributeError: 'dict' object has no attribute 'text'
+
+2022-06-08 22:01:29.923257 err - common.py - searchSpotify --> <class 'AttributeError'> - ("'dict' object has no attribute 'text'",) - 'dict' object has no attribute 'text'
+2022-06-08 22:01:29.924282 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 587, in searchSpotify
+    print("TEXT: " + response.text)
+AttributeError: 'dict' object has no attribute 'text'
+
+2022-06-08 22:02:22.884313 err - common.py - searchSpotify --> <class 'TypeError'> - ('the JSON object must be str, bytes or bytearray, not dict',) - the JSON object must be str, bytes or bytearray, not dict
+2022-06-08 22:02:22.886316 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 588, in searchSpotify
+    response_json = json.loads(response)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not dict
+
+2022-06-08 22:02:42.886932 err - common.py - searchSpotify --> <class 'json.decoder.JSONDecodeError'> - ('Expecting property name enclosed in double quotes: line 1 column 2 (char 1)',) - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2022-06-08 22:02:42.888934 TRACEBACK --> Traceback (most recent call last):
+  File "e:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 588, in searchSpotify
+    response_json = json.loads(str(response))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+2022-06-08 22:06:14.257941 msg - spotify.py - apiGetSpotify4 --> retrying request #0
+2022-06-08 22:06:15.380708 msg - spotify.py - apiGetSpotify4 --> retrying request #1
+2022-06-08 22:06:16.485335 msg - spotify.py - apiGetSpotify4 --> retrying request #2
+2022-06-08 22:06:17.339897 msg - spotify.py - apiGetSpotify4 --> retrying request #3
+2022-06-08 22:06:18.486993 msg - spotify.py - apiGetSpotify4 --> retrying request #4
+2022-06-08 22:06:19.590341 msg - spotify.py - apiGetSpotify4 --> retrying request #5
+2022-06-08 22:06:20.260052 msg - spotify.py - apiGetSpotify4 --> retrying request #6
+2022-06-08 22:06:20.945855 msg - spotify.py - apiGetSpotify4 --> retrying request #7
+2022-06-08 22:06:21.941750 msg - spotify.py - apiGetSpotify4 --> retrying request #8
+2022-06-08 22:06:22.814491 msg - spotify.py - apiGetSpotify4 --> retrying request #9
+2022-06-08 22:06:23.847540 msg - spotify.py - apiGetSpotify4 --> retrying request #10
+2022-06-08 22:06:24.595649 msg - spotify.py - apiGetSpotify4 --> retrying request #11
+2022-06-08 22:06:25.634524 msg - spotify.py - apiGetSpotify4 --> retrying request #12
+2022-06-08 22:06:26.553698 msg - spotify.py - apiGetSpotify4 --> retrying request #13
+2022-06-08 22:06:27.269346 msg - spotify.py - apiGetSpotify4 --> retrying request #14
+2022-06-08 22:06:28.282010 msg - spotify.py - apiGetSpotify4 --> retrying request #15
+2022-06-08 22:06:29.215990 msg - spotify.py - apiGetSpotify4 --> retrying request #16
+2022-06-08 22:06:29.919063 msg - spotify.py - apiGetSpotify4 --> retrying request #17
+2022-06-08 22:06:31.041056 msg - spotify.py - apiGetSpotify4 --> retrying request #18
+2022-06-08 22:06:31.943510 msg - spotify.py - apiGetSpotify4 --> retrying request #19
+2022-06-08 22:06:32.704548 msg - spotify.py - apiGetSpotify4 --> retrying request #20
+2022-06-08 22:06:33.392458 msg - spotify.py - apiGetSpotify4 --> retrying request #21
+2022-06-08 22:06:34.371317 msg - spotify.py - apiGetSpotify4 --> retrying request #22
+2022-06-08 22:06:35.177561 msg - spotify.py - apiGetSpotify4 --> retrying request #23
+2022-06-08 22:06:36.173256 msg - spotify.py - apiGetSpotify4 --> retrying request #24
+2022-06-08 22:06:36.909947 msg - spotify.py - apiGetSpotify4 --> retrying request #25
+2022-06-08 22:06:37.785634 msg - spotify.py - apiGetSpotify4 --> retrying request #26
+2022-06-08 22:06:38.628705 msg - spotify.py - apiGetSpotify4 --> retrying request #27
+2022-06-08 22:06:39.299567 msg - spotify.py - apiGetSpotify4 --> retrying request #28
+2022-06-08 22:06:40.314524 msg - spotify.py - apiGetSpotify4 --> retrying request #29
+2022-06-08 22:06:41.082362 msg - spotify.py - apiGetSpotify4 --> retrying request #30
+2022-06-08 22:06:41.082362 err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.
+2022-06-08 22:11:08.968772 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melodic.
+2022-06-08 22:12:00.620682 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melodic.

@@ -312,7 +312,7 @@ def getTracksFromLikedList():
                     return ''
                 continue
 
-        logAction("msg - common.py - getTracksFromLikedList4 --> finished, returned list of " + str(len(resultList)) + " tracks from liked list.")
+        logAction("msg - common.py - getTracksFromLikedList4 --> Succesfully returned list of " + str(len(resultList)) + " tracks from liked list.")
         return resultList
 
     except Exception as ex:
@@ -380,7 +380,7 @@ def getTracksFromArtist(artistID, trackDetails):
                     return ''
                 continue
 
-        logAction("msg - common.py - getTracksFromArtist6 --> finished, returned list of " + str(len(resultList)) + " tracks from artist " + artistID)
+        logAction("msg - common.py - getTracksFromArtist6 --> Succesfully returned list of " + str(len(resultList)) + " tracks from artist " + artistID)
         return resultList
 
     except Exception as ex:
@@ -444,13 +444,74 @@ def getTracksFromPlaylist(playlistID, trackDetails):
                     return ''
                 continue
 
-        logAction("msg - common.py - getTracksFromPlaylist6 --> finished, returned list of " + str(len(resultList)) + " tracks from playlist that contains " + str(total) + " tracks.")
+        logAction("msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of " + str(len(resultList)) + " tracks from playlist that contains " + str(total) + " tracks.")
         return resultList
 
     except Exception as ex:
         logAction("err - common.py - getTracksFromPlaylist7 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
+
+
+########################################################################################
+######################################### SPOTIFY ######################################
+def createPlaylist(name):
+    '''--> Create a new empty playlist'''
+    '''in case of error, '' is returned'''
+
+
+    '''--> prepare request'''
+    if getNewAccessToken() == "":
+        logAction("err - spotify.py - createPlaylist --> error requesting new access token.")
+        return ''
+
+    waitForGivenTimeIns(0.1,1)
+
+    try: #create payload
+        headers = {'Authorization': 'Bearer ' + gv_access_token}         
+        payload = {
+            "name": name, 
+            "public": False
+            }
+
+    except Exception as ex:
+        logAction("err - common.py - createPlaylist2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> perform POST request'''
+    try:      
+        logAction("msg - common.py - createPlaylist3 --> about to create a new playlist: " + name)  
+        response = requests.post(url='https://api.spotify.com/v1/users/bakzgzahvlg9pjp9g7hxaav00/playlists', headers = headers, data = json.dumps(payload), verify=False)
+        response_json = response.json() #extra line to trigger error in case of faulty response object
+    except Exception as ex:
+        logAction("err - common.py - createPlaylist4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> save last result for debugging'''
+    with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_createPlaylist_LAST.json", 'w', encoding="utf-8") as fi:
+        fi.write(json.dumps(response.json(), indent = 4))
+
+
+    '''--> check response'''
+    if "error" in response:
+        print("err - common.py - createPlaylist5 --> error from POST request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
+
+        '''--> save last result for debugging'''
+        with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_createPlaylist_LAST.json", 'w', encoding="utf-8") as fi:
+            fi.write(json.dumps(response.json(), indent = 4))
+
+        return ''
+    elif response == "":
+        print("err - common.py - createPlaylist6 --> empty response from POST request.")
+        return ''
+
+    '''--> finally, return a valid response in json format'''
+    logAction("msg - common.py - createPlaylist7 --> Succesfully created playlist " + name) 
+    return response
 
 
 ########################################################################################
@@ -489,7 +550,7 @@ def addTracksToPlaylist(playlistID, trackIDList):
     try:      
         logAction("msg - common.py - addTracksToPlaylist3 --> about to add a total of " + str(len(trackIDList)) + " tracks to playlist " + playlistID + ".") 
         response = requests.post(url='https://api.spotify.com/v1/playlists/' + playlistID + "/tracks", headers = headers, data = json.dumps(payload), verify=False)
-
+        response_json = response.json() #extra line to trigger error in case of faulty response object
     except Exception as ex:
         logAction("err - common.py - addTracksToPlaylist4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
@@ -497,17 +558,70 @@ def addTracksToPlaylist(playlistID, trackIDList):
 
 
     '''--> save last result for debugging'''
-    with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+    with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_addTracks_LAST.json", 'w', encoding="utf-8") as fi:
         fi.write(json.dumps(response.json(), indent = 4))
 
 
     '''--> check response'''
-    if response.json()["error"]:
+    if "error" in response:
         print("err - common.py - addTracksToPlaylist5 --> error from POST request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
         return ''
 
     '''--> finally, return a valid response in json format'''
+    logAction("msg - common.py - addTracksToPlaylist6 --> Succesfully added " + str(len(trackIDList)) + " tracks to playlist " + playlistID + ".") 
     return response.json()
 
 
 ########################################################################################
+######################################### SPOTIFY ######################################
+def searchSpotify(searchstring, searchtype, limit, offset):
+    '''--> Search on spotify via the api'''
+    '''Returns a dictionary of the search result, depending on the selected type (track, playlist, artist,...)'''
+    '''in case of error, '' is returned'''
+
+
+    '''--> perform request - returns a dict!'''
+    try:
+        response = apiGetSpotify('search?q=' + str(searchstring) + '&type=' + str(searchtype) + '&limit=' + str(limit) + '&offset=' + str(offset))
+    except Exception as ex:
+        logAction("err - common.py - searchSpotify --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> save last result for debugging'''
+    with open (ROOT_DIR + "/logs/spotify_apiSearchSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+        fi.write(json.dumps(response, indent = 4))
+
+
+    '''--> check response'''
+    if "error" in response:
+        print("err - common.py - searchSpotify2 --> error from request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
+        return ''
+
+
+    '''--> finally, return a valid response in json format'''
+    logAction("msg - common.py - searchSpotify3 --> Succesfully returning search results for " + searchtype + " " + searchstring + ".") 
+    return response
+
+
+########################################################################################
+# resList = []
+# resList.append("1Spj4XMrPV4GRZHhFF2Wu6")
+
+# if addTracksToPlaylist("0k033pY36b8osW4GWHv0Zj", resList) != "":
+#     print("YES")
+# else:
+#     print("NO")
+
+
+
+# if createPlaylist("BLAblaBLA") != '':
+#     print("OKOK")
+# else:
+#     print("HOWDY!!")
+
+# if searchSpotify('indie melodic', 'playlist', 50, 0) == '':
+#     print("WHOOPSIE")
+# else:
+#     print("TSJAKKAAA!!")
