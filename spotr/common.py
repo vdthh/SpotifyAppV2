@@ -59,7 +59,7 @@ def waitForGivenTimeIns(secondsMin, secondsMax):
 ######################################### SPOTIFY ######################################
 ########################################################################################
 ########################################################################################
-def apiReqSpotify(urlExtension):
+def apiGetSpotify(urlExtension):
     '''--> General procedure for every Spotify API request <--'''
     '''Returns a valid response in json format (request.responseObject.json())'''
     '''return empty string in case of error'''
@@ -69,13 +69,13 @@ def apiReqSpotify(urlExtension):
     result = getNewAccessToken()
     if result == '':
         '''error'''
-        logAction("err - spotify.py - apiReqSpotify --> error getNewAccessToken()")
+        logAction("err - spotify.py - apiGetSpotify --> error getNewAccessToken()")
     elif result == None:
         '''ok'''
         pass
     else:
         '''not possible?'''
-        logAction("err - spotify.py - apiReqSpotify2 --> something unusual with getNewAccessToken()")
+        logAction("err - spotify.py - apiGetSpotify2 --> something unusual with getNewAccessToken()")
 
 
     '''-->  wait given timespan'''
@@ -93,7 +93,7 @@ def apiReqSpotify(urlExtension):
     try:
         response = requests.get(url, headers=headers, verify=False)
     except Exception as ex:
-        logAction("err - spotify.py - apiReqSpotify3 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - spotify.py - apiGetSpotify3 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -103,25 +103,25 @@ def apiReqSpotify(urlExtension):
         retryCnt = 0
         while (response.status_code != 200) :
             waitForGivenTimeIns(0.5,1)
-            logAction("msg - spotify.py - apiReqSpotify4 --> retrying request #" + str(retryCnt))
+            logAction("msg - spotify.py - apiGetSpotify4 --> retrying request #" + str(retryCnt))
 
             if retryCnt >= 30:
-                logAction("err - spotify.py - apiReqSpotify5 --> too many retries requesting acces token.")
+                logAction("err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.")
 
                 '''--> save last result for debugging'''
-                with open (ROOT_DIR + "/logs/spotify_apiReqSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+                with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_LAST.json", 'w', encoding="utf-8") as fi:
                     fi.write(json.dumps(response.json(), indent = 4))
                 return ''
 
             response = requests.get(url, headers=headers, verify=False)
             retryCnt+=1
     except Exception as ex:
-        logAction("err - spotify.py - apiReqSpotify6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - spotify.py - apiGetSpotify6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
     '''--> save last result for debugging'''
-    with open (ROOT_DIR + "/logs/spotify_apiReqSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+    with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_LAST.json", 'w', encoding="utf-8") as fi:
         fi.write(json.dumps(response.json(), indent = 4))
 
     '''--> finally, return a valid response in json format'''
@@ -234,7 +234,7 @@ def getTrackInfo(trackID, artistsAsList):
 
     '''--> perform request'''
     logAction("msg - common.py - getTrackInfo --> requesting track info for trackID: " + trackID)  
-    track_info = apiReqSpotify('tracks/' + trackID)
+    track_info = apiGetSpotify('tracks/' + trackID)
 
 
     '''--> check response before continuing'''
@@ -284,7 +284,7 @@ def getTracksFromLikedList():
 
     '''--> perform request'''
     logAction("msg - common.py - getTracksFromLikedList --> requesting tracks from liked list.") 
-    liked_tracks = apiReqSpotify("me/tracks?offset=0&limit=50")
+    liked_tracks = apiGetSpotify("me/tracks?offset=0&limit=50")
 
     
     '''--> check response before continuing'''
@@ -306,7 +306,7 @@ def getTracksFromLikedList():
                     resultList.append(track["track"]["id"]) #add track ID to resultList
             offset = offset + limit
             if offset < total: #new request
-                liked_tracks = apiReqSpotify("me/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                liked_tracks = apiGetSpotify("me/tracks?offset=" + str(offset) + "&limit=" + str(limit))
                 if liked_tracks == '': #invalid api response
                     logAction("err - common.py - getTracksFromLikedList3 --> empty api response for liked tracks!")
                     return ''
@@ -332,7 +332,7 @@ def getTracksFromArtist(artistID, trackDetails):
 
     '''--> perform request, artist albums'''
     logAction("msg - common.py - getTracksFromArtist --> requesting albums from artist " + artistID + ".") 
-    artist_albums = apiReqSpotify("artists/" + artistID + "/albums?offset=0&limit=50")
+    artist_albums = apiGetSpotify("artists/" + artistID + "/albums?offset=0&limit=50")
 
 
     '''--> check response before continuing'''
@@ -350,7 +350,7 @@ def getTracksFromArtist(artistID, trackDetails):
 
         while offset < total:
             for album in artist_albums["items"]: #album tracks            
-                artist_album_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks")
+                artist_album_tracks = apiGetSpotify("albums/" + album["id"] + "/tracks")
                 if artist_album_tracks != "": #valid api response
                     for track in artist_album_tracks["items"]:
                         if track["id"]: #check if valid item
@@ -374,7 +374,7 @@ def getTracksFromArtist(artistID, trackDetails):
 
             offset = offset + limit
             if offset < total: #new request
-                artist_album_tracks = apiReqSpotify("albums/" + album["id"] + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                artist_album_tracks = apiGetSpotify("albums/" + album["id"] + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
                 if artist_album_tracks == '': #invalid api response
                     logAction("err - common.py - getTracksFromArtist5 --> empty api response for artist's album tracks!")
                     return ''
@@ -400,7 +400,7 @@ def getTracksFromPlaylist(playlistID, trackDetails):
 
     '''--> perform request, artist albums'''
     logAction("msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist " + playlistID + ".") 
-    playlist_trcks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=0&limit=100")
+    playlist_trcks = apiGetSpotify("playlists/" + playlistID + "/tracks?offset=0&limit=100")
 
 
     '''--> check response before continuing'''
@@ -438,7 +438,7 @@ def getTracksFromPlaylist(playlistID, trackDetails):
 
             offset = offset + limit
             if offset < total: #new request
-                playlist_trcks = apiReqSpotify("playlists/" + playlistID + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
+                playlist_trcks = apiGetSpotify("playlists/" + playlistID + "/tracks?offset=" + str(offset) + "&limit=" + str(limit))
                 if playlist_trcks == '': #invalid api response
                     logAction("err - common.py - getTracksFromPlaylist5 --> empty api response for playlist tracks - offset=" + str(offset) + ", limit=" + str(limit) + ".")
                     return ''
@@ -451,5 +451,63 @@ def getTracksFromPlaylist(playlistID, trackDetails):
         logAction("err - common.py - getTracksFromPlaylist7 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
-########################################################################################
 
+
+########################################################################################
+######################################### SPOTIFY ######################################
+def addTracksToPlaylist(playlistID, trackIDList):
+    '''--> Add tracks to existing playlist'''
+    '''Playlist already has to exist!'''
+    '''in case of error, '' is returned'''
+
+
+    '''--> prepare request'''
+    if getNewAccessToken() == "":
+        logAction("err - spotify.py - addTracksToPlaylist --> error requesting new access token.")
+        return ''
+
+    waitForGivenTimeIns(0.1,1)
+
+    try: #create payload
+        headers = {'Authorization': 'Bearer ' + gv_access_token}         
+        track_uri_list = [] #List with track uris
+        for i in range(len(trackIDList)):
+            track_uri_list.append("spotify:track:" + str(trackIDList[i]))
+
+        payload = {"uris":track_uri_list}
+
+    except Exception as ex:
+        logAction("err - common.py - addTracksToPlaylist2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+    for item in track_uri_list:
+        print("ITEM: " + item)
+
+
+    '''--> perform POST request'''
+    try:      
+        logAction("msg - common.py - addTracksToPlaylist3 --> about to add a total of " + str(len(trackIDList)) + " tracks to playlist " + playlistID + ".") 
+        response = requests.post(url='https://api.spotify.com/v1/playlists/' + playlistID + "/tracks", headers = headers, data = json.dumps(payload), verify=False)
+
+    except Exception as ex:
+        logAction("err - common.py - addTracksToPlaylist4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> save last result for debugging'''
+    with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+        fi.write(json.dumps(response.json(), indent = 4))
+
+
+    '''--> check response'''
+    if response.json()["error"]:
+        print("err - common.py - addTracksToPlaylist5 --> error from POST request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
+        return ''
+
+    '''--> finally, return a valid response in json format'''
+    return response.json()
+
+
+########################################################################################

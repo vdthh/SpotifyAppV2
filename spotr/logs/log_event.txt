@@ -101,3 +101,11 @@ TypeError: must be real number, not str
 2022-06-07 23:22:27.155494 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 63o9W2iYSC7BHHn38CuRD1.
 2022-06-07 23:22:28.250626 err - common.py - getTracksFromPlaylist3 --> invalid trackID in playlist 63o9W2iYSC7BHHn38CuRD1.
 2022-06-07 23:23:07.873553 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 0HGCkTEihw72V8Eltpzpig.
+2022-06-08 11:44:17.326927 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 3VVZvaPXml48DJWIAiyjqS.
+2022-06-08 11:46:11.633226 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist spotify:track:3VVZvaPXml48DJWIAiyjqS.
+2022-06-08 11:46:52.362930 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 3VVZvaPXml48DJWIAiyjqS.
+2022-06-08 11:50:54.887308 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 11:52:44.241706 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 11:53:12.708746 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 13:03:29.637083 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
+2022-06-08 13:03:47.582242 msg - common.py - addTracksToPlaylist3 --> about to add a total of 1 tracks to playlist 0k033pY36b8osW4GWHv0Zj.
