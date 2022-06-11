@@ -299,3 +299,11 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes:
 2022-06-08 22:06:41.082362 err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.
 2022-06-08 22:11:08.968772 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melodic.
 2022-06-08 22:12:00.620682 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melodic.
+2022-06-11 23:20:41.211669 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'TypeError'> - ('must be str, not type',) - must be str, not type
+2022-06-11 23:20:41.212668 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 70, in watchlist_main
+    print("type: " + type(data))
+TypeError: must be str, not type
+
+2022-06-11 23:47:14.467501 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-11 23:47:15.221775 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.

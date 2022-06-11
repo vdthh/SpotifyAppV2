@@ -4,7 +4,6 @@
 ########################################################################################
 
 
-
 ########################################################################################
 ######################################### IMPORTS ######################################
 ########################################################################################
@@ -17,9 +16,8 @@ import json
 import re
 import traceback
 from pip._vendor import requests #https://stackoverflow.com/questions/48775755/importing-requests-into-python-using-visual-studio-code
-from config import spotify_client_id, spotify_client_secret
+from .config import spotify_client_id, spotify_client_secret
 ########################################################################################
-
 
 
 ########################################################################################
@@ -29,7 +27,6 @@ from config import spotify_client_id, spotify_client_secret
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr
 CONFIG_PATH= os.path.join(ROOT_DIR, 'watchlist.py') #result --> E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py
 ########################################################################################
-
 
 
 ########################################################################################
@@ -44,7 +41,6 @@ def logAction(msg):
 ########################################################################################
 
 
-
 ########################################################################################
 ######################################## FUNCTIONS #####################################
 ########################################################################################
@@ -52,7 +48,6 @@ def waitForGivenTimeIns(secondsMin, secondsMax):
     '''--> Wait for given time in s, timespan between min and max'''
     time.sleep(random.uniform(secondsMin, secondsMax))
 ########################################################################################
-
 
 
 ########################################################################################

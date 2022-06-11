@@ -1,37 +1,85 @@
 {% extends 'base.html' %}
 
-{% block header %}
-    <h1>{% block title %}Submit data for testing purposes{% endblock %}</h1>
+{% block title %} 
+    Watchlist
 {% endblock %}
-
-{% block content %}
-<form action="" method="post">
-    <input type="submit" value="Add random entry to DB">
-</form>
 
 <br>
 
-<h2>Data to display:</h2>
-    {% if data %}
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Album</th>
-            <th>Artist</th>
-            <th>Date</th>
-        </tr>
-        {% for item in data %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.album }}</td>
-                <td>{{ item.artist }}</td>
-                <td>{{ item.date_added }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-    <br>
-    {% if data3 %}
-        {{ data3 }}
-    {% endif %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h5>Search items</h5>
+
+            <!-- nav bar buttons -->
+            <ul class="nav nav-tabs" id="tabcol" role="tablist">
+                <li class="nav-item" role="role-artist">
+                <button class="nav-link {{ showArtistBtn }}" id="artist-tab" data-bs-toggle="tab" data-bs-target="#artist" type="button" role="tab" aria-controls="artist" aria-selected="true">Artist</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                <button class="nav-link {{ showPlaylistBtn }}" id="playlist-tab" data-bs-toggle="tab" data-bs-target="#playlist" type="button" role="tab" aria-controls="playlist" aria-selected="false">Playlist</button>
+                </li>
+                <li class=-nav-item role="presentation">
+                <button class="nav-link {{ showUserBtn }}" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab" aria-controls="user" aria-selected="false">User</button>
+                </li>
+            </ul>
+
+            <!-- nav tab content -->
+            <div class="tab-content" id="tabcolcontent">
+
+                <!-- Search artist tab -->
+                <div class="tab-pane fade {{ showArtistTab }}" id="artist" role="tabpanel" aria-labelledby="artist-tab">
+                    <br>
+                    <h6>Search for artist name</h6>
+                    <form method="post" required>
+                      <div class="input-group mb-1">
+                        <button class="btn btn-outline-secondary bg-dark" type="submit" id="searchartist_btn" name="artist_search">Search</button>
+                        <input type="text" class="form-control" id="searchartistinput" name="searchartistinput" placeholder="Enter artist name" required>
+                      </div>                                 
+                    </form>
+                    <br>
+                    <div style="height:800px;overflow:auto;">
+                      {% if artistList %}
+                        {% if artistList|length != 0 %}
+                          <h6>Search results</h6>
+                          <table class="table table-striped table-hover table-sm table-responsive">
+                            <tr>
+                              <th></th>
+                              <th></th>
+                              <th>Artist</th>
+                              <th>ID</th>
+                            </tr>
+                            {% for item in artistList %}    <!-- {artist: artist, id: id, image: image} -->
+                              <tr>
+                                <td><a class="btn btn-primary" href="/watchlist?addArtist={{ item.id }}" role="button">+</a></td>
+                                {% if item.image != "" %}
+                                  <td><img src="{{ item.image }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{ item.artist }}"></td>
+                                {% else %}
+                                  <td><p style="font-style: italic !important;">no pic</p></td>
+                                {% endif %}
+                                <td>{{ item.artist }}</td>
+                                <td>{{ item.id }}</td>
+                              </tr>
+                            {% endfor %}
+                          </table>
+                        {% endif %}
+                      {% endif %}
+                    </div>
+        
+                  </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 {% endblock %}

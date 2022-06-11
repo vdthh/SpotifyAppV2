@@ -24,9 +24,9 @@ def create_app(test_config=None):
     db.init_app(app)
 
     #register blueprint(s)
-    from . import watchlist
-    app.register_blueprint(watchlist.bp)
-
+    from . import watchlist, home
+    app.register_blueprint(watchlist.bp_watchlist)
+    app.register_blueprint(home.bp_home)
     return app
 
 #To run app from terminal, first set FLASK_APP via command: $env:FLASK_APP = "spotr"
