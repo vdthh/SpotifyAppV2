@@ -177,9 +177,28 @@ def watchlist_main():
 
 
     #--> ADD ARTIST TO WATCHLIST - BUTTON PRESSED #
-    if request.method == "GET" and ("addArtist" in args):
-        pass
-        #TODO
+    if request.method == "GET" and ("addArtist" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+        try:
+            '''--> STOPPED HERE 20220613'''
+
+        except Exception as ex:
+            flash("Error ...", category="error")
+            logAction("err - watchlist.py - watchlist_main10 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("TRACEBACK --> " + traceback.format_exc())
+            return render_template('watchlist.html', 
+                                    artistList = gv_artistList,
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "", 
+                                    offs = gv_offset, 
+                                    lim = gv_limit, 
+                                    tot = total, 
+                                    searchTerm = gv_searchTerm, 
+                                    searchType = gv_searchType)
+  
 
 
 
@@ -196,42 +215,6 @@ def watchlist_main():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    # if request.method == 'GET':
-    #     print("- - - - GET")
-
-    #     #fetch rows from db, if any
-    #     db = get_db()
-    #     data = db.execute('SELECT * FROM NewWatchListTracks').fetchall()    #returns list of dicts https://docs.python.org/3/library/sqlite3.html
-
-    #     # print("1 - " + data[0]["id"])
-    #     # print(data[0].keys())
-
-    #     if data is None:
-    #         error = 'no entries in db!'
-    #     else:
-    #         for row in data:
-    #             #json.dumps() function converts a Python object into a json string.
-    #             # data_encoded = json.dumps(row["trackList"])
-    #             # print("artist: " + row["artist"])
-    #             print("album: " + row["id"])
-
-    #     return render_template('watchlist.html')
 
     # elif request.method == 'POST':
     #     print("- - - - POST")
