@@ -307,3 +307,327 @@ TypeError: must be str, not type
 
 2022-06-11 23:47:14.467501 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
 2022-06-11 23:47:15.221775 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-12 20:08:26.519245 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-12 20:08:27.322199 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-12 20:25:58.327664 msg - watchlist.py - watchlist_main3 --> searching for artist joost
+2022-06-12 20:25:59.014207 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joost.
+2022-06-12 20:41:14.318394 msg - watchlist.py - watchlist_main3 --> searching for artist real estate
+2022-06-12 20:41:15.058125 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist real estate.
+2022-06-12 20:44:06.146751 msg - watchlist.py - watchlist_main3 --> searching for artist hap
+2022-06-12 20:44:06.877323 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist hap.
+2022-06-12 20:44:06.878326 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'TypeError'> - ('must be str, not NoneType',) - must be str, not NoneType
+2022-06-12 20:44:06.879326 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 106, in watchlist_main
+    print("prevURL: " + response["artists"]["previous"])
+TypeError: must be str, not NoneType
+
+2022-06-12 20:44:29.188367 msg - watchlist.py - watchlist_main3 --> searching for artist haim
+2022-06-12 20:44:29.762300 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist haim.
+2022-06-12 20:51:26.068134 msg - watchlist.py - watchlist_main3 --> searching for artist yes
+2022-06-12 20:51:26.735558 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist yes.
+2022-06-12 20:51:39.155465 msg - watchlist.py - watchlist_main3 --> searching for artist yes
+2022-06-12 20:51:39.551753 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist yes.
+2022-06-12 21:19:03.470521 msg - watchlist.py - watchlist_main3 --> searching for artist jokke
+2022-06-12 21:19:04.159947 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jokke.
+2022-06-12 23:53:47.977699 msg - watchlist.py - watchlist_main3 --> searching for artist marco
+2022-06-12 23:53:48.666965 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist marco.
+2022-06-12 23:53:48.673327 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'jinja2.exceptions.UndefinedError'> - ("'tot' is undefined",) - 'tot' is undefined
+2022-06-12 23:53:48.681031 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 136, in watchlist_main
+    paginNext = paginNext)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\base.html", line 64, in top-level template code
+    <div class="container bg-dark">{% block content %} {% endblock %}</div>
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 74, in block 'content'
+    {% if tot > lim %}
+jinja2.exceptions.UndefinedError: 'tot' is undefined
+
+2022-06-12 23:54:19.471810 msg - watchlist.py - watchlist_main3 --> searching for artist jan
+2022-06-12 23:54:19.927846 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jan.
+2022-06-12 23:54:19.928849 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'jinja2.exceptions.UndefinedError'> - ("'tot' is undefined",) - 'tot' is undefined
+2022-06-12 23:54:19.929849 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 136, in watchlist_main
+    paginNext = paginNext)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\base.html", line 64, in top-level template code
+    <div class="container bg-dark">{% block content %} {% endblock %}</div>
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 74, in block 'content'
+    {% if tot > lim %}
+jinja2.exceptions.UndefinedError: 'tot' is undefined
+
+2022-06-12 23:57:58.919955 msg - watchlist.py - watchlist_main3 --> searching for artist jan
+2022-06-12 23:57:59.647720 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jan.
+2022-06-12 23:57:59.649723 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'jinja2.exceptions.UndefinedError'> - ("'tot' is undefined",) - 'tot' is undefined
+2022-06-12 23:57:59.652723 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 136, in watchlist_main
+    paginNext = paginNext)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\base.html", line 64, in top-level template code
+    <div class="container bg-dark">{% block content %} {% endblock %}</div>
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 74, in block 'content'
+    {% if tot > lim %}
+jinja2.exceptions.UndefinedError: 'tot' is undefined
+
+2022-06-12 23:58:05.085060 msg - watchlist.py - watchlist_main3 --> searching for artist jan
+2022-06-12 23:58:05.462310 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jan.
+2022-06-12 23:58:05.463310 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'jinja2.exceptions.UndefinedError'> - ("'tot' is undefined",) - 'tot' is undefined
+2022-06-12 23:58:05.464310 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 136, in watchlist_main
+    paginNext = paginNext)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\base.html", line 64, in top-level template code
+    <div class="container bg-dark">{% block content %} {% endblock %}</div>
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 74, in block 'content'
+    {% if tot > lim %}
+jinja2.exceptions.UndefinedError: 'tot' is undefined
+
+2022-06-13 16:00:33.689861 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 16:00:34.419862 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 16:00:34.424862 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'TypeError'> - ("unsupported operand type(s) for -: 'str' and 'str'",) - unsupported operand type(s) for -: 'str' and 'str'
+2022-06-13 16:00:34.430862 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 131, in watchlist_main
+    offs = paginOffset)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\base.html", line 64, in top-level template code
+    <div class="container bg-dark">{% block content %} {% endblock %}</div>
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 77, in block 'content'
+    <li class="page-item"><a class="page-link" href="/watchList?offs={{ offs - lim }}&lim={{ lim }}&searchTerm={{ searchTerm }}&searchType={{ searchType }}">Previous</a></li>
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+
+2022-06-13 16:02:37.944586 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 16:02:38.641155 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 16:04:33.312409 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 16:04:34.020277 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 16:04:34.020277 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'UnboundLocalError'> - ("local variable 'gv_searchType' referenced before assignment",) - local variable 'gv_searchType' referenced before assignment
+2022-06-13 16:04:34.021277 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 132, in watchlist_main
+    searchType = gv_searchType,
+UnboundLocalError: local variable 'gv_searchType' referenced before assignment
+
+2022-06-13 16:07:56.564644 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 16:07:57.271717 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 16:07:57.271717 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'UnboundLocalError'> - ("local variable 'gv_searchType' referenced before assignment",) - local variable 'gv_searchType' referenced before assignment
+2022-06-13 16:07:57.272717 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 137, in watchlist_main
+    searchType = gv_searchType,
+UnboundLocalError: local variable 'gv_searchType' referenced before assignment
+
+2022-06-13 16:08:56.748733 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 16:08:57.631298 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 20:31:45.197003 msg - watchlist.py - watchlist_main3 --> searching for artist jan
+2022-06-13 20:31:45.689059 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jan.
+2022-06-13 20:31:55.232879 msg - watchlist.py - watchlist_main3 --> searching for artist boo williams
+2022-06-13 20:31:55.604531 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist boo williams.
+2022-06-13 20:40:42.603197 msg - watchlist.py - watchlist_main3 --> searching for artist ùmask
+2022-06-13 20:40:43.363361 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist ùmask.
+2022-06-13 20:40:48.351161 msg - watchlist.py - watchlist_main3 --> searching for artist mask
+2022-06-13 20:40:48.798953 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist mask.
+2022-06-13 20:50:51.610221 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 20:50:52.323539 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 20:51:27.023544 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 20:51:27.662363 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 20:52:10.369378 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 20:52:11.066371 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 20:52:13.357128 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 20:52:13.919898 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 20:52:13.919898 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'TypeError'> - ('append() takes exactly one argument (2 given)',) - append() takes exactly one argument (2 given)
+2022-06-13 20:52:13.920898 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 176, in watchlist_main
+    gv_artistList.append({"artist": item["artist"]}, {"id": item['id']})
+TypeError: append() takes exactly one argument (2 given)
+
+2022-06-13 20:58:02.072659 msg - watchlist.py - watchlist_main3 --> searching for artist jos
+2022-06-13 20:58:02.693423 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jos.
+2022-06-13 20:58:05.753999 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist jos
+2022-06-13 20:58:06.261287 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jos.
+2022-06-13 20:58:06.262286 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'jinja2.exceptions.TemplateNotFound'> - ('search.html',) - search.html
+2022-06-13 20:58:06.277286 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 185, in watchlist_main
+    searchType = gv_searchType)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 1068, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 997, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\environment.py", line 958, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\T\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: search.html
+
+2022-06-13 20:58:54.886544 msg - watchlist.py - watchlist_main3 --> searching for artist jos
+2022-06-13 20:58:55.690546 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jos.
+2022-06-13 20:58:58.170962 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist jos
+2022-06-13 20:58:58.583335 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jos.
+2022-06-13 21:09:40.764249 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:09:41.250396 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:09:44.659756 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:09:45.047755 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:11:38.347897 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:11:38.908571 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:11:42.434265 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:11:42.980885 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:16:54.309494 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:16:54.826064 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:16:57.528052 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:16:57.936062 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:18:38.645204 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:18:39.134888 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:18:41.777894 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:18:42.229891 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:20:00.116358 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:20:00.551356 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:20:02.217358 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:20:02.673354 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:20:06.517357 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:20:06.953357 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:26:57.862074 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 21:26:58.316375 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:27:00.584676 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:27:00.956673 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:27:03.934968 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:27:04.547732 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:27:08.251813 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:27:08.682817 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:27:13.988515 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:27:14.428124 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 21:27:16.268561 msg - watchlist.py - watchlist_main pagination 1 --> searching for artist john
+2022-06-13 21:27:16.668767 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 22:10:38.840791 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:10:39.459490 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:10:43.974564 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:10:44.425563 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:10:44.426564 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'IndexError'> - ('list index out of range',) - list index out of range
+2022-06-13 22:10:44.427567 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 139, in watchlist_main
+    for item in returnSearchResults(response, "artist"):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 63, in returnSearchResults
+    if item['images'][0]['url']:
+IndexError: list index out of range
+
+2022-06-13 22:14:30.546351 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:14:31.052086 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:14:33.181779 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:14:33.571779 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:14:33.572779 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'IndexError'> - ('list index out of range',) - list index out of range
+2022-06-13 22:14:33.573779 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 139, in watchlist_main
+    for item in returnSearchResults(response, "artist"):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 65, in returnSearchResults
+    imageUrl = item['images'][0]['url']
+IndexError: list index out of range
+
+2022-06-13 22:14:57.644829 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 22:14:58.020931 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 22:14:59.659069 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-13 22:15:00.065645 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-13 22:15:08.059464 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:15:08.435872 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:15:10.637637 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:15:11.085931 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:15:11.085931 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'IndexError'> - ('list index out of range',) - list index out of range
+2022-06-13 22:15:11.086930 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 139, in watchlist_main
+    for item in returnSearchResults(response, "artist"):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 65, in returnSearchResults
+    imageUrl = item['images'][0]['url']
+IndexError: list index out of range
+
+2022-06-13 22:16:54.899358 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:16:55.368871 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:16:57.101081 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:16:57.532079 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:17:01.116111 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-13 22:17:01.551109 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-13 22:21:53.556457 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:21:54.042779 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:21:58.475088 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:21:58.859608 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:22:01.715743 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:22:02.143743 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:22:04.671654 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:22:05.422294 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:22:09.818043 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:22:10.195043 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:22:11.750118 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:22:12.192143 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:22:14.671267 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-13 22:22:15.096266 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-13 22:26:57.147241 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:26:57.639922 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:26:59.570989 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:27:00.034886 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:27:02.473809 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:27:02.850388 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:27:05.614617 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:27:06.025023 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:27:08.642227 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:27:09.067224 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:27:12.210461 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:27:12.716462 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:29:48.481677 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:29:48.946712 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:29:51.605949 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:29:52.031392 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:29:53.785063 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:29:54.248148 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:29:55.904915 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:29:56.283911 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:29:57.686157 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:29:58.128156 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:30:00.697210 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:30:01.147208 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:30:53.839738 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:30:54.303936 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-13 22:31:24.267025 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-13 22:31:24.731230 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.

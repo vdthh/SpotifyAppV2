@@ -15,7 +15,7 @@ from datetime import datetime
 import json
 import os
 import traceback
-from .common import searchSpotify
+from .common import searchSpotify, returnSearchResults
 ########################################################################################
 
 
@@ -34,13 +34,18 @@ gv_artistList              = []     #{artist: artist, id: id, image: imageurl}
 gv_playlistInfo            = {}
 gv_watchlistItems          = []     #list of {"id:" , "type": , "name": , "image": , "dateAdded": , "dateLastCheck": , "noOfNewItems": , "listOfNewItemsID": }
 gv_newTracksToSave         = []     # list of tracks ID's of new tracks to add to NewPlaylistTracks DB
+gv_searchType              = ""
+gv_searchTerm              = ""
+gv_offset                  = 0
+gv_limit                   = 0
+gv_total                   = 0
 ########################################################################################
 
 
 ########################################################################################
 ##################################### FLASK INTERFACE ##################################
 ########################################################################################
-'''--> html routing'''
+# HTML ROUTING #
 @bp_watchlist.route("/", methods=["GET","POST"])
 def watchlist_main():
     '''--> main routine'''
@@ -55,73 +60,126 @@ def watchlist_main():
     args=request.args      
 
 
-    '''--> page load'''
-    if request.method == "GET" and not ("addArtist" in args):
+    #--> PAGE LOAD #
+    if request.method == "GET" and not ("addArtist" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         try:
-            #page load  - show playlist items with info
+            '''--> page load  - show playlist items with info'''
+            '''--> initialize variables'''
+            '''TODO'''
             gv_watchlistItems = []  #list empty, initialize it every reload
+
+
+            '''--> db operation'''
             db = get_db() #grab from db
             data = db.execute('SELECT * FROM WatchList').fetchall()    #returns list of dicts https://docs.python.org/3/library/sqlite3.html
 
+
+            '''--> check data'''
             if data is None:
                 flash("No entries in watchlist yet!", category="error")
                 logAction("msg - watchlist.py - watchlist_main --> page reload --> no items to show!")
             else:
-                print(str(data))
-                for row in data:
+                for row in data:           
+                    data_encoded = json.dumps(row["list_of_current_items"])  #json.dumps() function converts a Python object into a json string.
 
-                    #json.dumps() function converts a Python object into a json string.
-                    data_encoded = json.dumps(row["list_of_current_items"])
-                    print("data_encoded: " + data_encoded)
-                    # print("album: " + row["id"])
-
-            return render_template('watchlist.html')
+            '''--> return html'''
+            return render_template('watchlist.html', showArtistBtn = "active", showArtistTab = "show active", showPlaylistBtn ="" , showPlaylistTab = "", showUserBtn = "", showUserTab = "")
 
         except Exception as ex:
             logAction("err - watchlist.py - watchlist_main2 --> error while loading page --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
-            return ''
         
 
-    '''--> search artist - button pressed'''
-    if request.method == "POST" and  ("artist_search" in request.form):
+    #--> SEARCH ARTIST - BUTTON PRESSED - PAGINATION # 
+    if (request.method == "POST" and  ("artist_search" in request.form)) or (request.method == "GET" and not ("addArtist" in args) and ("offs" in args) and ("lim" in args) and ("searchTerm" in args) and ("searchType" in args)):
         try:
-            gv_artistList   = [] #(re-)initialize global artist list
-            input           = request.form["searchartistinput"] #searchterm entered in page
+            '''--> pagination or search button press?'''
+            if (request.method == "GET" and not ("addArtist" in args) and ("offs" in args) and ("lim" in args) and ("searchTerm" in args) and ("searchType" in args)):
+                paginReq = True
+            else:
+                paginReq = False
 
-            logAction("msg - watchlist.py - watchlist_main3 --> searching for artist " + input)
-            response = searchSpotify(input, "artist", 10, 0)
+
+            '''--> initialize variables'''
+            gv_artistList   = [] #(re-)initialize global artist list
+
+
+            '''--> update variables'''
+            if paginReq:
+                print("PAGINATIONççç")
+                gv_searchTerm   = args["searchTerm"]
+                gv_searchType   = args["searchType"]
+                gv_offset       = int(args["offs"])
+                gv_limit        = int(args["lim"])
+            else:
+                print("SEARCH BUTTON PRESS")
+                gv_searchTerm   = request.form["searchartistinput"] #searchterm entered in page
+                gv_searchType   = "artist"
+                gv_offset       = 0
+                gv_limit        = 10
+
+
+            '''--> api request'''
+            logAction("msg - watchlist.py - watchlist_main3 --> searching for artist " + gv_searchTerm)
+            response = searchSpotify(gv_searchTerm, gv_searchType, gv_limit, gv_offset)
             
 
             '''--> check response before continuing'''
             if response == '':
                 logAction("err - watchlist.py - watchlist_main4 --> empty api response for searching artist.")
-                return ''
+                flash("Error when searching for artist " + gv_searchTerm + ", empty response.", category="error")
+                return render_template("watchlist.html")
 
 
-            '''--> only show 10 first results, for now'''
-            for item in response["artists"]["items"]:
-                #check images list
-                if len(item["images"]) != 0:
-                    imageurl = item["images"][0]["url"]
-                else:
-                    imageurl = ""
-                toAdd={"artist": item["name"], "id": item["id"], "image": imageurl}
-                gv_artistList.append(toAdd)
+            '''--> retrieve pagination'''
+            total       = response[gv_searchType  + 's']['total']
+            gv_limit    = response[gv_searchType  + 's']['limit']
+            gv_offset   = response[gv_searchType  + 's']['offset']
+
+
+            '''--> fill artistList'''
+            for item in returnSearchResults(response, "artist"):
+                gv_artistList.append({"artist": item["artist"], "id": item['id'], "popularity": item['popularity'], "image": item['imageurl']})
+
 
             '''--> return html'''
-            return render_template("watchlist.html", artistList = gv_artistList, showArtistBtn = "active", showArtistTab = "show active", showPlaylistBtn ="" , showPlaylistTab = "", showUserBtn = "", showUserTab = "")
+            return render_template("watchlist.html", 
+                                    artistList = gv_artistList, 
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "",
+                                    tot = total,
+                                    lim = gv_limit,
+                                    offs = gv_offset,
+                                    searchType = gv_searchType,
+                                    searchTerm = gv_searchTerm)
 
         except Exception as ex:
+            flash("Error while searching for artist " + gv_searchTerm + ".", category="error")
             logAction("err - watchlist.py - watchlist_main5 --> error while loading page --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
-            return ''
+            return render_template('watchlist.html', 
+                                    artistList = gv_artistList,
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "", 
+                                    offs = gv_offset, 
+                                    lim = gv_limit, 
+                                    tot = total, 
+                                    searchTerm = gv_searchTerm, 
+                                    searchType = gv_searchType)
 
 
-
-    '''--> add artist to watchlist - button pressed'''
+    #--> ADD ARTIST TO WATCHLIST - BUTTON PRESSED #
     if request.method == "GET" and ("addArtist" in args):
         pass
+        #TODO
 
 
 

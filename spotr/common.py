@@ -47,6 +47,35 @@ def logAction(msg):
 def waitForGivenTimeIns(secondsMin, secondsMax):
     '''--> Wait for given time in s, timespan between min and max'''
     time.sleep(random.uniform(secondsMin, secondsMax))
+
+
+########################################################################################
+######################################## FUNCTIONS #####################################
+def returnSearchResults(apiResponse, type):
+    resList = []
+    for item in apiResponse[type + 's']['items']:
+        if type  == 'track':
+            pass
+            # result = SearchRes('i', str(item['id']), str(item['artists'][0]['name']), str(item['name']), str(item['album']['name']), '', '', '', '', '', '', '','')
+        # elif type  == "album":
+        #     result = SearchRes('i', str(item['id']), str(item['artists'][0]['name']), str(item['name']), '', str(item['release_date']), str(item['total_tracks']), '', '', '', '', '','') 
+        elif type  == "artist":
+            if len(item['images']) !=0:
+                imageUrl = item['images'][0]['url']
+            else:
+                imageUrl = ""
+            resList.append({"artist": str(item['name']), "id": str(item['id']), "popularity": str(item['popularity']), "imageurl": imageUrl})
+        # elif type  == "playlist":
+        #     result = SearchRes('i', str(item['id']), '', '', '', '', '', str(item['name']), str(item['description']), str(item['owner']['display_name']), '', '','')
+        # elif type  == "show":
+        #     result = SearchRes('i', str(item['id']), '', '', '', '', '', str(item['name']), str(item['description']), '', str(item['publisher']), '','')
+        # elif type  == "episode":
+        #     result = SearchRes('i', str(item['id']), '', '', '', str(item['release_date']), '', str(item['name']), '', '', '', '','')
+
+    return resList
+########################################################################################
+
+
 ########################################################################################
 
 
