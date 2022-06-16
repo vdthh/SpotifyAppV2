@@ -69,7 +69,7 @@
 
                         <!-- Search artist tab - pagination -->
                         <div class="div_search_pagination">
-                          {% if artistList|length > 1 %}
+                          {% if artistList|length > 1 and tot is defined %}
                               <nav aria-label="Page navigation">
                                   <ul class="pagination">
                                       {% if tot > lim %}
@@ -121,6 +121,75 @@
 
 
             </div>
+
+        </div>
+
+        <!-- Display watchlist content -->
+        <div class="col">
+          <h5>Watchlist content</h5>
+          <br>
+          <a class="btn btn-primary" href="/watchlist/checkForNewTracks" role="button">Check watchlist items for new tracks</a>
+          <br>
+
+          <!-- Show in endless scroll window -->
+          <div style="height:800px;overflow:auto;">
+            <div class="container-sm">
+              {% for item in watchListItems %} <!--  list of {"id:" , "type": , "name": , "image": , "dateAdded": , "dateLastCheck": , "noOfNewItems": , "listOfNewItemsID": } -->
+              
+                  TODO
+
+
+                {% if (loop.index0 % 3) == 0 %}
+                  <!-- 3 times passed , start new row (3 items displayed per row)-->
+                  {% if loop.index0 == 0 %}
+                    <!-- First pass, html code a bit different here -->
+                    <div class="row">
+                      <div class="col">
+                        <p><u>{{ item["type"] }}: {{ item["name"] }}</u></p>
+                        <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>              
+                        <td><a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a></td>
+                        <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                        <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                        <p><em>Last check: {{ item["dateLastCheck"] }}</em></p>
+                      </div>
+  
+                  {% else %}
+                      <!-- Not first pass, close previous row -->
+                    </div>
+                      <div class="row">
+                        <div class="col">
+                          <p><u>{{ item["type"] }}: {{ item["name"] }}</u></p>
+                          <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>
+                          <td><a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a></td>
+                          <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                          <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                          <p><em>Last check: {{ item["dateLastCheck"] }}</em></p>
+                        </div>
+  
+                  {% endif %}
+  
+                {% else %}
+                <!-- In between 3 passes, place items in one row next to each other -->
+                  <div class="col">
+                    <p><u>{{ item["type"] }}: {{ item["name"] }}</u></p>
+                    <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>
+                    <td><a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a></td>
+                    <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                    <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                    <p><em>Last check: {{ item["dateLastCheck"] }}</em></p>
+                  </div>
+  
+                {% endif %}
+  
+                {% if loop.last %}
+                  <!-- check for last loop ) close row in that case-->
+                  </div>
+                {% endif %}
+  
+              {% endfor %}
+              
+            </div>
+          </div>
 
         </div>
 

@@ -54,6 +54,11 @@ def watchlist_main():
     global gv_playlistInfo 
     global gv_watchlistItems  #contains details of every watchlist entry - used for page reload
     global gv_newTracksToSave
+    global gv_searchType     
+    global gv_searchTerm         
+    global gv_offset                  
+    global gv_limit                   
+    global gv_total                   
 
 
     '''--> read query parameters'''
@@ -61,7 +66,7 @@ def watchlist_main():
 
 
     #--> PAGE LOAD #
-    if request.method == "GET" and not ("addArtist" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+    if request.method == "GET" and not ("addArtist" in args) and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         try:
             '''--> page load  - show playlist items with info'''
             '''--> initialize variables'''
@@ -78,12 +83,16 @@ def watchlist_main():
             if data is None:
                 flash("No entries in watchlist yet!", category="error")
                 logAction("msg - watchlist.py - watchlist_main --> page reload --> no items to show!")
-            else:
-                for row in data:           
-                    data_encoded = json.dumps(row["list_of_current_items"])  #json.dumps() function converts a Python object into a json string.
+
 
             '''--> return html'''
-            return render_template('watchlist.html', showArtistBtn = "active", showArtistTab = "show active", showPlaylistBtn ="" , showPlaylistTab = "", showUserBtn = "", showUserTab = "")
+            return render_template('watchlist.html', 
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "")
 
         except Exception as ex:
             logAction("err - watchlist.py - watchlist_main2 --> error while loading page --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
@@ -106,7 +115,6 @@ def watchlist_main():
 
             '''--> update variables'''
             if paginReq:
-                print("PAGINATIONççç")
                 gv_searchTerm   = args["searchTerm"]
                 gv_searchType   = args["searchType"]
                 gv_offset       = int(args["offs"])
@@ -128,7 +136,13 @@ def watchlist_main():
             if response == '':
                 logAction("err - watchlist.py - watchlist_main4 --> empty api response for searching artist.")
                 flash("Error when searching for artist " + gv_searchTerm + ", empty response.", category="error")
-                return render_template("watchlist.html")
+                return render_template('watchlist.html', 
+                        showArtistBtn = "active", 
+                        showArtistTab = "show active", 
+                        showPlaylistBtn ="" , 
+                        showPlaylistTab = "", 
+                        showUserBtn = "", 
+                        showUserTab = "")
 
 
             '''--> retrieve pagination'''
@@ -168,18 +182,13 @@ def watchlist_main():
                                     showPlaylistBtn ="" , 
                                     showPlaylistTab = "", 
                                     showUserBtn = "", 
-                                    showUserTab = "", 
-                                    offs = gv_offset, 
-                                    lim = gv_limit, 
-                                    tot = total, 
-                                    searchTerm = gv_searchTerm, 
-                                    searchType = gv_searchType)
+                                    showUserTab = "")
 
 
     #--> ADD ARTIST TO WATCHLIST - BUTTON PRESSED #
-    if request.method == "GET" and ("addArtist" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+    if request.method == "GET" and ("addArtist" in args) and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         try:
-            '''--> artist'''
+            '''--> artist details'''
             artistID        = args["addArtist"]
             logAction("msg - watchlist.py - watchlist_main19 --> add artist " + artistID + " to watchlist --> starting.") 
             print("ADDING ARTIST " + artistID)
@@ -204,6 +213,9 @@ def watchlist_main():
             else:
                 logAction("msg - watchlist.py - watchlist_main21 --> artist " + artistResponse["name"] + " already in watchlist.")
                 flash("Artist " + artistResponse["name"] + " already in watchlist.", category="error")
+
+
+                '''--> return html'''
                 return render_template('watchlist.html', 
                                         artistList = gv_artistList,
                                         showArtistBtn = "active", 
@@ -211,12 +223,7 @@ def watchlist_main():
                                         showPlaylistBtn ="" , 
                                         showPlaylistTab = "", 
                                         showUserBtn = "", 
-                                        showUserTab = "", 
-                                        offs = 1, 
-                                        lim = 1, 
-                                        tot = 1, 
-                                        searchTerm = "gv_searchTerm", 
-                                        searchType = "gv_searchType")
+                                        showUserTab = "")
 
 
             '''-->artist's tracks'''
@@ -224,28 +231,29 @@ def watchlist_main():
             logAction("msg - watchlist.py - watchlist_main20 --> grabbed artist " + artistID + "'s tracks: " + str(len(trackList)))
 
 
-            '''--> create data'''
-            artistToAdd = {"id": artistID, 
-                        "type": "artist", 
-                        "name": artistResponse["name"], 
-                        "date_added": datetime.now(), 
-                        "last_time_checked": datetime.now(), 
-                        "no_of_items_checked": len(trackList), 
-                        "href": "", 
-                        "list_of_current_items": trackList, 
-                        "imageurl": artistResponse["images"][0]["url"], 
-                        "new_items_since_last_check": 0}
+            '''--> check data'''
+            if artistResponse["name"]:
+                name = artistResponse["name"]
+            else:
+                name = ""
+
+            if artistResponse["images"]:
+                imglink = artistResponse["images"][0]["url"]
+            else:
+                imglink = ""
 
 
             '''--> add to db'''
             db.execute(
                 'INSERT INTO WatchList (id, _type, _name, date_added, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-                (artistID, "artist", artistResponse["name"], datetime.now(), datetime.now(), len(trackList), "", json.dumps(trackList), artistResponse["images"][0]["url"], 0)
+                (artistID, "artist", name, datetime.now(), datetime.now(), len(trackList), "", json.dumps(trackList), imglink, 0)
             )
             db.commit()
             logAction("msg - watchlist.py - watchlist_main22 --> artist " + artistResponse["name"] + " added to watchlist.")
-            flash("Artist " + artistResponse["name"] + " added to watchlist.", category="error")
+            flash("Artist " + artistResponse["name"] + " added to watchlist.", category="message")
 
+
+            '''--> return html'''
             return render_template('watchlist.html', 
                         artistList = gv_artistList,
                         showArtistBtn = "active", 
@@ -254,11 +262,11 @@ def watchlist_main():
                         showPlaylistTab = "", 
                         showUserBtn = "", 
                         showUserTab = "", 
-                        offs = 1, 
-                        lim = 1, 
-                        tot = 1, 
-                        searchTerm = "gv_searchTerm", 
-                        searchType = "gv_searchType")
+                        offs = gv_offset, 
+                        lim = gv_limit, 
+                        tot = gv_total, 
+                        searchTerm = gv_searchTerm, 
+                        searchType = gv_searchType)
 
 
         except Exception as ex:
@@ -272,17 +280,87 @@ def watchlist_main():
                                     showPlaylistBtn ="" , 
                                     showPlaylistTab = "", 
                                     showUserBtn = "", 
-                                    showUserTab = "", 
-                                    offs = 1, 
-                                    lim = 1, 
-                                    tot = 1, 
-                                    searchTerm = "", 
-                                    searchType = "")
+                                    showUserTab = "")
+
+
+
+#--> DELETE ITEM FROM WATCHLIST - BUTTON PRESSED #
+    if request.method == "GET" and not ("addArtist" in args) and ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+        # https://pynative.com/python-mysql-delete-data/
+        try:
+            '''--> item'''
+            toDelID = args["delItem"]
+            logAction("msg - watchlist.py - watchlist_main30 --> delete item " + toDelID + " from watchlist --> starting.") 
+
+
+            '''--> db'''
+            db = get_db()
+
   
+            '''--> delete from db'''
+            cursor = db.cursor()
+            cursor.execute('DELETE FROM WatchList WHERE id = ?', (toDelID,))
+
+            if cursor.rowcount != 0:
+                flash("Succesfully deleted "+ str(cursor.rowcount) + " item (" + toDelID + ") from watchlist.", category="message")
+                logAction("msg - watchlist.py - watchlist_main31 --> succesfully deleted " + str(cursor.rowcount) + " item (" + toDelID + ") from watchlist.")
+            else:
+                flash("Nothing found while deleting item " + toDelID + " from watchlist...", category="error")
+                logAction("msg - watchlist.py - watchlist_main32 --> nothing found while deleting item " + toDelID + " from watchlist.")
+
+            db.commit()
 
 
+            '''--> return html'''
+            return render_template('watchlist.html', 
+                                    artistList = gv_artistList,
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "", 
+                                    offs = gv_offset, 
+                                    lim = gv_limit, 
+                                    tot = gv_total, 
+                                    searchTerm = gv_searchTerm, 
+                                    searchType = gv_searchType)
 
 
+        except Exception as ex:
+            flash("Error deleting item " + toDelID + " from watchlist!", category="error")
+            logAction("err - watchlist.py - watchlist_main33 --> Error deleting item " + toDelID + " --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("TRACEBACK --> " + traceback.format_exc())
+            return render_template('watchlist.html', 
+                                    artistList = gv_artistList,
+                                    showArtistBtn = "active", 
+                                    showArtistTab = "show active", 
+                                    showPlaylistBtn ="" , 
+                                    showPlaylistTab = "", 
+                                    showUserBtn = "", 
+                                    showUserTab = "")
+
+  
+########################################################################################
+
+
+##################################### FLASK INTERFACE ##################################
+########################################################################################
+# def loadHomePage():
+#     return render_template('watchlist.html', 
+#             artistList = gv_artistList,
+#             showArtistBtn = "active", 
+#             showArtistTab = "show active", 
+#             showPlaylistBtn ="" , 
+#             showPlaylistTab = "", 
+#             showUserBtn = "", 
+#             showUserTab = "", 
+#             offs = gv_offset, 
+#             lim = gv_limit, 
+#             tot = gv_total, 
+#             searchTerm = gv_searchTerm, 
+#             searchType = gv_searchType)
+########################################################################################
 
 
 

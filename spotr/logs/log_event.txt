@@ -1,270 +1,97 @@
 
-2022-06-14 23:28:49.311720 msg - watchlist.py - watchlist_main3 --> searching for artist stan
-2022-06-14 23:28:50.014318 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist stan.
-2022-06-14 23:28:52.471511 msg - watchlist.py - watchlist_main19 --> add artist 0FMucZsEnCxs5pqBjHjIc8 to watchlist --> starting.
-2022-06-14 23:28:52.879019 msg - common.py - getTracksFromArtist --> requesting albums from artist 0FMucZsEnCxs5pqBjHjIc8.
-2022-06-14 23:32:19.572205 msg - watchlist.py - watchlist_main19 --> add artist 0FMucZsEnCxs5pqBjHjIc8 to watchlist --> starting.
-2022-06-14 23:32:20.184995 msg - common.py - getTracksFromArtist --> requesting albums from artist 0FMucZsEnCxs5pqBjHjIc8.
-2022-06-14 23:32:45.588358 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-14 23:32:46.174028 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-14 23:32:47.804073 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-14 23:32:48.163072 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-14 23:33:05.418249 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-14 23:33:05.418249 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-14 23:33:05.549247 err - watchlist.py - watchlist_main10 --> ... --> <class 'UnboundLocalError'> - ("local variable 'gv_offset' referenced before assignment",) - local variable 'gv_offset' referenced before assignment
-2022-06-14 23:33:05.555249 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 237, in watchlist_main
-    offs = gv_offset,
-UnboundLocalError: local variable 'gv_offset' referenced before assignment
+2022-06-16 21:47:06.528926 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
+2022-06-16 21:47:07.041175 msg - common.py - getTracksFromArtist --> requesting albums from artist 0uyfqpSDJkClTZr1D7A2si.
+2022-06-16 21:47:08.850697 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 0uyfqpSDJkClTZr1D7A2si
+2022-06-16 21:47:08.851698 msg - watchlist.py - watchlist_main20 --> grabbed artist 0uyfqpSDJkClTZr1D7A2si's tracks: 24
+2022-06-16 21:47:08.851698 err - watchlist.py - watchlist_main10 --> ... --> <class 'IndexError'> - ('list index out of range',) - list index out of range
+2022-06-16 21:47:08.852698 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 267, in watchlist_main
+    if artistResponse["images"][0]["url"]:
+IndexError: list index out of range
 
-2022-06-14 23:34:05.951171 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-14 23:34:06.553132 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-14 23:34:23.593983 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-14 23:34:23.593983 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-14 23:34:23.595983 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-14 23:34:23.595983 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 224, in watchlist_main
-    (artistID, "artist", artistResponse["name"], datetime.now(), datetime.now(), len(trackList), "", json.dumps(trackList), artistResponse["images"][0]["url"], 0)
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
+2022-06-16 21:48:53.037773 msg - watchlist.py - watchlist_main3 --> searching for artist kristof
+2022-06-16 21:48:53.469668 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist kristof.
+2022-06-16 21:48:55.912686 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
+2022-06-16 21:48:56.313684 msg - common.py - getTracksFromArtist --> requesting albums from artist 0uyfqpSDJkClTZr1D7A2si.
+2022-06-16 21:48:57.945293 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 0uyfqpSDJkClTZr1D7A2si
+2022-06-16 21:48:57.945293 msg - watchlist.py - watchlist_main20 --> grabbed artist 0uyfqpSDJkClTZr1D7A2si's tracks: 24
+2022-06-16 21:48:58.231290 msg - watchlist.py - watchlist_main22 --> artist Kristof Michiels added to watchlist.
+2022-06-16 21:49:05.638705 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
+2022-06-16 21:49:06.077670 msg - watchlist.py - watchlist_main21 --> artist Kristof Michiels already in watchlist.
+2022-06-16 22:19:52.317900 msg - watchlist.py - watchlist_main3 --> searching for artist jef
+2022-06-16 22:19:52.854106 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jef.
+2022-06-16 22:21:21.371988 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 22:21:21.980476 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 22:21:24.518206 msg - watchlist.py - watchlist_main30 --> delete item 1myLDJsVvaGoCAZMc8v0Gt from watchlist --> starting.
+2022-06-16 22:21:24.521209 err - watchlist.py - watchlist_main31 --> Error deleting item 1myLDJsVvaGoCAZMc8v0Gt --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"',) - unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
+2022-06-16 22:21:24.522210 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
+    db.execute(
+sqlite3.OperationalError: unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
 
-2022-06-15 21:24:33.925977 msg - watchlist.py - watchlist_main3 --> searching for artist john
-2022-06-15 21:24:34.536978 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
-2022-06-15 21:24:36.981081 msg - watchlist.py - watchlist_main19 --> add artist 5y2Xq6xcjJb2jVM54GHK3t to watchlist --> starting.
-2022-06-15 21:24:37.404083 msg - common.py - getTracksFromArtist --> requesting albums from artist 5y2Xq6xcjJb2jVM54GHK3t.
-2022-06-15 21:25:05.366406 msg - watchlist.py - watchlist_main19 --> add artist 5y2Xq6xcjJb2jVM54GHK3t to watchlist --> starting.
-2022-06-15 21:25:05.751258 msg - common.py - getTracksFromArtist --> requesting albums from artist 5y2Xq6xcjJb2jVM54GHK3t.
-2022-06-15 21:25:10.279632 msg - watchlist.py - watchlist_main19 --> add artist 5y2Xq6xcjJb2jVM54GHK3t to watchlist --> starting.
-2022-06-15 21:25:10.658634 msg - common.py - getTracksFromArtist --> requesting albums from artist 5y2Xq6xcjJb2jVM54GHK3t.
-2022-06-15 21:25:23.156277 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 21:25:23.582282 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 21:25:26.725279 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 21:25:27.075277 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 21:25:45.736431 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 21:25:45.736431 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 21:25:45.737429 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "6v8FB84lnmJs434UJf2Mrm"',) - unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
-2022-06-15 21:25:45.738434 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 219, in watchlist_main
-    db.execute('SELECT ' + artistID + ' FROM WatchList WHERE artistID = ?', (artistID,))
+2022-06-16 22:22:04.380675 msg - watchlist.py - watchlist_main30 --> delete item 1myLDJsVvaGoCAZMc8v0Gt from watchlist --> starting.
+2022-06-16 22:22:04.381674 err - watchlist.py - watchlist_main31 --> Error deleting item 1myLDJsVvaGoCAZMc8v0Gt --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"',) - unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
+2022-06-16 22:22:04.382674 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
+    db.execute(
+sqlite3.OperationalError: unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
+
+2022-06-16 22:24:22.493436 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-16 22:24:23.019289 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-16 22:24:29.697142 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
+2022-06-16 22:24:29.701142 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "6v8FB84lnmJs434UJf2Mrm"',) - unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
+2022-06-16 22:24:29.702142 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
+    db.execute(
 sqlite3.OperationalError: unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
 
-2022-06-15 21:28:16.954561 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 21:28:17.385561 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 21:28:18.945562 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 21:28:19.306563 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 21:28:37.128561 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 21:28:37.128561 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 21:28:37.129562 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "6v8FB84lnmJs434UJf2Mrm"',) - unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
-2022-06-15 21:28:37.130561 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 219, in watchlist_main
-    db.execute('SELECT ' + artistID + ' FROM WatchList WHERE id = ?', (artistID,))
-sqlite3.OperationalError: unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
-
-2022-06-15 21:39:02.257231 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 21:39:02.759591 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 21:39:04.001740 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 21:39:04.384989 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 21:39:21.969946 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 21:39:21.970947 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 21:39:21.971946 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'sqlite3.Connection' object has no attribute 'fetchall'",) - 'sqlite3.Connection' object has no attribute 'fetchall'
-2022-06-15 21:39:21.971946 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 220, in watchlist_main
-    data = db.fetchall()
-AttributeError: 'sqlite3.Connection' object has no attribute 'fetchall'
-
-2022-06-15 21:41:25.330442 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 21:41:25.799469 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 21:41:42.885177 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 21:41:42.886177 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 21:41:42.887180 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'builtin_function_or_method' object has no attribute 'fetchall'",) - 'builtin_function_or_method' object has no attribute 'fetchall'
-2022-06-15 21:41:42.888177 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 221, in watchlist_main
-    db.cursor.fetchall()
-AttributeError: 'builtin_function_or_method' object has no attribute 'fetchall'
-
-2022-06-15 21:47:02.650438 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 21:47:03.181583 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 21:47:04.364891 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 21:47:04.706435 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 21:47:22.808532 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 21:47:22.808532 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 21:47:22.812533 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 21:47:22.813533 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 225, in watchlist_main
+2022-06-16 22:29:54.009789 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 22:29:54.440220 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 22:29:56.952150 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
+2022-06-16 22:29:56.955147 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('near "VALUES": syntax error',) - near "VALUES": syntax error
+2022-06-16 22:29:56.956152 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
     db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
+sqlite3.OperationalError: near "VALUES": syntax error
 
-2022-06-15 22:06:17.770754 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 22:06:18.177712 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 22:06:32.985312 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 22:06:33.351310 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 22:06:51.396389 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 22:06:51.396389 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 22:06:51.398389 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 22:06:51.399390 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 230, in watchlist_main
+2022-06-16 22:30:40.359418 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 22:30:40.761289 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 22:30:43.397935 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
+2022-06-16 22:30:43.398932 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('near "VALUES": syntax error',) - near "VALUES": syntax error
+2022-06-16 22:30:43.399932 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
     db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
+sqlite3.OperationalError: near "VALUES": syntax error
 
-2022-06-15 22:08:14.198064 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 22:08:14.673064 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 22:08:33.446653 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 22:08:33.446653 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 22:08:33.450654 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 22:08:33.450654 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 231, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
+2022-06-16 22:32:16.869853 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 22:32:17.365573 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 22:32:19.690184 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
+2022-06-16 22:34:00.459950 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-16 22:34:00.936670 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-16 22:34:03.198598 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 22:42:13.389360 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 22:42:16.030165 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 22:42:18.989817 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 22:48:05.086554 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 22:48:05.498621 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 22:48:07.840869 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 22:48:07.841867 err - watchlist.py - watchlist_main31 --> Error deleting item 3zmnBPYpQfvLGq5JV2qJ2w --> <class 'TypeError'> - ('function takes at least 1 argument (0 given)',) - function takes at least 1 argument (0 given)
+2022-06-16 22:48:07.842868 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 304, in watchlist_main
+    cursor.execute()
+TypeError: function takes at least 1 argument (0 given)
 
-2022-06-15 22:12:45.880163 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 22:12:46.386166 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 22:13:06.660556 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 22:13:06.661558 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 22:13:06.663554 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ("object of type 'sqlite3.Cursor' has no len()",) - object of type 'sqlite3.Cursor' has no len()
-2022-06-15 22:13:06.664553 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 225, in watchlist_main
-    print("LENGTH --> " + len(cursor.execute('SELECT * FROM WatchList WHERE id = ?', (artistID,))))
-TypeError: object of type 'sqlite3.Cursor' has no len()
-
-2022-06-15 22:15:08.920710 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 22:15:09.349706 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 22:15:28.181002 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 22:15:28.182002 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 22:15:28.185003 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ('can only concatenate str (not "int") to str',) - can only concatenate str (not "int") to str
-2022-06-15 22:15:28.186005 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 227, in watchlist_main
-    print("ROW --> " + row)
-TypeError: can only concatenate str (not "int") to str
-
-2022-06-15 23:10:01.777218 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:10:02.274769 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:10:20.655536 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:10:20.655536 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:10:20.657535 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:10:20.658537 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 241, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:10:43.420175 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:10:43.842476 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:11:01.579608 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:11:01.580608 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:11:01.582608 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:11:01.584608 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 241, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:12:27.836967 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:12:28.324964 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:12:45.775550 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:12:45.776550 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:12:45.778549 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:12:45.779552 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 241, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:14:09.403864 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 23:14:09.923483 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 23:14:11.546283 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:14:11.880104 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:14:29.202206 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:14:29.202206 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:14:29.205210 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:14:29.206207 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 244, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:17:09.397747 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:17:09.895744 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:17:28.341601 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:17:28.342603 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:17:28.344602 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ('can only concatenate str (not "int") to str',) - can only concatenate str (not "int") to str
-2022-06-15 23:17:28.345604 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 227, in watchlist_main
-    print("ROW --> " + row)
-TypeError: can only concatenate str (not "int") to str
-
-2022-06-15 23:19:18.271230 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:19:18.745067 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:19:36.656426 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:19:36.656426 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:19:36.659425 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:19:36.660429 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 237, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:20:06.513878 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:20:06.929876 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:20:24.596990 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:20:24.597991 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:20:24.602992 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ("'NoneType' object is not iterable",) - 'NoneType' object is not iterable
-2022-06-15 23:20:24.602992 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 226, in watchlist_main
-    for row in cursor.execute('SELECT id FROM WatchList WHERE id = ?', ("lala",)).fetchone():
-TypeError: 'NoneType' object is not iterable
-
-2022-06-15 23:21:30.008181 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:21:30.528178 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:21:48.255294 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:21:48.255294 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:21:48.257290 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ("'NoneType' object is not iterable",) - 'NoneType' object is not iterable
-2022-06-15 23:21:48.258293 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 226, in watchlist_main
-    for row in cursor.execute('SELECT id FROM WatchList WHERE id = ?', ("lala",)).fetchone():
-TypeError: 'NoneType' object is not iterable
-
-2022-06-15 23:25:22.215090 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:25:22.692539 msg - common.py - getTracksFromArtist --> requesting albums from artist 6v8FB84lnmJs434UJf2Mrm.
-2022-06-15 23:25:40.220923 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 680 tracks from artist 6v8FB84lnmJs434UJf2Mrm
-2022-06-15 23:25:40.220923 msg - watchlist.py - watchlist_main20 --> grabbed artist 6v8FB84lnmJs434UJf2Mrm's tracks: 680
-2022-06-15 23:25:40.223924 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
-2022-06-15 23:25:40.224924 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 241, in watchlist_main
-    db.execute(
-sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
-
-2022-06-15 23:33:28.845006 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:33:29.308947 err - watchlist.py - watchlist_main10 --> ... --> <class 'UnboundLocalError'> - ("local variable 'db' referenced before assignment",) - local variable 'db' referenced before assignment
-2022-06-15 23:33:29.308947 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 197, in watchlist_main
-    cursor = db.cursor()
-UnboundLocalError: local variable 'db' referenced before assignment
-
-2022-06-15 23:33:35.056994 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 23:33:35.409993 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 23:33:37.682194 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:33:38.079126 err - watchlist.py - watchlist_main10 --> ... --> <class 'UnboundLocalError'> - ("local variable 'db' referenced before assignment",) - local variable 'db' referenced before assignment
-2022-06-15 23:33:38.079126 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 197, in watchlist_main
-    cursor = db.cursor()
-UnboundLocalError: local variable 'db' referenced before assignment
-
-2022-06-15 23:34:45.347061 msg - watchlist.py - watchlist_main3 --> searching for artist neil young
-2022-06-15 23:34:45.820910 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist neil young.
-2022-06-15 23:34:47.482351 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:34:47.873402 msg - watchlist.py - watchlist_main21 --> artist Neil Young already in watchlist.
-2022-06-15 23:34:59.092651 msg - watchlist.py - watchlist_main19 --> add artist 1myLDJsVvaGoCAZMc8v0Gt to watchlist --> starting.
-2022-06-15 23:34:59.422653 msg - common.py - getTracksFromArtist --> requesting albums from artist 1myLDJsVvaGoCAZMc8v0Gt.
-2022-06-15 23:35:01.201973 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 27 tracks from artist 1myLDJsVvaGoCAZMc8v0Gt
-2022-06-15 23:35:01.201973 msg - watchlist.py - watchlist_main20 --> grabbed artist 1myLDJsVvaGoCAZMc8v0Gt's tracks: 27
-2022-06-15 23:35:01.341716 msg - watchlist.py - watchlist_main22 --> artist Young Neil added to watchlist.
-2022-06-15 23:35:17.280269 msg - watchlist.py - watchlist_main19 --> add artist 0CfqwwXJ0PbvdyifhIrbt0 to watchlist --> starting.
-2022-06-15 23:35:17.674674 msg - common.py - getTracksFromArtist --> requesting albums from artist 0CfqwwXJ0PbvdyifhIrbt0.
-2022-06-15 23:35:18.347232 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 0CfqwwXJ0PbvdyifhIrbt0
-2022-06-15 23:35:18.347232 msg - watchlist.py - watchlist_main20 --> grabbed artist 0CfqwwXJ0PbvdyifhIrbt0's tracks: 6
-2022-06-15 23:35:18.512230 msg - watchlist.py - watchlist_main22 --> artist Young Neil added to watchlist.
-2022-06-15 23:35:25.191369 msg - watchlist.py - watchlist_main19 --> add artist 1myLDJsVvaGoCAZMc8v0Gt to watchlist --> starting.
-2022-06-15 23:35:25.519367 msg - watchlist.py - watchlist_main21 --> artist Young Neil already in watchlist.
-2022-06-15 23:35:29.647592 msg - watchlist.py - watchlist_main19 --> add artist 6v8FB84lnmJs434UJf2Mrm to watchlist --> starting.
-2022-06-15 23:35:30.003592 msg - watchlist.py - watchlist_main21 --> artist Neil Young already in watchlist.
-2022-06-15 23:35:34.750077 msg - watchlist.py - watchlist_main19 --> add artist 5HqkqH2X6qlLmHCJFAVn4B to watchlist --> starting.
-2022-06-15 23:35:35.173074 msg - common.py - getTracksFromArtist --> requesting albums from artist 5HqkqH2X6qlLmHCJFAVn4B.
-2022-06-15 23:35:40.444214 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 148 tracks from artist 5HqkqH2X6qlLmHCJFAVn4B
-2022-06-15 23:35:40.444214 msg - watchlist.py - watchlist_main20 --> grabbed artist 5HqkqH2X6qlLmHCJFAVn4B's tracks: 148
-2022-06-15 23:35:40.551213 msg - watchlist.py - watchlist_main22 --> artist Hallo Venray added to watchlist.
-2022-06-15 23:35:45.802916 msg - watchlist.py - watchlist_main19 --> add artist 5HqkqH2X6qlLmHCJFAVn4B to watchlist --> starting.
-2022-06-15 23:35:46.213916 msg - watchlist.py - watchlist_main21 --> artist Hallo Venray already in watchlist.
+2022-06-16 23:03:49.700730 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-06-16 23:03:50.257970 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-06-16 23:03:52.226087 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 23:03:57.526910 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
+2022-06-16 23:04:31.810828 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
+2022-06-16 23:04:32.240926 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
+2022-06-16 23:04:34.784302 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
+2022-06-16 23:04:38.087525 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
+2022-06-16 23:12:54.903884 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
+2022-06-16 23:12:54.905885 msg - watchlist.py - watchlist_main32 --> nothing found while deleting item 5HqkqH2X6qlLmHCJFAVn4B from watchlist.
+2022-06-16 23:13:12.180872 msg - watchlist.py - watchlist_main3 --> searching for artist juul
+2022-06-16 23:13:12.655945 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist juul.
+2022-06-16 23:13:15.207001 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
+2022-06-16 23:13:15.208001 msg - watchlist.py - watchlist_main32 --> nothing found while deleting item 5HqkqH2X6qlLmHCJFAVn4B from watchlist.
