@@ -65,8 +65,17 @@ def returnSearchResults(apiResponse, type):
             else:
                 imageUrl = ""
             resList.append({"artist": str(item['name']), "id": str(item['id']), "popularity": str(item['popularity']), "imageurl": imageUrl})
-        # elif type  == "playlist":
-        #     result = SearchRes('i', str(item['id']), '', '', '', '', '', str(item['name']), str(item['description']), str(item['owner']['display_name']), '', '','')
+        elif type  == "playlist":
+            if len(item['images']) !=0:
+                imageUrl = item['images'][0]['url']
+            else:
+                imageUrl = ""
+
+            if len(item['tracks']) !=0:
+                totaltracks = item['tracks']['total']
+            else:
+                totaltracks = 0
+            resList.append({"name": str(item['name']), "id": str(item['id']), "description": str(item['description']), "imageurl": imageUrl, "owner": str(item["owner"]["display_name"]), "totaltracks": totaltracks})
         # elif type  == "show":
         #     result = SearchRes('i', str(item['id']), '', '', '', '', '', str(item['name']), str(item['description']), '', str(item['publisher']), '','')
         # elif type  == "episode":

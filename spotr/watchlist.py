@@ -30,10 +30,10 @@ bp_watchlist = Blueprint('watchlist', __name__, url_prefix="/watchlist")
 ########################################################################################
 ######################################## VARIABLES #####################################
 ########################################################################################
-gv_artistList              = []     #{artist: artist, id: id, image: imageurl}
-gv_playlistInfo            = {}
+gv_artistList              = []     #list of {"artist": , "id": , "popularity": , "image": }
+gv_playlistList            = []     #list of {"name": , "id": , "description": , "image": , "owner": , "totaltracks": }
 gv_watchlistItems          = []     #list of {"id:" , "type": , "name": , "image": , "dateAdded": , "dateLastCheck": , "noOfNewItems": , "listOfNewItemsID": }
-gv_newTracksToSave         = []     # list of tracks ID's of new tracks to add to NewPlaylistTracks DB
+gv_newTracksToSave         = []     #list of tracks ID's of new tracks to add to NewPlaylistTracks DB
 gv_searchType              = ""
 gv_searchTerm              = ""
 gv_offset                  = 0
@@ -50,9 +50,9 @@ gv_total                   = 0
 def watchlist_main():
     '''--> main routine'''
     '''--> initialize gloval variables'''
-    global gv_artistList              
-    global gv_playlistInfo 
-    global gv_watchlistItems  #contains details of every watchlist entry - used for page reload
+    global gv_artistList        
+    global gv_playlistList     
+    global gv_watchlistItems    
     global gv_newTracksToSave
     global gv_searchType     
     global gv_searchTerm         
@@ -85,8 +85,13 @@ def watchlist_main():
                 logAction("msg - watchlist.py - watchlist_main --> page reload --> no items to show!")
 
 
+            '''--> (re)load watchlist items'''
+            loadWatchlistItems()
+
+
             '''--> return html'''
             return render_template('watchlist.html', 
+                                    watchlistItems = gv_watchlistItems,
                                     showArtistBtn = "active", 
                                     showArtistTab = "show active", 
                                     showPlaylistBtn ="" , 
@@ -111,6 +116,10 @@ def watchlist_main():
 
             '''--> initialize variables'''
             gv_artistList   = [] #(re-)initialize global artist list
+
+
+            '''--> (re)load watchlist items'''
+            loadWatchlistItems()
 
 
             '''--> update variables'''
@@ -152,7 +161,7 @@ def watchlist_main():
 
 
             '''--> fill artistList'''
-            for item in returnSearchResults(response, "artist"):
+            for item in returnSearchResults(response, "artist"):  #{"artist": , "id": , "popularity": , "image": }
                 gv_artistList.append({"artist": item["artist"], "id": item['id'], "popularity": item['popularity'], "image": item['imageurl']})
 
 
@@ -185,14 +194,105 @@ def watchlist_main():
                                     showUserTab = "")
 
 
+    #--> SEARCH PLAYLIST - BUTTON PRESSED - PAGINATION # 
+    if (request.method == "POST" and  ("playlist_search" in request.form)) or (request.method == "GET" and not ("addArtist" in args) and ("offs" in args) and ("lim" in args) and ("searchTerm" in args) and ("searchType" in args)):
+        try:
+            '''--> pagination or search button press?'''
+            if (request.method == "GET" and not ("addPlaylist" in args) and ("offs" in args) and ("lim" in args) and ("searchTerm" in args) and ("searchType" in args)):
+                paginReq = True
+                print("search playlist - pagination")
+            else:
+                paginReq = False
+                print("search playlist - button press")
+
+
+            '''--> (re)load watchlist items'''
+            loadWatchlistItems()
+
+
+            '''--> update variables'''
+            if paginReq:
+                gv_searchTerm   = args["searchTerm"]
+                gv_searchType   = args["searchType"]
+                gv_offset       = int(args["offs"])
+                gv_limit        = int(args["lim"])
+            else:
+                gv_searchTerm   = request.form["searchplaylistinput"] #searchterm entered in page
+                gv_searchType   = "playlist"
+                gv_offset       = 0
+                gv_limit        = 10
+
+
+            '''--> api request'''
+            logAction("msg - watchlist.py - watchlist_main50 --> searching for playlist " + gv_searchTerm)
+            response = searchSpotify(gv_searchTerm, gv_searchType, gv_limit, gv_offset)
+            
+
+            '''--> check response before continuing'''
+            if response == '':
+                logAction("err - watchlist.py - watchlist_main51 --> empty api response for searching playlist.")
+                flash("Error when searching for playlist " + gv_searchTerm + ", empty response.", category="error")
+                return render_template('watchlist.html', 
+                        showArtistBtn = "", 
+                        showArtistTab = "", 
+                        showPlaylistBtn ="active" , 
+                        showPlaylistTab = "show active", 
+                        showUserBtn = "", 
+                        showUserTab = "")
+
+
+            '''--> retrieve pagination'''
+            total       = response[gv_searchType  + 's']['total']
+            gv_limit    = response[gv_searchType  + 's']['limit']
+            gv_offset   = response[gv_searchType  + 's']['offset']
+
+
+            '''--> fill playlistList'''
+            for item in returnSearchResults(response, "playlist"):  #{"name": , "id": , "description": , "image": , "owner": , "totaltracks": }
+                gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
+
+
+            '''--> return html'''
+            return render_template("watchlist.html", 
+                                    artistList = gv_artistList, 
+                                    playlistList = gv_playlistList,
+                                    showArtistBtn = "", 
+                                    showArtistTab = "", 
+                                    showPlaylistBtn ="active" , 
+                                    showPlaylistTab = "show active", 
+                                    showUserBtn = "", 
+                                    showUserTab = "",
+                                    tot = total,
+                                    lim = gv_limit,
+                                    offs = gv_offset,
+                                    searchType = gv_searchType,
+                                    searchTerm = gv_searchTerm)
+
+        except Exception as ex:
+            flash("Error while searching for artist " + gv_searchTerm + ".", category="error")
+            logAction("err - watchlist.py - watchlist_main5 --> error while loading page --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("TRACEBACK --> " + traceback.format_exc())
+            return render_template('watchlist.html', 
+                                    artistList = gv_artistList,
+                                    showArtistBtn = "", 
+                                    showArtistTab = "", 
+                                    showPlaylistBtn ="active" , 
+                                    showPlaylistTab = "show active", 
+                                    showUserBtn = "", 
+                                    showUserTab = "")
+
+
     #--> ADD ARTIST TO WATCHLIST - BUTTON PRESSED #
     if request.method == "GET" and ("addArtist" in args) and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         try:
             '''--> artist details'''
             artistID        = args["addArtist"]
             logAction("msg - watchlist.py - watchlist_main19 --> add artist " + artistID + " to watchlist --> starting.") 
-            print("ADDING ARTIST " + artistID)
             artistResponse  = apiGetSpotify("artists/" + artistID)
+
+
+            '''--> (re)load watchlist items'''
+            loadWatchlistItems()
 
 
             '''--> check response before continuing'''
@@ -204,10 +304,10 @@ def watchlist_main():
 
             '''--> db'''
             db = get_db()
-
-
-            '''--> artist in watchlist?'''
             cursor = db.cursor()
+
+
+            '''--> artist in watchlist?'''        
             if cursor.execute('SELECT id FROM WatchList WHERE id = ?', (artistID,)).fetchone() == None:
                 pass    #not in db yet
             else:
@@ -283,14 +383,13 @@ def watchlist_main():
                                     showUserTab = "")
 
 
-
 #--> DELETE ITEM FROM WATCHLIST - BUTTON PRESSED #
     if request.method == "GET" and not ("addArtist" in args) and ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         # https://pynative.com/python-mysql-delete-data/
         try:
             '''--> item'''
             toDelID = args["delItem"]
-            logAction("msg - watchlist.py - watchlist_main30 --> delete item " + toDelID + " from watchlist --> starting.") 
+            logAction("msg - watchlist.py - watchlist_main30 --> delete item " + toDelID + " from watchlist --> starting.")
 
 
             '''--> db'''
@@ -309,6 +408,10 @@ def watchlist_main():
                 logAction("msg - watchlist.py - watchlist_main32 --> nothing found while deleting item " + toDelID + " from watchlist.")
 
             db.commit()
+
+
+            '''--> (re)load watchlist items'''
+            loadWatchlistItems() 
 
 
             '''--> return html'''
@@ -344,72 +447,37 @@ def watchlist_main():
 ########################################################################################
 
 
+########################################################################################
+######################################## FUNCTIONS #####################################
+########################################################################################
+def loadWatchlistItems():
+    '''--> fill global list with watchlist items from db'''
+    '''--> db'''
+    logAction("msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items")
+    db = get_db()
+    cursor = db.cursor()
+
+
+    '''--> load items from db and fill gv list'''
+    for item in cursor.execute('SELECT * FROM WATCHLIST').fetchall():
+        print(item["imageURL"])
+        gv_watchlistItems.append({"id": item['id'], 
+                                "type": item['_type'], 
+                                "name": item["_name"], 
+                                "image": item["imageURL"], 
+                                "dateAdded": item["date_added"], 
+                                "dateLastCheck": item["last_time_checked"], 
+                                "noOfNewItems": item["new_items_since_last_check"], 
+                                "listOfNewItemsID": item["list_of_current_items"]})
+
+########################################################################################
+
+
 ##################################### FLASK INTERFACE ##################################
 ########################################################################################
-# def loadHomePage():
-#     return render_template('watchlist.html', 
-#             artistList = gv_artistList,
-#             showArtistBtn = "active", 
-#             showArtistTab = "show active", 
-#             showPlaylistBtn ="" , 
-#             showPlaylistTab = "", 
-#             showUserBtn = "", 
-#             showUserTab = "", 
-#             offs = gv_offset, 
-#             lim = gv_limit, 
-#             tot = gv_total, 
-#             searchTerm = gv_searchTerm, 
-#             searchType = gv_searchType)
+
 ########################################################################################
 
-
-
-    # elif request.method == 'POST':
-    #     print("- - - - POST")
-    #     db = get_db()
-    #     error = None
-
-    #     tempVar = {"id": "id12" + str(datetime.now()), "album": "homework", "artist": "daft punk", "date_added": str(datetime.now())}
-    #     # json.dumps() function converts a Python object into a json string
-    #     tempVar_Serialized = json.dumps(tempVar)
-    #     #convert to json string before storing in db
-    #     #https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
-    #     try:
-    #         date_ = str(datetime.now())
-    #         db.execute(
-    #             'INSERT INTO NewWatchListTracks (id, trackList) VALUES (?,?)', (date_ + "id", tempVar_Serialized)
-    #         )
-    #         # db.execute(
-    #         #     "INSERT INTO NewWatchListTracks (id, trackList) VALUES (?, ?)",
-    #         #     (id, toStore),
-    #         # )
-    #         db.commit()
-    #         print("added entry to DB!" )
-    #     except db.IntegrityError:
-    #         print("failed to add entry to DB!" )
-    #         error = f"Id {id} is already registered."
-
-    #     #show data
-    #     data = db.execute('SELECT * FROM NewWatchListTracks').fetchall()
-    #     print(data[0]["trackList"])
-    #     print(data[0].keys())
-
-    #     #convert list of JSON strings to list of dicts
-    #     data_parsed= []
-    #     for row in data:
-    #         # print("type: " + str(type(row)))
-    #         print(str(row))
-    #         parsed = json.loads(row[1])
-    #         print(row[1])
-    #         print(parsed["album"])
-    #         data_parsed.append(parsed)
-    #         # data_parsed.append(json.loads(row))
-
-    #     # print("parsed: " + data_parsed[9]["trackList"]["album"])
-    #     logAction("TESTTEST")
-
-    #     flash(error)
-    #     return render_template('watchlist.html', data = data_parsed)
 
 ########################################################################################
 

@@ -95,3 +95,169 @@ TypeError: function takes at least 1 argument (0 given)
 2022-06-16 23:13:12.655945 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist juul.
 2022-06-16 23:13:15.207001 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
 2022-06-16 23:13:15.208001 msg - watchlist.py - watchlist_main32 --> nothing found while deleting item 5HqkqH2X6qlLmHCJFAVn4B from watchlist.
+2022-06-17 09:31:19.621979 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'sqlite3.OperationalError'> - ('near "*": syntax error',) - near "*": syntax error
+2022-06-17 09:31:19.639981 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 88, in watchlist_main
+    loadWatchlistItems()
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 360, in loadWatchlistItems
+    print(str(cursor.execute('SELECT * FROM WATCHLIST WHERE *').fetchall()))
+sqlite3.OperationalError: near "*": syntax error
+
+2022-06-17 09:46:47.414110 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:48:01.984432 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:50:04.909907 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:50:10.839252 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:50:31.402223 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:50:31.403225 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'IndexError'> - ('No item with that key',) - No item with that key
+2022-06-17 09:50:31.404227 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 88, in watchlist_main
+    loadWatchlistItems()
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 363, in loadWatchlistItems
+    print(item["image"])
+IndexError: No item with that key
+
+2022-06-17 09:51:05.715727 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 09:53:37.624638 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:01:20.795331 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:01:43.196949 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:01:50.125058 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:02:31.176534 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:02:58.577182 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:04:00.325713 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 10:04:05.398102 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 13:42:16.043717 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:37:20.524835 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:37:29.028017 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:37:47.202465 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:37:52.677467 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:37:52.681466 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-17 14:37:53.251049 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-17 14:38:06.559760 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 14:38:06.562756 msg - watchlist.py - watchlist_main50 --> searching for playlist house groove
+2022-06-17 14:38:07.081757 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist house groove.
+2022-06-17 14:38:07.081757 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'KeyError'> - ('popularity',) - 'popularity'
+2022-06-17 14:38:07.082757 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 249, in watchlist_main
+    for item in returnSearchResults(response, "playlist"):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 73, in returnSearchResults
+    resList.append({"artist": str(item['name']), "id": str(item['id']), "popularity": str(item['popularity']), "imageurl": imageUrl})
+KeyError: 'popularity'
+
+2022-06-17 15:31:10.079628 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:31:10.127627 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.",) - Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2022-06-17 15:31:10.132624 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
+    return render_template('watchlist.html',
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 257, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+
+2022-06-17 15:32:02.582533 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:32:02.624053 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.",) - Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2022-06-17 15:32:02.627052 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
+    return render_template('watchlist.html',
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 257, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+
+2022-06-17 15:32:56.743867 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:33:08.258017 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:33:12.661809 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:36:25.909723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:37:27.309861 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:45:05.470623 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:45:05.489626 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.",) - Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2022-06-17 15:45:05.491625 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
+    return render_template('watchlist.html',
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 112, in template
+    {% endif %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+
+2022-06-17 15:50:32.821399 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:50:38.477693 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 15:51:08.747273 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 16:18:28.409449 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 16:18:31.297003 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 16:18:37.004353 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 16:18:37.006354 msg - watchlist.py - watchlist_main50 --> searching for playlist test
+2022-06-17 16:18:37.555045 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
+2022-06-17 16:18:37.556042 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
+2022-06-17 16:18:37.556042 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
+    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
+AttributeError: 'dict' object has no attribute 'append'
+
+2022-06-17 23:12:12.254677 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:12:15.481779 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:12:15.484776 msg - watchlist.py - watchlist_main3 --> searching for artist test
+2022-06-17 23:12:15.965413 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist test.
+2022-06-17 23:12:26.503826 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:12:26.505828 msg - watchlist.py - watchlist_main50 --> searching for playlist test
+2022-06-17 23:12:27.048302 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
+2022-06-17 23:12:27.049301 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
+2022-06-17 23:12:27.051304 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
+    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
+AttributeError: 'dict' object has no attribute 'append'
+
+2022-06-17 23:12:40.748913 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:12:40.750917 msg - watchlist.py - watchlist_main50 --> searching for playlist test
+2022-06-17 23:12:41.274289 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
+2022-06-17 23:12:41.274289 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
+2022-06-17 23:12:41.274289 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
+    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
+AttributeError: 'dict' object has no attribute 'append'
+
+2022-06-17 23:18:48.749404 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:18:52.374402 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:18:52.376404 msg - watchlist.py - watchlist_main50 --> searching for playlist test
+2022-06-17 23:18:52.892405 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
+2022-06-17 23:30:44.362517 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:30:47.925797 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-17 23:30:47.927799 msg - watchlist.py - watchlist_main50 --> searching for playlist hansje
+2022-06-17 23:30:48.541814 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist hansje.
