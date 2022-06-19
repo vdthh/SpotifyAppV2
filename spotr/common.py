@@ -17,6 +17,7 @@ import re
 import traceback
 from pip._vendor import requests #https://stackoverflow.com/questions/48775755/importing-requests-into-python-using-visual-studio-code
 from .config import spotify_client_id, spotify_client_secret
+from spotr.db import get_db
 ########################################################################################
 
 
@@ -52,6 +53,7 @@ def waitForGivenTimeIns(secondsMin, secondsMax):
 ########################################################################################
 ######################################## FUNCTIONS #####################################
 def returnSearchResults(apiResponse, type):
+    '''--> return list of dicts in desired format, starting from a raw json response'''
     resList = []
     for item in apiResponse[type + 's']['items']:
         if type  == 'track':
@@ -82,7 +84,32 @@ def returnSearchResults(apiResponse, type):
         #     result = SearchRes('i', str(item['id']), '', '', '', str(item['release_date']), '', str(item['name']), '', '', '', '','')
 
     return resList
+
 ########################################################################################
+######################################## FUNCTIONS #####################################
+########################################################################################
+def checkIfTrackInDB(trackID, dbName):
+    '''--> check if given track is in certain db'''
+    '''return yes if already in db'''
+
+
+    '''--> db'''
+    db = get_db()
+    cursor = db.cursor()
+
+
+    '''--> check'''
+    if dbName == "ListenedTrack":
+        if cursor.execute('SELECT id FROM WatchList WHERE id = ?', (trackID,)).fetchone() == None:  #not in db yet, check more in detail (title and artist)
+            if cursor.execute('SELECT ')
+
+        else:
+            return False    #not in db yet
+
+
+
+
+
 
 
 ########################################################################################

@@ -389,3 +389,93 @@ AttributeError: 'dict' object has no attribute 'append'
 2022-06-19 15:38:11.464140 msg - watchlist.py - watchlist_main50 --> searching for playlist testje
 2022-06-19 15:38:11.992135 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testje.
 2022-06-19 15:44:02.164723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:43:03.383982 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:43:03.390984 msg - watchlist.py - watchlist_main3 --> searching for artist jaantje
+2022-06-19 21:43:03.971986 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaantje.
+2022-06-19 21:44:09.437655 msg - watchlist.py - watchlist_main19 --> add artist 4qkXUou0EQ56wmcais8uwJ to watchlist --> starting.
+2022-06-19 21:44:09.873428 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:44:09.876424 msg - common.py - getTracksFromArtist --> requesting albums from artist 4qkXUou0EQ56wmcais8uwJ.
+2022-06-19 21:44:16.061454 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 21 tracks from artist 4qkXUou0EQ56wmcais8uwJ
+2022-06-19 21:44:16.062453 msg - watchlist.py - watchlist_main20 --> grabbed artist 4qkXUou0EQ56wmcais8uwJ's tracks: 21
+2022-06-19 21:44:16.197536 msg - watchlist.py - watchlist_main22 --> artist Jantje added to watchlist.
+2022-06-19 21:45:55.707556 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:00.711642 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:00.714641 msg - watchlist.py - watchlist_main3 --> searching for artist pietertje
+2022-06-19 21:46:01.216832 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist pietertje.
+2022-06-19 21:46:08.421703 msg - watchlist.py - watchlist_main19 --> add artist 4JwlHUgIACGdCcQ3lPZTJr to watchlist --> starting.
+2022-06-19 21:46:08.837695 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:08.840696 msg - common.py - getTracksFromArtist --> requesting albums from artist 4JwlHUgIACGdCcQ3lPZTJr.
+2022-06-19 21:46:12.922319 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 53 tracks from artist 4JwlHUgIACGdCcQ3lPZTJr
+2022-06-19 21:46:12.923318 msg - watchlist.py - watchlist_main20 --> grabbed artist 4JwlHUgIACGdCcQ3lPZTJr's tracks: 53
+2022-06-19 21:46:13.041192 msg - watchlist.py - watchlist_main22 --> artist Pieter Derks added to watchlist.
+2022-06-19 21:46:17.711799 msg - watchlist.py - watchlist_main19 --> add artist 0CeAAIW5O050hFsyxPYWIl to watchlist --> starting.
+2022-06-19 21:46:18.113887 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:18.117902 msg - common.py - getTracksFromArtist --> requesting albums from artist 0CeAAIW5O050hFsyxPYWIl.
+2022-06-19 21:46:18.814559 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 1 tracks from artist 0CeAAIW5O050hFsyxPYWIl
+2022-06-19 21:46:18.814559 msg - watchlist.py - watchlist_main20 --> grabbed artist 0CeAAIW5O050hFsyxPYWIl's tracks: 1
+2022-06-19 21:46:19.000972 msg - watchlist.py - watchlist_main22 --> artist Gekke petertje added to watchlist.
+2022-06-19 21:46:23.851109 msg - watchlist.py - watchlist_main19 --> add artist 0CeAAIW5O050hFsyxPYWIl to watchlist --> starting.
+2022-06-19 21:46:24.222878 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:24.226878 msg - watchlist.py - watchlist_main21 --> artist Gekke petertje already in watchlist.
+2022-06-19 21:46:30.864199 msg - watchlist.py - watchlist_main19 --> add artist 5JzvmJdkliw2nERmKleDuS to watchlist --> starting.
+2022-06-19 21:46:31.253611 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:46:31.258611 msg - common.py - getTracksFromArtist --> requesting albums from artist 5JzvmJdkliw2nERmKleDuS.
+2022-06-19 21:46:35.606536 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 5JzvmJdkliw2nERmKleDuS
+2022-06-19 21:46:35.606536 msg - watchlist.py - watchlist_main20 --> grabbed artist 5JzvmJdkliw2nERmKleDuS's tracks: 24
+2022-06-19 21:46:35.791464 msg - watchlist.py - watchlist_main22 --> artist Pieternel added to watchlist.
+2022-06-19 21:48:26.683413 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:48:32.013903 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:48:32.019903 msg - watchlist.py - watchlist_main3 --> searching for artist petertje
+2022-06-19 21:48:32.493644 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist petertje.
+2022-06-19 21:48:34.902910 msg - watchlist.py - watchlist_main19 --> add artist 401oO85UVJpqgksV56fTVg to watchlist --> starting.
+2022-06-19 21:48:35.223768 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:48:35.228770 msg - common.py - getTracksFromArtist --> requesting albums from artist 401oO85UVJpqgksV56fTVg.
+2022-06-19 21:48:49.219943 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 242 tracks from artist 401oO85UVJpqgksV56fTVg
+2022-06-19 21:48:49.220943 msg - watchlist.py - watchlist_main20 --> grabbed artist 401oO85UVJpqgksV56fTVg's tracks: 242
+2022-06-19 21:48:49.392411 msg - watchlist.py - watchlist_main22 --> artist Peter Jezewski added to watchlist.
+2022-06-19 21:48:54.073895 msg - watchlist.py - watchlist_main19 --> add artist 38nnoDVnxnk4CIoeUirAI1 to watchlist --> starting.
+2022-06-19 21:48:54.504355 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:48:54.508355 msg - common.py - getTracksFromArtist --> requesting albums from artist 38nnoDVnxnk4CIoeUirAI1.
+2022-06-19 21:49:00.095862 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 120 tracks from artist 38nnoDVnxnk4CIoeUirAI1
+2022-06-19 21:49:00.096710 msg - watchlist.py - watchlist_main20 --> grabbed artist 38nnoDVnxnk4CIoeUirAI1's tracks: 120
+2022-06-19 21:49:00.256335 msg - watchlist.py - watchlist_main22 --> artist Peter Jensen added to watchlist.
+2022-06-19 21:49:04.740880 msg - watchlist.py - watchlist_main19 --> add artist 6IeePaFfG9ix9hapm2YBTT to watchlist --> starting.
+2022-06-19 21:49:05.074877 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:49:05.079880 msg - common.py - getTracksFromArtist --> requesting albums from artist 6IeePaFfG9ix9hapm2YBTT.
+2022-06-19 21:49:43.387786 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 548 tracks from artist 6IeePaFfG9ix9hapm2YBTT
+2022-06-19 21:49:43.388786 msg - watchlist.py - watchlist_main20 --> grabbed artist 6IeePaFfG9ix9hapm2YBTT's tracks: 548
+2022-06-19 21:49:43.527448 msg - watchlist.py - watchlist_main22 --> artist Peter Jericho added to watchlist.
+2022-06-19 21:49:47.812359 msg - watchlist.py - watchlist_main19 --> add artist 3fcsflK8xu26XH4OYTcm5T to watchlist --> starting.
+2022-06-19 21:49:48.228401 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 21:49:48.233404 msg - common.py - getTracksFromArtist --> requesting albums from artist 3fcsflK8xu26XH4OYTcm5T.
+2022-06-19 21:53:23.197838 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9152 tracks from artist 3fcsflK8xu26XH4OYTcm5T
+2022-06-19 21:53:23.198834 msg - watchlist.py - watchlist_main20 --> grabbed artist 3fcsflK8xu26XH4OYTcm5T's tracks: 9152
+2022-06-19 21:53:23.469932 msg - watchlist.py - watchlist_main22 --> artist Kiri Te Kanawa added to watchlist.
+2022-06-19 22:05:58.760997 msg - watchlist.py - watchlist_main19 --> add artist 4AAPGFYcThlVFRh8jXpaDT to watchlist --> starting.
+2022-06-19 22:05:59.220767 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 22:05:59.225769 msg - common.py - getTracksFromArtist --> requesting albums from artist 4AAPGFYcThlVFRh8jXpaDT.
+2022-06-19 22:06:00.334340 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9 tracks from artist 4AAPGFYcThlVFRh8jXpaDT
+2022-06-19 22:06:00.335339 msg - watchlist.py - watchlist_main20 --> grabbed artist 4AAPGFYcThlVFRh8jXpaDT's tracks: 9
+2022-06-19 22:06:00.545550 msg - watchlist.py - watchlist_main22 --> artist Jess Sah Bi & Peter One added to watchlist.
+2022-06-19 22:06:06.496614 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 22:06:06.504615 msg - watchlist.py - watchlist_main3 --> searching for artist jaapie
+2022-06-19 22:06:06.939086 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaapie.
+2022-06-19 22:06:10.926748 msg - watchlist.py - watchlist_main19 --> add artist 4ByPDHe43iWDnsOtGgMcUo to watchlist --> starting.
+2022-06-19 22:06:11.339746 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 22:06:11.344747 msg - common.py - getTracksFromArtist --> requesting albums from artist 4ByPDHe43iWDnsOtGgMcUo.
+2022-06-19 22:06:12.397813 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 2 tracks from artist 4ByPDHe43iWDnsOtGgMcUo
+2022-06-19 22:06:12.397813 msg - watchlist.py - watchlist_main20 --> grabbed artist 4ByPDHe43iWDnsOtGgMcUo's tracks: 2
+2022-06-19 22:06:12.549407 msg - watchlist.py - watchlist_main22 --> artist Jappie added to watchlist.
+2022-06-19 22:06:15.024957 msg - watchlist.py - watchlist_main19 --> add artist 5U721HD4VTp8J2v1akUWxa to watchlist --> starting.
+2022-06-19 22:06:15.373982 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 22:06:15.379986 msg - common.py - getTracksFromArtist --> requesting albums from artist 5U721HD4VTp8J2v1akUWxa.
+2022-06-19 22:06:20.104346 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 33 tracks from artist 5U721HD4VTp8J2v1akUWxa
+2022-06-19 22:06:20.105346 msg - watchlist.py - watchlist_main20 --> grabbed artist 5U721HD4VTp8J2v1akUWxa's tracks: 33
+2022-06-19 22:06:20.257859 msg - watchlist.py - watchlist_main22 --> artist Bertus en Jaapie added to watchlist.
+2022-06-19 22:06:22.537412 msg - watchlist.py - watchlist_main19 --> add artist 6Vnfx80mTKHH8PsQ6A70Ex to watchlist --> starting.
+2022-06-19 22:06:22.910672 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 22:06:22.916675 msg - common.py - getTracksFromArtist --> requesting albums from artist 6Vnfx80mTKHH8PsQ6A70Ex.
+2022-06-19 22:06:23.665791 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 10 tracks from artist 6Vnfx80mTKHH8PsQ6A70Ex
+2022-06-19 22:06:23.665791 msg - watchlist.py - watchlist_main20 --> grabbed artist 6Vnfx80mTKHH8PsQ6A70Ex's tracks: 10
+2022-06-19 22:06:23.812554 msg - watchlist.py - watchlist_main22 --> artist Vlugge Jaapie added to watchlist.
+2022-06-19 22:06:32.022755 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
