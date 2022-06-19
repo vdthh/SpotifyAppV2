@@ -116,6 +116,7 @@ def watchlist_main():
 
             '''--> initialize variables'''
             gv_artistList   = [] #(re-)initialize global artist list
+            gv_watchlistItems = []
 
 
             '''--> (re)load watchlist items'''
@@ -167,7 +168,9 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template("watchlist.html", 
+                                    watchlistItems = gv_watchlistItems,
                                     artistList = gv_artistList, 
+                                    playlistList = gv_playlistList,
                                     showArtistBtn = "active", 
                                     showArtistTab = "show active", 
                                     showPlaylistBtn ="" , 
@@ -204,6 +207,10 @@ def watchlist_main():
             else:
                 paginReq = False
                 print("search playlist - button press")
+
+            '''--> initialize variables'''
+            gv_playlistList   = [] #(re-)initialize global artist list
+            gv_watchlistItems = []
 
 
             '''--> (re)load watchlist items'''
@@ -254,6 +261,7 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template("watchlist.html", 
+                                    watchlistItems = gv_watchlistItems,
                                     artistList = gv_artistList, 
                                     playlistList = gv_playlistList,
                                     showArtistBtn = "", 
@@ -416,7 +424,9 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template('watchlist.html', 
+                                    watchlistItems = gv_watchlistItems,
                                     artistList = gv_artistList,
+                                    playlistList = gv_playlistList,
                                     showArtistBtn = "active", 
                                     showArtistTab = "show active", 
                                     showPlaylistBtn ="" , 

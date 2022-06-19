@@ -261,3 +261,131 @@ AttributeError: 'dict' object has no attribute 'append'
 2022-06-17 23:30:47.925797 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
 2022-06-17 23:30:47.927799 msg - watchlist.py - watchlist_main50 --> searching for playlist hansje
 2022-06-17 23:30:48.541814 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist hansje.
+2022-06-18 22:29:59.836717 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:30:06.484988 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:30:06.486987 msg - watchlist.py - watchlist_main50 --> searching for playlist indie melody
+2022-06-18 22:30:07.180555 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melody.
+2022-06-18 22:30:13.251590 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:30:13.253593 msg - watchlist.py - watchlist_main3 --> searching for artist frank
+2022-06-18 22:30:13.658836 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist frank.
+2022-06-18 22:30:21.510027 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:30:21.512026 msg - watchlist.py - watchlist_main50 --> searching for playlist indie
+2022-06-18 22:30:21.976557 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie.
+2022-06-18 22:55:28.818699 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:55:35.770256 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:55:35.773255 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 22:55:36.297338 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 22:56:23.171818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:56:26.935574 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 22:56:26.937575 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 22:56:27.463348 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 23:00:20.131798 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:00:23.312035 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:00:23.314034 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 23:00:23.923174 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 23:33:21.425406 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:33:24.526742 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:33:24.529740 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 23:33:25.053926 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 23:34:03.391797 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:34:06.302181 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:34:06.304183 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 23:34:06.783068 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 23:41:12.011227 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:41:15.159800 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:41:15.160801 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 23:41:15.825190 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-18 23:41:22.893745 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:42:28.630715 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:42:34.200896 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:42:34.203899 msg - watchlist.py - watchlist_main50 --> searching for playlist cooler
+2022-06-18 23:42:34.716662 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist cooler.
+2022-06-18 23:42:43.288124 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:43:28.302826 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:43:31.938669 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:43:31.940670 msg - watchlist.py - watchlist_main50 --> searching for playlist cooler
+2022-06-18 23:43:32.501681 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist cooler.
+2022-06-18 23:43:50.703795 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-18 23:43:50.705795 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-18 23:43:51.125796 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-19 13:35:25.263230 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:35:40.366635 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:35:40.368637 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
+2022-06-19 13:35:40.907932 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
+2022-06-19 13:36:02.901847 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:36:02.904843 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-19 13:36:03.407866 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-19 13:43:49.201818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:43:54.146503 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:43:54.149502 msg - watchlist.py - watchlist_main3 --> searching for artist john
+2022-06-19 13:43:54.592432 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
+2022-06-19 13:49:32.949667 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 13:57:24.285677 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:10:48.089703 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:10:51.389737 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:13:01.443468 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:17:12.458825 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:17:51.196805 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:23:44.980467 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:26:19.843030 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:27:07.797329 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:29:40.923625 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:29:44.085689 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:29:45.520823 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:32:15.250932 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:32:19.321577 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:32:58.709562 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:43:37.426345 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 14:49:39.555288 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:06:01.108683 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:06:27.845154 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:06:27.848154 msg - watchlist.py - watchlist_main3 --> searching for artist stan
+2022-06-19 15:06:28.433238 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist stan.
+2022-06-19 15:06:31.753506 msg - watchlist.py - watchlist_main19 --> add artist 0FMucZsEnCxs5pqBjHjIc8 to watchlist --> starting.
+2022-06-19 15:06:32.127506 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:06:32.131506 msg - common.py - getTracksFromArtist --> requesting albums from artist 0FMucZsEnCxs5pqBjHjIc8.
+2022-06-19 15:11:05.294063 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9786 tracks from artist 0FMucZsEnCxs5pqBjHjIc8
+2022-06-19 15:11:05.295064 msg - watchlist.py - watchlist_main20 --> grabbed artist 0FMucZsEnCxs5pqBjHjIc8's tracks: 9786
+2022-06-19 15:11:05.674064 msg - watchlist.py - watchlist_main22 --> artist Stan Getz added to watchlist.
+2022-06-19 15:27:31.196925 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:27:36.187926 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:27:36.190928 msg - watchlist.py - watchlist_main3 --> searching for artist joske
+2022-06-19 15:27:36.656925 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
+2022-06-19 15:27:47.716925 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:27:51.049928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:27:54.615928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:27:59.008928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:28:04.605929 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:28:04.608929 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:28:04.996930 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:34:14.093955 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:34:18.014950 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:34:19.927628 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:34:23.714815 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:34:23.717815 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:34:24.156813 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:34:48.336844 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:34:48.342842 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:34:48.809841 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:34:51.259842 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:35:07.750853 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:35:12.155854 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:35:12.158852 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:35:12.602850 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:35:16.422854 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:35:16.425852 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:35:16.863850 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:36:19.715032 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:36:22.782030 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:36:22.785032 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:36:23.324034 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:36:45.805031 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:36:47.696034 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:38:02.471136 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:38:05.575137 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:38:05.578136 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
+2022-06-19 15:38:06.299134 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
+2022-06-19 15:38:11.461136 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-19 15:38:11.464140 msg - watchlist.py - watchlist_main50 --> searching for playlist testje
+2022-06-19 15:38:11.992135 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testje.
+2022-06-19 15:44:02.164723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
