@@ -92,25 +92,40 @@ def checkIfTrackInDB(trackID, dbName):
     '''--> check if given track is in certain db'''
     '''return yes if already in db'''
 
-
+    print("--------------------------HOHOHO")
     '''--> db'''
     db = get_db()
     cursor = db.cursor()
 
+    print("--------------------------jA")
+    '''-->track details'''
+    trackDetails = getTrackInfo(trackID, True)
+    artistsList = []
+    artistsList = trackDetails["artists"]
+    artists = ' '.join(artistsList)
+    print("ARTISTLIST tO STRING: " + artists)
+
+    title = trackDetails["title"]
+
 
     '''--> check'''
     if dbName == "ListenedTrack":
-        if cursor.execute('SELECT id FROM WatchList WHERE id = ?', (trackID,)).fetchone() == None:  #not in db yet, check more in detail (title and artist)
-            if cursor.execute('SELECT ')
-
+        # https://stackoverflow.com/questions/54659595/checking-for-multiple-values-python-mysql
+        query = 'SELECT * FROM ListenedTrack WHERE artists = %s AND title = %s'
+        values = (artists, title)
+        if cursor.execute(query, values).fetchone() == None:
+            print("NOT IN DB")
+            return False
         else:
-            return False    #not in db yet
+            print("IN DB")
+            return True
 
 
+        # if cursor.execute(, (trackID,)).fetchone() == None:  #not in db yet, check more in detail (title and artist)
+        #     if cursor.execute('SELECT ')
 
-
-
-
+        # else:
+        #     return False    #not in db yet
 
 ########################################################################################
 
@@ -685,3 +700,9 @@ def searchSpotify(searchstring, searchtype, limit, offset):
 #     print("WHOOPSIE")
 # else:
 #     print("TSJAKKAAA!!")
+
+get_db()
+    # if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
+    #     print("TRUE")
+    # else:
+    #     print("FALSE")
