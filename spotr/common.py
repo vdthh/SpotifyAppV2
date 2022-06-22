@@ -17,7 +17,11 @@ import re
 import traceback
 from pip._vendor import requests #https://stackoverflow.com/questions/48775755/importing-requests-into-python-using-visual-studio-code
 from .config import spotify_client_id, spotify_client_secret
+from flask import current_app
+from spotr import app
 from spotr.db import get_db
+
+
 ########################################################################################
 
 
@@ -93,9 +97,12 @@ def checkIfTrackInDB(trackID, dbName):
     '''return yes if already in db'''
 
     print("--------------------------HOHOHO")
+
+
     '''--> db'''
-    db = get_db()
-    cursor = db.cursor()
+    with app.app_context():
+        db = get_db()
+        cursor = db.cursor()
 
     print("--------------------------jA")
     '''-->track details'''
@@ -701,8 +708,8 @@ def searchSpotify(searchstring, searchtype, limit, offset):
 # else:
 #     print("TSJAKKAAA!!")
 
-get_db()
-    # if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
-    #     print("TRUE")
-    # else:
-    #     print("FALSE")
+
+if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
+    print("TRUE")
+else:
+    print("FALSE")

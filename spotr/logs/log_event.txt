@@ -479,3 +479,5 @@ AttributeError: 'dict' object has no attribute 'append'
 2022-06-19 22:06:23.665791 msg - watchlist.py - watchlist_main20 --> grabbed artist 6Vnfx80mTKHH8PsQ6A70Ex's tracks: 10
 2022-06-19 22:06:23.812554 msg - watchlist.py - watchlist_main22 --> artist Vlugge Jaapie added to watchlist.
 2022-06-19 22:06:32.022755 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-06-22 23:25:53.486485 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-22 23:26:25.780215 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items

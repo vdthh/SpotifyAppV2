@@ -15,7 +15,7 @@ from datetime import datetime
 import json
 import os
 import traceback
-from .common import apiGetSpotify, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults
+from .common import apiGetSpotify, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
 ########################################################################################
 
 
@@ -599,6 +599,12 @@ def loadWatchlistItems():
 ########################################################################################
 
 
+######################################## FUNCTIONS #####################################
+
+
+########################################################################################
+
+
 ##################################### FLASK INTERFACE ##################################
 ########################################################################################
 
@@ -611,3 +617,8 @@ def loadWatchlistItems():
 
 
 
+# get_db()
+# if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
+#     print("TRUE")
+# else:
+#     print("FALSE")
