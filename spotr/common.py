@@ -19,7 +19,7 @@ from pip._vendor import requests #https://stackoverflow.com/questions/48775755/i
 from .config import spotify_client_id, spotify_client_secret
 from flask import current_app
 from spotr import app
-from spotr.db import get_db
+from spotr.db import get_db_connection
 
 
 ########################################################################################
@@ -105,6 +105,8 @@ def checkIfTrackInDB(trackID, dbName):
         cursor = db.cursor()
 
     print("--------------------------jA")
+
+
     '''-->track details'''
     trackDetails = getTrackInfo(trackID, True)
     artistsList = []
@@ -126,6 +128,12 @@ def checkIfTrackInDB(trackID, dbName):
         else:
             print("IN DB")
             return True
+
+    # cursor.execute(
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlists, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
+    #     ("1XoXJAvgX9buXUIVmKVYzS", "1XoXJAvgX9buXUIVmKVYzS", "jefke", "title", "href", "yes", 10, "huh", "imglink", 0)
+    # )
+    # db.commit()
 
 
         # if cursor.execute(, (trackID,)).fetchone() == None:  #not in db yet, check more in detail (title and artist)
@@ -708,8 +716,11 @@ def searchSpotify(searchstring, searchtype, limit, offset):
 # else:
 #     print("TSJAKKAAA!!")
 
+# temp!!!! add track to ListenedTrack DB
 
-if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
-    print("TRUE")
-else:
-    print("FALSE")
+
+
+# if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "ListenedTrack"):
+#     print("TRUE")
+# else:
+#     print("FALSE")

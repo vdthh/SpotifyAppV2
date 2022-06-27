@@ -10,7 +10,7 @@
 import functools
 from flask import (Blueprint, flash, g, redirect, render_template, request, url_for)
 from spotr.common import logAction
-from spotr.db import get_db
+from spotr.db import get_db_connection
 from datetime import datetime
 import json
 import os
@@ -75,7 +75,7 @@ def watchlist_main():
 
 
             '''--> db operation'''
-            db = get_db() #grab from db
+            db = get_db_connection() #grab from db
             data = db.execute('SELECT * FROM WatchList').fetchall()    #returns list of dicts https://docs.python.org/3/library/sqlite3.html
 
 
@@ -312,7 +312,7 @@ def watchlist_main():
 
 
             '''--> db'''
-            db = get_db()
+            db = get_db_connection()
             cursor = db.cursor()
 
 
@@ -418,7 +418,7 @@ def watchlist_main():
 
 
             '''--> db'''
-            db = get_db()
+            db = get_db_connection()
             cursor = db.cursor()
 
 
@@ -516,7 +516,7 @@ def watchlist_main():
 
 
             '''--> db'''
-            db = get_db()
+            db = get_db_connection()
 
   
             '''--> delete from db'''
@@ -580,7 +580,7 @@ def loadWatchlistItems():
     '''--> fill global list with watchlist items from db'''
     '''--> db'''
     logAction("msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items")
-    db = get_db()
+    db = get_db_connection()
     cursor = db.cursor()
 
 

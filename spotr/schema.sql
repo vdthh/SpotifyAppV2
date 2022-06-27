@@ -11,7 +11,7 @@ CREATE TABLE ListenedTrack (
     href TEXT,
     popularity INTEGER,
     from_playlist TEXT,
-    date_added TEXT,
+    date_added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     how_many_times_double INTEGER
 );
 
