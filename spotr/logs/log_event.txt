@@ -490,3 +490,22 @@ AttributeError: 'dict' object has no attribute 'append'
   File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 79, in watchlist_main
     data = db.execute('SELECT * FROM WatchList').fetchall()    #returns list of dicts https://docs.python.org/3/library/sqlite3.html
 sqlite3.OperationalError: no such table: WatchList
+
+2022-06-28 21:40:43.885122 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:42:33.140560 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:42:45.588857 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:43:05.431748 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:50:45.285847 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:50:52.432008 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:53:38.737831 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 22:58:40.395431 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:01:46.468919 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:02:35.510701 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:02:48.811961 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:03:34.877240 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:03:55.206003 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:04:23.798987 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:04:41.020101 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:05:36.778148 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:05:55.258050 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-06-28 23:06:03.271058 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS

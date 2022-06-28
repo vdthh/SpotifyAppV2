@@ -101,7 +101,7 @@ def checkIfTrackInDB(trackID, dbName):
 
     '''--> db'''
     with app.app_context():
-        db = get_db()
+        db = get_db_connection()
         cursor = db.cursor()
 
     print("--------------------------jA")
@@ -111,18 +111,19 @@ def checkIfTrackInDB(trackID, dbName):
     trackDetails = getTrackInfo(trackID, True)
     artistsList = []
     artistsList = trackDetails["artists"]
-    artists = ' '.join(artistsList)
+    artists = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
     print("ARTISTLIST tO STRING: " + artists)
-
     title = trackDetails["title"]
 
 
     '''--> check'''
     if dbName == "ListenedTrack":
         # https://stackoverflow.com/questions/54659595/checking-for-multiple-values-python-mysql
-        query = 'SELECT * FROM ListenedTrack WHERE artists = %s AND title = %s'
-        values = (artists, title)
-        if cursor.execute(query, values).fetchone() == None:
+        # query = 'SELECT * FROM ListenedTrack WHERE artists = %s AND title = %s'
+        # values = (artists, title)
+        # if cursor.execute(query, values).fetchone() == None:
+        cursor.execute('SELECT * FROM ListenedTrack WHERE artists=? AND title=?', ["title3", "href3"])
+        if cursor.fetchone() == None:
             print("NOT IN DB")
             return False
         else:
@@ -130,8 +131,26 @@ def checkIfTrackInDB(trackID, dbName):
             return True
 
     # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlists, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
     #     ("1XoXJAvgX9buXUIVmKVYzS", "1XoXJAvgX9buXUIVmKVYzS", "jefke", "title", "href", "yes", 10, "huh", "imglink", 0)
+    # )
+    # db.commit()
+
+    # cursor.execute(
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
+    #     ("2oLV25NRYt0G8b2Mz1voRu", "2oLV25NRYt0G8b2Mz1voRu", "franske", "title2", "href2", "yes2", 20, "huh2", "imglink2", 2)
+    # )
+    # db.commit()
+
+    # cursor.execute(
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
+    #     ("1vhM5R8NlVIoFG26Mk9HEh", "1vhM5R8NlVIoFG26Mk9HEh", "joske", "title3", "href3", "yes3", 30, "huh3", "imglink3", 3)
+    # )
+    # db.commit()
+
+    # cursor.execute(
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
+    #     ("1m4Xca7rdY2hvkDaMGccI5", "1m4Xca7rdY2hvkDaMGccI5", "bertje", "title4", "href4", "yes4", 40, "huh4", "imglink4", 4)
     # )
     # db.commit()
 
@@ -720,7 +739,7 @@ def searchSpotify(searchstring, searchtype, limit, offset):
 
 
 
-# if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "ListenedTrack"):
-#     print("TRUE")
-# else:
-#     print("FALSE")
+if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "ListenedTrack"):
+    print("TRUE")
+else:
+    print("FALSE")
