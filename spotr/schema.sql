@@ -19,7 +19,7 @@ CREATE TABLE WatchList (
     id TEXT PRIMARY KEY,
     _type TEXT,
     _name TEXT,
-    date_added TEXT,
+    date_added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_time_checked TEXT,
     no_of_items_checked INTEGER,
     href TEXT,
