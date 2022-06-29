@@ -94,72 +94,60 @@ def returnSearchResults(apiResponse, type):
 ########################################################################################
 def checkIfTrackInDB(trackID, dbName):
     '''--> check if given track is in certain db'''
-    '''return yes if already in db'''
+    '''return True if in db'''
+    '''return False if not in db'''
 
-    print("--------------------------HOHOHO")
-
-
-    '''--> db'''
-    with app.app_context():
-        db = get_db_connection()
-        cursor = db.cursor()
-
-    print("--------------------------jA")
+    try:
+        '''--> db'''
+        with app.app_context():
+            db              = get_db_connection()
+            cursor          = db.cursor()
 
 
-    '''-->track details'''
-    trackDetails = getTrackInfo(trackID, True)
-    artistsList = []
-    artistsList = trackDetails["artists"]
-    artists = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
-    print("ARTISTLIST tO STRING: " + artists)
-    title = trackDetails["title"]
+        '''-->track details'''
+        trackDetails    = getTrackInfo(trackID, True)
+        artistsList     = []
+        artistsList     = trackDetails["artists"]
+        artists         = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
+        title           = trackDetails["title"]
 
 
-    '''--> check'''
-    if dbName == "ListenedTrack":
+        '''--> check'''
         # https://stackoverflow.com/questions/54659595/checking-for-multiple-values-python-mysql
-        # query = 'SELECT * FROM ListenedTrack WHERE artists = %s AND title = %s'
-        # values = (artists, title)
-        # if cursor.execute(query, values).fetchone() == None:
-        cursor.execute('SELECT * FROM ListenedTrack WHERE artists=? AND title=?', ["title3", "href3"])
+        cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=? OR artists=? AND title=?', (trackID, artists, title))
         if cursor.fetchone() == None:
-            print("NOT IN DB")
-            return False
+            return False    #not in db
         else:
-            print("IN DB")
-            return True
+            return True     #in db
+
+    except Exception as ex:
+        logAction("err - common.py - checkIfTrackInDB1 --> error while checking trackID " + trackID + " in table " + dbName + " --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return False
 
     # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-    #     ("1XoXJAvgX9buXUIVmKVYzS", "1XoXJAvgX9buXUIVmKVYzS", "jefke", "title", "href", "yes", 10, "huh", "imglink", 0)
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
+    #     ("1XoXJAvgX9buXUIVmKVYzS", "1XoXJAvgX9buXUIVmKVYzS", "album1", "jefke", "title1", "href1", 10, "", 0)
     # )
     # db.commit()
 
     # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-    #     ("2oLV25NRYt0G8b2Mz1voRu", "2oLV25NRYt0G8b2Mz1voRu", "franske", "title2", "href2", "yes2", 20, "huh2", "imglink2", 2)
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
+    #     ("2oLV25NRYt0G8b2Mz1voRu", "2oLV25NRYt0G8b2Mz1voRu", "album2", "stafke", "title2", "href2", 20, "huh2",2)
     # )
     # db.commit()
 
     # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-    #     ("1vhM5R8NlVIoFG26Mk9HEh", "1vhM5R8NlVIoFG26Mk9HEh", "joske", "title3", "href3", "yes3", 30, "huh3", "imglink3", 3)
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
+    #     ("1vhM5R8NlVIoFG26Mk9HEh", "1vhM5R8NlVIoFG26Mk9HEh", "album3", "henkie", "title3", "href3", 30, "huh3", 3)
     # )
     # db.commit()
 
     # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, date_added, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-    #     ("1m4Xca7rdY2hvkDaMGccI5", "1m4Xca7rdY2hvkDaMGccI5", "bertje", "title4", "href4", "yes4", 40, "huh4", "imglink4", 4)
+    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
+    #     ("1m4Xca7rdY2hvkDaMGccI5", "1m4Xca7rdY2hvkDaMGccI5", "album4", "bertje", "title4", "href4", 40, "huh4", 4)
     # )
     # db.commit()
-
-
-        # if cursor.execute(, (trackID,)).fetchone() == None:  #not in db yet, check more in detail (title and artist)
-        #     if cursor.execute('SELECT ')
-
-        # else:
-        #     return False    #not in db yet
 
 ########################################################################################
 

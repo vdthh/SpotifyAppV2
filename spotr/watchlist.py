@@ -15,7 +15,7 @@ from datetime import datetime
 import json
 import os
 import traceback
-from .common import apiGetSpotify, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
+from .common import apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
 ########################################################################################
 
 
@@ -338,8 +338,8 @@ def watchlist_main():
 
 
             '''-->artist's tracks'''
-            trackList       = getTracksFromArtist(artistID, False)
-            logAction("msg - watchlist.py - watchlist_main20 --> grabbed artist " + artistID + "'s tracks: " + str(len(trackList)))
+            artistTrackList       = getTracksFromArtist(artistID, False)
+            logAction("msg - watchlist.py - watchlist_main20 --> grabbed artist " + artistID + "'s tracks: " + str(len(artistTrackList)))
 
 
             '''--> check data'''
@@ -356,12 +356,21 @@ def watchlist_main():
 
             '''--> add to db'''
             db.execute(
-                'INSERT INTO WatchList (id, _type, _name, date_added, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-                (artistID, "artist", name, datetime.now(), datetime.now(), len(trackList), "", json.dumps(trackList), imglink, 0)
+                'INSERT INTO WatchList (id, _type, _name, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?)', 
+                (artistID, "artist", name, datetime.now(), len(artistTrackList), "", json.dumps(artistTrackList), imglink, 0)
             )
             db.commit()
-            logAction("msg - watchlist.py - watchlist_main22 --> artist " + artistResponse["name"] + " added to watchlist.")
-            flash("Artist " + artistResponse["name"] + " added to watchlist.", category="message")
+            logAction("msg - watchlist.py - watchlist_main22 --> artist " + name + " added to watchlist.")
+            flash("Artist " + name + " added to watchlist.", category="message")
+
+
+
+
+
+            '''--> add artist's tracks to NewWatchListTracks'''
+            for trck in artistTrackList:
+                CREATE TABLE IF NOT EXISTS info (PRIMARY KEY id int, username text, password text)
+                create function in common 'checkIfTableExists'?
 
 
             '''--> return html'''
