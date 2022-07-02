@@ -15,6 +15,7 @@ from datetime import datetime
 import json
 import os
 import traceback
+import sqlite3
 from .common import apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
 ########################################################################################
 
@@ -354,7 +355,21 @@ def watchlist_main():
                 imglink = ""
 
 
-            '''--> add to db'''
+            '''--> check if entry in db table WatchListNewTracks exists'''
+            try:
+               if cursor.execute('SELECT * FROM WatchListNewTracks').fetchone() == None:
+                    print("CHECKING ENTRY")
+                    dummyList = ["jantje","bertje","hansje"]
+                    db.execute(
+                    'INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)', 
+                    ("newTracks", json.dumps(dummyList)))
+                    db.commit()
+                    print("CREATED ENTRY")
+            except sqlite3.OperationalError:
+                print("DATATABLE DOES NOT EXIT")
+
+
+            '''--> add artist to WatchList db'''
             db.execute(
                 'INSERT INTO WatchList (id, _type, _name, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?)', 
                 (artistID, "artist", name, datetime.now(), len(artistTrackList), "", json.dumps(artistTrackList), imglink, 0)
@@ -364,13 +379,29 @@ def watchlist_main():
             flash("Artist " + name + " added to watchlist.", category="message")
 
 
-
-
-
-            '''--> add artist's tracks to NewWatchListTracks'''
+            '''--> add artist's tracks to WatchListNewTracks'''
+            '''First check if item in WatchListNewTracks exists'''
             for trck in artistTrackList:
-                CREATE TABLE IF NOT EXISTS info (PRIMARY KEY id int, username text, password text)
-                create function in common 'checkIfTableExists'?
+                if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack"):
+                    #Not in db yet, update tracklist
+                    print("NOT IN DB YET, ADDING " + trck)
+                    data = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+                    # print("TYPE0: " + str(type(data[0])))
+                    # print("TYPE1: " + str(type(data[1])))
+                    # print("data1: " + str(data[1]))
+                    # print("data1 json loads: " + str(json.loads(data[1])))
+                    # print("TUPLE: " + str(tuple(data)))
+                    # print("LIST: " + str(list(data)))
+                    # print("DICT: " + str(dict(data)))
+                    # print("LENGTH: " + str(len(data)))
+                    # print("KEYS: " + data.keys())
+                    # print("-------------------  " + str(data))
+                    # print("TYPE DAT[0]: " + str(type(data[0].trackList)))
+                    currentTrackList = json.loads(data[1])
+                    currentTrackList = currentTrackList + [trck]
+                    db.execute(
+                        'UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                    db.commit()
 
 
             '''--> return html'''

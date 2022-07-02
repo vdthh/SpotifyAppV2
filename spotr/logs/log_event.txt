@@ -1,537 +1,311 @@
 
-2022-06-16 21:47:06.528926 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
-2022-06-16 21:47:07.041175 msg - common.py - getTracksFromArtist --> requesting albums from artist 0uyfqpSDJkClTZr1D7A2si.
-2022-06-16 21:47:08.850697 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 0uyfqpSDJkClTZr1D7A2si
-2022-06-16 21:47:08.851698 msg - watchlist.py - watchlist_main20 --> grabbed artist 0uyfqpSDJkClTZr1D7A2si's tracks: 24
-2022-06-16 21:47:08.851698 err - watchlist.py - watchlist_main10 --> ... --> <class 'IndexError'> - ('list index out of range',) - list index out of range
-2022-06-16 21:47:08.852698 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 267, in watchlist_main
-    if artistResponse["images"][0]["url"]:
-IndexError: list index out of range
+2022-07-02 23:41:39.448970 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:41:44.312886 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:41:44.372886 msg - watchlist.py - watchlist_main3 --> searching for artist bertje
+2022-07-02 23:41:44.749576 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist bertje.
+2022-07-02 23:41:51.343969 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:41:51.347574 msg - watchlist.py - watchlist_main3 --> searching for artist berend
+2022-07-02 23:41:51.683924 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist berend.
+2022-07-02 23:41:56.238602 msg - watchlist.py - watchlist_main19 --> add artist 0ZzGQCPTvnXnQfoAVtfpBx to watchlist --> starting.
+2022-07-02 23:41:56.633941 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:41:56.637938 msg - common.py - getTracksFromArtist --> requesting albums from artist 0ZzGQCPTvnXnQfoAVtfpBx.
+2022-07-02 23:41:57.676890 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 37 tracks from artist 0ZzGQCPTvnXnQfoAVtfpBx
+2022-07-02 23:41:57.676890 msg - watchlist.py - watchlist_main20 --> grabbed artist 0ZzGQCPTvnXnQfoAVtfpBx's tracks: 37
+2022-07-02 23:41:58.237202 msg - watchlist.py - watchlist_main22 --> artist Michiel Geelen added to watchlist.
+2022-07-02 23:41:58.238202 msg - common.py - getTrackInfo --> requesting track info for trackID: 1B7w0GJergelyl6Hejw6tF
+2022-07-02 23:41:58.599420 msg - common.py - getTrackInfo --> requesting track info for trackID: 1B7w0GJergelyl6Hejw6tF
+2022-07-02 23:41:59.000415 err - watchlist.py - watchlist_main10 --> ... --> <class 'json.decoder.JSONDecodeError'> - ('Expecting value: line 1 column 1 (char 0)',) - Expecting value: line 1 column 1 (char 0)
+2022-07-02 23:41:59.002415 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 394, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(json.loads(data[0]))))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-2022-06-16 21:48:53.037773 msg - watchlist.py - watchlist_main3 --> searching for artist kristof
-2022-06-16 21:48:53.469668 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist kristof.
-2022-06-16 21:48:55.912686 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
-2022-06-16 21:48:56.313684 msg - common.py - getTracksFromArtist --> requesting albums from artist 0uyfqpSDJkClTZr1D7A2si.
-2022-06-16 21:48:57.945293 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 0uyfqpSDJkClTZr1D7A2si
-2022-06-16 21:48:57.945293 msg - watchlist.py - watchlist_main20 --> grabbed artist 0uyfqpSDJkClTZr1D7A2si's tracks: 24
-2022-06-16 21:48:58.231290 msg - watchlist.py - watchlist_main22 --> artist Kristof Michiels added to watchlist.
-2022-06-16 21:49:05.638705 msg - watchlist.py - watchlist_main19 --> add artist 0uyfqpSDJkClTZr1D7A2si to watchlist --> starting.
-2022-06-16 21:49:06.077670 msg - watchlist.py - watchlist_main21 --> artist Kristof Michiels already in watchlist.
-2022-06-16 22:19:52.317900 msg - watchlist.py - watchlist_main3 --> searching for artist jef
-2022-06-16 22:19:52.854106 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jef.
-2022-06-16 22:21:21.371988 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 22:21:21.980476 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 22:21:24.518206 msg - watchlist.py - watchlist_main30 --> delete item 1myLDJsVvaGoCAZMc8v0Gt from watchlist --> starting.
-2022-06-16 22:21:24.521209 err - watchlist.py - watchlist_main31 --> Error deleting item 1myLDJsVvaGoCAZMc8v0Gt --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"',) - unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
-2022-06-16 22:21:24.522210 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
+2022-07-02 23:43:05.165781 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:43:09.886006 msg - watchlist.py - watchlist_main19 --> add artist 3BZiDdVB8OsRMNfu5LiWBz to watchlist --> starting.
+2022-07-02 23:43:10.241069 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:43:10.244070 msg - common.py - getTracksFromArtist --> requesting albums from artist 3BZiDdVB8OsRMNfu5LiWBz.
+2022-07-02 23:43:11.079308 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 13 tracks from artist 3BZiDdVB8OsRMNfu5LiWBz
+2022-07-02 23:43:11.079308 msg - watchlist.py - watchlist_main20 --> grabbed artist 3BZiDdVB8OsRMNfu5LiWBz's tracks: 13
+2022-07-02 23:43:11.335045 msg - watchlist.py - watchlist_main22 --> artist Julia Berendse added to watchlist.
+2022-07-02 23:43:11.335045 msg - common.py - getTrackInfo --> requesting track info for trackID: 3urRLx1P31KftRBr0cP6Nu
+2022-07-02 23:43:11.748027 msg - common.py - getTrackInfo --> requesting track info for trackID: 3urRLx1P31KftRBr0cP6Nu
+2022-07-02 23:43:12.163327 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
+2022-07-02 23:43:12.164331 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 394, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(json.loads(data[0]['trackList']))))
+TypeError: string indices must be integers
+
+2022-07-02 23:43:48.779903 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:43:57.226182 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:43:57.230180 msg - watchlist.py - watchlist_main3 --> searching for artist stefaantje
+2022-07-02 23:43:57.672662 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist stefaantje.
+2022-07-02 23:44:02.218875 msg - watchlist.py - watchlist_main19 --> add artist 5CtjZ0li8d4kEhO0shpGaj to watchlist --> starting.
+2022-07-02 23:44:02.573547 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:44:02.578548 msg - common.py - getTracksFromArtist --> requesting albums from artist 5CtjZ0li8d4kEhO0shpGaj.
+2022-07-02 23:44:06.326954 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 5CtjZ0li8d4kEhO0shpGaj
+2022-07-02 23:44:06.327953 msg - watchlist.py - watchlist_main20 --> grabbed artist 5CtjZ0li8d4kEhO0shpGaj's tracks: 28
+2022-07-02 23:44:06.500961 msg - watchlist.py - watchlist_main22 --> artist Stefaan Junnior added to watchlist.
+2022-07-02 23:44:06.501954 msg - common.py - getTrackInfo --> requesting track info for trackID: 4nfppcNsf3Cp8WamfJVzTb
+2022-07-02 23:44:06.933473 msg - common.py - getTrackInfo --> requesting track info for trackID: 4nfppcNsf3Cp8WamfJVzTb
+2022-07-02 23:44:07.332491 err - watchlist.py - watchlist_main10 --> ... --> <class 'UnboundLocalError'> - ("local variable 'trackList' referenced before assignment",) - local variable 'trackList' referenced before assignment
+2022-07-02 23:44:07.333491 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 394, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(json.loads(data[0][trackList]))))
+UnboundLocalError: local variable 'trackList' referenced before assignment
+
+2022-07-02 23:44:46.954957 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:44:53.438787 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:44:53.442787 msg - watchlist.py - watchlist_main3 --> searching for artist marcje
+2022-07-02 23:44:54.246133 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist marcje.
+2022-07-02 23:44:57.999718 msg - watchlist.py - watchlist_main19 --> add artist 5LrQxZ0qv8JJfywQYcrBsC to watchlist --> starting.
+2022-07-02 23:44:58.334064 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:44:58.338062 msg - common.py - getTracksFromArtist --> requesting albums from artist 5LrQxZ0qv8JJfywQYcrBsC.
+2022-07-02 23:44:59.029716 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 12 tracks from artist 5LrQxZ0qv8JJfywQYcrBsC
+2022-07-02 23:44:59.029716 msg - watchlist.py - watchlist_main20 --> grabbed artist 5LrQxZ0qv8JJfywQYcrBsC's tracks: 12
+2022-07-02 23:44:59.203716 msg - watchlist.py - watchlist_main22 --> artist MarcJean added to watchlist.
+2022-07-02 23:44:59.204716 msg - common.py - getTrackInfo --> requesting track info for trackID: 6nuWaCzhLQev0EQdrU937c
+2022-07-02 23:44:59.647599 msg - common.py - getTrackInfo --> requesting track info for trackID: 6nuWaCzhLQev0EQdrU937c
+2022-07-02 23:45:00.085022 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:45:00.086023 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 394, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(json.loads(data[0].trackList))))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:45:57.407035 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:46:00.152045 msg - watchlist.py - watchlist_main19 --> add artist 2zm36BGtCIHqcw3XyWRaLU to watchlist --> starting.
+2022-07-02 23:46:00.538649 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:46:00.542649 msg - common.py - getTracksFromArtist --> requesting albums from artist 2zm36BGtCIHqcw3XyWRaLU.
+2022-07-02 23:46:01.283617 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 16 tracks from artist 2zm36BGtCIHqcw3XyWRaLU
+2022-07-02 23:46:01.284617 msg - watchlist.py - watchlist_main20 --> grabbed artist 2zm36BGtCIHqcw3XyWRaLU's tracks: 16
+2022-07-02 23:46:01.488622 msg - watchlist.py - watchlist_main22 --> artist Batterie de la marche Sainte-Rolende d'Acoz added to watchlist.
+2022-07-02 23:46:01.488622 msg - common.py - getTrackInfo --> requesting track info for trackID: 7xd4mxJYmYoCFRy1tikQxb
+2022-07-02 23:46:01.842798 msg - common.py - getTrackInfo --> requesting track info for trackID: 7xd4mxJYmYoCFRy1tikQxb
+2022-07-02 23:46:02.245035 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:46:02.246035 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 395, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(json.loads(data[0].trackList))))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:47:08.065616 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:47:22.475250 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:47:22.480248 msg - watchlist.py - watchlist_main3 --> searching for artist ludpo
+2022-07-02 23:47:22.926064 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist ludpo.
+2022-07-02 23:47:29.349215 msg - watchlist.py - watchlist_main19 --> add artist 3nkzMW0ivn8et0ag1144l6 to watchlist --> starting.
+2022-07-02 23:47:29.707991 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:47:29.711991 msg - common.py - getTracksFromArtist --> requesting albums from artist 3nkzMW0ivn8et0ag1144l6.
+2022-07-02 23:47:30.751956 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 2 tracks from artist 3nkzMW0ivn8et0ag1144l6
+2022-07-02 23:47:30.752956 msg - watchlist.py - watchlist_main20 --> grabbed artist 3nkzMW0ivn8et0ag1144l6's tracks: 2
+2022-07-02 23:47:30.961120 msg - watchlist.py - watchlist_main22 --> artist LupoBianco added to watchlist.
+2022-07-02 23:47:30.961120 msg - common.py - getTrackInfo --> requesting track info for trackID: 4H4oTurARiqRFx3IYPDupo
+2022-07-02 23:47:31.319993 msg - common.py - getTrackInfo --> requesting track info for trackID: 4H4oTurARiqRFx3IYPDupo
+2022-07-02 23:47:31.715970 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:47:31.716974 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 396, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(data[0].trackList)))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:48:37.350527 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:48:40.223522 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:48:40.228516 msg - watchlist.py - watchlist_main3 --> searching for artist freddy
+2022-07-02 23:48:40.655125 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist freddy.
+2022-07-02 23:48:52.088080 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:48:52.093081 msg - watchlist.py - watchlist_main3 --> searching for artist sonya
+2022-07-02 23:48:52.511818 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist sonya.
+2022-07-02 23:49:00.590740 msg - watchlist.py - watchlist_main19 --> add artist 6UgYjZpbEWBZL491Qzxw2E to watchlist --> starting.
+2022-07-02 23:49:00.982240 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:49:00.988239 msg - common.py - getTracksFromArtist --> requesting albums from artist 6UgYjZpbEWBZL491Qzxw2E.
+2022-07-02 23:49:01.661651 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 1 tracks from artist 6UgYjZpbEWBZL491Qzxw2E
+2022-07-02 23:49:01.661651 msg - watchlist.py - watchlist_main20 --> grabbed artist 6UgYjZpbEWBZL491Qzxw2E's tracks: 1
+2022-07-02 23:49:01.847550 msg - watchlist.py - watchlist_main22 --> artist Sonya Belousova & Giona Ostinelli added to watchlist.
+2022-07-02 23:49:01.848548 msg - common.py - getTrackInfo --> requesting track info for trackID: 2ITcTvOeKgwLGjmmZrpdCW
+2022-07-02 23:49:02.222906 msg - common.py - getTrackInfo --> requesting track info for trackID: 2ITcTvOeKgwLGjmmZrpdCW
+2022-07-02 23:49:02.576799 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:49:02.577803 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 396, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(data[0].trackList)))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:49:30.875618 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:51:07.643600 msg - watchlist.py - watchlist_main19 --> add artist 7q5BSJNFYyZ20mJaGahvAC to watchlist --> starting.
+2022-07-02 23:51:08.026013 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:51:08.030012 msg - common.py - getTracksFromArtist --> requesting albums from artist 7q5BSJNFYyZ20mJaGahvAC.
+2022-07-02 23:51:12.254561 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 30 tracks from artist 7q5BSJNFYyZ20mJaGahvAC
+2022-07-02 23:51:12.255559 msg - watchlist.py - watchlist_main20 --> grabbed artist 7q5BSJNFYyZ20mJaGahvAC's tracks: 30
+2022-07-02 23:51:12.493088 msg - watchlist.py - watchlist_main22 --> artist sonayou added to watchlist.
+2022-07-02 23:51:12.494059 msg - common.py - getTrackInfo --> requesting track info for trackID: 7Ie8h3sbnJqtUyL03G5k6z
+2022-07-02 23:51:12.891425 msg - common.py - getTrackInfo --> requesting track info for trackID: 7Ie8h3sbnJqtUyL03G5k6z
+2022-07-02 23:51:13.302941 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:51:13.303942 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 397, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(data[0].trackList)))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:52:03.164835 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:52:09.725503 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:52:09.730503 msg - watchlist.py - watchlist_main3 --> searching for artist joostje
+2022-07-02 23:52:10.142665 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joostje.
+2022-07-02 23:52:17.206006 msg - watchlist.py - watchlist_main19 --> add artist 6ux7q7T3CYzSE3crNucit4 to watchlist --> starting.
+2022-07-02 23:52:17.533840 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:52:17.538841 msg - common.py - getTracksFromArtist --> requesting albums from artist 6ux7q7T3CYzSE3crNucit4.
+2022-07-02 23:52:22.121326 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 33 tracks from artist 6ux7q7T3CYzSE3crNucit4
+2022-07-02 23:52:22.121326 msg - watchlist.py - watchlist_main20 --> grabbed artist 6ux7q7T3CYzSE3crNucit4's tracks: 33
+2022-07-02 23:52:22.303002 msg - watchlist.py - watchlist_main22 --> artist Joost Hoekaf added to watchlist.
+2022-07-02 23:52:22.304001 msg - common.py - getTrackInfo --> requesting track info for trackID: 6c0nfwaeJm4EhV9LHhfEA3
+2022-07-02 23:52:22.673874 msg - common.py - getTrackInfo --> requesting track info for trackID: 6c0nfwaeJm4EhV9LHhfEA3
+2022-07-02 23:52:23.062899 err - watchlist.py - watchlist_main10 --> ... --> <class 'AttributeError'> - ("'str' object has no attribute 'trackList'",) - 'str' object has no attribute 'trackList'
+2022-07-02 23:52:23.063900 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 399, in watchlist_main
+    print("TYPE DAT[0]: " + str(type(data[0].trackList)))
+AttributeError: 'str' object has no attribute 'trackList'
+
+2022-07-02 23:53:29.103042 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:53:33.570048 msg - watchlist.py - watchlist_main19 --> add artist 7E7tPSNlkKLV4hnzhC9KKu to watchlist --> starting.
+2022-07-02 23:53:33.885132 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:53:33.889131 msg - common.py - getTracksFromArtist --> requesting albums from artist 7E7tPSNlkKLV4hnzhC9KKu.
+2022-07-02 23:53:43.730810 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 211 tracks from artist 7E7tPSNlkKLV4hnzhC9KKu
+2022-07-02 23:53:43.730810 msg - watchlist.py - watchlist_main20 --> grabbed artist 7E7tPSNlkKLV4hnzhC9KKu's tracks: 211
+2022-07-02 23:53:44.009092 msg - watchlist.py - watchlist_main22 --> artist Joost Lijbaart added to watchlist.
+2022-07-02 23:53:44.009092 msg - common.py - getTrackInfo --> requesting track info for trackID: 6HdYByq6bo1vJNQho9RAqA
+2022-07-02 23:53:44.378201 msg - common.py - getTrackInfo --> requesting track info for trackID: 6HdYByq6bo1vJNQho9RAqA
+2022-07-02 23:53:44.797472 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ('can only concatenate str (not "list") to str',) - can only concatenate str (not "list") to str
+2022-07-02 23:53:44.798472 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 403, in watchlist_main
+    'UPDATE WatchListNewTracks SET trackList=' + currentTrackList + ' WHERE id=newTracks')
+TypeError: can only concatenate str (not "list") to str
+
+2022-07-02 23:54:59.625658 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:55:05.971420 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:55:05.977418 msg - watchlist.py - watchlist_main3 --> searching for artist jaqceline
+2022-07-02 23:55:06.393279 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaqceline.
+2022-07-02 23:55:11.494453 msg - watchlist.py - watchlist_main19 --> add artist 05GizjPlApJqs1bCip56PF to watchlist --> starting.
+2022-07-02 23:55:11.850366 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:55:11.855355 msg - common.py - getTracksFromArtist --> requesting albums from artist 05GizjPlApJqs1bCip56PF.
+2022-07-02 23:55:13.051324 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 40 tracks from artist 05GizjPlApJqs1bCip56PF
+2022-07-02 23:55:13.052324 msg - watchlist.py - watchlist_main20 --> grabbed artist 05GizjPlApJqs1bCip56PF's tracks: 40
+2022-07-02 23:55:13.335478 msg - watchlist.py - watchlist_main22 --> artist Jaqueline Schwab added to watchlist.
+2022-07-02 23:55:13.336481 msg - common.py - getTrackInfo --> requesting track info for trackID: 4oJe6K1iDUfwKtF9iclXPj
+2022-07-02 23:55:13.713552 msg - common.py - getTrackInfo --> requesting track info for trackID: 4oJe6K1iDUfwKtF9iclXPj
+2022-07-02 23:55:14.055371 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.OperationalError'> - ('no such column: "jantje", "bertje", "hansje", "4oJe6K1iDUfwKtF9iclXPj"',) - no such column: "jantje", "bertje", "hansje", "4oJe6K1iDUfwKtF9iclXPj"
+2022-07-02 23:55:14.056372 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 402, in watchlist_main
     db.execute(
-sqlite3.OperationalError: unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
+sqlite3.OperationalError: no such column: "jantje", "bertje", "hansje", "4oJe6K1iDUfwKtF9iclXPj"
 
-2022-06-16 22:22:04.380675 msg - watchlist.py - watchlist_main30 --> delete item 1myLDJsVvaGoCAZMc8v0Gt from watchlist --> starting.
-2022-06-16 22:22:04.381674 err - watchlist.py - watchlist_main31 --> Error deleting item 1myLDJsVvaGoCAZMc8v0Gt --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"',) - unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
-2022-06-16 22:22:04.382674 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
+2022-07-02 23:59:18.947212 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-02 23:59:22.932052 msg - watchlist.py - watchlist_main19 --> add artist 05GizjPlApJqs1bCip56PF to watchlist --> starting.
+2022-07-02 23:59:23.296675 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-02 23:59:23.297670 msg - common.py - getTracksFromArtist --> requesting albums from artist 05GizjPlApJqs1bCip56PF.
+2022-07-02 23:59:24.353095 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 40 tracks from artist 05GizjPlApJqs1bCip56PF
+2022-07-02 23:59:24.353095 msg - watchlist.py - watchlist_main20 --> grabbed artist 05GizjPlApJqs1bCip56PF's tracks: 40
+2022-07-02 23:59:24.537680 msg - watchlist.py - watchlist_main22 --> artist Jaqueline Schwab added to watchlist.
+2022-07-02 23:59:24.538681 msg - common.py - getTrackInfo --> requesting track info for trackID: 4oJe6K1iDUfwKtF9iclXPj
+2022-07-02 23:59:24.894066 msg - common.py - getTrackInfo --> requesting track info for trackID: 4oJe6K1iDUfwKtF9iclXPj
+2022-07-02 23:59:25.267907 err - watchlist.py - watchlist_main10 --> ... --> <class 'sqlite3.OperationalError'> - ('no such column: lala',) - no such column: lala
+2022-07-02 23:59:25.268908 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 402, in watchlist_main
     db.execute(
-sqlite3.OperationalError: unrecognized token: "1myLDJsVvaGoCAZMc8v0Gt"
+sqlite3.OperationalError: no such column: lala
 
-2022-06-16 22:24:22.493436 msg - watchlist.py - watchlist_main3 --> searching for artist joske
-2022-06-16 22:24:23.019289 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
-2022-06-16 22:24:29.697142 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
-2022-06-16 22:24:29.701142 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('unrecognized token: "6v8FB84lnmJs434UJf2Mrm"',) - unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
-2022-06-16 22:24:29.702142 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
-    db.execute(
-sqlite3.OperationalError: unrecognized token: "6v8FB84lnmJs434UJf2Mrm"
+2022-07-03 00:02:25.781077 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 00:02:28.778840 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:02:28.779841 msg - watchlist.py - watchlist_main3 --> searching for artist bertje
+2022-07-03 00:02:29.157468 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist bertje.
+2022-07-03 00:02:36.788452 msg - watchlist.py - watchlist_main19 --> add artist 0naTQvwxUUgqjEFILkmRSd to watchlist --> starting.
+2022-07-03 00:02:37.188570 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:02:37.189573 msg - common.py - getTracksFromArtist --> requesting albums from artist 0naTQvwxUUgqjEFILkmRSd.
+2022-07-03 00:02:38.272679 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 13 tracks from artist 0naTQvwxUUgqjEFILkmRSd
+2022-07-03 00:02:38.273680 msg - watchlist.py - watchlist_main20 --> grabbed artist 0naTQvwxUUgqjEFILkmRSd's tracks: 13
+2022-07-03 00:02:38.457160 msg - watchlist.py - watchlist_main22 --> artist Beertje added to watchlist.
+2022-07-03 00:02:38.458148 msg - common.py - getTrackInfo --> requesting track info for trackID: 5IZhFT5Gzm64Fmb1d8XyVD
+2022-07-03 00:02:38.846148 msg - common.py - getTrackInfo --> requesting track info for trackID: 5IZhFT5Gzm64Fmb1d8XyVD
+2022-07-03 00:02:39.407648 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mYGkIoSJ1PgkXg3puNWop
+2022-07-03 00:02:39.879242 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mYGkIoSJ1PgkXg3puNWop
+2022-07-03 00:02:40.270613 err - watchlist.py - watchlist_main10 --> ... --> <class 'json.decoder.JSONDecodeError'> - ('Expecting value: line 1 column 1 (char 0)',) - Expecting value: line 1 column 1 (char 0)
+2022-07-03 00:02:40.272613 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 392, in watchlist_main
+    print("data1 json loads: " + str(json.loads(data[1])))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-2022-06-16 22:29:54.009789 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 22:29:54.440220 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 22:29:56.952150 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
-2022-06-16 22:29:56.955147 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('near "VALUES": syntax error',) - near "VALUES": syntax error
-2022-06-16 22:29:56.956152 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
-    db.execute(
-sqlite3.OperationalError: near "VALUES": syntax error
+2022-07-03 00:04:04.842148 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 00:04:09.205140 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:04:09.207139 msg - watchlist.py - watchlist_main3 --> searching for artist bartje
+2022-07-03 00:04:09.628131 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist bartje.
+2022-07-03 00:04:12.766335 msg - watchlist.py - watchlist_main19 --> add artist 1hODckvLYHnJUG6QXS78HL to watchlist --> starting.
+2022-07-03 00:04:13.162348 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:04:13.163366 msg - common.py - getTracksFromArtist --> requesting albums from artist 1hODckvLYHnJUG6QXS78HL.
+2022-07-03 00:04:14.665540 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 1hODckvLYHnJUG6QXS78HL
+2022-07-03 00:04:14.665540 msg - watchlist.py - watchlist_main20 --> grabbed artist 1hODckvLYHnJUG6QXS78HL's tracks: 60
+2022-07-03 00:04:14.888721 msg - watchlist.py - watchlist_main22 --> artist Bartje Pils added to watchlist.
+2022-07-03 00:04:14.889701 msg - common.py - getTrackInfo --> requesting track info for trackID: 7dARr3jOxZY90vfTantf9I
+2022-07-03 00:04:15.276228 msg - common.py - getTrackInfo --> requesting track info for trackID: 7dARr3jOxZY90vfTantf9I
+2022-07-03 00:04:15.619467 err - watchlist.py - watchlist_main10 --> ... --> <class 'json.decoder.JSONDecodeError'> - ('Expecting value: line 1 column 1 (char 0)',) - Expecting value: line 1 column 1 (char 0)
+2022-07-03 00:04:15.622884 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 400, in watchlist_main
+    currentTrackList = json.loads(data[1])
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-2022-06-16 22:30:40.359418 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 22:30:40.761289 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 22:30:43.397935 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
-2022-06-16 22:30:43.398932 err - watchlist.py - watchlist_main31 --> Error deleting item 6v8FB84lnmJs434UJf2Mrm --> <class 'sqlite3.OperationalError'> - ('near "VALUES": syntax error',) - near "VALUES": syntax error
-2022-06-16 22:30:43.399932 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 294, in watchlist_main
-    db.execute(
-sqlite3.OperationalError: near "VALUES": syntax error
+2022-07-03 00:05:29.687002 msg - watchlist.py - watchlist_main19 --> add artist 1UeOXwTDWVKphVexR4w515 to watchlist --> starting.
+2022-07-03 00:05:30.077901 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:05:30.078903 msg - common.py - getTracksFromArtist --> requesting albums from artist 1UeOXwTDWVKphVexR4w515.
+2022-07-03 00:05:31.158084 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 25 tracks from artist 1UeOXwTDWVKphVexR4w515
+2022-07-03 00:05:31.158084 msg - watchlist.py - watchlist_main20 --> grabbed artist 1UeOXwTDWVKphVexR4w515's tracks: 25
+2022-07-03 00:05:31.392085 msg - watchlist.py - watchlist_main22 --> artist Berend Bartje added to watchlist.
+2022-07-03 00:05:31.392085 msg - common.py - getTrackInfo --> requesting track info for trackID: 58VDrSzjvcFmPw28VgxtD0
+2022-07-03 00:05:31.789293 msg - common.py - getTrackInfo --> requesting track info for trackID: 58VDrSzjvcFmPw28VgxtD0
+2022-07-03 00:05:32.192621 err - watchlist.py - watchlist_main10 --> ... --> <class 'TypeError'> - ('the JSON object must be str, bytes or bytearray, not list',) - the JSON object must be str, bytes or bytearray, not list
+2022-07-03 00:05:32.193620 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 403, in watchlist_main
+    'UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.loads(currentTrackList), "newTracks"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not list
 
-2022-06-16 22:32:16.869853 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 22:32:17.365573 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 22:32:19.690184 msg - watchlist.py - watchlist_main30 --> delete item 6v8FB84lnmJs434UJf2Mrm from watchlist --> starting.
-2022-06-16 22:34:00.459950 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
-2022-06-16 22:34:00.936670 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
-2022-06-16 22:34:03.198598 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 22:42:13.389360 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 22:42:16.030165 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 22:42:18.989817 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 22:48:05.086554 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 22:48:05.498621 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 22:48:07.840869 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 22:48:07.841867 err - watchlist.py - watchlist_main31 --> Error deleting item 3zmnBPYpQfvLGq5JV2qJ2w --> <class 'TypeError'> - ('function takes at least 1 argument (0 given)',) - function takes at least 1 argument (0 given)
-2022-06-16 22:48:07.842868 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 304, in watchlist_main
-    cursor.execute()
-TypeError: function takes at least 1 argument (0 given)
-
-2022-06-16 23:03:49.700730 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
-2022-06-16 23:03:50.257970 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
-2022-06-16 23:03:52.226087 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 23:03:57.526910 msg - watchlist.py - watchlist_main30 --> delete item 3zmnBPYpQfvLGq5JV2qJ2w from watchlist --> starting.
-2022-06-16 23:04:31.810828 msg - watchlist.py - watchlist_main3 --> searching for artist jefke
-2022-06-16 23:04:32.240926 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefke.
-2022-06-16 23:04:34.784302 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
-2022-06-16 23:04:38.087525 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
-2022-06-16 23:12:54.903884 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
-2022-06-16 23:12:54.905885 msg - watchlist.py - watchlist_main32 --> nothing found while deleting item 5HqkqH2X6qlLmHCJFAVn4B from watchlist.
-2022-06-16 23:13:12.180872 msg - watchlist.py - watchlist_main3 --> searching for artist juul
-2022-06-16 23:13:12.655945 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist juul.
-2022-06-16 23:13:15.207001 msg - watchlist.py - watchlist_main30 --> delete item 5HqkqH2X6qlLmHCJFAVn4B from watchlist --> starting.
-2022-06-16 23:13:15.208001 msg - watchlist.py - watchlist_main32 --> nothing found while deleting item 5HqkqH2X6qlLmHCJFAVn4B from watchlist.
-2022-06-17 09:31:19.621979 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'sqlite3.OperationalError'> - ('near "*": syntax error',) - near "*": syntax error
-2022-06-17 09:31:19.639981 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 88, in watchlist_main
-    loadWatchlistItems()
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 360, in loadWatchlistItems
-    print(str(cursor.execute('SELECT * FROM WATCHLIST WHERE *').fetchall()))
-sqlite3.OperationalError: near "*": syntax error
-
-2022-06-17 09:46:47.414110 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:48:01.984432 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:50:04.909907 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:50:10.839252 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:50:31.402223 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:50:31.403225 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'IndexError'> - ('No item with that key',) - No item with that key
-2022-06-17 09:50:31.404227 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 88, in watchlist_main
-    loadWatchlistItems()
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 363, in loadWatchlistItems
-    print(item["image"])
-IndexError: No item with that key
-
-2022-06-17 09:51:05.715727 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 09:53:37.624638 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:01:20.795331 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:01:43.196949 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:01:50.125058 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:02:31.176534 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:02:58.577182 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:04:00.325713 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 10:04:05.398102 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 13:42:16.043717 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:37:20.524835 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:37:29.028017 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:37:47.202465 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:37:52.677467 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:37:52.681466 msg - watchlist.py - watchlist_main3 --> searching for artist joske
-2022-06-17 14:37:53.251049 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
-2022-06-17 14:38:06.559760 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 14:38:06.562756 msg - watchlist.py - watchlist_main50 --> searching for playlist house groove
-2022-06-17 14:38:07.081757 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist house groove.
-2022-06-17 14:38:07.081757 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'KeyError'> - ('popularity',) - 'popularity'
-2022-06-17 14:38:07.082757 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 249, in watchlist_main
-    for item in returnSearchResults(response, "playlist"):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 73, in returnSearchResults
-    resList.append({"artist": str(item['name']), "id": str(item['id']), "popularity": str(item['popularity']), "imageurl": imageUrl})
-KeyError: 'popularity'
-
-2022-06-17 15:31:10.079628 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:31:10.127627 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.",) - Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-2022-06-17 15:31:10.132624 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
-    return render_template('watchlist.html',
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 257, in template
-    {% endblock %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-
-2022-06-17 15:32:02.582533 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:32:02.624053 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.",) - Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-2022-06-17 15:32:02.627052 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
-    return render_template('watchlist.html',
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 257, in template
-    {% endblock %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-
-2022-06-17 15:32:56.743867 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:33:08.258017 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:33:12.661809 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:36:25.909723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:37:27.309861 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:45:05.470623 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:45:05.489626 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'jinja2.exceptions.TemplateSyntaxError'> - ("Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.",) - Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2022-06-17 15:45:05.491625 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 93, in watchlist_main
-    return render_template('watchlist.html',
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\flask\templating.py", line 149, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\templates\watchlist.html", line 112, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-
-2022-06-17 15:50:32.821399 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:50:38.477693 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 15:51:08.747273 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 16:18:28.409449 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 16:18:31.297003 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 16:18:37.004353 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 16:18:37.006354 msg - watchlist.py - watchlist_main50 --> searching for playlist test
-2022-06-17 16:18:37.555045 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
-2022-06-17 16:18:37.556042 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
-2022-06-17 16:18:37.556042 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
-    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
-AttributeError: 'dict' object has no attribute 'append'
-
-2022-06-17 23:12:12.254677 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:12:15.481779 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:12:15.484776 msg - watchlist.py - watchlist_main3 --> searching for artist test
-2022-06-17 23:12:15.965413 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist test.
-2022-06-17 23:12:26.503826 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:12:26.505828 msg - watchlist.py - watchlist_main50 --> searching for playlist test
-2022-06-17 23:12:27.048302 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
-2022-06-17 23:12:27.049301 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
-2022-06-17 23:12:27.051304 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
-    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
-AttributeError: 'dict' object has no attribute 'append'
-
-2022-06-17 23:12:40.748913 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:12:40.750917 msg - watchlist.py - watchlist_main50 --> searching for playlist test
-2022-06-17 23:12:41.274289 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
-2022-06-17 23:12:41.274289 err - watchlist.py - watchlist_main5 --> error while loading page --> <class 'AttributeError'> - ("'dict' object has no attribute 'append'",) - 'dict' object has no attribute 'append'
-2022-06-17 23:12:41.274289 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 250, in watchlist_main
-    gv_playlistList.append({"name": item["name"], "id": item['id'], "description": item['description'], "image": item['imageurl'], "owner": item['owner'], "totaltracks": item['totaltracks']})
-AttributeError: 'dict' object has no attribute 'append'
-
-2022-06-17 23:18:48.749404 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:18:52.374402 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:18:52.376404 msg - watchlist.py - watchlist_main50 --> searching for playlist test
-2022-06-17 23:18:52.892405 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist test.
-2022-06-17 23:30:44.362517 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:30:47.925797 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-17 23:30:47.927799 msg - watchlist.py - watchlist_main50 --> searching for playlist hansje
-2022-06-17 23:30:48.541814 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist hansje.
-2022-06-18 22:29:59.836717 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:30:06.484988 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:30:06.486987 msg - watchlist.py - watchlist_main50 --> searching for playlist indie melody
-2022-06-18 22:30:07.180555 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie melody.
-2022-06-18 22:30:13.251590 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:30:13.253593 msg - watchlist.py - watchlist_main3 --> searching for artist frank
-2022-06-18 22:30:13.658836 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist frank.
-2022-06-18 22:30:21.510027 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:30:21.512026 msg - watchlist.py - watchlist_main50 --> searching for playlist indie
-2022-06-18 22:30:21.976557 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist indie.
-2022-06-18 22:55:28.818699 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:55:35.770256 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:55:35.773255 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 22:55:36.297338 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 22:56:23.171818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:56:26.935574 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 22:56:26.937575 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 22:56:27.463348 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 23:00:20.131798 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:00:23.312035 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:00:23.314034 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 23:00:23.923174 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 23:33:21.425406 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:33:24.526742 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:33:24.529740 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 23:33:25.053926 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 23:34:03.391797 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:34:06.302181 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:34:06.304183 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 23:34:06.783068 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 23:41:12.011227 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:41:15.159800 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:41:15.160801 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 23:41:15.825190 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-18 23:41:22.893745 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:42:28.630715 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:42:34.200896 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:42:34.203899 msg - watchlist.py - watchlist_main50 --> searching for playlist cooler
-2022-06-18 23:42:34.716662 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist cooler.
-2022-06-18 23:42:43.288124 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:43:28.302826 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:43:31.938669 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:43:31.940670 msg - watchlist.py - watchlist_main50 --> searching for playlist cooler
-2022-06-18 23:43:32.501681 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist cooler.
-2022-06-18 23:43:50.703795 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-18 23:43:50.705795 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-18 23:43:51.125796 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-19 13:35:25.263230 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:35:40.366635 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:35:40.368637 msg - watchlist.py - watchlist_main50 --> searching for playlist grooves
-2022-06-19 13:35:40.907932 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist grooves.
-2022-06-19 13:36:02.901847 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:36:02.904843 msg - watchlist.py - watchlist_main3 --> searching for artist john
-2022-06-19 13:36:03.407866 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
-2022-06-19 13:43:49.201818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:43:54.146503 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:43:54.149502 msg - watchlist.py - watchlist_main3 --> searching for artist john
-2022-06-19 13:43:54.592432 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist john.
-2022-06-19 13:49:32.949667 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 13:57:24.285677 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:10:48.089703 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:10:51.389737 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:13:01.443468 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:17:12.458825 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:17:51.196805 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:23:44.980467 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:26:19.843030 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:27:07.797329 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:29:40.923625 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:29:44.085689 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:29:45.520823 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:32:15.250932 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:32:19.321577 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:32:58.709562 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:43:37.426345 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 14:49:39.555288 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:06:01.108683 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:06:27.845154 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:06:27.848154 msg - watchlist.py - watchlist_main3 --> searching for artist stan
-2022-06-19 15:06:28.433238 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist stan.
-2022-06-19 15:06:31.753506 msg - watchlist.py - watchlist_main19 --> add artist 0FMucZsEnCxs5pqBjHjIc8 to watchlist --> starting.
-2022-06-19 15:06:32.127506 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:06:32.131506 msg - common.py - getTracksFromArtist --> requesting albums from artist 0FMucZsEnCxs5pqBjHjIc8.
-2022-06-19 15:11:05.294063 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9786 tracks from artist 0FMucZsEnCxs5pqBjHjIc8
-2022-06-19 15:11:05.295064 msg - watchlist.py - watchlist_main20 --> grabbed artist 0FMucZsEnCxs5pqBjHjIc8's tracks: 9786
-2022-06-19 15:11:05.674064 msg - watchlist.py - watchlist_main22 --> artist Stan Getz added to watchlist.
-2022-06-19 15:27:31.196925 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:27:36.187926 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:27:36.190928 msg - watchlist.py - watchlist_main3 --> searching for artist joske
-2022-06-19 15:27:36.656925 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joske.
-2022-06-19 15:27:47.716925 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:27:51.049928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:27:54.615928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:27:59.008928 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:28:04.605929 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:28:04.608929 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:28:04.996930 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:34:14.093955 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:34:18.014950 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:34:19.927628 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:34:23.714815 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:34:23.717815 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:34:24.156813 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:34:48.336844 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:34:48.342842 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:34:48.809841 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:34:51.259842 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:35:07.750853 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:35:12.155854 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:35:12.158852 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:35:12.602850 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:35:16.422854 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:35:16.425852 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:35:16.863850 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:36:19.715032 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:36:22.782030 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:36:22.785032 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:36:23.324034 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:36:45.805031 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:36:47.696034 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:38:02.471136 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:38:05.575137 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:38:05.578136 msg - watchlist.py - watchlist_main3 --> searching for artist jefk
-2022-06-19 15:38:06.299134 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefk.
-2022-06-19 15:38:11.461136 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 15:38:11.464140 msg - watchlist.py - watchlist_main50 --> searching for playlist testje
-2022-06-19 15:38:11.992135 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testje.
-2022-06-19 15:44:02.164723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:43:03.383982 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:43:03.390984 msg - watchlist.py - watchlist_main3 --> searching for artist jaantje
-2022-06-19 21:43:03.971986 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaantje.
-2022-06-19 21:44:09.437655 msg - watchlist.py - watchlist_main19 --> add artist 4qkXUou0EQ56wmcais8uwJ to watchlist --> starting.
-2022-06-19 21:44:09.873428 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:44:09.876424 msg - common.py - getTracksFromArtist --> requesting albums from artist 4qkXUou0EQ56wmcais8uwJ.
-2022-06-19 21:44:16.061454 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 21 tracks from artist 4qkXUou0EQ56wmcais8uwJ
-2022-06-19 21:44:16.062453 msg - watchlist.py - watchlist_main20 --> grabbed artist 4qkXUou0EQ56wmcais8uwJ's tracks: 21
-2022-06-19 21:44:16.197536 msg - watchlist.py - watchlist_main22 --> artist Jantje added to watchlist.
-2022-06-19 21:45:55.707556 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:00.711642 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:00.714641 msg - watchlist.py - watchlist_main3 --> searching for artist pietertje
-2022-06-19 21:46:01.216832 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist pietertje.
-2022-06-19 21:46:08.421703 msg - watchlist.py - watchlist_main19 --> add artist 4JwlHUgIACGdCcQ3lPZTJr to watchlist --> starting.
-2022-06-19 21:46:08.837695 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:08.840696 msg - common.py - getTracksFromArtist --> requesting albums from artist 4JwlHUgIACGdCcQ3lPZTJr.
-2022-06-19 21:46:12.922319 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 53 tracks from artist 4JwlHUgIACGdCcQ3lPZTJr
-2022-06-19 21:46:12.923318 msg - watchlist.py - watchlist_main20 --> grabbed artist 4JwlHUgIACGdCcQ3lPZTJr's tracks: 53
-2022-06-19 21:46:13.041192 msg - watchlist.py - watchlist_main22 --> artist Pieter Derks added to watchlist.
-2022-06-19 21:46:17.711799 msg - watchlist.py - watchlist_main19 --> add artist 0CeAAIW5O050hFsyxPYWIl to watchlist --> starting.
-2022-06-19 21:46:18.113887 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:18.117902 msg - common.py - getTracksFromArtist --> requesting albums from artist 0CeAAIW5O050hFsyxPYWIl.
-2022-06-19 21:46:18.814559 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 1 tracks from artist 0CeAAIW5O050hFsyxPYWIl
-2022-06-19 21:46:18.814559 msg - watchlist.py - watchlist_main20 --> grabbed artist 0CeAAIW5O050hFsyxPYWIl's tracks: 1
-2022-06-19 21:46:19.000972 msg - watchlist.py - watchlist_main22 --> artist Gekke petertje added to watchlist.
-2022-06-19 21:46:23.851109 msg - watchlist.py - watchlist_main19 --> add artist 0CeAAIW5O050hFsyxPYWIl to watchlist --> starting.
-2022-06-19 21:46:24.222878 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:24.226878 msg - watchlist.py - watchlist_main21 --> artist Gekke petertje already in watchlist.
-2022-06-19 21:46:30.864199 msg - watchlist.py - watchlist_main19 --> add artist 5JzvmJdkliw2nERmKleDuS to watchlist --> starting.
-2022-06-19 21:46:31.253611 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:46:31.258611 msg - common.py - getTracksFromArtist --> requesting albums from artist 5JzvmJdkliw2nERmKleDuS.
-2022-06-19 21:46:35.606536 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 5JzvmJdkliw2nERmKleDuS
-2022-06-19 21:46:35.606536 msg - watchlist.py - watchlist_main20 --> grabbed artist 5JzvmJdkliw2nERmKleDuS's tracks: 24
-2022-06-19 21:46:35.791464 msg - watchlist.py - watchlist_main22 --> artist Pieternel added to watchlist.
-2022-06-19 21:48:26.683413 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:48:32.013903 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:48:32.019903 msg - watchlist.py - watchlist_main3 --> searching for artist petertje
-2022-06-19 21:48:32.493644 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist petertje.
-2022-06-19 21:48:34.902910 msg - watchlist.py - watchlist_main19 --> add artist 401oO85UVJpqgksV56fTVg to watchlist --> starting.
-2022-06-19 21:48:35.223768 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:48:35.228770 msg - common.py - getTracksFromArtist --> requesting albums from artist 401oO85UVJpqgksV56fTVg.
-2022-06-19 21:48:49.219943 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 242 tracks from artist 401oO85UVJpqgksV56fTVg
-2022-06-19 21:48:49.220943 msg - watchlist.py - watchlist_main20 --> grabbed artist 401oO85UVJpqgksV56fTVg's tracks: 242
-2022-06-19 21:48:49.392411 msg - watchlist.py - watchlist_main22 --> artist Peter Jezewski added to watchlist.
-2022-06-19 21:48:54.073895 msg - watchlist.py - watchlist_main19 --> add artist 38nnoDVnxnk4CIoeUirAI1 to watchlist --> starting.
-2022-06-19 21:48:54.504355 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:48:54.508355 msg - common.py - getTracksFromArtist --> requesting albums from artist 38nnoDVnxnk4CIoeUirAI1.
-2022-06-19 21:49:00.095862 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 120 tracks from artist 38nnoDVnxnk4CIoeUirAI1
-2022-06-19 21:49:00.096710 msg - watchlist.py - watchlist_main20 --> grabbed artist 38nnoDVnxnk4CIoeUirAI1's tracks: 120
-2022-06-19 21:49:00.256335 msg - watchlist.py - watchlist_main22 --> artist Peter Jensen added to watchlist.
-2022-06-19 21:49:04.740880 msg - watchlist.py - watchlist_main19 --> add artist 6IeePaFfG9ix9hapm2YBTT to watchlist --> starting.
-2022-06-19 21:49:05.074877 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:49:05.079880 msg - common.py - getTracksFromArtist --> requesting albums from artist 6IeePaFfG9ix9hapm2YBTT.
-2022-06-19 21:49:43.387786 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 548 tracks from artist 6IeePaFfG9ix9hapm2YBTT
-2022-06-19 21:49:43.388786 msg - watchlist.py - watchlist_main20 --> grabbed artist 6IeePaFfG9ix9hapm2YBTT's tracks: 548
-2022-06-19 21:49:43.527448 msg - watchlist.py - watchlist_main22 --> artist Peter Jericho added to watchlist.
-2022-06-19 21:49:47.812359 msg - watchlist.py - watchlist_main19 --> add artist 3fcsflK8xu26XH4OYTcm5T to watchlist --> starting.
-2022-06-19 21:49:48.228401 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 21:49:48.233404 msg - common.py - getTracksFromArtist --> requesting albums from artist 3fcsflK8xu26XH4OYTcm5T.
-2022-06-19 21:53:23.197838 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9152 tracks from artist 3fcsflK8xu26XH4OYTcm5T
-2022-06-19 21:53:23.198834 msg - watchlist.py - watchlist_main20 --> grabbed artist 3fcsflK8xu26XH4OYTcm5T's tracks: 9152
-2022-06-19 21:53:23.469932 msg - watchlist.py - watchlist_main22 --> artist Kiri Te Kanawa added to watchlist.
-2022-06-19 22:05:58.760997 msg - watchlist.py - watchlist_main19 --> add artist 4AAPGFYcThlVFRh8jXpaDT to watchlist --> starting.
-2022-06-19 22:05:59.220767 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 22:05:59.225769 msg - common.py - getTracksFromArtist --> requesting albums from artist 4AAPGFYcThlVFRh8jXpaDT.
-2022-06-19 22:06:00.334340 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 9 tracks from artist 4AAPGFYcThlVFRh8jXpaDT
-2022-06-19 22:06:00.335339 msg - watchlist.py - watchlist_main20 --> grabbed artist 4AAPGFYcThlVFRh8jXpaDT's tracks: 9
-2022-06-19 22:06:00.545550 msg - watchlist.py - watchlist_main22 --> artist Jess Sah Bi & Peter One added to watchlist.
-2022-06-19 22:06:06.496614 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 22:06:06.504615 msg - watchlist.py - watchlist_main3 --> searching for artist jaapie
-2022-06-19 22:06:06.939086 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaapie.
-2022-06-19 22:06:10.926748 msg - watchlist.py - watchlist_main19 --> add artist 4ByPDHe43iWDnsOtGgMcUo to watchlist --> starting.
-2022-06-19 22:06:11.339746 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 22:06:11.344747 msg - common.py - getTracksFromArtist --> requesting albums from artist 4ByPDHe43iWDnsOtGgMcUo.
-2022-06-19 22:06:12.397813 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 2 tracks from artist 4ByPDHe43iWDnsOtGgMcUo
-2022-06-19 22:06:12.397813 msg - watchlist.py - watchlist_main20 --> grabbed artist 4ByPDHe43iWDnsOtGgMcUo's tracks: 2
-2022-06-19 22:06:12.549407 msg - watchlist.py - watchlist_main22 --> artist Jappie added to watchlist.
-2022-06-19 22:06:15.024957 msg - watchlist.py - watchlist_main19 --> add artist 5U721HD4VTp8J2v1akUWxa to watchlist --> starting.
-2022-06-19 22:06:15.373982 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 22:06:15.379986 msg - common.py - getTracksFromArtist --> requesting albums from artist 5U721HD4VTp8J2v1akUWxa.
-2022-06-19 22:06:20.104346 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 33 tracks from artist 5U721HD4VTp8J2v1akUWxa
-2022-06-19 22:06:20.105346 msg - watchlist.py - watchlist_main20 --> grabbed artist 5U721HD4VTp8J2v1akUWxa's tracks: 33
-2022-06-19 22:06:20.257859 msg - watchlist.py - watchlist_main22 --> artist Bertus en Jaapie added to watchlist.
-2022-06-19 22:06:22.537412 msg - watchlist.py - watchlist_main19 --> add artist 6Vnfx80mTKHH8PsQ6A70Ex to watchlist --> starting.
-2022-06-19 22:06:22.910672 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-19 22:06:22.916675 msg - common.py - getTracksFromArtist --> requesting albums from artist 6Vnfx80mTKHH8PsQ6A70Ex.
-2022-06-19 22:06:23.665791 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 10 tracks from artist 6Vnfx80mTKHH8PsQ6A70Ex
-2022-06-19 22:06:23.665791 msg - watchlist.py - watchlist_main20 --> grabbed artist 6Vnfx80mTKHH8PsQ6A70Ex's tracks: 10
-2022-06-19 22:06:23.812554 msg - watchlist.py - watchlist_main22 --> artist Vlugge Jaapie added to watchlist.
-2022-06-19 22:06:32.022755 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-22 23:25:53.486485 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-22 23:26:25.780215 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-06-23 23:38:29.495332 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-23 23:40:14.080711 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-23 23:42:00.624692 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-23 23:44:36.726584 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-27 21:46:06.053835 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'sqlite3.OperationalError'> - ('no such table: WatchList',) - no such table: WatchList
-2022-06-27 21:46:06.083834 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 79, in watchlist_main
-    data = db.execute('SELECT * FROM WatchList').fetchall()    #returns list of dicts https://docs.python.org/3/library/sqlite3.html
-sqlite3.OperationalError: no such table: WatchList
-
-2022-06-28 21:40:43.885122 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:42:33.140560 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:42:45.588857 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:43:05.431748 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:50:45.285847 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:50:52.432008 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:53:38.737831 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 22:58:40.395431 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:01:46.468919 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:02:35.510701 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:02:48.811961 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:03:34.877240 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:03:55.206003 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:04:23.798987 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:04:41.020101 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:05:36.778148 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:05:55.258050 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-28 23:06:03.271058 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:21:45.765588 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:22:53.479693 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:32:58.914915 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:34:04.418460 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:41:50.336065 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:42:40.714969 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:42:53.258362 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:43:11.012049 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:43:40.166023 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 21:44:00.352162 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:12:37.193388 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:12:49.369798 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:12:58.823973 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:13:06.290750 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:13:13.469817 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:13:19.642776 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:30:07.550710 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:30:22.197744 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:30:36.714295 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:30:44.576501 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:30:59.036026 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:35:14.758077 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:35:28.500041 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 22:35:39.072774 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 23:06:12.924789 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
-2022-06-29 23:06:30.923174 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 00:06:16.873459 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 00:06:21.477162 msg - watchlist.py - watchlist_main19 --> add artist 0fD6SKy8iGgeI5GMlWCSbE to watchlist --> starting.
+2022-07-03 00:06:21.801161 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 00:06:21.803162 msg - common.py - getTracksFromArtist --> requesting albums from artist 0fD6SKy8iGgeI5GMlWCSbE.
+2022-07-03 00:06:22.518430 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 12 tracks from artist 0fD6SKy8iGgeI5GMlWCSbE
+2022-07-03 00:06:22.518430 msg - watchlist.py - watchlist_main20 --> grabbed artist 0fD6SKy8iGgeI5GMlWCSbE's tracks: 12
+2022-07-03 00:06:22.713955 msg - watchlist.py - watchlist_main22 --> artist Bartje Boterbloem added to watchlist.
+2022-07-03 00:06:22.714956 msg - common.py - getTrackInfo --> requesting track info for trackID: 7sEC6Y76Vg73FSGBmpiEFV
+2022-07-03 00:06:23.141935 msg - common.py - getTrackInfo --> requesting track info for trackID: 7sEC6Y76Vg73FSGBmpiEFV
+2022-07-03 00:06:23.687017 msg - common.py - getTrackInfo --> requesting track info for trackID: 7Jw7QFogFoYElecNcMQkJA
+2022-07-03 00:06:24.067542 msg - common.py - getTrackInfo --> requesting track info for trackID: 7Jw7QFogFoYElecNcMQkJA
+2022-07-03 00:06:24.636432 msg - common.py - getTrackInfo --> requesting track info for trackID: 6Kk8Ylltysr4Cagq5UJJTv
+2022-07-03 00:06:24.987517 msg - common.py - getTrackInfo --> requesting track info for trackID: 6Kk8Ylltysr4Cagq5UJJTv
+2022-07-03 00:06:25.494374 msg - common.py - getTrackInfo --> requesting track info for trackID: 5kBRdUXN17OQpZ7nTMmDrg
+2022-07-03 00:06:25.888214 msg - common.py - getTrackInfo --> requesting track info for trackID: 5kBRdUXN17OQpZ7nTMmDrg
+2022-07-03 00:06:26.503641 msg - common.py - getTrackInfo --> requesting track info for trackID: 43TYGpjuXonI2jbi5LJOX8
+2022-07-03 00:06:26.902900 msg - common.py - getTrackInfo --> requesting track info for trackID: 43TYGpjuXonI2jbi5LJOX8
+2022-07-03 00:06:27.583005 msg - common.py - getTrackInfo --> requesting track info for trackID: 1f2ncl9OYElCT5fqg2Ds3y
+2022-07-03 00:06:27.981769 msg - common.py - getTrackInfo --> requesting track info for trackID: 1f2ncl9OYElCT5fqg2Ds3y
+2022-07-03 00:06:28.582348 msg - common.py - getTrackInfo --> requesting track info for trackID: 2v0eBl3a7asxXxbAcWXmid
+2022-07-03 00:06:28.917483 msg - common.py - getTrackInfo --> requesting track info for trackID: 2v0eBl3a7asxXxbAcWXmid
+2022-07-03 00:06:29.439718 msg - common.py - getTrackInfo --> requesting track info for trackID: 3DLGKK1lRfNKgcaIyc8n8M
+2022-07-03 00:06:29.799092 msg - common.py - getTrackInfo --> requesting track info for trackID: 3DLGKK1lRfNKgcaIyc8n8M
+2022-07-03 00:06:30.321956 msg - common.py - getTrackInfo --> requesting track info for trackID: 1VIswA4tg3lFH2rQwermFm
+2022-07-03 00:06:30.712926 msg - common.py - getTrackInfo --> requesting track info for trackID: 1VIswA4tg3lFH2rQwermFm
+2022-07-03 00:06:31.278997 msg - common.py - getTrackInfo --> requesting track info for trackID: 3x12v1qZtj3tKV8U2rGbmW
+2022-07-03 00:06:31.668802 msg - common.py - getTrackInfo --> requesting track info for trackID: 3x12v1qZtj3tKV8U2rGbmW
+2022-07-03 00:06:32.294483 msg - common.py - getTrackInfo --> requesting track info for trackID: 5X8DL0RZZWbv5r8hwMdWlv
+2022-07-03 00:06:32.679912 msg - common.py - getTrackInfo --> requesting track info for trackID: 5X8DL0RZZWbv5r8hwMdWlv
+2022-07-03 00:06:33.318748 msg - common.py - getTrackInfo --> requesting track info for trackID: 0AHyYNeCzPRmA6TSZ3XjCX
+2022-07-03 00:06:33.755730 msg - common.py - getTrackInfo --> requesting track info for trackID: 0AHyYNeCzPRmA6TSZ3XjCX
