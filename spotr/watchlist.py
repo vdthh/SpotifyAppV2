@@ -358,15 +358,13 @@ def watchlist_main():
             '''--> check if entry in db table WatchListNewTracks exists'''
             try:
                if cursor.execute('SELECT * FROM WatchListNewTracks').fetchone() == None:
-                    print("CHECKING ENTRY")
                     dummyList = ["jantje","bertje","hansje"]
                     db.execute(
                     'INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)', 
                     ("newTracks", json.dumps(dummyList)))
                     db.commit()
-                    print("CREATED ENTRY")
             except sqlite3.OperationalError:
-                print("DATATABLE DOES NOT EXIT")
+                logAction("msg - watchlist.py - watchlist_main21 --> no entry yet in db table WatchListNewTracks")
 
 
             '''--> add artist to WatchList db'''
@@ -380,29 +378,22 @@ def watchlist_main():
 
 
             '''--> add artist's tracks to WatchListNewTracks'''
-            '''First check if item in WatchListNewTracks exists'''
+            '''Check if item in WatchListNewTracks exists'''
+            data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+            currentTrackList    = json.loads(data[1])
+            initLength          = len(currentTrackList)
+            endLength              = 0
+
             for trck in artistTrackList:
                 if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack"):
                     #Not in db yet, update tracklist
-                    print("NOT IN DB YET, ADDING " + trck)
-                    data = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
-                    # print("TYPE0: " + str(type(data[0])))
-                    # print("TYPE1: " + str(type(data[1])))
-                    # print("data1: " + str(data[1]))
-                    # print("data1 json loads: " + str(json.loads(data[1])))
-                    # print("TUPLE: " + str(tuple(data)))
-                    # print("LIST: " + str(list(data)))
-                    # print("DICT: " + str(dict(data)))
-                    # print("LENGTH: " + str(len(data)))
-                    # print("KEYS: " + data.keys())
-                    # print("-------------------  " + str(data))
-                    # print("TYPE DAT[0]: " + str(type(data[0].trackList)))
-                    currentTrackList = json.loads(data[1])
-                    currentTrackList = currentTrackList + [trck]
-                    db.execute(
-                        'UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+                    currentTrackList    = json.loads(data[1])  # data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                    currentTrackList    = currentTrackList + [trck]    #add track to existing tracklist
+                    endLength           = len(currentTrackList) 
+                    db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
                     db.commit()
-
+            logAction("msg - watchlist.py - watchlist_main23 --> Tracks in tracklist before adding artist " + artistID + ": " + str(initLength) + ", length after adding tracks: " + str(endLength) + ".")
 
             '''--> return html'''
             return render_template('watchlist.html', 
@@ -427,13 +418,20 @@ def watchlist_main():
             logAction("err - watchlist.py - watchlist_main10 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
+                                    watchlistItems = gv_watchlistItems,
                                     artistList = gv_artistList,
+                                    playlistList = gv_playlistList,
                                     showArtistBtn = "active", 
                                     showArtistTab = "show active", 
                                     showPlaylistBtn ="" , 
                                     showPlaylistTab = "", 
                                     showUserBtn = "", 
-                                    showUserTab = "")
+                                    showUserTab = "",
+                                    offs = gv_offset, 
+                                    lim = gv_limit, 
+                                    tot = gv_total, 
+                                    searchTerm = gv_searchTerm, 
+                                    searchType = gv_searchType)
 
 
     #--> ADD PLAYLIST TO WATCHLIST - BUTTON PRESSED #

@@ -309,3 +309,47 @@ TypeError: the JSON object must be str, bytes or bytearray, not list
 2022-07-03 00:06:32.679912 msg - common.py - getTrackInfo --> requesting track info for trackID: 5X8DL0RZZWbv5r8hwMdWlv
 2022-07-03 00:06:33.318748 msg - common.py - getTrackInfo --> requesting track info for trackID: 0AHyYNeCzPRmA6TSZ3XjCX
 2022-07-03 00:06:33.755730 msg - common.py - getTrackInfo --> requesting track info for trackID: 0AHyYNeCzPRmA6TSZ3XjCX
+2022-07-03 23:34:12.275561 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 23:34:33.214923 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 23:34:37.310280 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 23:34:37.312280 msg - watchlist.py - watchlist_main3 --> searching for artist jaapie
+2022-07-03 23:34:37.698891 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaapie.
+2022-07-03 23:34:41.154366 msg - watchlist.py - watchlist_main19 --> add artist 6Vnfx80mTKHH8PsQ6A70Ex to watchlist --> starting.
+2022-07-03 23:34:41.542909 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 23:34:41.548920 msg - common.py - getTracksFromArtist --> requesting albums from artist 6Vnfx80mTKHH8PsQ6A70Ex.
+2022-07-03 23:34:42.307488 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 10 tracks from artist 6Vnfx80mTKHH8PsQ6A70Ex
+2022-07-03 23:34:42.308483 msg - watchlist.py - watchlist_main20 --> grabbed artist 6Vnfx80mTKHH8PsQ6A70Ex's tracks: 10
+2022-07-03 23:34:42.525862 msg - watchlist.py - watchlist_main22 --> artist Vlugge Jaapie added to watchlist.
+2022-07-03 23:34:42.525862 msg - common.py - getTrackInfo --> requesting track info for trackID: 07BAxgVjFp0JrKPeBOTzWY
+2022-07-03 23:34:42.897789 msg - common.py - getTrackInfo --> requesting track info for trackID: 07BAxgVjFp0JrKPeBOTzWY
+2022-07-03 23:34:43.382787 msg - common.py - getTrackInfo --> requesting track info for trackID: 6meiQSJrtIt11y3o4fwaPq
+2022-07-03 23:34:43.777792 msg - common.py - getTrackInfo --> requesting track info for trackID: 6meiQSJrtIt11y3o4fwaPq
+2022-07-03 23:34:44.448060 msg - common.py - getTrackInfo --> requesting track info for trackID: 29YLMkj96p4jCFVITnFI8h
+2022-07-03 23:34:44.776437 msg - common.py - getTrackInfo --> requesting track info for trackID: 29YLMkj96p4jCFVITnFI8h
+2022-07-03 23:34:45.322702 msg - common.py - getTrackInfo --> requesting track info for trackID: 41Lhy5K0pKz51VVWAPvZxa
+2022-07-03 23:34:45.675415 msg - common.py - getTrackInfo --> requesting track info for trackID: 41Lhy5K0pKz51VVWAPvZxa
+2022-07-03 23:34:46.229568 msg - common.py - getTrackInfo --> requesting track info for trackID: 3mdDfLgVpMX3oiMISfVwNQ
+2022-07-03 23:34:46.618086 msg - common.py - getTrackInfo --> requesting track info for trackID: 3mdDfLgVpMX3oiMISfVwNQ
+2022-07-03 23:34:47.103973 msg - common.py - getTrackInfo --> requesting track info for trackID: 6ZM23XKFIamm3QEPfI9uzH
+2022-07-03 23:34:47.436090 msg - common.py - getTrackInfo --> requesting track info for trackID: 6ZM23XKFIamm3QEPfI9uzH
+2022-07-03 23:34:48.027987 msg - common.py - getTrackInfo --> requesting track info for trackID: 4xzDN6gcMK9OvKdr2UpAKu
+2022-07-03 23:34:48.436573 msg - common.py - getTrackInfo --> requesting track info for trackID: 4xzDN6gcMK9OvKdr2UpAKu
+2022-07-03 23:34:48.992666 msg - common.py - getTrackInfo --> requesting track info for trackID: 04bYmXCbxdfdy66r1bFwuH
+2022-07-03 23:34:49.426187 msg - common.py - getTrackInfo --> requesting track info for trackID: 04bYmXCbxdfdy66r1bFwuH
+2022-07-03 23:34:49.956561 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mT2TL5ISsxd6cvpu8Cg7J
+2022-07-03 23:34:50.355631 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mT2TL5ISsxd6cvpu8Cg7J
+2022-07-03 23:34:50.957502 msg - common.py - getTrackInfo --> requesting track info for trackID: 6nQxWraogjI5nc5Qku30wI
+2022-07-03 23:34:51.351641 msg - common.py - getTrackInfo --> requesting track info for trackID: 6nQxWraogjI5nc5Qku30wI
+2022-07-03 23:48:42.842695 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-03 23:48:47.483343 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 23:48:47.497342 msg - watchlist.py - watchlist_main3 --> searching for artist henkie
+2022-07-03 23:48:47.903589 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist henkie.
+2022-07-03 23:48:52.208829 msg - watchlist.py - watchlist_main19 --> add artist 1ZPhRduqoNpk8d5M9lZ9Qs to watchlist --> starting.
+2022-07-03 23:48:52.596819 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-03 23:48:52.605820 msg - common.py - getTracksFromArtist --> requesting albums from artist 1ZPhRduqoNpk8d5M9lZ9Qs.
+2022-07-03 23:48:53.304125 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 1 tracks from artist 1ZPhRduqoNpk8d5M9lZ9Qs
+2022-07-03 23:48:53.304125 msg - watchlist.py - watchlist_main20 --> grabbed artist 1ZPhRduqoNpk8d5M9lZ9Qs's tracks: 1
+2022-07-03 23:48:53.519712 msg - watchlist.py - watchlist_main22 --> artist Rubberen Henkie added to watchlist.
+2022-07-03 23:48:53.520710 msg - common.py - getTrackInfo --> requesting track info for trackID: 2LFhZTws96H5nsNa6yxHh1
+2022-07-03 23:48:53.952842 msg - common.py - getTrackInfo --> requesting track info for trackID: 2LFhZTws96H5nsNa6yxHh1
+2022-07-03 23:48:54.493123 msg - watchlist.py - watchlist_main23 --> Tracks in tracklist before adding artist 1ZPhRduqoNpk8d5M9lZ9Qs: 25, length after adding tracks: 26.
