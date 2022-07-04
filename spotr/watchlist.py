@@ -67,7 +67,7 @@ def watchlist_main():
 
 
     #--> PAGE LOAD #
-    if request.method == "GET" and not ("addArtist" in args) and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+    if request.method == "GET" and not ("addArtist" in args) and not ("addPlaylist" in args) and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
         try:
             '''--> page load  - show playlist items with info'''
             '''--> initialize variables'''
@@ -309,7 +309,19 @@ def watchlist_main():
             if artistResponse == '':
                 logAction("err - watchlist.py - watchlist_main20 --> empty api response for searching artist.")
                 flash("Error when searching for artist " + gv_searchTerm + ", empty response.", category="error")
-                return render_template("watchlist.html")
+
+
+                '''--> return html'''
+                return render_template('watchlist.html', 
+                                        watchlistItems = gv_watchlistItems,
+                                        artistList = gv_artistList,
+                                        playlistList = gv_playlistList,
+                                        showArtistBtn = "active", 
+                                        showArtistTab = "show active", 
+                                        showPlaylistBtn ="" , 
+                                        showPlaylistTab = "", 
+                                        showUserBtn = "", 
+                                        showUserTab = "")
 
 
             '''--> db'''
@@ -321,7 +333,7 @@ def watchlist_main():
             if cursor.execute('SELECT id FROM WatchList WHERE id = ?', (artistID,)).fetchone() == None:
                 pass    #not in db yet
             else:
-                logAction("msg - watchlist.py - watchlist_main21 --> artist " + artistResponse["name"] + " already in watchlist.")
+                logAction("msg - watchlist.py - watchlist_main22 --> artist " + artistResponse["name"] + " already in watchlist.")
                 flash("Artist " + artistResponse["name"] + " already in watchlist.", category="error")
 
 
@@ -340,7 +352,7 @@ def watchlist_main():
 
             '''-->artist's tracks'''
             artistTrackList       = getTracksFromArtist(artistID, False)
-            logAction("msg - watchlist.py - watchlist_main20 --> grabbed artist " + artistID + "'s tracks: " + str(len(artistTrackList)))
+            logAction("msg - watchlist.py - watchlist_main23 --> grabbed artist " + artistID + "'s tracks: " + str(len(artistTrackList)))
 
 
             '''--> check data'''
@@ -355,45 +367,63 @@ def watchlist_main():
                 imglink = ""
 
 
-            '''--> check if entry in db table WatchListNewTracks exists'''
+            '''--> check if entry in db table WatchListNewTracks exists, before adding tracks to it'''
             try:
-               if cursor.execute('SELECT * FROM WatchListNewTracks').fetchone() == None:
-                    dummyList = ["jantje","bertje","hansje"]
-                    db.execute(
-                    'INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)', 
-                    ("newTracks", json.dumps(dummyList)))
+               if cursor.execute('SELECT * FROM WatchListNewTracks').fetchone() == None:    #add first entry to db table
+                    dummyList = []
+                    db.execute('INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)',("newTracks", json.dumps(dummyList)))
                     db.commit()
             except sqlite3.OperationalError:
-                logAction("msg - watchlist.py - watchlist_main21 --> no entry yet in db table WatchListNewTracks")
+                logAction("msg - watchlist.py - watchlist_main24 --> error while assing entry in db table WatchListNewTracks")
+
+
+                '''--> return html'''
+                return render_template('watchlist.html', 
+                                        watchlistItems = gv_watchlistItems,
+                                        artistList = gv_artistList,
+                                        playlistList = gv_playlistList,
+                                        showArtistBtn = "active", 
+                                        showArtistTab = "show active", 
+                                        showPlaylistBtn ="" , 
+                                        showPlaylistTab = "", 
+                                        showUserBtn = "", 
+                                        showUserTab = "")
 
 
             '''--> add artist to WatchList db'''
             db.execute(
-                'INSERT INTO WatchList (id, _type, _name, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?)', 
-                (artistID, "artist", name, datetime.now(), len(artistTrackList), "", json.dumps(artistTrackList), imglink, 0)
-            )
+                'INSERT INTO WatchList (id, _type, _name, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?)', 
+                (artistID, "artist", name, len(artistTrackList), "", json.dumps(artistTrackList), imglink, 0)
+                    )
             db.commit()
-            logAction("msg - watchlist.py - watchlist_main22 --> artist " + name + " added to watchlist.")
+            logAction("msg - watchlist.py - watchlist_main25 --> artist " + name + " added to watchlist.")
             flash("Artist " + name + " added to watchlist.", category="message")
 
 
             '''--> add artist's tracks to WatchListNewTracks'''
-            '''Check if item in WatchListNewTracks exists'''
-            data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+            '''Check tracks if in db'''
+            data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()   #needed to get trackList length before stating to add tracks...
             currentTrackList    = json.loads(data[1])
             initLength          = len(currentTrackList)
-            endLength              = 0
+            endLength           = 0
 
             for trck in artistTrackList:
                 if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack"):
                     #Not in db yet, update tracklist
-                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
-                    currentTrackList    = json.loads(data[1])  # data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
-                    currentTrackList    = currentTrackList + [trck]    #add track to existing tracklist
+                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+                    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                    currentTrackList    = currentTrackList + [trck]     #add track to existing tracklist
                     endLength           = len(currentTrackList) 
                     db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
                     db.commit()
-            logAction("msg - watchlist.py - watchlist_main23 --> Tracks in tracklist before adding artist " + artistID + ": " + str(initLength) + ", length after adding tracks: " + str(endLength) + ".")
+            logAction("msg - watchlist.py - watchlist_main26 --> Finished - tracks in tracklist before adding artist " + artistID + ": " + str(initLength) + ", length after adding tracks: " + str(endLength) + ".")
+            flash(str(endLength - initLength) + " tracks added to WatchListNewTracks.", category="message")
+
+
+            '''--> (re)load watchlist items'''
+            gv_watchlistItems = []  #list empty, initialize it every reload
+            loadWatchlistItems()
+
 
             '''--> return html'''
             return render_template('watchlist.html', 
@@ -415,7 +445,7 @@ def watchlist_main():
 
         except Exception as ex:
             flash("Error ...", category="error")
-            logAction("err - watchlist.py - watchlist_main10 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("err - watchlist.py - watchlist_main27 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
                                     watchlistItems = gv_watchlistItems,
@@ -452,7 +482,19 @@ def watchlist_main():
             if playlistResponse == '':
                 logAction("err - watchlist.py - watchlist_main71 --> empty api response for searching playlist.")
                 flash("Error when searching for playlist " + gv_searchTerm + ", empty response.", category="error")
-                return render_template("watchlist.html")
+
+
+                '''--> return html'''
+                return render_template('watchlist.html', 
+                                        watchlistItems = gv_watchlistItems,
+                                        artistList = gv_artistList,
+                                        playlistList = gv_playlistList,
+                                        showArtistBtn = "", 
+                                        showArtistTab = "", 
+                                        showPlaylistBtn ="active" , 
+                                        showPlaylistTab = "show active", 
+                                        showUserBtn = "", 
+                                        showUserTab = "")
 
 
             '''--> db'''
@@ -473,21 +515,17 @@ def watchlist_main():
                                         watchlistItems = gv_watchlistItems,
                                         artistList = gv_artistList,
                                         playlistList = gv_playlistList,
-                                        showArtistBtn = "active", 
-                                        showArtistTab = "show active", 
-                                        showPlaylistBtn ="" , 
-                                        showPlaylistTab = "", 
+                                        showArtistBtn = "", 
+                                        showArtistTab = "", 
+                                        showPlaylistBtn ="active" , 
+                                        showPlaylistTab = "show active", 
                                         showUserBtn = "", 
                                         showUserTab = "")
 
 
             '''-->playlist's tracks'''
-            trackList       = getTracksFromPlaylist(playlistID, False)
-            logAction("msg - watchlist.py - watchlist_main73 --> grabbed playlist " + playlistID + "'s tracks: " + str(len(trackList)))
-
-
-            '''--> check tracks and add to newWatchlistTracks db!'''
-
+            playlistTracklist       = getTracksFromPlaylist(playlistID, False)
+            logAction("msg - watchlist.py - watchlist_main73 --> grabbed playlist " + playlistID + "'s tracks: " + str(len(playlistTracklist)))
 
 
             '''--> check data'''
@@ -502,14 +540,62 @@ def watchlist_main():
                 imglink = ""
 
 
-            '''--> add to db'''
+            '''--> check if entry in db table WatchListNewTracks exists, before adding tracks to it'''
+            try:
+               if cursor.execute('SELECT * FROM WatchListNewTracks').fetchone() == None:    #add first entry to db table
+                    dummyList = []
+                    db.execute('INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)',("newTracks", json.dumps(dummyList)))
+                    db.commit()
+            except sqlite3.OperationalError:
+                logAction("msg - watchlist.py - watchlist_main74 --> error while assing entry in db table WatchListNewTracks")
+
+
+                '''--> return html'''
+                return render_template('watchlist.html', 
+                                        watchlistItems = gv_watchlistItems,
+                                        artistList = gv_artistList,
+                                        playlistList = gv_playlistList,
+                                        showArtistBtn = "", 
+                                        showArtistTab = "", 
+                                        showPlaylistBtn ="active" , 
+                                        showPlaylistTab = "show active", 
+                                        showUserBtn = "", 
+                                        showUserTab = "")
+
+
+            '''--> add playlist to WatchList db'''
             db.execute(
-                'INSERT INTO WatchList (id, _type, _name, date_added, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?,?)', 
-                (playlistID, "playlist", name, datetime.now(), datetime.now(), len(trackList), playlistResponse["href"], json.dumps(trackList), imglink, 0)
+                'INSERT INTO WatchList (id, _type, _name, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?)', 
+                (playlistID, "playlist", name, len(playlistTracklist), playlistResponse["href"], json.dumps(playlistTracklist), imglink, 0)
             )
             db.commit()
-            logAction("msg - watchlist.py - watchlist_main22 --> artist " + artistResponse["name"] + " added to watchlist.")
-            flash("Artist " + artistResponse["name"] + " added to watchlist.", category="message")
+            logAction("msg - watchlist.py - watchlist_main75 --> playlist " + name + " added to watchlist.")
+            flash("Playlist " + name + " added to watchlist.", category="message")
+
+
+            '''--> add playlist's tracks to WatchListNewTracks'''
+            '''Check tracks if in db'''
+            data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()   #needed to get trackList length before stating to add tracks...
+            currentTrackList    = json.loads(data[1])
+            initLength          = len(currentTrackList)
+            endLength           = 0
+
+            for trck in playlistTracklist:
+                if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack"):
+                    #Not in db yet, update tracklist
+                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+                    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                    currentTrackList    = currentTrackList + [trck]     #add track to existing tracklist
+                    endLength           = len(currentTrackList) 
+                    db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                    db.commit()
+            logAction("msg - watchlist.py - watchlist_main75 --> Finished - tracks in tracklist before adding playlist " + playlistID + ": " + str(initLength) + ", length after adding tracks: " + str(endLength) + ".")
+            flash(str(endLength - initLength) + " tracks added to WatchListNewTracks.", category="message")
+
+
+            '''--> (re)load watchlist items'''
+            gv_watchlistItems = []  #list empty, initialize it every reload
+            loadWatchlistItems()
 
 
             '''--> return html'''
@@ -517,10 +603,10 @@ def watchlist_main():
                         watchlistItems = gv_watchlistItems,
                         artistList = gv_artistList,
                         playlistList = gv_playlistList,
-                        showArtistBtn = "active", 
-                        showArtistTab = "show active", 
-                        showPlaylistBtn ="" , 
-                        showPlaylistTab = "", 
+                        showArtistBtn = "", 
+                        showArtistTab = "", 
+                        showPlaylistBtn ="active" , 
+                        showPlaylistTab = "show active", 
                         showUserBtn = "", 
                         showUserTab = "", 
                         offs = gv_offset, 
@@ -532,16 +618,23 @@ def watchlist_main():
 
         except Exception as ex:
             flash("Error ...", category="error")
-            logAction("err - watchlist.py - watchlist_main10 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("err - watchlist.py - watchlist_main76 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
+                                    watchlistItems = gv_watchlistItems,
                                     artistList = gv_artistList,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
+                                    playlistList = gv_playlistList,
+                                    showArtistBtn = "", 
+                                    showArtistTab = "", 
+                                    showPlaylistBtn ="active" , 
+                                    showPlaylistTab = "show active", 
                                     showUserBtn = "", 
-                                    showUserTab = "")
+                                    showUserTab = "",
+                                    offs = gv_offset, 
+                                    lim = gv_limit, 
+                                    tot = gv_total, 
+                                    searchTerm = gv_searchTerm, 
+                                    searchType = gv_searchType)
 
 
 #--> DELETE ITEM FROM WATCHLIST - BUTTON PRESSED #
@@ -660,3 +753,65 @@ def loadWatchlistItems():
 #     print("TRUE")
 # else:
 #     print("FALSE")
+
+##############SCRAP
+if request.method == "GET"  and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+    '''--> local variables'''
+    lType       = ""
+    lID         = ""
+    lArtistBtn  = ""
+    lArtistTab  = ""
+    lPlstBtn    = ""
+    lPlstTab    = ""
+
+
+    '''--> artist or playlist?'''
+    try:
+        if ("addArtist" in args):
+            lType = "artist"
+        elif ("addPlaylist" in args):
+            lType = "playlist"
+        else:
+            lType = ""
+
+
+    '''--> get details'''
+    if lType == "artist":
+        lID         = args["addArtist"]
+        lArtistBtn  = "active"
+        lArtistTab  = "show active"
+    elif lType == "playlist":
+        lID         = args["addPlaylist"]
+        lPlstBrn    = "active"
+        lPlstTab    = "show active"  
+    response = apiGetSpotify(lType + "s/" + lID)
+    logAction("msg - watchlist.py - watchlist_main80 --> add " + lType + " " + lID + " to watchlist --> starting.") 
+    
+
+    '''--> (re)load watchlist items'''
+    gv_watchlistItems = []  #list empty, initialize it every reload
+    loadWatchlistItems()
+
+
+    '''--> check response before continuing'''
+    if response == '':
+        logAction("err - watchlist.py - watchlist_main81 --> empty api response for searching " + lType + ".")
+        flash("Error when searching for " + lType + " " + gv_searchTerm + ", empty response.", category="error")
+
+
+        '''--> return html'''
+        return render_template('watchlist.html', 
+                                watchlistItems = gv_watchlistItems,
+                                artistList = gv_artistList,
+                                playlistList = gv_playlistList,
+                                showArtistBtn = lArtistBtn, 
+                                showArtistTab = lArtistTab, 
+                                showPlaylistBtn =lPlstBtn , 
+                                showPlaylistTab = lPlstTab, 
+                                showUserBtn = "", 
+                                showUserTab = "")
+
+
+        '''--> db'''
+        db = get_db_connection()
+        cursor = db.cursor()
