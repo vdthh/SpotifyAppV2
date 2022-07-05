@@ -284,3 +284,281 @@
 2022-07-04 21:34:51.329710 msg - watchlist.py - watchlist_main70 --> add playlist 3clUyLPib0kP3tAcYDchFi to watchlist --> starting.
 2022-07-04 21:34:51.766706 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
 2022-07-04 21:34:51.769709 msg - watchlist.py - watchlist_main72 --> playlist TESTPLAYLIST already in watchlist.
+2022-07-05 22:20:41.787200 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-05 22:21:19.503372 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-05 22:21:25.352655 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-05 22:21:49.939659 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:21:54.456920 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:21:54.463007 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-07-05 22:21:54.871625 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-07-05 22:21:59.618485 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:21:59.620486 msg - watchlist.py - watchlist_main3 --> searching for artist bertje
+2022-07-05 22:22:00.032142 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist bertje.
+2022-07-05 22:22:04.074565 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:04.075564 msg - watchlist.py - watchlist_main3 --> searching for artist gertje
+2022-07-05 22:22:04.490234 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist gertje.
+2022-07-05 22:22:07.868130 msg - watchlist.py - watchlist_main80 --> add artist 7rp3ZBRdcc2YwIV74pwlXt to watchlist --> starting.
+2022-07-05 22:22:07.868130 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:07.869129 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-05 22:22:08.957596 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-05 22:22:08.957596 msg - watchlist.py - watchlist_main82 --> grabbed artist 7rp3ZBRdcc2YwIV74pwlXt's tracks: 34
+2022-07-05 22:22:09.356972 msg - watchlist.py - watchlist_main84 --> artist Gertje Roumen added to watchlist.
+2022-07-05 22:22:09.357970 msg - common.py - getTrackInfo --> requesting track info for trackID: 48lD8T96SWJSqnY4gHIJvA
+2022-07-05 22:22:09.760080 msg - common.py - getTrackInfo --> requesting track info for trackID: 48lD8T96SWJSqnY4gHIJvA
+2022-07-05 22:22:10.322516 msg - common.py - getTrackInfo --> requesting track info for trackID: 2h6gFzK2sXg4Zb8LY1Oeam
+2022-07-05 22:22:10.813893 msg - common.py - getTrackInfo --> requesting track info for trackID: 2h6gFzK2sXg4Zb8LY1Oeam
+2022-07-05 22:22:11.396086 msg - common.py - getTrackInfo --> requesting track info for trackID: 2zUSanpZOf4ulL27PXyL0N
+2022-07-05 22:22:11.836081 msg - common.py - getTrackInfo --> requesting track info for trackID: 2zUSanpZOf4ulL27PXyL0N
+2022-07-05 22:22:12.386426 msg - common.py - getTrackInfo --> requesting track info for trackID: 1twH9wq9hyfLONOskKZriy
+2022-07-05 22:22:12.789081 msg - common.py - getTrackInfo --> requesting track info for trackID: 1twH9wq9hyfLONOskKZriy
+2022-07-05 22:22:13.393662 msg - common.py - getTrackInfo --> requesting track info for trackID: 5JeQg1ZZxntwhxDt9w8KVX
+2022-07-05 22:22:13.840676 msg - common.py - getTrackInfo --> requesting track info for trackID: 5JeQg1ZZxntwhxDt9w8KVX
+2022-07-05 22:22:14.376520 msg - common.py - getTrackInfo --> requesting track info for trackID: 0RyTJzrKy52lrMRpEYMx1s
+2022-07-05 22:22:14.750751 msg - common.py - getTrackInfo --> requesting track info for trackID: 0RyTJzrKy52lrMRpEYMx1s
+2022-07-05 22:22:15.350001 msg - common.py - getTrackInfo --> requesting track info for trackID: 7HkwRIWCOur5g0fTtxduRS
+2022-07-05 22:22:15.751749 msg - common.py - getTrackInfo --> requesting track info for trackID: 7HkwRIWCOur5g0fTtxduRS
+2022-07-05 22:22:16.333171 msg - common.py - getTrackInfo --> requesting track info for trackID: 1zPZRMK3vCZE1N8YhLXrLc
+2022-07-05 22:22:16.773321 msg - common.py - getTrackInfo --> requesting track info for trackID: 1zPZRMK3vCZE1N8YhLXrLc
+2022-07-05 22:22:17.270529 msg - common.py - getTrackInfo --> requesting track info for trackID: 4kO8VbEMS6VsejfOupfuGw
+2022-07-05 22:22:17.716496 msg - common.py - getTrackInfo --> requesting track info for trackID: 4kO8VbEMS6VsejfOupfuGw
+2022-07-05 22:22:18.247515 msg - common.py - getTrackInfo --> requesting track info for trackID: 2KzGvAUlB1auXOdomwyI2T
+2022-07-05 22:22:18.684873 msg - common.py - getTrackInfo --> requesting track info for trackID: 2KzGvAUlB1auXOdomwyI2T
+2022-07-05 22:22:19.330190 msg - common.py - getTrackInfo --> requesting track info for trackID: 2exleBs4QaVB2ywjbUCCb6
+2022-07-05 22:22:19.805351 msg - common.py - getTrackInfo --> requesting track info for trackID: 2exleBs4QaVB2ywjbUCCb6
+2022-07-05 22:22:20.428024 msg - common.py - getTrackInfo --> requesting track info for trackID: 4NpmQLKllR4kcNbqIMZ931
+2022-07-05 22:22:20.844950 msg - common.py - getTrackInfo --> requesting track info for trackID: 4NpmQLKllR4kcNbqIMZ931
+2022-07-05 22:22:21.360331 msg - common.py - getTrackInfo --> requesting track info for trackID: 153WHvAfd96jFbLekxBxRT
+2022-07-05 22:22:21.808370 msg - common.py - getTrackInfo --> requesting track info for trackID: 153WHvAfd96jFbLekxBxRT
+2022-07-05 22:22:22.342800 msg - common.py - getTrackInfo --> requesting track info for trackID: 6C4eS21Lo1JzBeNRqD6UsO
+2022-07-05 22:22:22.704120 msg - common.py - getTrackInfo --> requesting track info for trackID: 6C4eS21Lo1JzBeNRqD6UsO
+2022-07-05 22:22:23.167000 msg - common.py - getTrackInfo --> requesting track info for trackID: 65h5W7LGfIKToppTj9USsc
+2022-07-05 22:22:23.629647 msg - common.py - getTrackInfo --> requesting track info for trackID: 65h5W7LGfIKToppTj9USsc
+2022-07-05 22:22:24.199266 msg - common.py - getTrackInfo --> requesting track info for trackID: 57MGGfiSfTJqmx3JqVEs6d
+2022-07-05 22:22:24.573263 msg - common.py - getTrackInfo --> requesting track info for trackID: 57MGGfiSfTJqmx3JqVEs6d
+2022-07-05 22:22:25.106244 msg - common.py - getTrackInfo --> requesting track info for trackID: 28wFpJsMnERUpDDwFMsjs2
+2022-07-05 22:22:25.471964 msg - common.py - getTrackInfo --> requesting track info for trackID: 28wFpJsMnERUpDDwFMsjs2
+2022-07-05 22:22:26.031258 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DvGVIJQCOPlDCvQv2IhdN
+2022-07-05 22:22:26.468353 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DvGVIJQCOPlDCvQv2IhdN
+2022-07-05 22:22:27.029881 msg - common.py - getTrackInfo --> requesting track info for trackID: 3M1HJpfj0Ir5Oa2nZH6YLx
+2022-07-05 22:22:27.391330 msg - common.py - getTrackInfo --> requesting track info for trackID: 3M1HJpfj0Ir5Oa2nZH6YLx
+2022-07-05 22:22:27.942376 msg - common.py - getTrackInfo --> requesting track info for trackID: 5ohgOdUEvGxtV06MD5thHm
+2022-07-05 22:22:28.373364 msg - common.py - getTrackInfo --> requesting track info for trackID: 5ohgOdUEvGxtV06MD5thHm
+2022-07-05 22:22:29.002379 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
+2022-07-05 22:22:29.403292 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
+2022-07-05 22:22:29.934012 msg - common.py - getTrackInfo --> requesting track info for trackID: 2Gozn1rGNx6YdJ3yuO3bal
+2022-07-05 22:22:30.303996 msg - common.py - getTrackInfo --> requesting track info for trackID: 2Gozn1rGNx6YdJ3yuO3bal
+2022-07-05 22:22:30.833925 msg - common.py - getTrackInfo --> requesting track info for trackID: 0FtMS9Iktbc6BSBra54cfi
+2022-07-05 22:22:31.219458 msg - common.py - getTrackInfo --> requesting track info for trackID: 0FtMS9Iktbc6BSBra54cfi
+2022-07-05 22:22:31.782337 msg - common.py - getTrackInfo --> requesting track info for trackID: 4QuZj28rYPi96pBGNtHhSc
+2022-07-05 22:22:32.169699 msg - common.py - getTrackInfo --> requesting track info for trackID: 4QuZj28rYPi96pBGNtHhSc
+2022-07-05 22:22:32.714896 msg - common.py - getTrackInfo --> requesting track info for trackID: 49JvCSYxniGjQi2h3msCtH
+2022-07-05 22:22:33.116495 msg - common.py - getTrackInfo --> requesting track info for trackID: 49JvCSYxniGjQi2h3msCtH
+2022-07-05 22:22:33.656082 msg - common.py - getTrackInfo --> requesting track info for trackID: 1Rngv0EXNjEyLC0kHhiWCU
+2022-07-05 22:22:34.021043 msg - common.py - getTrackInfo --> requesting track info for trackID: 1Rngv0EXNjEyLC0kHhiWCU
+2022-07-05 22:22:34.579675 msg - common.py - getTrackInfo --> requesting track info for trackID: 2v2fNQ5piRs3lyONP7sfgp
+2022-07-05 22:22:34.949377 msg - common.py - getTrackInfo --> requesting track info for trackID: 2v2fNQ5piRs3lyONP7sfgp
+2022-07-05 22:22:35.511773 msg - common.py - getTrackInfo --> requesting track info for trackID: 3I9MLjMo1oqeKBZqzReMTI
+2022-07-05 22:22:35.946392 msg - common.py - getTrackInfo --> requesting track info for trackID: 3I9MLjMo1oqeKBZqzReMTI
+2022-07-05 22:22:36.519197 msg - common.py - getTrackInfo --> requesting track info for trackID: 6Cr07rNOwbDPzph2KT7w4U
+2022-07-05 22:22:36.947909 msg - common.py - getTrackInfo --> requesting track info for trackID: 6Cr07rNOwbDPzph2KT7w4U
+2022-07-05 22:22:37.543853 msg - common.py - getTrackInfo --> requesting track info for trackID: 7EzJqPcLSnh7EeVXJAeKzl
+2022-07-05 22:22:38.022098 msg - common.py - getTrackInfo --> requesting track info for trackID: 7EzJqPcLSnh7EeVXJAeKzl
+2022-07-05 22:22:38.550303 msg - common.py - getTrackInfo --> requesting track info for trackID: 3iJywVVK73TOzqSB0wUGxD
+2022-07-05 22:22:38.919258 msg - common.py - getTrackInfo --> requesting track info for trackID: 3iJywVVK73TOzqSB0wUGxD
+2022-07-05 22:22:39.474205 msg - common.py - getTrackInfo --> requesting track info for trackID: 3JsanSL8YXjGxGPcJl6vVS
+2022-07-05 22:22:39.894702 msg - common.py - getTrackInfo --> requesting track info for trackID: 3JsanSL8YXjGxGPcJl6vVS
+2022-07-05 22:22:40.465486 msg - common.py - getTrackInfo --> requesting track info for trackID: 5GiAbgQk0Iuu4wRFLjBRpN
+2022-07-05 22:22:40.902351 msg - common.py - getTrackInfo --> requesting track info for trackID: 5GiAbgQk0Iuu4wRFLjBRpN
+2022-07-05 22:22:41.397879 msg - common.py - getTrackInfo --> requesting track info for trackID: 5dipMfvR76Qz4yHMQjfdlp
+2022-07-05 22:22:41.850431 msg - common.py - getTrackInfo --> requesting track info for trackID: 5dipMfvR76Qz4yHMQjfdlp
+2022-07-05 22:22:42.529482 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 7rp3ZBRdcc2YwIV74pwlXt: 0, length after adding tracks: 34.
+2022-07-05 22:22:42.529482 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:48.695748 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:48.696749 msg - watchlist.py - watchlist_main50 --> searching for playlist japie
+2022-07-05 22:22:49.299921 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist japie.
+2022-07-05 22:22:53.851604 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:53.853602 msg - watchlist.py - watchlist_main3 --> searching for artist japie
+2022-07-05 22:22:54.340796 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist japie.
+2022-07-05 22:22:57.184492 msg - watchlist.py - watchlist_main80 --> add artist 6L1Ok7nlpTLlMBo2T8JY6N to watchlist --> starting.
+2022-07-05 22:22:57.184492 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:22:57.185499 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
+2022-07-05 22:22:58.678998 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
+2022-07-05 22:22:58.678998 msg - watchlist.py - watchlist_main82 --> grabbed artist 6L1Ok7nlpTLlMBo2T8JY6N's tracks: 60
+2022-07-05 22:22:58.786998 msg - watchlist.py - watchlist_main84 --> artist Slome Japie added to watchlist.
+2022-07-05 22:22:58.787997 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DT5qWvriQksmNJ645QdhC
+2022-07-05 22:22:59.159754 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DT5qWvriQksmNJ645QdhC
+2022-07-05 22:22:59.736404 msg - common.py - getTrackInfo --> requesting track info for trackID: 4wEr2UbZwhsf2zrDLQsVY6
+2022-07-05 22:23:00.114403 msg - common.py - getTrackInfo --> requesting track info for trackID: 4wEr2UbZwhsf2zrDLQsVY6
+2022-07-05 22:23:00.735259 msg - common.py - getTrackInfo --> requesting track info for trackID: 0pYL6Cfn4VgVpIDCfr803I
+2022-07-05 22:23:01.126972 msg - common.py - getTrackInfo --> requesting track info for trackID: 0pYL6Cfn4VgVpIDCfr803I
+2022-07-05 22:23:01.664624 msg - common.py - getTrackInfo --> requesting track info for trackID: 2IzZy3fnLcfQVdV53TwZvF
+2022-07-05 22:23:02.060099 msg - common.py - getTrackInfo --> requesting track info for trackID: 2IzZy3fnLcfQVdV53TwZvF
+2022-07-05 22:23:02.616635 msg - common.py - getTrackInfo --> requesting track info for trackID: 1gLGTjPoUFW2yvw3ABOPWh
+2022-07-05 22:23:03.044718 msg - common.py - getTrackInfo --> requesting track info for trackID: 1gLGTjPoUFW2yvw3ABOPWh
+2022-07-05 22:23:03.632676 msg - common.py - getTrackInfo --> requesting track info for trackID: 3TjzBLs7zpTQyWV62dWh3O
+2022-07-05 22:23:04.042623 msg - common.py - getTrackInfo --> requesting track info for trackID: 3TjzBLs7zpTQyWV62dWh3O
+2022-07-05 22:23:04.514613 msg - common.py - getTrackInfo --> requesting track info for trackID: 7b5irh29TrxSdGiq2sPQ4G
+2022-07-05 22:23:04.885497 msg - common.py - getTrackInfo --> requesting track info for trackID: 7b5irh29TrxSdGiq2sPQ4G
+2022-07-05 22:23:05.414616 msg - common.py - getTrackInfo --> requesting track info for trackID: 5ZKY71RlNW43w9Dnje05mV
+2022-07-05 22:23:05.827611 msg - common.py - getTrackInfo --> requesting track info for trackID: 5ZKY71RlNW43w9Dnje05mV
+2022-07-05 22:23:06.371560 msg - common.py - getTrackInfo --> requesting track info for trackID: 0Yi8n4fTp1CpkBKlCo1nOM
+2022-07-05 22:23:06.798748 msg - common.py - getTrackInfo --> requesting track info for trackID: 0Yi8n4fTp1CpkBKlCo1nOM
+2022-07-05 22:23:07.250458 msg - common.py - getTrackInfo --> requesting track info for trackID: 2sLVJ1zjNgttnDLhCtSYMX
+2022-07-05 22:23:07.615854 msg - common.py - getTrackInfo --> requesting track info for trackID: 2sLVJ1zjNgttnDLhCtSYMX
+2022-07-05 22:23:08.203406 msg - common.py - getTrackInfo --> requesting track info for trackID: 11SZJbpfK5n1psEdy64YRb
+2022-07-05 22:23:08.614413 msg - common.py - getTrackInfo --> requesting track info for trackID: 11SZJbpfK5n1psEdy64YRb
+2022-07-05 22:23:09.150690 msg - common.py - getTrackInfo --> requesting track info for trackID: 4jNiRAbCOgPDkXPVsNq7EO
+2022-07-05 22:23:09.544692 msg - common.py - getTrackInfo --> requesting track info for trackID: 4jNiRAbCOgPDkXPVsNq7EO
+2022-07-05 22:23:10.083701 msg - common.py - getTrackInfo --> requesting track info for trackID: 4w96mXM0Le53WrRWu2AjD7
+2022-07-05 22:23:10.439263 msg - common.py - getTrackInfo --> requesting track info for trackID: 4w96mXM0Le53WrRWu2AjD7
+2022-07-05 22:23:10.966263 msg - common.py - getTrackInfo --> requesting track info for trackID: 35GkIE7jWgAIe3pT9Hjtdf
+2022-07-05 22:23:11.317264 msg - common.py - getTrackInfo --> requesting track info for trackID: 35GkIE7jWgAIe3pT9Hjtdf
+2022-07-05 22:23:11.940913 msg - common.py - getTrackInfo --> requesting track info for trackID: 4VnXFdaZGOrvPO6qpVJuFR
+2022-07-05 22:23:12.296547 msg - common.py - getTrackInfo --> requesting track info for trackID: 4VnXFdaZGOrvPO6qpVJuFR
+2022-07-05 22:23:12.839138 msg - common.py - getTrackInfo --> requesting track info for trackID: 3nFr1th8TfitnTf4cZGLzZ
+2022-07-05 22:23:13.268033 msg - common.py - getTrackInfo --> requesting track info for trackID: 3nFr1th8TfitnTf4cZGLzZ
+2022-07-05 22:23:13.938882 msg - common.py - getTrackInfo --> requesting track info for trackID: 01eJBJnxTsRFgYNtIPa1tJ
+2022-07-05 22:23:14.298210 msg - common.py - getTrackInfo --> requesting track info for trackID: 01eJBJnxTsRFgYNtIPa1tJ
+2022-07-05 22:23:14.887247 msg - common.py - getTrackInfo --> requesting track info for trackID: 5bfClaK1myC9ZTbrzGTns3
+2022-07-05 22:23:15.313784 msg - common.py - getTrackInfo --> requesting track info for trackID: 5bfClaK1myC9ZTbrzGTns3
+2022-07-05 22:23:15.794576 msg - common.py - getTrackInfo --> requesting track info for trackID: 12ttJKP55VxmCYQj2z2CGT
+2022-07-05 22:23:16.195481 msg - common.py - getTrackInfo --> requesting track info for trackID: 12ttJKP55VxmCYQj2z2CGT
+2022-07-05 22:23:16.727336 msg - common.py - getTrackInfo --> requesting track info for trackID: 16tw1NwEUclYqWNLAvTqsc
+2022-07-05 22:23:17.123783 msg - common.py - getTrackInfo --> requesting track info for trackID: 16tw1NwEUclYqWNLAvTqsc
+2022-07-05 22:23:17.739815 msg - common.py - getTrackInfo --> requesting track info for trackID: 7FRH63VxMmooo8P27fWdUm
+2022-07-05 22:23:18.181979 msg - common.py - getTrackInfo --> requesting track info for trackID: 7FRH63VxMmooo8P27fWdUm
+2022-07-05 22:23:18.657963 msg - common.py - getTrackInfo --> requesting track info for trackID: 7AaP7MxwqrfFTkN3MQA8mK
+2022-07-05 22:23:19.075951 msg - common.py - getTrackInfo --> requesting track info for trackID: 7AaP7MxwqrfFTkN3MQA8mK
+2022-07-05 22:23:19.632611 msg - common.py - getTrackInfo --> requesting track info for trackID: 4vKnq4B3G02egjQPQksAEc
+2022-07-05 22:23:20.007701 msg - common.py - getTrackInfo --> requesting track info for trackID: 4vKnq4B3G02egjQPQksAEc
+2022-07-05 22:23:20.514701 msg - common.py - getTrackInfo --> requesting track info for trackID: 3jYhqvXyuI9rtfUdlQNWuj
+2022-07-05 22:23:20.962700 msg - common.py - getTrackInfo --> requesting track info for trackID: 3jYhqvXyuI9rtfUdlQNWuj
+2022-07-05 22:23:21.505544 msg - common.py - getTrackInfo --> requesting track info for trackID: 2JzzwFzyY5lhVQW2mjPZfP
+2022-07-05 22:23:21.885748 msg - common.py - getTrackInfo --> requesting track info for trackID: 2JzzwFzyY5lhVQW2mjPZfP
+2022-07-05 22:23:22.404272 msg - common.py - getTrackInfo --> requesting track info for trackID: 0x1qbTHLm3JLK4d2pE3WIc
+2022-07-05 22:23:22.788537 msg - common.py - getTrackInfo --> requesting track info for trackID: 0x1qbTHLm3JLK4d2pE3WIc
+2022-07-05 22:23:23.437058 msg - common.py - getTrackInfo --> requesting track info for trackID: 61Emz2OGNiRh10k4l4Xt7e
+2022-07-05 22:23:23.853716 msg - common.py - getTrackInfo --> requesting track info for trackID: 61Emz2OGNiRh10k4l4Xt7e
+2022-07-05 22:23:24.443959 msg - common.py - getTrackInfo --> requesting track info for trackID: 3vTd6GTqnuYSRY4BfbgREG
+2022-07-05 22:23:24.843401 msg - common.py - getTrackInfo --> requesting track info for trackID: 3vTd6GTqnuYSRY4BfbgREG
+2022-07-05 22:23:25.427811 msg - common.py - getTrackInfo --> requesting track info for trackID: 3sl85kSLs4vkH0unzF22bn
+2022-07-05 22:23:25.924813 msg - common.py - getTrackInfo --> requesting track info for trackID: 3sl85kSLs4vkH0unzF22bn
+2022-07-05 22:23:26.493011 msg - common.py - getTrackInfo --> requesting track info for trackID: 5tJ3ypFY7MMr8C9G2ghToF
+2022-07-05 22:23:26.941012 msg - common.py - getTrackInfo --> requesting track info for trackID: 5tJ3ypFY7MMr8C9G2ghToF
+2022-07-05 22:23:27.508657 msg - common.py - getTrackInfo --> requesting track info for trackID: 2oYiY11mmvO41D1BMzUBYh
+2022-07-05 22:23:27.928919 msg - common.py - getTrackInfo --> requesting track info for trackID: 2oYiY11mmvO41D1BMzUBYh
+2022-07-05 22:23:28.481059 msg - common.py - getTrackInfo --> requesting track info for trackID: 1PjmqtbnBPEyrOgvtXPQsJ
+2022-07-05 22:23:28.866061 msg - common.py - getTrackInfo --> requesting track info for trackID: 1PjmqtbnBPEyrOgvtXPQsJ
+2022-07-05 22:23:29.446725 msg - common.py - getTrackInfo --> requesting track info for trackID: 5myaiRnoZQ1KaQ9alSR1jR
+2022-07-05 22:23:29.865124 msg - common.py - getTrackInfo --> requesting track info for trackID: 5myaiRnoZQ1KaQ9alSR1jR
+2022-07-05 22:23:30.429645 msg - common.py - getTrackInfo --> requesting track info for trackID: 2Yrcqi3H9c0Iu6FLsO3jCz
+2022-07-05 22:23:30.793358 msg - common.py - getTrackInfo --> requesting track info for trackID: 2Yrcqi3H9c0Iu6FLsO3jCz
+2022-07-05 22:23:31.378400 msg - common.py - getTrackInfo --> requesting track info for trackID: 7xv6L0x5Uqj4SYfCkUfguG
+2022-07-05 22:23:31.744511 msg - common.py - getTrackInfo --> requesting track info for trackID: 7xv6L0x5Uqj4SYfCkUfguG
+2022-07-05 22:23:32.343392 msg - common.py - getTrackInfo --> requesting track info for trackID: 0W9R6wlJ5JRyKTPiEI7yua
+2022-07-05 22:23:32.735463 msg - common.py - getTrackInfo --> requesting track info for trackID: 0W9R6wlJ5JRyKTPiEI7yua
+2022-07-05 22:23:33.351774 msg - common.py - getTrackInfo --> requesting track info for trackID: 6ihwDUG3C22fKsxraz1Zxr
+2022-07-05 22:23:33.724053 msg - common.py - getTrackInfo --> requesting track info for trackID: 6ihwDUG3C22fKsxraz1Zxr
+2022-07-05 22:23:34.317566 msg - common.py - getTrackInfo --> requesting track info for trackID: 47KNdNTCWxoDNlxuCq7UcY
+2022-07-05 22:23:34.710516 msg - common.py - getTrackInfo --> requesting track info for trackID: 47KNdNTCWxoDNlxuCq7UcY
+2022-07-05 22:23:35.274841 msg - common.py - getTrackInfo --> requesting track info for trackID: 0mNmNPZzJkjebllNJum9GK
+2022-07-05 22:23:35.675360 msg - common.py - getTrackInfo --> requesting track info for trackID: 0mNmNPZzJkjebllNJum9GK
+2022-07-05 22:23:36.281105 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4vpk5nVCJFn
+2022-07-05 22:23:36.633603 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4vpk5nVCJFn
+2022-07-05 22:23:37.147595 msg - common.py - getTrackInfo --> requesting track info for trackID: 6D1q4OcymwN55btVxK8qHc
+2022-07-05 22:23:37.516198 msg - common.py - getTrackInfo --> requesting track info for trackID: 6D1q4OcymwN55btVxK8qHc
+2022-07-05 22:23:38.070773 msg - common.py - getTrackInfo --> requesting track info for trackID: 32I5vXTj3fZQdE8dsIt56u
+2022-07-05 22:23:38.451082 msg - common.py - getTrackInfo --> requesting track info for trackID: 32I5vXTj3fZQdE8dsIt56u
+2022-07-05 22:23:39.020350 msg - common.py - getTrackInfo --> requesting track info for trackID: 6NMQtL8V64YYtV5HPt3b26
+2022-07-05 22:23:39.420771 msg - common.py - getTrackInfo --> requesting track info for trackID: 6NMQtL8V64YYtV5HPt3b26
+2022-07-05 22:23:39.985617 msg - common.py - getTrackInfo --> requesting track info for trackID: 2bvpmsDFj64t0gJ6yvXR0M
+2022-07-05 22:23:40.421580 msg - common.py - getTrackInfo --> requesting track info for trackID: 2bvpmsDFj64t0gJ6yvXR0M
+2022-07-05 22:23:41.166733 msg - common.py - getTrackInfo --> requesting track info for trackID: 3eyQlop2oaCWrNOoohikJJ
+2022-07-05 22:23:41.529088 msg - common.py - getTrackInfo --> requesting track info for trackID: 3eyQlop2oaCWrNOoohikJJ
+2022-07-05 22:23:42.083274 msg - common.py - getTrackInfo --> requesting track info for trackID: 5EJ55mSxxbFcrrlGtDFaHs
+2022-07-05 22:23:42.514296 msg - common.py - getTrackInfo --> requesting track info for trackID: 5EJ55mSxxbFcrrlGtDFaHs
+2022-07-05 22:23:43.116285 msg - common.py - getTrackInfo --> requesting track info for trackID: 6CRHMyE5Uus2gmcKepsLnF
+2022-07-05 22:23:43.548575 msg - common.py - getTrackInfo --> requesting track info for trackID: 6CRHMyE5Uus2gmcKepsLnF
+2022-07-05 22:23:44.039925 msg - common.py - getTrackInfo --> requesting track info for trackID: 1zysRTRoLro9IsB6SigG3P
+2022-07-05 22:23:44.431934 msg - common.py - getTrackInfo --> requesting track info for trackID: 1zysRTRoLro9IsB6SigG3P
+2022-07-05 22:23:45.005454 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DZQ57YMVhRw5vgBaw9fFj
+2022-07-05 22:23:45.418171 msg - common.py - getTrackInfo --> requesting track info for trackID: 1DZQ57YMVhRw5vgBaw9fFj
+2022-07-05 22:23:46.004420 msg - common.py - getTrackInfo --> requesting track info for trackID: 7MmGKJLl9byrzc8pkGUBtp
+2022-07-05 22:23:46.371144 msg - common.py - getTrackInfo --> requesting track info for trackID: 7MmGKJLl9byrzc8pkGUBtp
+2022-07-05 22:23:46.903200 msg - common.py - getTrackInfo --> requesting track info for trackID: 1yGETwY9lJIyWw1k0vsQnz
+2022-07-05 22:23:47.315386 msg - common.py - getTrackInfo --> requesting track info for trackID: 1yGETwY9lJIyWw1k0vsQnz
+2022-07-05 22:23:47.877617 msg - common.py - getTrackInfo --> requesting track info for trackID: 58l5Si7FowNT0JyGxJPC4f
+2022-07-05 22:23:48.310222 msg - common.py - getTrackInfo --> requesting track info for trackID: 58l5Si7FowNT0JyGxJPC4f
+2022-07-05 22:23:48.904050 msg - common.py - getTrackInfo --> requesting track info for trackID: 2QsiHP3bfg2QvW1rhkv8Eu
+2022-07-05 22:23:49.259271 msg - common.py - getTrackInfo --> requesting track info for trackID: 2QsiHP3bfg2QvW1rhkv8Eu
+2022-07-05 22:23:49.816262 msg - common.py - getTrackInfo --> requesting track info for trackID: 0FUmUVBfLU8a4gR1VGfkjN
+2022-07-05 22:23:50.219157 msg - common.py - getTrackInfo --> requesting track info for trackID: 0FUmUVBfLU8a4gR1VGfkjN
+2022-07-05 22:23:50.824148 msg - common.py - getTrackInfo --> requesting track info for trackID: 14q25WPl1o859zI4xdb1A4
+2022-07-05 22:23:51.246531 msg - common.py - getTrackInfo --> requesting track info for trackID: 14q25WPl1o859zI4xdb1A4
+2022-07-05 22:23:51.773104 msg - common.py - getTrackInfo --> requesting track info for trackID: 4XYscxzm94PuJSNTQ8RMpl
+2022-07-05 22:23:52.119641 msg - common.py - getTrackInfo --> requesting track info for trackID: 4XYscxzm94PuJSNTQ8RMpl
+2022-07-05 22:23:52.630527 msg - common.py - getTrackInfo --> requesting track info for trackID: 2QENG6tGzodRL4weGeesGH
+2022-07-05 22:23:52.981149 msg - common.py - getTrackInfo --> requesting track info for trackID: 2QENG6tGzodRL4weGeesGH
+2022-07-05 22:23:53.596389 msg - common.py - getTrackInfo --> requesting track info for trackID: 7DBzlgsuhDiNSmQ9T8b53V
+2022-07-05 22:23:53.987937 msg - common.py - getTrackInfo --> requesting track info for trackID: 7DBzlgsuhDiNSmQ9T8b53V
+2022-07-05 22:23:54.586786 msg - common.py - getTrackInfo --> requesting track info for trackID: 5gfZnkAe7J8024dFAzsPRW
+2022-07-05 22:23:55.005177 msg - common.py - getTrackInfo --> requesting track info for trackID: 5gfZnkAe7J8024dFAzsPRW
+2022-07-05 22:23:55.594365 msg - common.py - getTrackInfo --> requesting track info for trackID: 2ZReasNsc5A1y0rsCkMp00
+2022-07-05 22:23:56.024334 msg - common.py - getTrackInfo --> requesting track info for trackID: 2ZReasNsc5A1y0rsCkMp00
+2022-07-05 22:23:56.559756 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 6L1Ok7nlpTLlMBo2T8JY6N: 34, length after adding tracks: 94.
+2022-07-05 22:23:56.560771 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:24:21.730647 msg - watchlist.py - watchlist_main80 --> add artist 6L1Ok7nlpTLlMBo2T8JY6N to watchlist --> starting.
+2022-07-05 22:24:21.730647 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:24:21.733647 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
+2022-07-05 22:24:23.196740 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
+2022-07-05 22:24:23.196740 msg - watchlist.py - watchlist_main82 --> grabbed artist 6L1Ok7nlpTLlMBo2T8JY6N's tracks: 60
+2022-07-05 22:24:23.197741 err - watchlist.py - watchlist_main76 --> ... --> <class 'sqlite3.IntegrityError'> - ('UNIQUE constraint failed: WatchList.id',) - UNIQUE constraint failed: WatchList.id
+2022-07-05 22:24:23.198740 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 574, in watchlist_main
+    db.execute(
+sqlite3.IntegrityError: UNIQUE constraint failed: WatchList.id
+
+2022-07-05 22:28:00.209100 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-05 22:28:06.335140 msg - watchlist.py - watchlist_main80 --> add artist 6L1Ok7nlpTLlMBo2T8JY6N to watchlist --> starting.
+2022-07-05 22:28:06.336137 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:28:06.337144 msg - watchlist.py - watchlist_main80.1 --> artist Slome Japie already in watchlist.
+2022-07-05 22:35:42.090841 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:35:42.092840 msg - watchlist.py - watchlist_main50 --> searching for playlist testplaylist
+2022-07-05 22:35:42.606858 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testplaylist.
+2022-07-05 22:35:46.708046 msg - watchlist.py - watchlist_main80 --> add playlist 3clUyLPib0kP3tAcYDchFi to watchlist --> starting.
+2022-07-05 22:35:46.708046 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:35:46.710043 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-05 22:35:47.272403 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-05 22:35:47.272403 msg - watchlist.py - watchlist_main82 --> grabbed playlist 3clUyLPib0kP3tAcYDchFi's tracks: 2
+2022-07-05 22:35:47.392419 msg - watchlist.py - watchlist_main84 --> playlist TESTPLAYLIST added to watchlist.
+2022-07-05 22:35:47.393418 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-05 22:35:47.840387 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-05 22:35:48.377015 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-05 22:35:48.782035 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-05 22:35:49.267818 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding playlist 3clUyLPib0kP3tAcYDchFi: 94, length after adding tracks: 96.
+2022-07-05 22:35:49.267818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:35:53.610265 msg - watchlist.py - watchlist_main80 --> add playlist 3clUyLPib0kP3tAcYDchFi to watchlist --> starting.
+2022-07-05 22:35:53.610265 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:35:53.612273 msg - watchlist.py - watchlist_main80.1 --> playlist TESTPLAYLIST already in watchlist.
+2022-07-05 22:39:31.975740 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:39:31.977740 msg - watchlist.py - watchlist_main50 --> searching for playlist testplaylist
+2022-07-05 22:39:32.514582 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testplaylist.
+2022-07-05 22:39:40.007171 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:39:40.008172 msg - watchlist.py - watchlist_main50 --> searching for playlist testplaylist2
+2022-07-05 22:39:40.470445 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist testplaylist2.
+2022-07-05 22:39:43.856345 msg - watchlist.py - watchlist_main80 --> add playlist 3elwM1iVIUg5Pwi2B8bmyU to watchlist --> starting.
+2022-07-05 22:39:43.857346 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 22:39:43.858346 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-05 22:39:44.260151 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-05 22:39:44.260151 msg - watchlist.py - watchlist_main82 --> grabbed playlist 3elwM1iVIUg5Pwi2B8bmyU's tracks: 2
+2022-07-05 22:39:44.417588 msg - watchlist.py - watchlist_main84 --> playlist TESTPLAYLIST2 added to watchlist.
+2022-07-05 22:39:44.418588 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-05 22:39:44.787922 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-05 22:39:45.285586 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-05 22:39:45.700883 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-05 22:39:46.185033 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding playlist 3elwM1iVIUg5Pwi2B8bmyU: 96, length after adding tracks: 98.
+2022-07-05 22:39:46.185033 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 23:15:35.820182 msg - common.py - getTrackInfo --> requesting track info for trackID: 7ghW6VFlZN7U86vaYrwlrS
+2022-07-05 23:15:49.343058 msg - watchlist.py - watchlist_main80 --> add playlist 3elwM1iVIUg5Pwi2B8bmyU to watchlist --> starting.
+2022-07-05 23:15:49.343058 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-05 23:15:49.345803 msg - watchlist.py - watchlist_main80.1 --> playlist TESTPLAYLIST2 already in watchlist.
