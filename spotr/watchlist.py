@@ -14,9 +14,14 @@ from spotr.db import get_db_connection
 from datetime import datetime
 import json
 import os
+import binascii
 import traceback
 import sqlite3
 from .common import apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
+
+from flask import current_app
+from spotr import app
+from spotr.db import get_db_connection
 ########################################################################################
 
 
@@ -588,11 +593,15 @@ def checkWatchlistItems():
     '''Add new tracks to table WatchListNewTracks - trackList'''
     '''Create playlists of these tracks of 50 tracks each'''
     '''RETURN FALSE IN CASE OF ERROR'''
-
+    print("STARTING")
     try:
         '''--> db'''
-        db = get_db_connection()
-        cursor = db.cursor()
+        '''--> db'''
+        with app.app_context():
+            db = get_db_connection()
+            cursor = db.cursor()
+
+
     except Exception as ex:
         logAction("err - watchlist.py - watchlist_main90 --> error setting up db connection --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
@@ -605,11 +614,53 @@ def checkWatchlistItems():
             dummyList = []
             db.execute('INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)',("newTracks", json.dumps(dummyList)))
             db.commit()
+            logAction("msg - watchlist.py - watchlist_main92 --> Initial entry in table WatchListNewTracks created")
+
+
     except sqlite3.OperationalError:
-        logAction("msg - watchlist.py - watchlist_main92 --> error while adding entry in db table WatchListNewTracks")
+        logAction("msg - watchlist.py - watchlist_main94 --> error while adding entry in db table WatchListNewTracks")
+        return False
 
 
-    '''--> '''
+    '''--> check watchlist items for new tracks'''
+    try:
+        for wl_item in cursor.execute('SELECT * FROM WatchList').fetchall():
+            actTracks = []  #track ids on spotify
+            dbTracks  = []  #track ids in db
+
+            if wl_item["_type"] == "artist":
+                actTracks   = getTracksFromArtist(wl_item["id"], False)
+            elif wl_item["_type"] == "playlist":
+                actTracks   = getTracksFromPlaylist(wl_item["id"], False)
+            dbTracks = json.loads(wl_item["list_of_current_items"])     #saved as string (json.dumps), converted to list with json.loads
+
+
+            '''--> use crc to check for changes'''
+            crcactTracks    = binascii.crc32(json.dumps(actTracks).encode('utf8'))
+            crcdbTracks     = binascii.crc32(json.dumps(dbTracks).encode('utf8'))
+
+            print(wl_item["_type"] + " " + wl_item["_name"] + " has currently " + str(len(actTracks)) + ", and " + str(len(dbTracks)) + " tracks in db.")
+            print("CRC actTracks: " + str(crcactTracks) + ", CRC dbTracks: " + str(crcdbTracks))
+
+            if crcactTracks != crcdbTracks:
+                '''--> new track(s) found, update db tracklist'''
+                db.execute('UPDATE WatchList SET list_of_current_items=? WHERE id=?',(json.dumps(actTracks), wl_item["id"]))
+                db.commit()
+                db.execute('UPDATE WatchList SET no_of_items_checked=? WHERE id=?',(len(actTracks), wl_item["id"]))
+                db.commit()
+
+
+                '''--> check act tracks and add to WatchlistNewTracks'''
+                for actTrck in actTracks:
+                    if not checkIfTrackInDB(actTrck,"ListenedTrack") and not checkIfTrackInDB(actTrck, "ToListenTrack"):
+                        also check WatchListNewItems!!!
+
+
+    except Exception as ex:
+        logAction("err - watchlist.py - watchlist_main98 --> error checking watchlist items for new tracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return False
+    
 
 ########################################################################################
 
@@ -642,3 +693,6 @@ def checkWatchlistItems():
 #     print("FALSE")
 
 ##############SCRAP
+
+
+checkWatchlistItems()

@@ -728,7 +728,7 @@ def searchSpotify(searchstring, searchtype, limit, offset):
 
 
 
-if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "ListenedTrack"):
-    print("TRUE")
-else:
-    print("FALSE")
+# if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "ListenedTrack"):
+#     print("TRUE")
+# else:
+#     print("FALSE")
