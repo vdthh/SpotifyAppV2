@@ -8,10 +8,11 @@
 ######################################### IMPORTS ######################################
 ########################################################################################
 import functools
+from tabnanny import check
 from flask import (Blueprint, flash, g, redirect, render_template, request, url_for)
 from spotr.common import logAction
 from spotr.db import get_db_connection
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import os
 import binascii
@@ -441,7 +442,7 @@ def watchlist_main():
             endLength           = 0
 
             for trck in tracklist:
-                if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack"):
+                if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack") and not checkIfTrackInDB(trck, "WatchListNewTracks"):
                     #Not in db yet, update tracklist
                     data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
                     currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
@@ -652,8 +653,28 @@ def checkWatchlistItems():
 
                 '''--> check act tracks and add to WatchlistNewTracks'''
                 for actTrck in actTracks:
-                    if not checkIfTrackInDB(actTrck,"ListenedTrack") and not checkIfTrackInDB(actTrck, "ToListenTrack"):
-                        also check WatchListNewItems!!!
+                    if not checkIfTrackInDB(actTrck,"ListenedTrack") and not checkIfTrackInDB(actTrck, "ToListenTrack") and not checkIfTrackInDB(actTrck, "WatchListNewTracks"):
+                        #Not in db yet, update tracklist
+                        data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+                        currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                        currentTrackList    = currentTrackList + [actTrck]     #add track to existing tracklist
+                        db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                        db.commit()
+
+
+                '''--> Set noOfNewItems (new tracks since last 8h)'''
+                date_limit = wl_item["last_time_checked"] + timedelta(hours=8)
+                if datetime.now() > date_limit:
+                    #more than 8 hours passed since a new item has been added, set noOfNewItems back to 0.
+                    UPDATE VALUE NOG DOEN  wl_item["new_items_since_last_check"] = 0
+                    db.session.commit()
+                    print("BBBBBBB5 more than 8h have passed since last track addition for artist " + item.name + ". Resetting new_items_since_last_check to 0.")
+                    logAction("watchlist.py --> BBBBBBB5 more than 8h have passed since last track addition for artist " + item.name + ". Resetting new_items_since_last_check to 0.")
+                else:
+                    #keep noOfNewItems it's last value for at least 8 hours
+                    print("BBBBBBB6 less than 8h have passed since last track addition for artist " + item.name + ". Leaving new_items_since_last_check to " + str(item.new_items_since_last_check) + ".")
+                    logAction("watchlist.py --> BBBBBBB6 less than 8h have passed since last track addition for artist " + item.name + ". Leaving new_items_since_last_check to " + str(item.new_items_since_last_check) + ".")
+
 
 
     except Exception as ex:
@@ -693,6 +714,8 @@ def checkWatchlistItems():
 #     print("FALSE")
 
 ##############SCRAP
+# print("BLABLA")
+# print(checkIfTrackInDB("67jP5OITPIl4vpk5nVCJFn", "WatchListNewTracks"))
 
 
-checkWatchlistItems()
+# checkWatchlistItems()

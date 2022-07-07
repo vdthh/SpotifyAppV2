@@ -51,3 +51,88 @@ AttributeError: 'sqlite3.Row' object has no attribute 'id'
 2022-07-06 22:04:47.294545 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
 2022-07-06 22:04:47.295905 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
 2022-07-06 22:04:47.685630 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-07 22:52:06.833954 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 22:52:07.377549 err - common.py - checkIfTrackInDB1 --> error while checking trackID 0eR1l7QJcNjr2V8YZX6RHR in table WatchListNewTracks --> <class 'sqlite3.OperationalError'> - ('no such column: artists',) - no such column: artists
+2022-07-07 22:52:07.378548 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 117, in checkIfTrackInDB
+    cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=? OR artists=? AND title=?', (trackID, artists, title))
+sqlite3.OperationalError: no such column: artists
+
+2022-07-07 22:52:34.210844 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 22:52:48.932939 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 22:52:50.065389 msg - spotify.py - apiGetSpotify4 --> retrying request #0
+2022-07-07 22:52:50.860933 msg - spotify.py - apiGetSpotify4 --> retrying request #1
+2022-07-07 22:52:51.653255 msg - spotify.py - apiGetSpotify4 --> retrying request #2
+2022-07-07 22:52:52.566626 msg - spotify.py - apiGetSpotify4 --> retrying request #3
+2022-07-07 22:52:53.542666 msg - spotify.py - apiGetSpotify4 --> retrying request #4
+2022-07-07 22:52:54.277497 msg - spotify.py - apiGetSpotify4 --> retrying request #5
+2022-07-07 22:52:55.040979 msg - spotify.py - apiGetSpotify4 --> retrying request #6
+2022-07-07 22:52:55.761488 msg - spotify.py - apiGetSpotify4 --> retrying request #7
+2022-07-07 22:52:56.850073 msg - spotify.py - apiGetSpotify4 --> retrying request #8
+2022-07-07 22:52:57.896209 msg - spotify.py - apiGetSpotify4 --> retrying request #9
+2022-07-07 22:52:58.658156 msg - spotify.py - apiGetSpotify4 --> retrying request #10
+2022-07-07 22:52:59.421229 msg - spotify.py - apiGetSpotify4 --> retrying request #11
+2022-07-07 22:53:00.263937 msg - spotify.py - apiGetSpotify4 --> retrying request #12
+2022-07-07 22:53:01.065098 msg - spotify.py - apiGetSpotify4 --> retrying request #13
+2022-07-07 22:53:02.027554 msg - spotify.py - apiGetSpotify4 --> retrying request #14
+2022-07-07 22:53:03.088012 msg - spotify.py - apiGetSpotify4 --> retrying request #15
+2022-07-07 22:53:03.986549 msg - spotify.py - apiGetSpotify4 --> retrying request #16
+2022-07-07 22:53:05.120743 msg - spotify.py - apiGetSpotify4 --> retrying request #17
+2022-07-07 22:53:06.225313 msg - spotify.py - apiGetSpotify4 --> retrying request #18
+2022-07-07 22:53:07.309748 msg - spotify.py - apiGetSpotify4 --> retrying request #19
+2022-07-07 22:53:08.342279 msg - spotify.py - apiGetSpotify4 --> retrying request #20
+2022-07-07 22:53:09.085430 msg - spotify.py - apiGetSpotify4 --> retrying request #21
+2022-07-07 22:53:10.022432 msg - spotify.py - apiGetSpotify4 --> retrying request #22
+2022-07-07 22:53:10.836120 msg - spotify.py - apiGetSpotify4 --> retrying request #23
+2022-07-07 22:53:11.829256 msg - spotify.py - apiGetSpotify4 --> retrying request #24
+2022-07-07 22:53:12.640006 msg - spotify.py - apiGetSpotify4 --> retrying request #25
+2022-07-07 22:53:13.672519 msg - spotify.py - apiGetSpotify4 --> retrying request #26
+2022-07-07 22:53:14.549573 msg - spotify.py - apiGetSpotify4 --> retrying request #27
+2022-07-07 22:53:15.566080 msg - spotify.py - apiGetSpotify4 --> retrying request #28
+2022-07-07 22:53:16.212664 msg - spotify.py - apiGetSpotify4 --> retrying request #29
+2022-07-07 22:53:17.350576 msg - spotify.py - apiGetSpotify4 --> retrying request #30
+2022-07-07 22:53:17.350576 err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.
+2022-07-07 22:53:17.351558 err - common.py - getTrackInfo2 --> empty api response for track X0eR1l7QJcNjr2V8YZX6RHR!
+2022-07-07 22:53:17.351558 err - common.py - checkIfTrackInDB1 --> error while checking trackID X0eR1l7QJcNjr2V8YZX6RHR in table WatchListNewTracks --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
+2022-07-07 22:53:17.352556 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 110, in checkIfTrackInDB
+    artistsList     = trackDetails["artists"]
+TypeError: string indices must be integers
+
+2022-07-07 22:55:50.630649 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 22:55:52.093437 msg - spotify.py - apiGetSpotify4 --> retrying request #0
+2022-07-07 22:55:52.851597 msg - spotify.py - apiGetSpotify4 --> retrying request #1
+2022-07-07 22:55:53.776600 msg - spotify.py - apiGetSpotify4 --> retrying request #2
+2022-07-07 22:55:54.912272 msg - spotify.py - apiGetSpotify4 --> retrying request #3
+2022-07-07 22:55:55.567370 msg - spotify.py - apiGetSpotify4 --> retrying request #4
+2022-07-07 22:55:56.676336 msg - spotify.py - apiGetSpotify4 --> retrying request #5
+2022-07-07 22:55:57.321065 msg - spotify.py - apiGetSpotify4 --> retrying request #6
+2022-07-07 22:59:43.561379 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 22:59:43.971381 err - spotify.py - apiGetSpotify6 --> <class 'AttributeError'> - ("'Response' object has no attribute 'message'",) - 'Response' object has no attribute 'message'
+2022-07-07 22:59:43.972385 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 222, in apiGetSpotify
+    if response.message == "invalid id":
+AttributeError: 'Response' object has no attribute 'message'
+
+2022-07-07 22:59:43.972385 err - common.py - getTrackInfo2 --> empty api response for track X0eR1l7QJcNjr2V8YZX6RHR!
+2022-07-07 22:59:43.972385 err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for X0eR1l7QJcNjr2V8YZX6RHR, probably invalid ID --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
+2022-07-07 22:59:43.973379 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 111, in checkIfTrackInDB
+    artistsList     = trackDetails["artists"]
+TypeError: string indices must be integers
+
+2022-07-07 22:59:58.673043 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
+2022-07-07 23:02:04.337275 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4vpk5nVCJFn
+2022-07-07 23:02:11.524770 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4dvpk5nVCJFn
+2022-07-07 23:02:11.916125 err - spotify.py - apiGetSpotify6 --> <class 'AttributeError'> - ("'Response' object has no attribute 'message'",) - 'Response' object has no attribute 'message'
+2022-07-07 23:02:11.917123 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 222, in apiGetSpotify
+    if response.message == "invalid id":
+AttributeError: 'Response' object has no attribute 'message'
+
+2022-07-07 23:02:11.917123 err - common.py - getTrackInfo2 --> empty api response for track 67jP5OITPIl4dvpk5nVCJFn!
+2022-07-07 23:02:11.917123 err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for 67jP5OITPIl4dvpk5nVCJFn, probably invalid ID --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
+2022-07-07 23:02:11.918123 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 111, in checkIfTrackInDB
+    artistsList     = trackDetails["artists"]
+TypeError: string indices must be integers

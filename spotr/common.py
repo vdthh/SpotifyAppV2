@@ -105,20 +105,39 @@ def checkIfTrackInDB(trackID, dbName):
 
 
         '''-->track details'''
-        trackDetails    = getTrackInfo(trackID, True)
-        artistsList     = []
-        artistsList     = trackDetails["artists"]
-        artists         = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
-        title           = trackDetails["title"]
+        try:
+            trackDetails    = getTrackInfo(trackID, True)
+            artistsList     = []
+            artistsList     = trackDetails["artists"]
+            artists         = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
+            title           = trackDetails["title"]
+        except Exception as ex:
+            logAction("err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for " + trackID + ", probably invalid ID --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("TRACEBACK --> " + traceback.format_exc())
+            return False
 
 
-        '''--> check'''
-        # https://stackoverflow.com/questions/54659595/checking-for-multiple-values-python-mysql
-        cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=? OR artists=? AND title=?', (trackID, artists, title))
-        if cursor.fetchone() == None:
-            return False    #not in db
+        '''--> check ListenedTrack and ToListenTrack'''
+        if dbName == "ListenedTrack" or dbName == "ToListenTrack":
+            # https://stackoverflow.com/questions/54659595/checking-for-multiple-values-python-mysql
+            cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=? OR artists=? AND title=?', (trackID, artists, title))
+            if cursor.fetchone() == None:
+                return False    #not in db
+            else:
+                return True     #in db
+        elif dbName == "WatchListNewTracks":
+            print("CHECKING TRACK " + trackID + " IN WATCLISTNEWTRACKS")
+            entry = cursor.execute('SELECT * FROM WatchListNewTracks').fetchone()
+            trackList = json.loads(entry["trackList"])
+            print("GRABBED TRAKS: " + str(len(trackList)))
+            if trackID in trackList:
+                return True
+            else:
+                return False
         else:
-            return True     #in db
+            logAction("err - common.py - checkIfTrackInDB0 --> no valid table selected for id " + trackID)
+            return False
+            
 
     except Exception as ex:
         logAction("err - common.py - checkIfTrackInDB1 --> error while checking trackID " + trackID + " in table " + dbName + " --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
@@ -199,12 +218,17 @@ def apiGetSpotify(urlExtension):
     '''--> check for error in response'''
     try:
         retryCnt = 0
-        while (response.status_code != 200) :
+        while (response.status_code != 200):
+            if response.message == "invalid id":
+                break   #invalid track ID requested
             waitForGivenTimeIns(0.5,1)
             logAction("msg - spotify.py - apiGetSpotify4 --> retrying request #" + str(retryCnt))
 
+
+            '''--> retrying if invalid response'''
             if retryCnt >= 30:
                 logAction("err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.")
+
 
                 '''--> save last result for debugging'''
                 with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_LAST.json", 'w', encoding="utf-8") as fi:
@@ -218,9 +242,11 @@ def apiGetSpotify(urlExtension):
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
+
     '''--> save last result for debugging'''
     with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_LAST.json", 'w', encoding="utf-8") as fi:
         fi.write(json.dumps(response.json(), indent = 4))
+
 
     '''--> finally, return a valid response in json format'''
     return response.json()
