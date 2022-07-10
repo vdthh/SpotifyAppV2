@@ -426,8 +426,8 @@ def watchlist_main():
 
             '''--> add artist/playlist/... to WatchList db'''
             db.execute(
-                'INSERT INTO WatchList (id, _type, _name, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?)', 
-                (lID, lType, name, len(tracklist), response["href"], json.dumps(tracklist), imglink, 0)
+                'INSERT INTO WatchList (id, _type, _name, last_time_checked, no_of_items_checked, href, list_of_current_items, imageURL, new_items_since_last_check) VALUES (?,?,?,?,?,?,?,?,?)', 
+                (lID, lType, name, datetime.now(), len(tracklist), response["href"], json.dumps(tracklist), imglink, len(tracklist))
             )
             db.commit()
             logAction("msg - watchlist.py - watchlist_main84 --> " + lType + " " + name + " added to watchlist.")
@@ -563,6 +563,37 @@ def watchlist_main():
 
   
 ########################################################################################
+@bp_watchlist.route('/checkForNewTracks', methods=['GET', 'POST'])
+def watchlist_checkForNewTracks():
+    '''--> Check watchlist items for new track initiated from html page - button press'''
+    logAction("msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.") 
+
+    if not checkWatchlistItems():
+        logAction("err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.") 
+        flash("checkForNewTracks - manually initiated - failed!", category="error")
+    else:
+        logAction("msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.") 
+        flash("checkForNewTracks - manually initiated - finished!", category="success")
+
+
+    '''--> return html'''
+    return render_template('watchlist.html', 
+                            watchlistItems = gv_watchlistItems,
+                            artistList = gv_artistList,
+                            playlistList = gv_playlistList,
+                            showArtistBtn = "active", 
+                            showArtistTab = "show active", 
+                            showPlaylistBtn ="" , 
+                            showPlaylistTab = "", 
+                            showUserBtn = "", 
+                            showUserTab = "", 
+                            offs = gv_offset, 
+                            lim = gv_limit, 
+                            tot = gv_total, 
+                            searchTerm = gv_searchTerm, 
+                            searchType = gv_searchType)
+
+########################################################################################
 
 
 ########################################################################################
@@ -594,7 +625,8 @@ def checkWatchlistItems():
     '''Add new tracks to table WatchListNewTracks - trackList'''
     '''Create playlists of these tracks of 50 tracks each'''
     '''RETURN FALSE IN CASE OF ERROR'''
-    print("STARTING")
+
+    logAction("msg - watchlist.py - checkWatchListItems --> starting.") 
     try:
         '''--> db'''
         '''--> db'''
@@ -604,7 +636,7 @@ def checkWatchlistItems():
 
 
     except Exception as ex:
-        logAction("err - watchlist.py - watchlist_main90 --> error setting up db connection --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - watchlist.py - checkWatchListItems2 --> error setting up db connection --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
 
@@ -615,11 +647,11 @@ def checkWatchlistItems():
             dummyList = []
             db.execute('INSERT INTO WatchListNewTracks (id, trackList) VALUES (?,?)',("newTracks", json.dumps(dummyList)))
             db.commit()
-            logAction("msg - watchlist.py - watchlist_main92 --> Initial entry in table WatchListNewTracks created")
+            logAction("msg - watchlist.py - checkWatchListItems3 --> Initial entry in table WatchListNewTracks created")
 
 
     except sqlite3.OperationalError:
-        logAction("msg - watchlist.py - watchlist_main94 --> error while adding entry in db table WatchListNewTracks")
+        logAction("msg - watchlist.py - checkWatchListItems4 --> error while adding entry in db table WatchListNewTracks")
         return False
 
 
@@ -640,8 +672,10 @@ def checkWatchlistItems():
             crcactTracks    = binascii.crc32(json.dumps(actTracks).encode('utf8'))
             crcdbTracks     = binascii.crc32(json.dumps(dbTracks).encode('utf8'))
 
-            print(wl_item["_type"] + " " + wl_item["_name"] + " has currently " + str(len(actTracks)) + ", and " + str(len(dbTracks)) + " tracks in db.")
-            print("CRC actTracks: " + str(crcactTracks) + ", CRC dbTracks: " + str(crcdbTracks))
+
+            '''--> set new_items_since_last_check'''
+            db.execute('UPDATE WatchList SET no_of_items_checked=? WHERE id=?',(len(actTracks) - len(dbTracks), wl_item["id"]))
+            db.commit()
 
             if crcactTracks != crcdbTracks:
                 '''--> new track(s) found, update db tracklist'''
@@ -663,45 +697,29 @@ def checkWatchlistItems():
 
 
                 '''--> Set noOfNewItems (new tracks since last 8h)'''
-                date_limit = wl_item["last_time_checked"] + timedelta(hours=8)
+                date_limit = datetime.strptime(wl_item["last_time_checked"],'%Y-%m-%d %H:%M:%S.%f')  + timedelta(hours=8)
                 if datetime.now() > date_limit:
                     #more than 8 hours passed since a new item has been added, set noOfNewItems back to 0.
-                    UPDATE VALUE NOG DOEN  wl_item["new_items_since_last_check"] = 0
-                    db.session.commit()
-                    print("BBBBBBB5 more than 8h have passed since last track addition for artist " + item.name + ". Resetting new_items_since_last_check to 0.")
-                    logAction("watchlist.py --> BBBBBBB5 more than 8h have passed since last track addition for artist " + item.name + ". Resetting new_items_since_last_check to 0.")
-                else:
-                    #keep noOfNewItems it's last value for at least 8 hours
-                    print("BBBBBBB6 less than 8h have passed since last track addition for artist " + item.name + ". Leaving new_items_since_last_check to " + str(item.new_items_since_last_check) + ".")
-                    logAction("watchlist.py --> BBBBBBB6 less than 8h have passed since last track addition for artist " + item.name + ". Leaving new_items_since_last_check to " + str(item.new_items_since_last_check) + ".")
+                    db.execute('UPDATE WatchList SET new_items_since_last_check=? WHERE id=?',(0, wl_item["id"]))
+                    db.commit()
+                    logAction("msg - watchlist.py - checkWatchListItems5 --> Set new_items_since_last_check for " + wl_item["id"] + " to 0 after 8h.") 
 
+
+        '''--> finished succesfully'''
+        return True        
 
 
     except Exception as ex:
-        logAction("err - watchlist.py - watchlist_main98 --> error checking watchlist items for new tracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - watchlist.py - checkWatchListItems6 --> error checking watchlist items for new tracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
     
 
+def 
 ########################################################################################
 
 
-########################################################################################
 
-
-######################################## FUNCTIONS #####################################
-
-
-########################################################################################
-
-
-##################################### FLASK INTERFACE ##################################
-########################################################################################
-
-########################################################################################
-
-
-########################################################################################
 
 
 
@@ -716,6 +734,3 @@ def checkWatchlistItems():
 ##############SCRAP
 # print("BLABLA")
 # print(checkIfTrackInDB("67jP5OITPIl4vpk5nVCJFn", "WatchListNewTracks"))
-
-
-# checkWatchlistItems()

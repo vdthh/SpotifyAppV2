@@ -1,138 +1,171 @@
 
-2022-07-06 21:49:06.914776 err - watchlist.py - watchlist_main98 --> error checking watchlist items for new tracks --> <class 'AttributeError'> - ("'sqlite3.Row' object has no attribute '_type'",) - 'sqlite3.Row' object has no attribute '_type'
-2022-07-06 21:49:06.915774 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 627, in checkWatchlistItems
-    if wl_item._type == "artist":
-AttributeError: 'sqlite3.Row' object has no attribute '_type'
-
-2022-07-06 21:50:29.303831 err - watchlist.py - watchlist_main98 --> error checking watchlist items for new tracks --> <class 'AttributeError'> - ("'sqlite3.Row' object has no attribute 'id'",) - 'sqlite3.Row' object has no attribute 'id'
-2022-07-06 21:50:29.304831 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 628, in checkWatchlistItems
-    actTracks   = getTracksFromArtist(wl_item.id, False)
-AttributeError: 'sqlite3.Row' object has no attribute 'id'
-
-2022-07-06 21:51:38.595519 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-06 21:51:39.854017 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-06 21:51:39.855019 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
-2022-07-06 21:51:41.312909 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
-2022-07-06 21:51:41.312909 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
-2022-07-06 21:51:41.688266 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 21:51:41.689266 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
-2022-07-06 21:51:42.117411 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 21:53:01.234922 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-06 21:53:02.478434 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-06 21:53:02.478434 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
-2022-07-06 21:53:03.963278 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
-2022-07-06 21:53:03.964278 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
-2022-07-06 21:53:04.357568 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 21:53:04.358599 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
-2022-07-06 21:53:04.768371 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:00:01.153415 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-06 22:00:02.348808 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-06 22:00:02.349564 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
-2022-07-06 22:00:03.802933 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
-2022-07-06 22:00:03.803931 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
-2022-07-06 22:00:04.219795 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:00:04.220798 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
-2022-07-06 22:00:04.577734 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:00:42.690270 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-06 22:00:43.961913 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-06 22:00:43.961913 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
-2022-07-06 22:00:45.493785 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
-2022-07-06 22:00:45.494793 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
-2022-07-06 22:00:46.001095 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:00:46.001654 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
-2022-07-06 22:00:46.442317 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:04:43.711268 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-06 22:04:44.893969 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-06 22:04:44.894970 msg - common.py - getTracksFromArtist --> requesting albums from artist 6L1Ok7nlpTLlMBo2T8JY6N.
-2022-07-06 22:04:46.429078 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 6L1Ok7nlpTLlMBo2T8JY6N
-2022-07-06 22:04:46.430094 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
-2022-07-06 22:04:47.294545 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-06 22:04:47.295905 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
-2022-07-06 22:04:47.685630 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
-2022-07-07 22:52:06.833954 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 22:52:07.377549 err - common.py - checkIfTrackInDB1 --> error while checking trackID 0eR1l7QJcNjr2V8YZX6RHR in table WatchListNewTracks --> <class 'sqlite3.OperationalError'> - ('no such column: artists',) - no such column: artists
-2022-07-07 22:52:07.378548 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 117, in checkIfTrackInDB
-    cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=? OR artists=? AND title=?', (trackID, artists, title))
-sqlite3.OperationalError: no such column: artists
-
-2022-07-07 22:52:34.210844 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 22:52:48.932939 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 22:52:50.065389 msg - spotify.py - apiGetSpotify4 --> retrying request #0
-2022-07-07 22:52:50.860933 msg - spotify.py - apiGetSpotify4 --> retrying request #1
-2022-07-07 22:52:51.653255 msg - spotify.py - apiGetSpotify4 --> retrying request #2
-2022-07-07 22:52:52.566626 msg - spotify.py - apiGetSpotify4 --> retrying request #3
-2022-07-07 22:52:53.542666 msg - spotify.py - apiGetSpotify4 --> retrying request #4
-2022-07-07 22:52:54.277497 msg - spotify.py - apiGetSpotify4 --> retrying request #5
-2022-07-07 22:52:55.040979 msg - spotify.py - apiGetSpotify4 --> retrying request #6
-2022-07-07 22:52:55.761488 msg - spotify.py - apiGetSpotify4 --> retrying request #7
-2022-07-07 22:52:56.850073 msg - spotify.py - apiGetSpotify4 --> retrying request #8
-2022-07-07 22:52:57.896209 msg - spotify.py - apiGetSpotify4 --> retrying request #9
-2022-07-07 22:52:58.658156 msg - spotify.py - apiGetSpotify4 --> retrying request #10
-2022-07-07 22:52:59.421229 msg - spotify.py - apiGetSpotify4 --> retrying request #11
-2022-07-07 22:53:00.263937 msg - spotify.py - apiGetSpotify4 --> retrying request #12
-2022-07-07 22:53:01.065098 msg - spotify.py - apiGetSpotify4 --> retrying request #13
-2022-07-07 22:53:02.027554 msg - spotify.py - apiGetSpotify4 --> retrying request #14
-2022-07-07 22:53:03.088012 msg - spotify.py - apiGetSpotify4 --> retrying request #15
-2022-07-07 22:53:03.986549 msg - spotify.py - apiGetSpotify4 --> retrying request #16
-2022-07-07 22:53:05.120743 msg - spotify.py - apiGetSpotify4 --> retrying request #17
-2022-07-07 22:53:06.225313 msg - spotify.py - apiGetSpotify4 --> retrying request #18
-2022-07-07 22:53:07.309748 msg - spotify.py - apiGetSpotify4 --> retrying request #19
-2022-07-07 22:53:08.342279 msg - spotify.py - apiGetSpotify4 --> retrying request #20
-2022-07-07 22:53:09.085430 msg - spotify.py - apiGetSpotify4 --> retrying request #21
-2022-07-07 22:53:10.022432 msg - spotify.py - apiGetSpotify4 --> retrying request #22
-2022-07-07 22:53:10.836120 msg - spotify.py - apiGetSpotify4 --> retrying request #23
-2022-07-07 22:53:11.829256 msg - spotify.py - apiGetSpotify4 --> retrying request #24
-2022-07-07 22:53:12.640006 msg - spotify.py - apiGetSpotify4 --> retrying request #25
-2022-07-07 22:53:13.672519 msg - spotify.py - apiGetSpotify4 --> retrying request #26
-2022-07-07 22:53:14.549573 msg - spotify.py - apiGetSpotify4 --> retrying request #27
-2022-07-07 22:53:15.566080 msg - spotify.py - apiGetSpotify4 --> retrying request #28
-2022-07-07 22:53:16.212664 msg - spotify.py - apiGetSpotify4 --> retrying request #29
-2022-07-07 22:53:17.350576 msg - spotify.py - apiGetSpotify4 --> retrying request #30
-2022-07-07 22:53:17.350576 err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.
-2022-07-07 22:53:17.351558 err - common.py - getTrackInfo2 --> empty api response for track X0eR1l7QJcNjr2V8YZX6RHR!
-2022-07-07 22:53:17.351558 err - common.py - checkIfTrackInDB1 --> error while checking trackID X0eR1l7QJcNjr2V8YZX6RHR in table WatchListNewTracks --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
-2022-07-07 22:53:17.352556 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 110, in checkIfTrackInDB
-    artistsList     = trackDetails["artists"]
-TypeError: string indices must be integers
-
-2022-07-07 22:55:50.630649 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 22:55:52.093437 msg - spotify.py - apiGetSpotify4 --> retrying request #0
-2022-07-07 22:55:52.851597 msg - spotify.py - apiGetSpotify4 --> retrying request #1
-2022-07-07 22:55:53.776600 msg - spotify.py - apiGetSpotify4 --> retrying request #2
-2022-07-07 22:55:54.912272 msg - spotify.py - apiGetSpotify4 --> retrying request #3
-2022-07-07 22:55:55.567370 msg - spotify.py - apiGetSpotify4 --> retrying request #4
-2022-07-07 22:55:56.676336 msg - spotify.py - apiGetSpotify4 --> retrying request #5
-2022-07-07 22:55:57.321065 msg - spotify.py - apiGetSpotify4 --> retrying request #6
-2022-07-07 22:59:43.561379 msg - common.py - getTrackInfo --> requesting track info for trackID: X0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 22:59:43.971381 err - spotify.py - apiGetSpotify6 --> <class 'AttributeError'> - ("'Response' object has no attribute 'message'",) - 'Response' object has no attribute 'message'
-2022-07-07 22:59:43.972385 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 222, in apiGetSpotify
-    if response.message == "invalid id":
-AttributeError: 'Response' object has no attribute 'message'
-
-2022-07-07 22:59:43.972385 err - common.py - getTrackInfo2 --> empty api response for track X0eR1l7QJcNjr2V8YZX6RHR!
-2022-07-07 22:59:43.972385 err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for X0eR1l7QJcNjr2V8YZX6RHR, probably invalid ID --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
-2022-07-07 22:59:43.973379 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 111, in checkIfTrackInDB
-    artistsList     = trackDetails["artists"]
-TypeError: string indices must be integers
-
-2022-07-07 22:59:58.673043 msg - common.py - getTrackInfo --> requesting track info for trackID: 0eR1l7QJcNjr2V8YZX6RHR
-2022-07-07 23:02:04.337275 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4vpk5nVCJFn
-2022-07-07 23:02:11.524770 msg - common.py - getTrackInfo --> requesting track info for trackID: 67jP5OITPIl4dvpk5nVCJFn
-2022-07-07 23:02:11.916125 err - spotify.py - apiGetSpotify6 --> <class 'AttributeError'> - ("'Response' object has no attribute 'message'",) - 'Response' object has no attribute 'message'
-2022-07-07 23:02:11.917123 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 222, in apiGetSpotify
-    if response.message == "invalid id":
-AttributeError: 'Response' object has no attribute 'message'
-
-2022-07-07 23:02:11.917123 err - common.py - getTrackInfo2 --> empty api response for track 67jP5OITPIl4dvpk5nVCJFn!
-2022-07-07 23:02:11.917123 err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for 67jP5OITPIl4dvpk5nVCJFn, probably invalid ID --> <class 'TypeError'> - ('string indices must be integers',) - string indices must be integers
-2022-07-07 23:02:11.918123 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 111, in checkIfTrackInDB
-    artistsList     = trackDetails["artists"]
-TypeError: string indices must be integers
+2022-07-09 23:19:31.638313 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-09 23:19:32.163700 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 9 tracks from playlist that contains 9 tracks.
+2022-07-09 23:19:32.578928 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:19:32.984138 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:19:33.392659 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:19:33.750961 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:19:34.156735 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:19:34.534292 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:19:34.956469 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:19:35.391472 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:19:35.790568 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:19:36.125463 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:19:36.544463 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:19:36.941464 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:19:37.364465 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:19:37.744462 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:19:38.157463 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:19:38.573464 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:19:38.944429 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:19:39.433763 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:19:39.956761 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:19:40.343760 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:19:40.697762 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:19:41.135759 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:19:41.496760 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:19:41.890760 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:19:42.235762 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:19:42.651760 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:19:43.077758 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:19:43.636760 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-09 23:19:44.022758 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-09 23:44:05.114095 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-09 23:44:05.683404 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-09 23:44:06.180745 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:44:06.652745 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:44:07.021366 msg - common.py - getTrackInfo --> requesting track info for trackID: 79wGyld0gyadc7TduDiG6S
+2022-07-09 23:44:07.451507 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:44:07.803903 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:44:08.155831 msg - common.py - getTrackInfo --> requesting track info for trackID: 1wovDVmNbQ21xikG7q2JHQ
+2022-07-09 23:44:08.544137 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:44:08.994476 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:44:09.338821 msg - common.py - getTrackInfo --> requesting track info for trackID: 3cjxQazg2Z6hduJV6audoG
+2022-07-09 23:44:09.746244 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:44:10.150405 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:44:10.499554 msg - common.py - getTrackInfo --> requesting track info for trackID: 6wOF7GrOE8A8nJCfNVcTL5
+2022-07-09 23:44:10.899815 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:44:11.294416 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:44:11.662956 msg - common.py - getTrackInfo --> requesting track info for trackID: 45qZbgUBqtbjVyrT4DK8Z2
+2022-07-09 23:44:12.058791 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:44:12.457966 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:44:12.843114 msg - common.py - getTrackInfo --> requesting track info for trackID: 4EnrDY2VtfrjcQo9HVwsBt
+2022-07-09 23:44:13.193589 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:44:13.672204 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:44:14.070505 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LUuiHdJyHTL9wvp6BZ0QX
+2022-07-09 23:44:14.491253 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:44:14.856662 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:44:15.251390 msg - common.py - getTrackInfo --> requesting track info for trackID: 2RipPrvaLuRULqqnnTin83
+2022-07-09 23:44:15.613626 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:44:16.032230 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:44:16.441783 msg - common.py - getTrackInfo --> requesting track info for trackID: 2M7fA5L6zH9oxq53WsaYB4
+2022-07-09 23:44:16.804856 msg - common.py - getTrackInfo --> requesting track info for trackID: 4k4QvLLNDt4KmzWaB1EAHp
+2022-07-09 23:44:17.233492 msg - common.py - getTrackInfo --> requesting track info for trackID: 4k4QvLLNDt4KmzWaB1EAHp
+2022-07-09 23:44:17.657390 msg - common.py - getTrackInfo --> requesting track info for trackID: 4k4QvLLNDt4KmzWaB1EAHp
+2022-07-09 23:44:18.029684 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-09 23:44:18.441882 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-09 23:47:01.712184 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-09 23:47:09.604832 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-09 23:47:09.606833 msg - watchlist.py - watchlist_main3 --> searching for artist geertje
+2022-07-09 23:47:10.036734 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist geertje.
+2022-07-09 23:47:13.922209 msg - watchlist.py - watchlist_main80 --> add artist 3LUGEywk20Yr20WrU119S6 to watchlist --> starting.
+2022-07-09 23:47:13.922209 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-09 23:47:13.923325 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-09 23:47:14.622519 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-09 23:47:14.622519 msg - watchlist.py - watchlist_main82 --> grabbed artist 3LUGEywk20Yr20WrU119S6's tracks: 7
+2022-07-09 23:47:14.861828 msg - watchlist.py - watchlist_main84 --> artist Geertje added to watchlist.
+2022-07-09 23:47:14.862806 msg - common.py - getTrackInfo --> requesting track info for trackID: 0OhQlzNuyQ7NF0DMyORQuH
+2022-07-09 23:47:15.251207 msg - common.py - getTrackInfo --> requesting track info for trackID: 0OhQlzNuyQ7NF0DMyORQuH
+2022-07-09 23:47:15.673893 msg - common.py - getTrackInfo --> requesting track info for trackID: 0OhQlzNuyQ7NF0DMyORQuH
+2022-07-09 23:47:16.488100 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZkooZSaGUUGnZrLQpN16z
+2022-07-09 23:47:16.848841 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZkooZSaGUUGnZrLQpN16z
+2022-07-09 23:47:17.209061 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZkooZSaGUUGnZrLQpN16z
+2022-07-09 23:47:17.768008 msg - common.py - getTrackInfo --> requesting track info for trackID: 2FOOMHcAOuRgbv2SCvUaXS
+2022-07-09 23:47:18.142181 msg - common.py - getTrackInfo --> requesting track info for trackID: 2FOOMHcAOuRgbv2SCvUaXS
+2022-07-09 23:47:18.526363 msg - common.py - getTrackInfo --> requesting track info for trackID: 2FOOMHcAOuRgbv2SCvUaXS
+2022-07-09 23:47:19.093644 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mboqqPFjoGqZPLpRRK5i4
+2022-07-09 23:47:19.607434 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mboqqPFjoGqZPLpRRK5i4
+2022-07-09 23:47:19.982797 msg - common.py - getTrackInfo --> requesting track info for trackID: 4mboqqPFjoGqZPLpRRK5i4
+2022-07-09 23:47:20.570717 msg - common.py - getTrackInfo --> requesting track info for trackID: 60mHN2LyaGam2xOs2Y8Nli
+2022-07-09 23:47:20.978716 msg - common.py - getTrackInfo --> requesting track info for trackID: 60mHN2LyaGam2xOs2Y8Nli
+2022-07-09 23:47:21.375430 msg - common.py - getTrackInfo --> requesting track info for trackID: 60mHN2LyaGam2xOs2Y8Nli
+2022-07-09 23:47:21.915876 msg - common.py - getTrackInfo --> requesting track info for trackID: 0Dgp8nLLkfpBGKWjYDa0BF
+2022-07-09 23:47:22.272726 msg - common.py - getTrackInfo --> requesting track info for trackID: 0Dgp8nLLkfpBGKWjYDa0BF
+2022-07-09 23:47:22.721728 msg - common.py - getTrackInfo --> requesting track info for trackID: 0Dgp8nLLkfpBGKWjYDa0BF
+2022-07-09 23:47:23.230725 msg - common.py - getTrackInfo --> requesting track info for trackID: 2rK1HHSXVxflUDyQbKtGbT
+2022-07-09 23:47:23.607727 msg - common.py - getTrackInfo --> requesting track info for trackID: 2rK1HHSXVxflUDyQbKtGbT
+2022-07-09 23:47:23.973729 msg - common.py - getTrackInfo --> requesting track info for trackID: 2rK1HHSXVxflUDyQbKtGbT
+2022-07-09 23:47:24.496738 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 3LUGEywk20Yr20WrU119S6: 10, length after adding tracks: 17.
+2022-07-09 23:47:24.496738 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-09 23:47:46.448158 msg - watchlist.py - watchlist_main30 --> delete item 3LUGEywk20Yr20WrU119S6 from watchlist --> starting.
+2022-07-09 23:47:46.450165 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (3LUGEywk20Yr20WrU119S6) from watchlist.
+2022-07-09 23:47:46.597833 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-09 23:47:57.782533 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-09 23:47:58.249144 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-09 23:47:58.427144 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-09 23:47:58.822704 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-10 20:58:14.071519 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-10 20:58:14.749368 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-10 20:58:14.750369 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-10 20:58:15.428171 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-10 21:07:00.279409 msg - watchlist.py - watchlist_main80 --> add artist 1M2F83YsIpngpkMUdYcF3O to watchlist --> starting.
+2022-07-10 21:07:00.279409 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-10 21:07:00.281410 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-10 21:07:01.094363 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-10 21:07:01.094363 msg - watchlist.py - watchlist_main82 --> grabbed artist 1M2F83YsIpngpkMUdYcF3O's tracks: 8
+2022-07-10 21:07:01.188364 msg - watchlist.py - watchlist_main84 --> artist Geertje Zasada added to watchlist.
+2022-07-10 21:07:01.190362 msg - common.py - getTrackInfo --> requesting track info for trackID: 1l44AZsemq2IevDDFVB7G0
+2022-07-10 21:07:01.666363 msg - common.py - getTrackInfo --> requesting track info for trackID: 1l44AZsemq2IevDDFVB7G0
+2022-07-10 21:07:02.090363 msg - common.py - getTrackInfo --> requesting track info for trackID: 1l44AZsemq2IevDDFVB7G0
+2022-07-10 21:07:02.652299 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZTojI0tz9OyM5gGrDPDnO
+2022-07-10 21:07:03.038954 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZTojI0tz9OyM5gGrDPDnO
+2022-07-10 21:07:03.507009 msg - common.py - getTrackInfo --> requesting track info for trackID: 4ZTojI0tz9OyM5gGrDPDnO
+2022-07-10 21:07:04.050012 msg - common.py - getTrackInfo --> requesting track info for trackID: 6EdIIhFSM9PD1HpShRgPWn
+2022-07-10 21:07:04.454010 msg - common.py - getTrackInfo --> requesting track info for trackID: 6EdIIhFSM9PD1HpShRgPWn
+2022-07-10 21:07:04.885010 msg - common.py - getTrackInfo --> requesting track info for trackID: 6EdIIhFSM9PD1HpShRgPWn
+2022-07-10 21:07:05.448566 msg - common.py - getTrackInfo --> requesting track info for trackID: 1RUxbqzvdssDSvqMYTR8UY
+2022-07-10 21:07:05.877129 msg - common.py - getTrackInfo --> requesting track info for trackID: 1RUxbqzvdssDSvqMYTR8UY
+2022-07-10 21:07:06.239583 msg - common.py - getTrackInfo --> requesting track info for trackID: 1RUxbqzvdssDSvqMYTR8UY
+2022-07-10 21:07:06.855401 msg - common.py - getTrackInfo --> requesting track info for trackID: 0mkDgfY0R4o1XdQpSmMSIY
+2022-07-10 21:07:07.304387 msg - common.py - getTrackInfo --> requesting track info for trackID: 0mkDgfY0R4o1XdQpSmMSIY
+2022-07-10 21:07:07.746259 msg - common.py - getTrackInfo --> requesting track info for trackID: 0mkDgfY0R4o1XdQpSmMSIY
+2022-07-10 21:07:08.237601 msg - common.py - getTrackInfo --> requesting track info for trackID: 3DqprQq1Q5QnQ2xluZLQ7c
+2022-07-10 21:07:08.618708 msg - common.py - getTrackInfo --> requesting track info for trackID: 3DqprQq1Q5QnQ2xluZLQ7c
+2022-07-10 21:07:09.031608 msg - common.py - getTrackInfo --> requesting track info for trackID: 3DqprQq1Q5QnQ2xluZLQ7c
+2022-07-10 21:07:09.544608 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LYAoI5Y5gTH58IelWlp6e
+2022-07-10 21:07:09.938268 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LYAoI5Y5gTH58IelWlp6e
+2022-07-10 21:07:10.362380 msg - common.py - getTrackInfo --> requesting track info for trackID: 1LYAoI5Y5gTH58IelWlp6e
+2022-07-10 21:07:10.884763 msg - common.py - getTrackInfo --> requesting track info for trackID: 7lNxQtuekb6JkAex709V0p
+2022-07-10 21:07:11.335390 msg - common.py - getTrackInfo --> requesting track info for trackID: 7lNxQtuekb6JkAex709V0p
+2022-07-10 21:07:11.726593 msg - common.py - getTrackInfo --> requesting track info for trackID: 7lNxQtuekb6JkAex709V0p
+2022-07-10 21:07:12.282364 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 1M2F83YsIpngpkMUdYcF3O: 17, length after adding tracks: 25.
+2022-07-10 21:07:12.283364 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-10 21:32:43.073920 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-10 21:32:43.075924 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-10 21:32:43.579920 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-10 21:32:43.580921 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-10 21:32:43.990921 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-10 21:32:43.991917 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-10 21:32:44.796079 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-10 21:35:39.004897 msg - watchlist.py - watchlist_main80 --> add artist 1M2F83YsIpngpkMUdYcF3O to watchlist --> starting.
+2022-07-10 21:35:39.004897 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-10 21:35:39.006899 msg - watchlist.py - watchlist_main80.1 --> artist Geertje Zasada already in watchlist.
+2022-07-10 21:35:43.223938 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-10 21:35:43.223938 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-10 21:35:43.224935 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-10 21:35:43.609765 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-10 21:35:43.610763 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-10 21:35:44.050862 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-10 21:35:44.051862 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-10 21:35:44.755823 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-10 21:35:44.755823 msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.
+2022-07-10 21:37:59.601178 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-10 21:38:03.100948 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-10 21:38:03.100948 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-10 21:38:03.101949 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3clUyLPib0kP3tAcYDchFi.
+2022-07-10 21:38:03.546648 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 10 tracks from playlist that contains 10 tracks.
+2022-07-10 21:38:03.547648 msg - common.py - getTracksFromPlaylist --> requesting tracks from playlist 3elwM1iVIUg5Pwi2B8bmyU.
+2022-07-10 21:38:03.973513 msg - common.py - getTracksFromPlaylist6 --> Succesfully returned list of 2 tracks from playlist that contains 2 tracks.
+2022-07-10 21:38:03.973513 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-10 21:38:04.660782 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-10 21:38:04.661781 msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.

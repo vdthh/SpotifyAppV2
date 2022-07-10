@@ -126,10 +126,8 @@ def checkIfTrackInDB(trackID, dbName):
             else:
                 return True     #in db
         elif dbName == "WatchListNewTracks":
-            print("CHECKING TRACK " + trackID + " IN WATCLISTNEWTRACKS")
             entry = cursor.execute('SELECT * FROM WatchListNewTracks').fetchone()
             trackList = json.loads(entry["trackList"])
-            print("GRABBED TRAKS: " + str(len(trackList)))
             if trackID in trackList:
                 return True
             else:
@@ -143,30 +141,6 @@ def checkIfTrackInDB(trackID, dbName):
         logAction("err - common.py - checkIfTrackInDB1 --> error while checking trackID " + trackID + " in table " + dbName + " --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
-
-    # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
-    #     ("1XoXJAvgX9buXUIVmKVYzS", "1XoXJAvgX9buXUIVmKVYzS", "album1", "jefke", "title1", "href1", 10, "", 0)
-    # )
-    # db.commit()
-
-    # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
-    #     ("2oLV25NRYt0G8b2Mz1voRu", "2oLV25NRYt0G8b2Mz1voRu", "album2", "stafke", "title2", "href2", 20, "huh2",2)
-    # )
-    # db.commit()
-
-    # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
-    #     ("1vhM5R8NlVIoFG26Mk9HEh", "1vhM5R8NlVIoFG26Mk9HEh", "album3", "henkie", "title3", "href3", 30, "huh3", 3)
-    # )
-    # db.commit()
-
-    # cursor.execute(
-    #     'INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)', 
-    #     ("1m4Xca7rdY2hvkDaMGccI5", "1m4Xca7rdY2hvkDaMGccI5", "album4", "bertje", "title4", "href4", 40, "huh4", 4)
-    # )
-    # db.commit()
 
 ########################################################################################
 

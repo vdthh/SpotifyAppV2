@@ -34,7 +34,7 @@ CREATE TABLE WatchList (
     _type TEXT,
     _name TEXT,
     date_added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    last_time_checked TEXT,
+    last_time_checked TIMESTAMP NOT NULL,
     no_of_items_checked INTEGER,
     href TEXT,
     list_of_current_items TEXT, -- try to store list as string: https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
