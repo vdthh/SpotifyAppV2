@@ -325,7 +325,7 @@ def watchlist_main():
                 lArtistTab  = "show active"
             elif lType == "playlist":
                 lID         = args["addPlaylist"]
-                lPlstBrn    = "active"
+                lPlstBtn    = "active"
                 lPlstTab    = "show active"  
             response = apiGetSpotify(lType + "s/" + lID)
             logAction("msg - watchlist.py - watchlist_main80 --> add " + lType + " " + lID + " to watchlist --> starting.") 
@@ -344,15 +344,15 @@ def watchlist_main():
 
                 '''--> return html'''
                 return render_template('watchlist.html', 
-                                        watchlistItems = gv_watchlistItems,
-                                        artistList = gv_artistList,
-                                        playlistList = gv_playlistList,
-                                        showArtistBtn = lArtistBtn, 
-                                        showArtistTab = lArtistTab, 
-                                        showPlaylistBtn =lPlstBtn , 
-                                        showPlaylistTab = lPlstTab, 
-                                        showUserBtn = "", 
-                                        showUserTab = "")
+                                        watchlistItems      = gv_watchlistItems,
+                                        artistList          = gv_artistList,
+                                        playlistList        = gv_playlistList,
+                                        showArtistBtn       = lArtistBtn, 
+                                        showArtistTab       = lArtistTab, 
+                                        showPlaylistBtn     = lPlstBtn , 
+                                        showPlaylistTab     = lPlstTab, 
+                                        showUserBtn         = "", 
+                                        showUserTab         = "")
 
 
             '''--> db'''
@@ -370,15 +370,15 @@ def watchlist_main():
 
                 '''--> return html'''
                 return render_template('watchlist.html', 
-                                        watchlistItems = gv_watchlistItems,
-                                        artistList = gv_artistList,
-                                        playlistList = gv_playlistList,
-                                        showArtistBtn = lArtistBtn, 
-                                        showArtistTab = lArtistTab, 
-                                        showPlaylistBtn =lPlstBtn , 
-                                        showPlaylistTab = lPlstTab, 
-                                        showUserBtn = "", 
-                                        showUserTab = "")
+                                        watchlistItems      = gv_watchlistItems,
+                                        artistList          = gv_artistList,
+                                        playlistList        = gv_playlistList,
+                                        showArtistBtn       = lArtistBtn, 
+                                        showArtistTab       = lArtistTab, 
+                                        showPlaylistBtn     = lPlstBtn , 
+                                        showPlaylistTab     = lPlstTab, 
+                                        showUserBtn         = "", 
+                                        showUserTab         = "")
 
 
             '''--> grab tracks'''
@@ -413,15 +413,15 @@ def watchlist_main():
 
                 '''--> return html'''
                 return render_template('watchlist.html', 
-                                        watchlistItems = gv_watchlistItems,
-                                        artistList = gv_artistList,
-                                        playlistList = gv_playlistList,
-                                        showArtistBtn = lArtistBtn, 
-                                        showArtistTab = lArtistTab, 
-                                        showPlaylistBtn =lPlstBtn , 
-                                        showPlaylistTab = lPlstTab, 
-                                        showUserBtn = "", 
-                                        showUserTab = "")
+                                        watchlistItems      = gv_watchlistItems,
+                                        artistList          = gv_artistList,
+                                        playlistList        = gv_playlistList,
+                                        showArtistBtn       = lArtistBtn, 
+                                        showArtistTab       = lArtistTab, 
+                                        showPlaylistBtn     = lPlstBtn , 
+                                        showPlaylistTab     = lPlstTab, 
+                                        showUserBtn         = "", 
+                                        showUserTab         = "")
 
 
             '''--> add artist/playlist/... to WatchList db'''
@@ -459,22 +459,22 @@ def watchlist_main():
             loadWatchlistItems()
 
 
-            '''--> return html'''
+            '''--> finished,  return html'''
             return render_template('watchlist.html', 
-                        watchlistItems = gv_watchlistItems,
-                        artistList = gv_artistList,
-                        playlistList = gv_playlistList,
-                        showArtistBtn = "", 
-                        showArtistTab = "", 
-                        showPlaylistBtn ="active" , 
-                        showPlaylistTab = "show active", 
-                        showUserBtn = "", 
-                        showUserTab = "", 
-                        offs = gv_offset, 
-                        lim = gv_limit, 
-                        tot = gv_total, 
-                        searchTerm = gv_searchTerm, 
-                        searchType = gv_searchType)
+                                    watchlistItems      = gv_watchlistItems,
+                                    artistList          = gv_artistList,
+                                    playlistList        = gv_playlistList,
+                                    showArtistBtn       = lArtistBtn, 
+                                    showArtistTab       = lArtistTab, 
+                                    showPlaylistBtn     = lPlstBtn, 
+                                    showPlaylistTab     = lPlstTab, 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "", 
+                                    offs                = gv_offset, 
+                                    lim                 = gv_limit, 
+                                    tot                 = gv_total, 
+                                    searchTerm          = gv_searchTerm, 
+                                    searchType          = gv_searchType)
 
 
         except Exception as ex:
@@ -482,20 +482,20 @@ def watchlist_main():
             logAction("err - watchlist.py - watchlist_main76 --> ... --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
-                                    watchlistItems = gv_watchlistItems,
-                                    artistList = gv_artistList,
-                                    playlistList = gv_playlistList,
-                                    showArtistBtn = "", 
-                                    showArtistTab = "", 
-                                    showPlaylistBtn ="active" , 
-                                    showPlaylistTab = "show active", 
-                                    showUserBtn = "", 
-                                    showUserTab = "",
-                                    offs = gv_offset, 
-                                    lim = gv_limit, 
-                                    tot = gv_total, 
-                                    searchTerm = gv_searchTerm, 
-                                    searchType = gv_searchType)
+                                    watchlistItems      = gv_watchlistItems,
+                                    artistList          = gv_artistList,
+                                    playlistList        = gv_playlistList,
+                                    showArtistBtn       = "", 
+                                    showArtistTab       = "", 
+                                    showPlaylistBtn     = "active" , 
+                                    showPlaylistTab     = "show active", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    offs                = gv_offset, 
+                                    lim                 = gv_limit, 
+                                    tot                 = gv_total, 
+                                    searchTerm          = gv_searchTerm, 
+                                    searchType          = gv_searchType)
 
 
 #--> DELETE ITEM FROM WATCHLIST - BUTTON PRESSED #
@@ -629,7 +629,6 @@ def checkWatchlistItems():
     logAction("msg - watchlist.py - checkWatchListItems --> starting.") 
     try:
         '''--> db'''
-        '''--> db'''
         with app.app_context():
             db = get_db_connection()
             cursor = db.cursor()
@@ -714,8 +713,42 @@ def checkWatchlistItems():
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
     
+########################################################################################
 
-def 
+
+def checkToCreatePlaylist():
+    '''--> check WatchListNewTracks --> trackList for enough entries'''
+    '''--> if so, create a playlist of tracks from this trackList'''
+
+
+    '''--> call db outside of request-object'''
+    with app.app_context():
+        db = get_db_connection()
+        cursor = db.cursor()
+
+
+    '''--> Get trackList from WatchListNewTracks'''
+    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+    toCreateList        = []
+    print("LENGTH TRACKLIST: " + str(len(currentTrackList)))
+    if len(currentTrackList) >= 50:
+        toCreateList = currentTrackList[:50]    #https://stackoverflow.com/questions/10897339/python-fetch-first-10-results-from-a-list
+        del currentTrackList[:50]
+
+    print("LENGTH toCreateList: " + str(len(toCreateList)) + ", new length currentTrackList: " + str(len(currentTrackList)))
+
+
+
+    # db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+    # db.commit()
+
+
+
+
+    # logAction("msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items")
+
+
 ########################################################################################
 
 
@@ -734,3 +767,6 @@ def
 ##############SCRAP
 # print("BLABLA")
 # print(checkIfTrackInDB("67jP5OITPIl4vpk5nVCJFn", "WatchListNewTracks"))
+print("HOHOHO")
+checkToCreatePlaylist()
+print("HEHEHE")
