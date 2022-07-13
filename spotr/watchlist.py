@@ -18,7 +18,7 @@ import os
 import binascii
 import traceback
 import sqlite3
-from .common import apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo
+from .common import addTracksToPlaylist, apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo, createPlaylist
 
 from flask import current_app
 from spotr import app
@@ -719,7 +719,8 @@ def checkWatchlistItems():
 def checkToCreatePlaylist():
     '''--> check WatchListNewTracks --> trackList for enough entries'''
     '''--> if so, create a playlist of tracks from this trackList'''
-
+    '''--> return false in case of error'''
+    logAction("msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()")
 
     '''--> call db outside of request-object'''
     with app.app_context():
@@ -727,21 +728,61 @@ def checkToCreatePlaylist():
         cursor = db.cursor()
 
 
-    '''--> Get trackList from WatchListNewTracks'''
-    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
-    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
-    toCreateList        = []
-    print("LENGTH TRACKLIST: " + str(len(currentTrackList)))
-    if len(currentTrackList) >= 50:
-        toCreateList = currentTrackList[:50]    #https://stackoverflow.com/questions/10897339/python-fetch-first-10-results-from-a-list
-        del currentTrackList[:50]
+    try:
+        '''--> Get trackList from WatchListNewTracks'''
+        data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+        currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+        toCreateList        = []
+        print("LENGTH TRACKLIST: " + str(len(currentTrackList)))
+        if len(currentTrackList) >= 50:
+            toCreateList = currentTrackList[:50]    #grab first 50 items --> https://stackoverflow.com/questions/10897339/python-fetch-first-10-results-from-a-list
+            
 
-    print("LENGTH toCreateList: " + str(len(toCreateList)) + ", new length currentTrackList: " + str(len(currentTrackList)))
+            '''--> create new playist of these 50 tracks'''
+            plstName = "gnplst_watchlistItems_" + str(datetime.now().year).zfill(4) + str(datetime.now().month).zfill(2) + str(datetime.now().day).zfill(2) + "_" + str(datetime.now().hour).zfill(2) + "h" + str(datetime.now().minute).zfill(2)
+            resultCreate = createPlaylist(plstName)
+            if resultCreate != "":
+                #playlist succesfully created
+                logAction("msg - watchlist.py - checkToCreatePlaylist1 --> succesfully created new empty playlist " + plstName)
+                id = resultCreate["id"]   #grab id of newly created playlist
+
+                result is returned in json, extract in fo from it
+
+                '''--> At grabbed tracks to new playlist'''
+                resultAdd = addTracksToPlaylist(id,toCreateList)
+                result is returned in json, extract in fo from it
+
+            else:
+                #error creating playlist
+                logAction("err - watchlist.py - checkToCreatePlaylist3 --> error whilst creating new empty playlist " + plstName)
+            
 
 
 
-    # db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
-    # db.commit()
+            del currentTrackList[:50]               #delete grabbed tracks from table
+
+
+
+
+
+
+
+
+                    db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                    db.commit()
+
+
+        print("LENGTH toCreateList: " + str(len(toCreateList)) + ", new length currentTrackList: " + str(len(currentTrackList)))
+
+
+    except Exception as ex:
+        logAction("err - watchlist.py - checkToCreatePlaylist10 --> error checking WatchListNewTracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return False
+
+
+        # db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+        # db.commit()
 
 
 
