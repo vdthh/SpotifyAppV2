@@ -7,6 +7,7 @@
 ########################################################################################
 ######################################### IMPORTS ######################################
 ########################################################################################
+from asyncio import wait_for
 import functools
 from tabnanny import check
 from flask import (Blueprint, flash, g, redirect, render_template, request, url_for)
@@ -18,7 +19,7 @@ import os
 import binascii
 import traceback
 import sqlite3
-from .common import addTracksToPlaylist, apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo, createPlaylist
+from .common import addTracksToPlaylist, apiGetSpotify, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo, createPlaylist, waitForGivenTimeIns
 
 from flask import current_app
 from spotr import app
@@ -451,7 +452,7 @@ def watchlist_main():
                     db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
                     db.commit()
             logAction("msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding " + lType + " " + lID + ": " + str(initLength) + ", length after adding tracks: " + str(endLength) + ".")
-            flash(str(endLength - initLength) + " tracks added to WatchListNewTracks.", category="message")                               
+            flash(str(endLength - initLength) + " tracks added to WatchListNewTracks (total of " +  str(endLength) + ").", category="message")                               
 
 
             '''--> (re)load watchlist items'''
@@ -704,7 +705,14 @@ def checkWatchlistItems():
                     logAction("msg - watchlist.py - checkWatchListItems5 --> Set new_items_since_last_check for " + wl_item["id"] + " to 0 after 8h.") 
 
 
+        '''--> Check if enough tracks in table WatchlistNewTracks for creating new playlist'''
+        if checkToCreatePlaylist() != "":
+            logAction("msg - watchlist.py - checkWatchListItems5.1 --> Succesfully created new playlist(s) of watchlist items.") 
+
+
+
         '''--> finished succesfully'''
+        TODO: create loop so playlists are created till <50 tracks are in WatchlistNewTracks table...
         return True        
 
 
@@ -722,6 +730,7 @@ def checkToCreatePlaylist():
     '''--> return false in case of error'''
     logAction("msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()")
 
+
     '''--> call db outside of request-object'''
     with app.app_context():
         db = get_db_connection()
@@ -733,7 +742,6 @@ def checkToCreatePlaylist():
         data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
         currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
         toCreateList        = []
-        print("LENGTH TRACKLIST: " + str(len(currentTrackList)))
         if len(currentTrackList) >= 50:
             toCreateList = currentTrackList[:50]    #grab first 50 items --> https://stackoverflow.com/questions/10897339/python-fetch-first-10-results-from-a-list
             
@@ -742,53 +750,63 @@ def checkToCreatePlaylist():
             plstName = "gnplst_watchlistItems_" + str(datetime.now().year).zfill(4) + str(datetime.now().month).zfill(2) + str(datetime.now().day).zfill(2) + "_" + str(datetime.now().hour).zfill(2) + "h" + str(datetime.now().minute).zfill(2)
             resultCreate = createPlaylist(plstName)
             if resultCreate != "":
-                #playlist succesfully created
-                logAction("msg - watchlist.py - checkToCreatePlaylist1 --> succesfully created new empty playlist " + plstName)
-                id = resultCreate["id"]   #grab id of newly created playlist
 
-                result is returned in json, extract in fo from it
+
+                '''--> playlist succesfully created'''
+                '''--> check response'''
+                if "id" in resultCreate.keys() and "name" in resultCreate.keys():
+                    logAction("msg - watchlist.py - checkToCreatePlaylist1 --> succesfully created new empty playlist " + resultCreate["name"])
+                else:
+                    logAction("err - watchlist.py - checkToCreatePlaylist3 --> error creating playlist " + plstName)
+                    return False
+
+
+                '''--> grab ID of newly created playlist'''
+                id = resultCreate["id"]     
+
+
+                '''--> wait for given time'''
+                waitForGivenTimeIns(1, 2)   #Experience learns it can take a few moments for a newly created playlist to become available
+
 
                 '''--> At grabbed tracks to new playlist'''
                 resultAdd = addTracksToPlaylist(id,toCreateList)
-                result is returned in json, extract in fo from it
+
+
+                '''--> check response'''
+                if "snapshot_id" in resultAdd.keys():
+                    logAction("msg - watchlist.py - checkToCreatePlaylist5 --> Added " + str(len(toCreateList)) + " tracks to new playlist " + id)
+                else:
+                    logAction("err - watchlist.py - checkToCreatePlaylist7 --> failed to add tracks to new playlist " + id)
+                    return False
+
+
+                '''--> delete tracks in source and update'''
+                del currentTrackList[:50]      
+                db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
+                db.commit()
+
+
+                '''--> finished'''
+                return resultAdd
+
 
             else:
                 #error creating playlist
-                logAction("err - watchlist.py - checkToCreatePlaylist3 --> error whilst creating new empty playlist " + plstName)
-            
+                logAction("err - watchlist.py - checkToCreatePlaylist9 --> error whilst creating new empty playlist " + plstName)
+                return False
 
 
-
-            del currentTrackList[:50]               #delete grabbed tracks from table
-
-
-
-
-
-
-
-
-                    db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
-                    db.commit()
-
-
-        print("LENGTH toCreateList: " + str(len(toCreateList)) + ", new length currentTrackList: " + str(len(currentTrackList)))
+        else:
+            logAction("msg - watchlist.py - checkToCreatePlaylist11 --> not enough tracks in WatchListNewTracks table to create playlist: " + str(len(currentTrackList)))
+            flash("Not enough tracks in table 'NewWatchlistTracks' to create playlist.", category="error")
+            return False
 
 
     except Exception as ex:
-        logAction("err - watchlist.py - checkToCreatePlaylist10 --> error checking WatchListNewTracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - watchlist.py - checkToCreatePlaylist13 --> error checking WatchListNewTracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
-
-
-        # db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
-        # db.commit()
-
-
-
-
-    # logAction("msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items")
-
 
 ########################################################################################
 
@@ -808,6 +826,4 @@ def checkToCreatePlaylist():
 ##############SCRAP
 # print("BLABLA")
 # print(checkIfTrackInDB("67jP5OITPIl4vpk5nVCJFn", "WatchListNewTracks"))
-print("HOHOHO")
-checkToCreatePlaylist()
-print("HEHEHE")
+

@@ -582,7 +582,6 @@ def createPlaylist(name):
     try:      
         logAction("msg - common.py - createPlaylist3 --> about to create a new playlist: " + name)  
         response = requests.post(url='https://api.spotify.com/v1/users/bakzgzahvlg9pjp9g7hxaav00/playlists', headers = headers, data = json.dumps(payload), verify=False)
-        response_json = response.json() #extra line to trigger error in case of faulty response object
     except Exception as ex:
         logAction("err - common.py - createPlaylist4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
@@ -609,7 +608,7 @@ def createPlaylist(name):
 
     '''--> finally, return a valid response in json format'''
     logAction("msg - common.py - createPlaylist7 --> Succesfully created playlist " + name) 
-    return response
+    return response.json()
 
 
 ########################################################################################
