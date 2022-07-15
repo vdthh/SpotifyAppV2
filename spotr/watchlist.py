@@ -710,9 +710,7 @@ def checkWatchlistItems():
             logAction("msg - watchlist.py - checkWatchListItems5.1 --> Succesfully created new playlist(s) of watchlist items.") 
 
 
-
         '''--> finished succesfully'''
-        TODO: create loop so playlists are created till <50 tracks are in WatchlistNewTracks table...
         return True        
 
 
@@ -742,7 +740,9 @@ def checkToCreatePlaylist():
         data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
         currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
         toCreateList        = []
-        if len(currentTrackList) >= 50:
+        loopCnt             = 0
+        while len(currentTrackList) >= 50:
+            loopCnt      = loopCnt + 1
             toCreateList = currentTrackList[:50]    #grab first 50 items --> https://stackoverflow.com/questions/10897339/python-fetch-first-10-results-from-a-list
             
 
@@ -785,22 +785,17 @@ def checkToCreatePlaylist():
                 del currentTrackList[:50]      
                 db.execute('UPDATE WatchListNewTracks SET trackList=? WHERE id=?',(json.dumps(currentTrackList), "newTracks"))
                 db.commit()
-
-
-                '''--> finished'''
-                return resultAdd
+                logAction("msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: " + str(len(currentTrackList)))
 
 
             else:
-                #error creating playlist
-                logAction("err - watchlist.py - checkToCreatePlaylist9 --> error whilst creating new empty playlist " + plstName)
-                return False
+                logAction("err - watchlist.py - checkToCreatePlaylist9 --> Error feedback from CreatePlaylist().")
 
 
         else:
-            logAction("msg - watchlist.py - checkToCreatePlaylist11 --> not enough tracks in WatchListNewTracks table to create playlist: " + str(len(currentTrackList)))
-            flash("Not enough tracks in table 'NewWatchlistTracks' to create playlist.", category="error")
-            return False
+            '''--> finished'''
+            logAction("msg - watchlist.py - checkToCreatePlaylist9 --> ended --> total of " + str(loopCnt) + " playlists created.")
+            return resultAdd
 
 
     except Exception as ex:

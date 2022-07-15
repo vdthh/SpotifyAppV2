@@ -43,6 +43,6 @@ CREATE TABLE WatchList (
 );
 
 CREATE TABLE WatchListNewTracks (
-    id TEXT PRIMARY KEY,
+    id TEXT PRIMARY KEY,    -- id of sole entry = "newTracks"
     trackList TEXT  -- try to store list as string: https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
 );
