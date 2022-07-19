@@ -621,6 +621,7 @@ def loadWatchlistItems():
                                 "listOfNewItemsID": item["list_of_current_items"]})
 
 
+########################################################################################
 def checkWatchlistItems():
     '''--> check every watchlist item for new tracks <--'''
     '''Add new tracks to table WatchListNewTracks - trackList'''
@@ -719,12 +720,13 @@ def checkWatchlistItems():
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
     
+
 ########################################################################################
-
-
 def checkToCreatePlaylist():
     '''--> check WatchListNewTracks --> trackList for enough entries'''
     '''--> if so, create a playlist of tracks from this trackList'''
+    '''--> add tracks to ListenedTrack table'''
+    '''--> checking if tracks are in ListenedTable has happened already before and is not re-done here'''
     '''--> return false in case of error'''
     logAction("msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()")
 
@@ -752,12 +754,11 @@ def checkToCreatePlaylist():
             if resultCreate != "":
 
 
-                '''--> playlist succesfully created'''
                 '''--> check response'''
                 if "id" in resultCreate.keys() and "name" in resultCreate.keys():
-                    logAction("msg - watchlist.py - checkToCreatePlaylist1 --> succesfully created new empty playlist " + resultCreate["name"])
+                    pass# logAction("msg - watchlist.py - checkToCreatePlaylist1 --> succesfully created new empty playlist \"" + resultCreate["name"] + "\"")
                 else:
-                    logAction("err - watchlist.py - checkToCreatePlaylist3 --> error creating playlist " + plstName)
+                    logAction("err - watchlist.py - checkToCreatePlaylist3 --> error creating playlist \"" + plstName + "\"")
                     return False
 
 
@@ -766,19 +767,27 @@ def checkToCreatePlaylist():
 
 
                 '''--> wait for given time'''
-                waitForGivenTimeIns(1, 2)   #Experience learns it can take a few moments for a newly created playlist to become available
+                waitForGivenTimeIns(1, 2)   #Experience learns it can take a few moments for a newly created playlist to become available within spotify (api)
 
 
-                '''--> At grabbed tracks to new playlist'''
+                '''--> add grabbed tracks to new playlist'''
                 resultAdd = addTracksToPlaylist(id,toCreateList)
 
 
                 '''--> check response'''
                 if "snapshot_id" in resultAdd.keys():
-                    logAction("msg - watchlist.py - checkToCreatePlaylist5 --> Added " + str(len(toCreateList)) + " tracks to new playlist " + id)
+                    pass# logAction("msg - watchlist.py - checkToCreatePlaylist5 --> Added " + str(len(toCreateList)) + " tracks to new playlist " + id)
                 else:
                     logAction("err - watchlist.py - checkToCreatePlaylist7 --> failed to add tracks to new playlist " + id)
                     return False
+
+
+                '''--> add tracks to ListenedTrack table'''
+                for trck in toCreateList:                       
+                    if cursor.execute('SELECT * FROM ListenedTrack WHERE id=?',(trck,)).fetchone() == None: 
+                        trck_info = getTrackInfo(trck, True)
+                        db.execute('INSERT INTO ListenedTrack (id, spotify_id, album, artists, title, href, popularity, from_playlist, how_many_times_double) VALUES (?,?,?,?,?,?,?,?,?)',(trck, trck, trck_info["album"], ' '.join(trck_info["artists"]), trck_info["title"], trck_info["href"], trck_info["popularity"], "", 0))
+                        db.commit()
 
 
                 '''--> delete tracks in source and update'''
@@ -799,26 +808,11 @@ def checkToCreatePlaylist():
 
 
     except Exception as ex:
-        logAction("err - watchlist.py - checkToCreatePlaylist13 --> error checking WatchListNewTracks --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - watchlist.py - checkToCreatePlaylist13 --> error general --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return False
 
+
 ########################################################################################
 
-
-
-
-
-
-
-
-# get_db()
-# if checkIfTrackInDB("7ghW6VFlZN7U86vaYrwlrS", "WatchList"):
-#     print("TRUE")
-# else:
-#     print("FALSE")
-
-##############SCRAP
-# print("BLABLA")
-# print(checkIfTrackInDB("67jP5OITPIl4vpk5nVCJFn", "WatchListNewTracks"))
 

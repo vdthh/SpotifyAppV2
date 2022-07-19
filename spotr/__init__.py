@@ -12,6 +12,9 @@ import os
 from flask import Flask
 from . import db
 import sqlite3
+
+#Removes request warnings from console
+from urllib3 import logging
 ########################################################################################
 
 
@@ -22,6 +25,9 @@ import sqlite3
 ################# how-to-use-an-sqlite-database-in-a-flask-application #################
 ########################################################################################
 '''--> create and configure spotify app'''
+ #disable insecurewarnings in terminal when performing api requests without certificate: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+logging.captureWarnings(True)
+
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_mapping(
                 SECRET_KEY='dev', 

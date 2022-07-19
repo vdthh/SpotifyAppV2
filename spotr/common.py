@@ -112,7 +112,7 @@ def checkIfTrackInDB(trackID, dbName):
             artists         = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
             title           = trackDetails["title"]
         except Exception as ex:
-            logAction("err - common.py - checkIfTrackInDB00 --> error while getting trackdetails for " + trackID + ", probably invalid ID --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+            logAction("err - common.py - checkIfTrackInDB00 --> error while runnin 'getTrackInfo' for " + trackID + "--> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
             logAction("TRACEBACK --> " + traceback.format_exc())
             return False
 
@@ -160,17 +160,17 @@ def apiGetSpotify(urlExtension):
     result = getNewAccessToken()
     if result == '':
         '''error'''
-        logAction("err - spotify.py - apiGetSpotify --> error getNewAccessToken()")
+        logAction("err - common.py - apiGetSpotify --> error getNewAccessToken()")
     elif result == None:
         '''ok'''
         pass
     else:
         '''not possible?'''
-        logAction("err - spotify.py - apiGetSpotify2 --> something unusual with getNewAccessToken()")
+        logAction("err - common.py - apiGetSpotify2 --> something unusual with getNewAccessToken()")
 
 
     '''-->  wait given timespan'''
-    waitForGivenTimeIns(0.01,0.1)
+    waitForGivenTimeIns(0.1,0.2)
 
 
     '''--> create and perform request'''
@@ -184,7 +184,7 @@ def apiGetSpotify(urlExtension):
     try:
         response = requests.get(url, headers=headers, verify=False)
     except Exception as ex:
-        logAction("err - spotify.py - apiGetSpotify3 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - apiGetSpotify3 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -192,27 +192,42 @@ def apiGetSpotify(urlExtension):
     '''--> check for error in response'''
     try:
         retryCnt = 0
-        while (response.status_code != 200):
-            if response.message == "invalid id":
-                break   #invalid track ID requested
-            waitForGivenTimeIns(0.5,1)
-            logAction("msg - spotify.py - apiGetSpotify4 --> retrying request #" + str(retryCnt))
+        while (response.status_code != 200):    #bad response
+            print("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*")
+            print("RESPONSE: " + str(response))
+            print("RESPONSE JSON: " + str(response.json()))
+            logAction("msg - common.py - apiGetSpotify5 --> bad response status_code: " + str(response.status_code))
+            errStr = ""
+            if "status" in response.json().keys():
+                errStr = "status: " + str(response.json()["status"])
+            if "error" in response.json().keys():
+                errStr = errStr + " error: " + str(response.json()["error"])
+            if "message" in response.json().keys():
+                errStr = errStr + " message: " + str(response.json()["message"])
+                if response.message == "invalid id" or response.message == "Invalid id":
+                    logAction("msg - common.py - apiGetSpotify6 --> Invalid track ID response!")
+                    return ''   #invalid track ID requested
+
+            logAction("msg - common.py - apiGetSpotify7 --> error details: " + errStr + ". Retrying request #" + str(retryCnt))
+     
+
+            waitForGivenTimeIns(1,3)
 
 
             '''--> retrying if invalid response'''
             if retryCnt >= 30:
-                logAction("err - spotify.py - apiGetSpotify5 --> too many retries requesting acces token.")
+                logAction("err - common.py - apiGetSpotify9 --> too many retries requesting acces token, aborting.")
 
 
                 '''--> save last result for debugging'''
-                with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_LAST.json", 'w', encoding="utf-8") as fi:
+                with open (ROOT_DIR + "/logs/spotify_apiGetSpotify_RETRY.json", 'w', encoding="utf-8") as fi:
                     fi.write(json.dumps(response.json(), indent = 4))
                 return ''
 
             response = requests.get(url, headers=headers, verify=False)
             retryCnt+=1
     except Exception as ex:
-        logAction("err - spotify.py - apiGetSpotify6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - apiGetSpotify11 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -239,7 +254,7 @@ def getNewAccessToken():
         refresh_token = fileOpen.read()
         fileOpen.close()
     except Exception as ex:
-        logAction("err - spotify.py - getNewAccessToken1 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getNewAccessToken1 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -260,7 +275,7 @@ def getNewAccessToken():
     try:
         response = requests.post(url, data=body_params, auth=(spotify_client_id, spotify_client_secret), verify=False)
     except Exception as ex:
-        logAction("err - spotify.py - getNewAccessToken2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getNewAccessToken2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -270,10 +285,10 @@ def getNewAccessToken():
         retryCnt = 0
         while (response.status_code != 200) :
             waitForGivenTimeIns(0.5,1)
-            logAction("msg - spotify.py - getNewAccessToken3 --> retrying request #" + str(retryCnt))
+            logAction("msg - common.py - getNewAccessToken3 --> retrying request #" + str(retryCnt))
 
             if retryCnt >= 10:
-                logAction("err - spotify.py - getNewAccessToken4 --> too many retries requesting acces token.")
+                logAction("err - common.py - getNewAccessToken4 --> too many retries requesting acces token.")
 
             response = requests.post(url, data=body_params, auth=(spotify_client_id, spotify_client_secret), verify=False)
             retryCnt+=1
@@ -283,7 +298,7 @@ def getNewAccessToken():
                 fi.write(json.dumps(response.json(), indent = 4))
             return ''
     except Exception as ex:
-        logAction("err - spotify.py - getNewAccessToken4.5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getNewAccessToken4.5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -302,7 +317,7 @@ def getNewAccessToken():
             fileOpen.write(response.json()['refresh_token'])
             fileOpen.close()
     except Exception as ex:
-        logAction("err - spotify.py - getNewAccessToken5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getNewAccessToken5 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -315,7 +330,7 @@ def getNewAccessToken():
         gv_access_token = response.json()['access_token']
         fileOpen.close()
     except Exception as ex:
-        logAction("err - spotify.py - getNewAccessToken6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("err - common.py - getNewAccessToken6 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
 
@@ -331,7 +346,7 @@ def getTrackInfo(trackID, artistsAsList):
 
 
     '''--> perform request'''
-    logAction("msg - common.py - getTrackInfo --> requesting track info for trackID: " + trackID)  
+    # logAction("msg - common.py - getTrackInfo --> requesting track info for trackID: " + trackID)  
     track_info = apiGetSpotify('tracks/' + trackID)
 
 

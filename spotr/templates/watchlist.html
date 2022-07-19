@@ -8,15 +8,34 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container overflow-hidden">
   <!-- WATCHLIST CONTENT SECTION -->
+  <div class="row mb-5">
+    <div class="col">
+      
+    </div>
+    <div class="col-5 text-center">
+      <h3>Watchlist items</h3>
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col">   
+
+    </div>
+    <div class="col-5 text-center">
+      <a class="btn btn-primary" href="/watchlist/checkForNewTracks" role="button">Check watchlist items for new tracks</a>
+    </div>
+    <div class="col">   
+
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
-      <h5>Watchlist content</h5>
-      <br>
-      <a class="btn btn-primary" href="/watchlist/checkForNewTracks" role="button">Check watchlist items for new tracks</a>
-      <br>
-
       <!-- Show in endless scroll window -->
       <div style="height:800px;overflow:auto;">
         <div class="container-sm">
@@ -27,55 +46,79 @@
                 <!-- First pass, html code a bit different here -->
                 <div class="row">
                   <div class="col-3">
-                    <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
-                    <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>        -->
-                    <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>                  
-                        {% if item['image']|length > 0 %} 
-                          <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
-                        {% else %}
-                          <div style="width:100px;height:100px;border:1px solid #000;"></div>
-                        {% endif %}
-                    <p><em>Added: {{ item["dateAdded"] }}</em></p>
-                    <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
-                </div>
+                    <div class="row text-center">
+                      <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
+                      <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>        -->
+                    </div>
+                    <div class="row text-center">
+                      <a class="btn btn-primary btn-sm mb-2 w-50" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>
+                    </div>
+                    <div class="row text-center">
+                      {% if item['image']|length > 0 %} 
+                      <img src="{{ item['image'] }}" class="img-thumbnail rounded mx-auto d-block" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                    {% else %}
+                      <div style="width:100px;height:100px;border:1px solid #000;"></div>
+                    {% endif %}
+                    </div>
+                    <div class="row text-center">
+                      <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                      <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
+                    </div>
+                  </div>
 
               {% else %}
                   <!-- Not first pass, close previous row -->
                 </div>
                   <div class="row">
                     <div class="col-3">
-                      <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>                      
-                      <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
+                      <div class="row text-center">
+                        <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>                      
+                        <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
+                      </div>
+                      <div class="row text-center">
                         <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>
+                      </div>
+                      <div class="row text-center">
                         {% if item['image']|length > 0 %}
                           <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
                         {% else %}
                           <div style="width:100px;height:100px;border:1px solid #000;"></div>
                         {% endif %}
-                      <p><em>Added: {{ item["dateAdded"] }}</em></p>
-                      <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
-                  </div>
+                      </div>
+                      <div class="row text-center">
+                        <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                        <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
+                      </div>
+                    </div>
               {% endif %}
 
             {% else %}
             <!-- In between 4 passes, place items in one row next to each other -->
-              <div class="col-3">
-                <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
-                <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
-                <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>             
-                    {% if item['image']|length > 0 %}
-                      <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
-                    {% else %}
-                      <div style="width:100px;height:100px;border:1px solid #000;"></div>
-                    {% endif %}
-                <p><em>Added: {{ item["dateAdded"] }}</em></p>
-                <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
-            </div>
+                    <div class="col-3">
+                      <div class="row text-center">
+                        <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
+                        <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
+                      </div>
+                      <div class="row text-center">
+                        <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>             
+                      </div>
+                      <div class="row text-center">
+                        {% if item['image']|length > 0 %}
+                          <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                        {% else %}
+                          <div style="width:100px;height:100px;border:1px solid #000;"></div>
+                        {% endif %}
+                      </div>
+                      <div class="row text-center">
+                        <p><em>Added: {{ item["dateAdded"] }}</em></p>
+                        <!-- <p><em>Last check: {{ item["dateLastCheck"] }}</em></p> -->
+                      </div>
+                    </div>
             {% endif %}
 
             {% if loop.last %}
               <!-- check for last loop ) close row in that case-->
-              </div>
+                  </div>
             {% endif %}
 
           {% endfor %}
