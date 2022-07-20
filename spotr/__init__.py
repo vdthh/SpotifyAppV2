@@ -50,9 +50,10 @@ db.add_init_app_command(app)
 
 '''--> register blueprint(s)'''
 '''--> imports need to happen AFTER app = Flask is called! Otherwise circular import'''
-from . import watchlist, home   #blueprints
+from . import watchlist, home, database   #blueprints
 app.register_blueprint(watchlist.bp_watchlist)
 app.register_blueprint(home.bp_home)
+app.register_blueprint(database.bp_database)
 ########################################################################################
 
 #To run app from terminal, first set FLASK_APP via command: $env:FLASK_APP = "spotr"

@@ -50,15 +50,15 @@
                       <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
                       <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6>        -->
                     </div>
-                    <div class="row text-center">
+                    <div class="row justify-content-center">
                       <a class="btn btn-primary btn-sm mb-2 w-50" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>
                     </div>
-                    <div class="row text-center">
+                    <div class="row justify-content-center">
                       {% if item['image']|length > 0 %} 
-                      <img src="{{ item['image'] }}" class="img-thumbnail rounded mx-auto d-block" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
-                    {% else %}
-                      <div style="width:100px;height:100px;border:1px solid #000;"></div>
-                    {% endif %}
+                        <img src="{{ item['image'] }}" class="img-thumbnail rounded mx-auto d-block" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                      {% else %}
+                        <div style="width:100px;height:100px;border:1px solid #000;"></div>
+                      {% endif %}
                     </div>
                     <div class="row text-center">
                       <p><em>Added: {{ item["dateAdded"] }}</em></p>
@@ -75,12 +75,12 @@
                         <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>                      
                         <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
                       </div>
-                      <div class="row text-center">
-                        <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>
+                      <div class="row justify-content-center">
+                        <a class="btn btn-primary btn-sm mb-2 w-50" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>
                       </div>
-                      <div class="row text-center">
+                      <div class="row justify-content-center">
                         {% if item['image']|length > 0 %}
-                          <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                          <img src="{{ item['image'] }}" class="img-thumbnail rounded mx-auto d-block" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
                         {% else %}
                           <div style="width:100px;height:100px;border:1px solid #000;"></div>
                         {% endif %}
@@ -99,12 +99,12 @@
                         <h5><u>{{ item["type"] }}: {{ item["name"] }}</u></h5>
                         <!-- <h6>New tracks <span class="badge bg-success">{{ item["noOfNewItems"] }}</span></h6> -->
                       </div>
-                      <div class="row text-center">
-                        <a class="btn btn-primary btn-sm" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>             
+                      <div class="row justify-content-center">
+                        <a class="btn btn-primary btn-sm mb-2 w-50" href="/watchlist?delItem={{ item['id'] }}" role="button">Delete</a>             
                       </div>
-                      <div class="row text-center">
+                      <div class="row justify-content-center">
                         {% if item['image']|length > 0 %}
-                          <img src="{{ item['image'] }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
+                          <img src="{{ item['image'] }}" class="img-thumbnail rounded mx-auto d-block" style="width:100px;height:100px" alt="image_{{  item['name'] }}">
                         {% else %}
                           <div style="width:100px;height:100px;border:1px solid #000;"></div>
                         {% endif %}
