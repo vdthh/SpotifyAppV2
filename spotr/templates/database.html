@@ -20,7 +20,7 @@
         <h2>New tracks from items in watchlist</h2>
     {% endif %}
 
-    <p>{{ tot }} entries in database</p>
+    <p>{{ tot }} items in database</p>
 
     <br>
 
@@ -56,7 +56,7 @@
                             <td>{{ item.times_searched }}</td>
                         {% endif %}
                         <td>
-                            <a class="btn btn-primary" href="/database?showdb={{ showdb }}&itemid={{ item.spotify_id }}" role="button">Delete</a>
+                            <a class="btn btn-primary" href="/database?showdb={{ showdb }}&toDelID={{ item.spotify_id }}" role="button">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
