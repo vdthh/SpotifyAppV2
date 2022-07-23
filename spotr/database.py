@@ -69,7 +69,6 @@ def database_main():
             #--> PAGINATION CLICKED #
             if ("offs" in args) and ("lim" in args):
                 '''--> update global variables'''
-                print("PAGINATION")
                 gv_display_offset   = int(args["offs"])
                 gv_display_limit    = int(args["lim"])
 
@@ -95,7 +94,8 @@ def database_main():
 
 
                     '''--> show tracks'''
-                    gv_items_list = cursor.execute('SELECT * FROM ToListenTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
+                    # gv_items_list = cursor.execute('SELECT * FROM ToListenTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
+                    updateItemList("ToListenTrack", gv_display_limit, gv_display_offset)
 
 
                     '''--> update display variable'''
@@ -132,7 +132,8 @@ def database_main():
 
 
                     '''--> show tracks'''
-                    gv_items_list = cursor.execute('SELECT * FROM ListenedTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
+                    # gv_items_list = cursor.execute('SELECT * FROM ListenedTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
+                    updateItemList("ListenedTrack", gv_display_limit, gv_display_offset)
 
 
                     '''--> update display variable'''
@@ -219,30 +220,29 @@ def database_main():
             cursor  = db.cursor()
 
             '''--> which table/track'''
+            dbToShow = ""
             if args["showdb"] == "favorite":
+                dbToShow = ""
                 pass
             elif args["showdb"] == "tolisten":
+                dbToShow = "ToListenTrack"
                 pass
             elif args["showdb"] == "listened":
+                dbToShow = "ListenedTrack"
                 cursor.execute('DELETE FROM ListenedTrack WHERE id = ?', (args["toDelID"],))
                 db.commit()
-
-                return redirect(url_for('database.database_main'))
-
-
-
-                # '''--> reload tracks'''
-                # gv_items_list = cursor.execute('SELECT * FROM ListenedTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
-
-
-
             elif args["showdb"] == "playlisttracks":
+                pass
+            elif args["showdb"] == "newtrackswatchlist":
                 pass
 
 
+            '''--> reload tracks'''
+            updateItemList(dbToShow, gv_display_limit, gv_display_offset)
+            # gv_items_list = cursor.execute('SELECT * FROM ListenedTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
 
 
-
+            '''--> feedback'''
             flash("Deleted track " + args["toDelID"] + " from table " + args["showdb"], category="success")
             logAction("msg - database.py - database_main80 --> Deleted track " + args["toDelID"] + " from table " + args["showdb"])
 
@@ -261,6 +261,45 @@ def database_main():
 ########################################################################################
 ######################################## FUNCTIONS #####################################
 ########################################################################################
+def updateItemList(dbName, lim, offs):
+    '''--> update gv_items_list'''
+    '''--> global variables'''
+    global gv_items_list
+    global gv_display_total
 
+    try:
+        '''--> call db outside of request-object'''
+        with app.app_context():
+            db = get_db_connection()
+            cursor = db.cursor()
+
+
+        '''--> grab tracks'''
+        if dbName == "ListenedTrack" or dbName == "ToListenTrack" or dbName == "WatchList":
+            gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
+            if lim == 0 and offs == 0:
+                #request without limit or offset 
+                gv_items_list = cursor.execute('SELECT * FROM ' + dbName).fetchall()
+            else:
+                #request with limit and offset
+                gv_items_list = cursor.execute('SELECT * FROM ' + dbName + ' LIMIT ' + str(lim) + ' OFFSET ' + str(offs)).fetchall()      
+        elif dbName == "WatchListNewTracks":
+            data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()   #get total tracks, purely for display purposes
+            currentTrackList    = json.loads(data[1])           
+            gv_display_total    = len(currentTrackList) 
+            if lim == 0 and offs == 0:
+                #request without limit or offset 
+                data            = cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=?',("newTracks",)).fetchone()
+                gv_items_list   = json.loads(data[1])
+            else:
+                #request with limit and offset
+                data               = cursor.execute('SELECT * FROM ' + dbName + ' WHERE id=?',("newTracks",)).fetchone()
+                currentTrackList   = json.loads(data[1])
+                gv_items_list      = currentTrackList[offs:lim]
+
+    except Exception as ex:
+        flash("Error in updateItemList() for dbName " + dbName + ", lim " + str(lim) + " and offs " + str(offs), category="error")
+        logAction("err - database.py - database_main80 --> Error in updateItemList() for dbName " + dbName + ", lim " + str(lim) + " and offs " + str(offs) + "--> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
 
 ########################################################################################

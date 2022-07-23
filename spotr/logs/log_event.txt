@@ -1,35 +1,27 @@
 
-2022-07-22 22:15:10.660318 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:36:30.937333 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:36:58.036041 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:37:46.174988 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:37:50.744029 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:41:53.966860 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:42:14.635834 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:42:18.546493 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:42:20.950841 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:42:23.317267 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:43:09.837817 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:43:12.300538 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:43:58.629937 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:50:13.260748 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:50:22.503403 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:50:24.823499 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:50:26.267670 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table newtrackswatchlist
-2022-07-22 22:50:31.735909 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:50:53.578755 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:50:56.265158 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:50:57.585765 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:51:27.737796 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:51:31.102821 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:57:43.393147 msg - database.py - database_main80 --> Deleted track 0I51Pydw32UTD3extxvtBh from table listened
-2022-07-22 22:57:53.013135 msg - database.py - database_main80 --> Deleted track 6eJFtc3BNctQeaCXlZzX5v from table listened
-2022-07-22 22:57:54.869251 msg - database.py - database_main80 --> Deleted track 6eJFtc3BNctQeaCXlZzX5v from table listened
-2022-07-22 22:57:57.030110 msg - database.py - database_main80 --> Deleted track 6eJFtc3BNctQeaCXlZzX5v from table listened
-2022-07-22 22:57:58.550948 msg - database.py - database_main80 --> Deleted track 6eJFtc3BNctQeaCXlZzX5v from table listened
-2022-07-22 22:58:01.465818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 22:58:07.459445 msg - database.py - database_main80 --> Deleted track 5SnZSvG0Jv0VB0iF9UpWYX from table listened
-2022-07-22 23:08:20.919522 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-22 23:08:27.195144 msg - database.py - database_main80 --> Deleted track 11qCRCnixiW6bBqlnhX2mH from table listened
-2022-07-22 23:08:31.275515 msg - database.py - database_main80 --> Deleted track 57khKGG4px9iPG77lfqZab from table listened
-2022-07-22 23:08:33.681139 msg - database.py - database_main80 --> Deleted track 5aiHb6e7LswOyumBUcA4cD from table listened
+2022-07-23 22:51:34.819832 err - database.py - database_main50 --> error while displaying items in ListenedTrack table --> <class 'TypeError'> - ('can only concatenate str (not "int") to str',) - can only concatenate str (not "int") to str
+2022-07-23 22:51:34.820833 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 136, in database_main
+    updateItemList("ListenedTrack", gv_display_limit, gv_display_offset)
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 282, in updateItemList
+    gv_items_list = cursor.execute('SELECT * FROM ' + dbName + ' LIMIT ' + lim + ' OFFSET ' + offs).fetchall()
+TypeError: can only concatenate str (not "int") to str
+
+2022-07-23 23:15:04.061011 msg - database.py - database_main80 --> Deleted track 2HbMpIwrxX8nrUHPYFqTDz from table listened
+2022-07-23 23:15:11.827926 msg - database.py - database_main80 --> Deleted track 7oNM8j73zoTsMOUcIK7dGw from table listened
+2022-07-23 23:17:55.924616 msg - database.py - database_main80 --> Deleted track 021LdJsjuCHyLbtAA33Vbf from table listened
+2022-07-23 23:17:59.784592 msg - database.py - database_main80 --> Deleted track 4z6WUWAvvRv8XSsHrxM4Rj from table listened
+2022-07-23 23:21:14.257220 msg - database.py - database_main80 --> Deleted track 5k0fcg4pj3nW0KDrMULFbj from table listened
+2022-07-23 23:21:41.402919 msg - database.py - database_main80 --> Deleted track 1sRwQ6gGF38axQ8SPau7B8 from table listened
+2022-07-23 23:21:44.590282 msg - database.py - database_main80 --> Deleted track 7Fr4XCUwY14LhVGK9S0A5J from table listened
+2022-07-23 23:24:47.565521 msg - database.py - database_main80 --> Deleted track 7F7wwDSjSm8EiKvkCUXF9b from table listened
+2022-07-23 23:25:53.975773 msg - database.py - database_main80 --> Deleted track 1DC3IPdLxT2ScuYOLR4Y8d from table listened
+2022-07-23 23:25:56.942121 msg - database.py - database_main80 --> Deleted track 1NEZLc1kquMRZzVVO3TVwg from table listened
+2022-07-23 23:26:01.176475 msg - database.py - database_main80 --> Deleted track 3AcQHazVdIGtGSEdsppaZ2 from table listened
+2022-07-23 23:26:14.265998 msg - database.py - database_main80 --> Deleted track 4JhjMyzZIx4ZlXAO1Fpf7A from table listened
+2022-07-23 23:26:24.305139 msg - database.py - database_main80 --> Deleted track 3shSmLE37ufwLNUZTNVSwa from table listened
+2022-07-23 23:26:35.177279 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
+2022-07-23 23:26:35.178280 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
+2022-07-23 23:27:53.097090 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table newtrackswatchlist
+2022-07-23 23:27:59.327697 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table listened
+2022-07-23 23:28:06.461920 msg - database.py - database_main80 --> Deleted track 38nxCsayspg4vALAtfRknZ from table listened
