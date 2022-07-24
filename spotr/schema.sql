@@ -46,3 +46,24 @@ CREATE TABLE WatchListNewTracks (
     id TEXT PRIMARY KEY,    -- id of sole entry = "newTracks"
     trackList TEXT  -- try to store list as string: https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
 );
+
+CREATE TABLE FavoriteTrack(
+    id TEXT PRIMARY KEY,
+    spotify_id TEXT,
+    album TEXT,
+    artists TEXT,
+    title TEXT,
+    href TEXT,
+    date_added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    times_searched INTEGER
+);
+
+CREATE TABLE LikedTrack(   --contains all tracks that are in 'like tracks' list in spotify 20220211
+    id TEXT PRIMARY KEY,
+    album TEXT,
+    artists TEXT,
+    title TEXT,
+    href TEXT,
+    date_added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    times_searched INTEGER
+);

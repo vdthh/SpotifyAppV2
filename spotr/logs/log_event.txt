@@ -25,3 +25,56 @@ TypeError: can only concatenate str (not "int") to str
 2022-07-23 23:27:53.097090 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table newtrackswatchlist
 2022-07-23 23:27:59.327697 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table listened
 2022-07-23 23:28:06.461920 msg - database.py - database_main80 --> Deleted track 38nxCsayspg4vALAtfRknZ from table listened
+2022-07-24 21:24:27.380151 msg - database.py - database_main80 --> Deleted track 1EbrP8TjvPC7ypCPhxLfRg from table listened
+2022-07-24 22:52:22.318778 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:04:23.290252 err - database.py - database_main80 --> Error in updateItemList() for dbName FavoriteTrack, lim 100 and offs 0--> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
+2022-07-24 23:04:23.291249 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 319, in updateItemList
+    gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
+sqlite3.OperationalError: no such table: FavoriteTrack
+
+2022-07-24 23:04:23.292250 err - database.py - database_main41 --> error while displaying items in FavoriteTrack table --> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
+2022-07-24 23:04:23.292250 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 97, in database_main
+    gv_display_total = len(cursor.execute('SELECT * FROM FavoriteTrack').fetchall())
+sqlite3.OperationalError: no such table: FavoriteTrack
+
+2022-07-24 23:04:47.903882 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:04:52.074878 err - database.py - database_main80 --> Error in updateItemList() for dbName FavoriteTrack, lim 100 and offs 0--> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
+2022-07-24 23:04:52.075877 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 319, in updateItemList
+    gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
+sqlite3.OperationalError: no such table: FavoriteTrack
+
+2022-07-24 23:04:52.076876 err - database.py - database_main41 --> error while displaying items in FavoriteTrack table --> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
+2022-07-24 23:04:52.076876 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 97, in database_main
+    gv_display_total = len(cursor.execute('SELECT * FROM FavoriteTrack').fetchall())
+sqlite3.OperationalError: no such table: FavoriteTrack
+
+2022-07-24 23:06:57.668739 err - database.py - database_main65 --> error while displaying items in WatchlistNewTracks table --> <class 'TypeError'> - ("'NoneType' object is not subscriptable",) - 'NoneType' object is not subscriptable
+2022-07-24 23:06:57.669738 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 210, in database_main
+    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+TypeError: 'NoneType' object is not subscriptable
+
+2022-07-24 23:28:04.815930 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:28:12.218810 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:28:12.219811 msg - watchlist.py - watchlist_main50 --> searching for playlist yoybee
+2022-07-24 23:28:12.797560 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist yoybee.
+2022-07-24 23:28:18.438190 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:28:18.440190 msg - watchlist.py - watchlist_main3 --> searching for artist yoyee
+2022-07-24 23:28:18.915288 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist yoyee.
+2022-07-24 23:28:26.759740 msg - watchlist.py - watchlist_main80 --> add artist 3YG0ZECQSii3EgTKiSk6Gi to watchlist --> starting.
+2022-07-24 23:28:26.759740 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:28:26.760737 msg - common.py - getTracksFromArtist --> requesting albums from artist 3YG0ZECQSii3EgTKiSk6Gi.
+2022-07-24 23:28:49.263904 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 586 tracks from artist 3YG0ZECQSii3EgTKiSk6Gi
+2022-07-24 23:28:49.263904 msg - watchlist.py - watchlist_main82 --> grabbed artist 3YG0ZECQSii3EgTKiSk6Gi's tracks: 586
+2022-07-24 23:28:49.579006 msg - watchlist.py - watchlist_main84 --> artist Yosee added to watchlist.
+2022-07-24 23:36:01.293289 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
+2022-07-24 23:36:01.294284 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
+2022-07-24 23:36:13.304032 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
+2022-07-24 23:36:13.305033 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
+2022-07-24 23:45:24.675818 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 3YG0ZECQSii3EgTKiSk6Gi: 0, length after adding tracks: 586.
+2022-07-24 23:45:24.675818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-24 23:46:53.584967 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items

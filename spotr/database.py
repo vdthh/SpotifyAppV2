@@ -75,8 +75,41 @@ def database_main():
 
             #--> SHOW REQUESTED DB #
             if args["showdb"] == 'favorite':
-                pass
-                #TODO
+                try:
+                    '''--> show tracks from FavoriteTrack-table'''
+                    '''--> update global variables'''
+                    gv_displayedDB = 'favorite'
+                    if gv_displayedDB_prev != gv_displayedDB:
+                        gv_displayedDB_prev = gv_displayedDB
+                        gv_display_offset = 0
+
+
+                    '''--> db'''
+                    db      = get_db_connection()
+                    cursor  = db.cursor()
+
+
+                    '''--> show tracks'''
+                    updateItemList("FavoriteTrack", gv_display_limit, gv_display_offset)
+
+
+                    '''--> update display variable'''
+                    gv_display_total = len(cursor.execute('SELECT * FROM FavoriteTrack').fetchall())
+
+
+                    '''--> return html response'''
+                    return render_template("database.html", 
+                                            itemList    = gv_items_list, 
+                                            showdb      = "favorite", 
+                                            offs        = gv_display_offset, 
+                                            lim         = gv_display_limit, 
+                                            tot         = gv_display_total)
+
+                except Exception as ex:
+                    flash("Error displaying items in FavoriteTrack table.", category="error")
+                    logAction("err - database.py - database_main41 --> error while displaying items in FavoriteTrack table --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+                    logAction("TRACEBACK --> " + traceback.format_exc())
+                        
 
             elif args["showdb"] == "tolisten":
                 try:
@@ -94,7 +127,6 @@ def database_main():
 
 
                     '''--> show tracks'''
-                    # gv_items_list = cursor.execute('SELECT * FROM ToListenTrack LIMIT ' + str(gv_display_limit) + ' OFFSET ' + str(gv_display_offset)).fetchall()
                     updateItemList("ToListenTrack", gv_display_limit, gv_display_offset)
 
 
@@ -116,7 +148,6 @@ def database_main():
                     logAction("TRACEBACK --> " + traceback.format_exc())
 
             elif args["showdb"] == "listened":
-                print("LISTENED LISTENED")
                 try:
                     '''--> show tracks from ListenedTrack-table'''
                     '''--> update global variables'''
@@ -175,10 +206,13 @@ def database_main():
 
 
                     '''--> get data'''
-                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
-                    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
-                    gv_display_total = len(currentTrackList)              
-                    currentTrackList = currentTrackList[gv_display_offset:(gv_display_offset + gv_display_limit)]
+                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+                    if data: 
+                        currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                        gv_display_total = len(currentTrackList)              
+                        currentTrackList = currentTrackList[gv_display_offset:(gv_display_offset + gv_display_limit)]
+                    else:
+                        currentTrackList = []   #no data in table, empty list
 
 
                     '''--> grab trackinfo for each track'''
@@ -222,20 +256,29 @@ def database_main():
             '''--> which table/track'''
             dbToShow = ""
             if args["showdb"] == "favorite":
-                dbToShow = ""
-                pass
+                dbToShow = "FavoriteTrack"
+                cursor.execute('DELETE FROM FavoriteTrack WHERE id=?', (args["toDelID"],))
+                db.commit()         
             elif args["showdb"] == "tolisten":
                 dbToShow = "ToListenTrack"
-                pass
+                cursor.execute('DELETE FROM ToListeTrack WHERE id=?', (args["toDelID"],))
+                db.commit() 
             elif args["showdb"] == "listened":
                 dbToShow = "ListenedTrack"
-                cursor.execute('DELETE FROM ListenedTrack WHERE id = ?', (args["toDelID"],))
+                cursor.execute('DELETE FROM ListenedTrack WHERE id=?', (args["toDelID"],))
                 db.commit()
             elif args["showdb"] == "playlisttracks":
+                dbToShow = ""
                 pass
             elif args["showdb"] == "newtrackswatchlist":
-                pass
-
+                dbToShow = "WatchListNewTracks"
+                data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone() 
+                currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
+                print("LIST LENGTH BEFORE: " + str(len(currentTrackList)))
+                currentTrackList.remove(args["toDelID"])
+                print("LIST LENGTH AFTER: " + str(len(currentTrackList)))
+                db.execute('UPDATE WatchlistNewTracks SET trackList=? WHERE id=?',(currentTrackList, "newTracks"))
+                db.commit()            
 
             '''--> reload tracks'''
             updateItemList(dbToShow, gv_display_limit, gv_display_offset)
@@ -275,7 +318,7 @@ def updateItemList(dbName, lim, offs):
 
 
         '''--> grab tracks'''
-        if dbName == "ListenedTrack" or dbName == "ToListenTrack" or dbName == "WatchList":
+        if dbName == "ListenedTrack" or dbName == "ToListenTrack" or dbName == "WatchList" or dbName == "FavoriteTrack" or dbName == "LikedTrack":
             gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
             if lim == 0 and offs == 0:
                 #request without limit or offset 
