@@ -1,80 +1,201 @@
 
-2022-07-23 22:51:34.819832 err - database.py - database_main50 --> error while displaying items in ListenedTrack table --> <class 'TypeError'> - ('can only concatenate str (not "int") to str',) - can only concatenate str (not "int") to str
-2022-07-23 22:51:34.820833 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 136, in database_main
-    updateItemList("ListenedTrack", gv_display_limit, gv_display_offset)
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 282, in updateItemList
-    gv_items_list = cursor.execute('SELECT * FROM ' + dbName + ' LIMIT ' + lim + ' OFFSET ' + offs).fetchall()
-TypeError: can only concatenate str (not "int") to str
+2022-07-27 23:19:05.263278 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:19:08.540404 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-27 23:19:08.540404 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-27 23:19:08.541399 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
+2022-07-27 23:19:09.887130 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
+2022-07-27 23:19:10.011261 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-27 23:19:11.438234 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-27 23:19:11.578234 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
+2022-07-27 23:19:12.075458 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h19
+2022-07-27 23:19:12.430759 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h19
+2022-07-27 23:19:14.349052 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 3JU3GPD3YUoX2X2dyFlgMj.
+2022-07-27 23:19:14.912315 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 3JU3GPD3YUoX2X2dyFlgMj.
+2022-07-27 23:19:47.498036 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 12
+2022-07-27 23:19:47.910292 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 3JU3GPD3YUoX2X2dyFlgMj
+2022-07-27 23:19:48.132028 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-07-27 23:19:48.135027 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-2022-07-23 23:15:04.061011 msg - database.py - database_main80 --> Deleted track 2HbMpIwrxX8nrUHPYFqTDz from table listened
-2022-07-23 23:15:11.827926 msg - database.py - database_main80 --> Deleted track 7oNM8j73zoTsMOUcIK7dGw from table listened
-2022-07-23 23:17:55.924616 msg - database.py - database_main80 --> Deleted track 021LdJsjuCHyLbtAA33Vbf from table listened
-2022-07-23 23:17:59.784592 msg - database.py - database_main80 --> Deleted track 4z6WUWAvvRv8XSsHrxM4Rj from table listened
-2022-07-23 23:21:14.257220 msg - database.py - database_main80 --> Deleted track 5k0fcg4pj3nW0KDrMULFbj from table listened
-2022-07-23 23:21:41.402919 msg - database.py - database_main80 --> Deleted track 1sRwQ6gGF38axQ8SPau7B8 from table listened
-2022-07-23 23:21:44.590282 msg - database.py - database_main80 --> Deleted track 7Fr4XCUwY14LhVGK9S0A5J from table listened
-2022-07-23 23:24:47.565521 msg - database.py - database_main80 --> Deleted track 7F7wwDSjSm8EiKvkCUXF9b from table listened
-2022-07-23 23:25:53.975773 msg - database.py - database_main80 --> Deleted track 1DC3IPdLxT2ScuYOLR4Y8d from table listened
-2022-07-23 23:25:56.942121 msg - database.py - database_main80 --> Deleted track 1NEZLc1kquMRZzVVO3TVwg from table listened
-2022-07-23 23:26:01.176475 msg - database.py - database_main80 --> Deleted track 3AcQHazVdIGtGSEdsppaZ2 from table listened
-2022-07-23 23:26:14.265998 msg - database.py - database_main80 --> Deleted track 4JhjMyzZIx4ZlXAO1Fpf7A from table listened
-2022-07-23 23:26:24.305139 msg - database.py - database_main80 --> Deleted track 3shSmLE37ufwLNUZTNVSwa from table listened
-2022-07-23 23:26:35.177279 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
-2022-07-23 23:26:35.178280 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
-2022-07-23 23:27:53.097090 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table newtrackswatchlist
-2022-07-23 23:27:59.327697 msg - database.py - database_main80 --> Deleted track 6g6QW8Q1namYNapuySDYt1 from table listened
-2022-07-23 23:28:06.461920 msg - database.py - database_main80 --> Deleted track 38nxCsayspg4vALAtfRknZ from table listened
-2022-07-24 21:24:27.380151 msg - database.py - database_main80 --> Deleted track 1EbrP8TjvPC7ypCPhxLfRg from table listened
-2022-07-24 22:52:22.318778 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:04:23.290252 err - database.py - database_main80 --> Error in updateItemList() for dbName FavoriteTrack, lim 100 and offs 0--> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
-2022-07-24 23:04:23.291249 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 319, in updateItemList
-    gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
-sqlite3.OperationalError: no such table: FavoriteTrack
+During handling of the above exception, another exception occurred:
 
-2022-07-24 23:04:23.292250 err - database.py - database_main41 --> error while displaying items in FavoriteTrack table --> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
-2022-07-24 23:04:23.292250 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 97, in database_main
-    gv_display_total = len(cursor.execute('SELECT * FROM FavoriteTrack').fetchall())
-sqlite3.OperationalError: no such table: FavoriteTrack
+Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 816, in checkToCreatePlaylist
+    changePlaylistDetails(id, "", "blablabla")
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 684, in changePlaylistDetails
+    fi.write(json.dumps(response.json(), indent = 4))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
 
-2022-07-24 23:04:47.903882 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:04:52.074878 err - database.py - database_main80 --> Error in updateItemList() for dbName FavoriteTrack, lim 100 and offs 0--> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
-2022-07-24 23:04:52.075877 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 319, in updateItemList
-    gv_display_total = len(cursor.execute('SELECT * FROM ' + dbName).fetchall())
-sqlite3.OperationalError: no such table: FavoriteTrack
+2022-07-27 23:19:48.137027 err - watchlist.py - checkWatchListItems6 --> error checking watchlist items for new tracks --> <class 'UnboundLocalError'> - ("local variable 'ex' referenced before assignment",) - local variable 'ex' referenced before assignment
+2022-07-27 23:19:48.137027 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 719, in checkWatchlistItems
+    logAction("err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist() --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+UnboundLocalError: local variable 'ex' referenced before assignment
 
-2022-07-24 23:04:52.076876 err - database.py - database_main41 --> error while displaying items in FavoriteTrack table --> <class 'sqlite3.OperationalError'> - ('no such table: FavoriteTrack',) - no such table: FavoriteTrack
-2022-07-24 23:04:52.076876 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 97, in database_main
-    gv_display_total = len(cursor.execute('SELECT * FROM FavoriteTrack').fetchall())
-sqlite3.OperationalError: no such table: FavoriteTrack
+2022-07-27 23:19:48.138028 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
+2022-07-27 23:24:14.519634 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:24:19.911734 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:24:19.913724 msg - watchlist.py - watchlist_main3 --> searching for artist geertje
+2022-07-27 23:24:20.399501 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist geertje.
+2022-07-27 23:24:24.660541 msg - watchlist.py - watchlist_main80 --> add artist 3LUGEywk20Yr20WrU119S6 to watchlist --> starting.
+2022-07-27 23:24:24.660541 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:24:24.662536 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-27 23:24:25.574366 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-27 23:24:25.574366 msg - watchlist.py - watchlist_main82 --> grabbed artist 3LUGEywk20Yr20WrU119S6's tracks: 7
+2022-07-27 23:24:25.739487 msg - watchlist.py - watchlist_main84 --> artist Geertje added to watchlist.
+2022-07-27 23:24:37.234627 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 3LUGEywk20Yr20WrU119S6: 12, length after adding tracks: 19.
+2022-07-27 23:24:37.234627 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:24:51.351975 msg - watchlist.py - watchlist_main80 --> add artist 1M2F83YsIpngpkMUdYcF3O to watchlist --> starting.
+2022-07-27 23:24:51.351975 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:24:51.353938 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-27 23:24:52.361006 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-27 23:24:52.361006 msg - watchlist.py - watchlist_main82 --> grabbed artist 1M2F83YsIpngpkMUdYcF3O's tracks: 8
+2022-07-27 23:24:52.493634 msg - watchlist.py - watchlist_main84 --> artist Geertje Zasada added to watchlist.
+2022-07-27 23:25:05.505472 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 1M2F83YsIpngpkMUdYcF3O: 19, length after adding tracks: 27.
+2022-07-27 23:25:05.505472 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:25:16.658681 msg - watchlist.py - watchlist_main80 --> add artist 2cW7i9IzIsQwH7Z4Jm5eW8 to watchlist --> starting.
+2022-07-27 23:25:16.658681 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:25:16.660680 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
+2022-07-27 23:25:17.560512 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
+2022-07-27 23:25:17.560512 msg - watchlist.py - watchlist_main82 --> grabbed artist 2cW7i9IzIsQwH7Z4Jm5eW8's tracks: 6
+2022-07-27 23:25:17.734515 msg - watchlist.py - watchlist_main84 --> artist Geertje de Lange added to watchlist.
+2022-07-27 23:25:27.998382 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 2cW7i9IzIsQwH7Z4Jm5eW8: 27, length after adding tracks: 33.
+2022-07-27 23:25:27.998382 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:26:53.831802 msg - watchlist.py - watchlist_main80 --> add artist 2g7T6NQr8iPtxQAD7Bn4Eu to watchlist --> starting.
+2022-07-27 23:26:53.831802 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-27 23:26:53.834798 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
+2022-07-27 23:26:58.014999 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
+2022-07-27 23:26:58.015991 msg - watchlist.py - watchlist_main82 --> grabbed artist 2g7T6NQr8iPtxQAD7Bn4Eu's tracks: 123
+2022-07-27 23:26:58.135715 msg - watchlist.py - watchlist_main84 --> artist Geertje Spijkerman added to watchlist.
+2022-07-27 23:30:21.328808 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 2g7T6NQr8iPtxQAD7Bn4Eu: 33, length after adding tracks: 156.
+2022-07-27 23:30:21.329808 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
 
-2022-07-24 23:06:57.668739 err - database.py - database_main65 --> error while displaying items in WatchlistNewTracks table --> <class 'TypeError'> - ("'NoneType' object is not subscriptable",) - 'NoneType' object is not subscriptable
-2022-07-24 23:06:57.669738 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\database.py", line 210, in database_main
-    currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
-TypeError: 'NoneType' object is not subscriptable
+***********************************************************************************************************************************************************************
+2022-07-27 23:35:59.133383 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-27 23:35:59.134384 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-27 23:35:59.135384 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
+2022-07-27 23:36:00.744750 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
+2022-07-27 23:36:00.745750 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-27 23:36:02.226720 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-27 23:36:02.226720 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-27 23:36:03.198500 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-27 23:36:03.317498 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-27 23:36:04.214543 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-27 23:36:04.343541 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
+2022-07-27 23:36:05.353921 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
+2022-07-27 23:36:05.476858 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
+2022-07-27 23:36:10.260016 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
+2022-07-27 23:36:10.401012 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
+2022-07-27 23:36:11.553288 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h36
+2022-07-27 23:36:11.829287 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h36
+2022-07-27 23:36:14.550259 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 0bYorOKt55YLSpXXbHmaid.
+2022-07-27 23:36:14.807315 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 0bYorOKt55YLSpXXbHmaid.
+2022-07-27 23:37:05.715506 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 106
+2022-07-27 23:37:06.150506 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 0bYorOKt55YLSpXXbHmaid
+2022-07-27 23:37:06.410506 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-07-27 23:37:06.413507 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-2022-07-24 23:28:04.815930 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:28:12.218810 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:28:12.219811 msg - watchlist.py - watchlist_main50 --> searching for playlist yoybee
-2022-07-24 23:28:12.797560 msg - common.py - searchSpotify3 --> Succesfully returning search results for playlist yoybee.
-2022-07-24 23:28:18.438190 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:28:18.440190 msg - watchlist.py - watchlist_main3 --> searching for artist yoyee
-2022-07-24 23:28:18.915288 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist yoyee.
-2022-07-24 23:28:26.759740 msg - watchlist.py - watchlist_main80 --> add artist 3YG0ZECQSii3EgTKiSk6Gi to watchlist --> starting.
-2022-07-24 23:28:26.759740 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:28:26.760737 msg - common.py - getTracksFromArtist --> requesting albums from artist 3YG0ZECQSii3EgTKiSk6Gi.
-2022-07-24 23:28:49.263904 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 586 tracks from artist 3YG0ZECQSii3EgTKiSk6Gi
-2022-07-24 23:28:49.263904 msg - watchlist.py - watchlist_main82 --> grabbed artist 3YG0ZECQSii3EgTKiSk6Gi's tracks: 586
-2022-07-24 23:28:49.579006 msg - watchlist.py - watchlist_main84 --> artist Yosee added to watchlist.
-2022-07-24 23:36:01.293289 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
-2022-07-24 23:36:01.294284 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
-2022-07-24 23:36:13.304032 msg - common.py - apiGetSpotify5 --> bad response status_code: 500
-2022-07-24 23:36:13.305033 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 500, 'message': 'Server error.'}. Retrying request #0
-2022-07-24 23:45:24.675818 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 3YG0ZECQSii3EgTKiSk6Gi: 0, length after adding tracks: 586.
-2022-07-24 23:45:24.675818 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-24 23:46:53.584967 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 815, in checkToCreatePlaylist
+    changePlaylistDetails(id, "", "blablabla")
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 684, in changePlaylistDetails
+    fi.write(json.dumps(response.json(), indent = 4))
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
+
+2022-07-27 23:37:06.414508 err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist()
+2022-07-27 23:37:06.414508 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
+2022-07-27 23:40:36.944707 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-27 23:40:36.945706 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-27 23:40:36.947704 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
+2022-07-27 23:40:38.556842 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
+2022-07-27 23:40:38.557845 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-27 23:40:40.011693 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-27 23:40:40.011693 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-27 23:40:40.950171 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-27 23:40:40.950171 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-27 23:40:41.962494 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-27 23:40:41.962494 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
+2022-07-27 23:40:42.918395 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
+2022-07-27 23:40:42.919394 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
+2022-07-27 23:40:47.229604 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
+2022-07-27 23:40:47.230603 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
+2022-07-27 23:40:48.194670 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h40
+2022-07-27 23:40:48.565424 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h40
+2022-07-27 23:40:50.773192 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 37WNC4QTkAxxsBwDQqNJVM.
+2022-07-27 23:40:50.991194 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 37WNC4QTkAxxsBwDQqNJVM.
+2022-07-27 23:41:24.155493 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 56
+2022-07-27 23:41:25.254432 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 37WNC4QTkAxxsBwDQqNJVM
+2022-07-27 23:41:25.473271 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 37WNC4QTkAxxsBwDQqNJVM
+2022-07-27 23:41:25.474270 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
+2022-07-27 23:41:25.476265 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 815, in checkToCreatePlaylist
+    changePlaylistDetails(id, "", "blablabla")
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 702, in changePlaylistDetails
+    return response.json()
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
+
+2022-07-27 23:41:25.477266 err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist()
+2022-07-27 23:41:25.477266 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
+2022-07-27 23:44:12.271486 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-27 23:44:12.271486 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-27 23:44:12.273485 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
+2022-07-27 23:44:13.720441 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
+2022-07-27 23:44:13.720441 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-27 23:44:15.038538 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-27 23:44:15.038538 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-27 23:44:16.072249 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-27 23:44:16.072249 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-27 23:44:16.974239 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-27 23:44:16.974239 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
+2022-07-27 23:44:17.917770 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
+2022-07-27 23:44:17.918770 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
+2022-07-27 23:44:22.125340 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
+2022-07-27 23:44:22.125340 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
+2022-07-27 23:44:23.095251 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h44
+2022-07-27 23:44:23.558497 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h44
+2022-07-27 23:44:26.246930 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 0KT3moKMrjJpU1xjNeosoC.
+2022-07-27 23:44:26.533663 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 0KT3moKMrjJpU1xjNeosoC.
+2022-07-27 23:44:58.551224 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 6
+2022-07-27 23:44:59.084330 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 0KT3moKMrjJpU1xjNeosoC
+2022-07-27 23:44:59.401647 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 0KT3moKMrjJpU1xjNeosoC
+2022-07-27 23:44:59.401647 msg - watchlist.py - checkToCreatePlaylist9 --> ended --> total of 1 playlists created.
+2022-07-27 23:44:59.402648 msg - watchlist.py - checkWatchListItems5.1 --> Succesfully created new playlist(s) of watchlist items.
+2022-07-27 23:44:59.402648 msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.

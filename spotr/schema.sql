@@ -1,7 +1,9 @@
-DROP TABLE IF EXISTS ListenedTrack;
+DROP TABLE IF EXISTS ListenedTrack;                -- Deletes table if exists!!!
 DROP TABLE IF EXISTS ToListenTrack;
 DROP TABLE IF EXISTS WatchList;
 DROP TABLE IF EXISTS WatchListNewTracks;
+DROP TABLE IF EXISTS FavoriteTrack;
+DROP TABLE IF EXISTS LikedTrack;
 
 CREATE TABLE ListenedTrack (
     id TEXT PRIMARY KEY,
@@ -44,7 +46,7 @@ CREATE TABLE WatchList (
 
 CREATE TABLE WatchListNewTracks (
     id TEXT PRIMARY KEY,    -- id of sole entry = "newTracks"
-    trackList TEXT  -- try to store list as string: https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
+    trackList TEXT  -- list of dicts: {"id": track id, "from_type": from playlist? from artist?, "from_name": name of playlist/artist/..}  -- try to store list as string: https://stackoverflow.com/questions/20444155/python-proper-way-to-store-list-of-strings-in-sqlite3-or-mysql
 );
 
 CREATE TABLE FavoriteTrack(

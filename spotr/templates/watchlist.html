@@ -178,7 +178,7 @@
                   </tr>
                   {% for item in artistList %}    <!-- {artist: artist, id: id, image: image} -->
                     <tr>
-                      <td><a class="btn btn-primary" href="/watchlist?addArtist={{ item.id }}" role="button">+</a></td>
+                      <td><a class="btn btn-primary" href="/watchlist?addArtist={{ item.id }}&artistName={{ item.artist }}" role="button">+</a></td>
                       {% if item.image != "" %}
                         <td><img src="{{ item.image }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{ item.artist }}"></td>
                       {% else %}
@@ -262,7 +262,7 @@
                   </tr>
                   {% for item in playlistList %}    <!-- {"name": , "id": , "description": , "image": , "owner": , "totaltracks": } -->
                     <tr>      
-                      <td><a class="btn btn-primary" href="/watchlist?addPlaylist={{ item.id }}" role="button">+</a></td>
+                      <td><a class="btn btn-primary" href="/watchlist?addPlaylist={{ item.id }}&playlistName={{ item.name }}" role="button">+</a></td>
                       {% if item.image != "" %}
                         <td><img src="{{ item.image }}" class="img-thumbnail" style="width:100px;height:100px" alt="image_{{ item.name }}"></td>
                       {% else %}

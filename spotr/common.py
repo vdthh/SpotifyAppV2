@@ -568,14 +568,14 @@ def getTracksFromPlaylist(playlistID, trackDetails):
 
 ########################################################################################
 ######################################### SPOTIFY ######################################
-def createPlaylist(name):
+def createPlaylist(name, description):
     '''--> Create a new empty playlist'''
     '''in case of error, '' is returned'''
 
 
     '''--> prepare request'''
     if getNewAccessToken() == "":
-        logAction("err - spotify.py - createPlaylist --> error requesting new access token.")
+        logAction("err - common.py - createPlaylist --> error requesting new access token.")
         return ''
 
     waitForGivenTimeIns(0.1,1)
@@ -583,8 +583,9 @@ def createPlaylist(name):
     try: #create payload
         headers = {'Authorization': 'Bearer ' + gv_access_token}         
         payload = {
-            "name": name, 
-            "public": False
+            "name"          : name, 
+            "public"        : False,
+            "description"   : description 
             }
 
     except Exception as ex:
@@ -625,6 +626,83 @@ def createPlaylist(name):
     logAction("msg - common.py - createPlaylist7 --> Succesfully created playlist " + name) 
     return response.json()
 
+
+########################################################################################
+######################################### SPOTIFY ######################################
+def changePlaylistDetails(id, newName, newDescription):
+    '''--> Change details of an existing playlist'''
+    '''if empty string input is given, nothing is changed'''
+    '''in case of error, '' is returned'''
+
+
+    '''--> prepare request'''
+    if getNewAccessToken() == "":
+        logAction("err - common.py - changePlaylistDetails --> error requesting new access token.")
+        return ''
+
+    waitForGivenTimeIns(0.1,1)
+        
+
+    try: #create payload
+        headers = {'Authorization': 'Bearer ' + gv_access_token}
+
+        if newName != "" and newDescription != "":         
+            payload = {
+                "name"          : newName, 
+                "public"        : False,
+                "description"   : newDescription 
+                }
+        elif newName == "" and newDescription != "":         
+            payload = {
+                "public"        : False,
+                "description"   : newDescription 
+                }
+        elif newName != "" and newDescription == "":         
+            payload = {
+                "name"          : newName, 
+                "public"        : False,
+                }
+
+    except Exception as ex:
+        logAction("err - common.py - changePlaylistDetails2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> perform PUT request'''
+    try:      
+        logAction("msg - common.py - changePlaylistDetails3 --> about to change playlist details for: " + str(id))  
+        response = requests.put(url='https://api.spotify.com/v1/playlists/' + str(id), headers = headers, data = json.dumps(payload), verify=False)
+    except Exception as ex:
+        logAction("err - common.py - changePlaylistDetails4 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
+        logAction("TRACEBACK --> " + traceback.format_exc())
+        return ''
+
+
+    '''--> save last result for debugging'''
+    # with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_changePlaylistDetails_LAST.json", 'w', encoding="utf-8") as fi:
+        # fi.write(json.dumps(response.json(), indent = 4))
+
+
+    '''--> check response'''
+    if "error" in response:
+        print("err - common.py - changePlaylistDetails5 --> error from PUT request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
+
+        # '''--> save last result for debugging'''
+        # with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_changePlaylistDetails_LAST.json", 'w', encoding="utf-8") as fi:
+        #     fi.write(json.dumps(response.json(), indent = 4))
+
+        return ''
+    elif response == "":
+        print("err - common.py - changePlaylistDetails6 --> empty response from PUT request.")
+        return ''
+
+    '''--> finally, return non-empty string to mark succesful finish'''
+    logAction("msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for " + str(id)) 
+    return "done"
+
+
+########################################################################################
 
 ########################################################################################
 ######################################### SPOTIFY ######################################

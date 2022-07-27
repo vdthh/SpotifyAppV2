@@ -196,8 +196,8 @@ def database_main():
                     '''--> update global variables'''
                     gv_displayedDB = 'newtrackswatchlist'
                     if gv_displayedDB_prev != gv_displayedDB:
-                        gv_displayedDB_prev = gv_displayedDB
-                        gv_display_offset = 0
+                        gv_displayedDB_prev  = gv_displayedDB
+                        gv_display_offset    = 0
 
 
                     '''--> db'''
@@ -206,18 +206,23 @@ def database_main():
 
 
                     '''--> get data'''
-                    data                = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
+                    data                    = db.execute('SELECT * FROM WatchlistNewTracks WHERE id=?',("newTracks",)).fetchone()
                     if data: 
                         currentTrackList    = json.loads(data[1])           #data = first (and only) row of db table WatchListNewTracks, data[0] = id, data[1] = trackList
-                        gv_display_total = len(currentTrackList)              
-                        currentTrackList = currentTrackList[gv_display_offset:(gv_display_offset + gv_display_limit)]
+                        gv_display_total    = len(currentTrackList)              
+                        currentTrackList    = currentTrackList[gv_display_offset:(gv_display_offset + gv_display_limit)]
                     else:
-                        currentTrackList = []   #no data in table, empty list
+                        currentTrackList    = []   #no data in table, empty list
 
 
                     '''--> grab trackinfo for each track'''
+                    '''First create list of track IDs in WatchlistNewTracks table'''
+                    id_list = []
+                    for item in currentTrackList:
+                        id_list.append(item["id"])
+
                     gv_items_list   = []
-                    for trackID in currentTrackList:
+                    for trackID in id_list:
                         track                      = getTrackInfo(trackID, True)
                         itemToAdd       = {}
                         itemToAdd["artists"]       = ' '.join(track["artists"])
