@@ -24,7 +24,6 @@ from spotr.db import get_db_connection
 
 ########################################################################################
 
-
 ########################################################################################
 ######################################## VARIABLES #####################################
 ########################################################################################
@@ -107,6 +106,13 @@ def checkIfTrackInDB(trackID, dbName):
         '''-->track details'''
         try:
             trackDetails    = getTrackInfo(trackID, True)
+
+
+            '''--> make check'''
+            if not "artists" in trackDetails.keys():
+                logAction("err - common.py - checkIfTrackInDB000 --> no \"artists\" entry in trackInfo response for track " + trackID)
+                return False
+
             artistsList     = []
             artistsList     = trackDetails["artists"]
             artists         = ' '.join(artistsList) #create one string with all artist names in the list, seperated by a whitespace
@@ -195,7 +201,7 @@ def apiGetSpotify(urlExtension):
         while (response.status_code != 200):    #bad response
             print("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*")
             print("RESPONSE: " + str(response))
-            print("RESPONSE JSON: " + str(response.json()))
+            # print("RESPONSE JSON: " + str(response.json()))
             logAction("msg - common.py - apiGetSpotify5 --> bad response status_code: " + str(response.status_code))
             errStr = ""
             if "status" in response.json().keys():
@@ -482,8 +488,8 @@ def getTracksFromArtist(artistID, trackDetails):
                             log("err - common.py - getTracksFromArtist3 --> invalid track[\"ID\"] for album " + str(album["id"]) + ".")
                             continue
                 else: #invalid api response                  
-                    logAction("err - common.py - getTracksFromArtist4 --> empty api response for artist's album tracks (" + album["id"] + ").")
-                    return ''
+                    logAction("msg - common.py - getTracksFromArtist4 --> empty api response for artist's album tracks (" + album["id"] + "), moving on to next.")
+                    # return ''
 
             offset = offset + limit
             if offset < total: #new request
@@ -679,19 +685,9 @@ def changePlaylistDetails(id, newName, newDescription):
         return ''
 
 
-    '''--> save last result for debugging'''
-    # with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_changePlaylistDetails_LAST.json", 'w', encoding="utf-8") as fi:
-        # fi.write(json.dumps(response.json(), indent = 4))
-
-
     '''--> check response'''
     if "error" in response:
         print("err - common.py - changePlaylistDetails5 --> error from PUT request: " + str(response.json()["error"]["status"]) + ", " + str(response.json()["error"]["message"]))
-
-        # '''--> save last result for debugging'''
-        # with open (ROOT_DIR + "/logs/spotify_apiPostSpotify_changePlaylistDetails_LAST.json", 'w', encoding="utf-8") as fi:
-        #     fi.write(json.dumps(response.json(), indent = 4))
-
         return ''
     elif response == "":
         print("err - common.py - changePlaylistDetails6 --> empty response from PUT request.")
@@ -731,9 +727,6 @@ def addTracksToPlaylist(playlistID, trackIDList):
         logAction("err - common.py - addTracksToPlaylist2 --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
         logAction("TRACEBACK --> " + traceback.format_exc())
         return ''
-
-    for item in track_uri_list:
-        print("ITEM: " + item)
 
 
     '''--> perform POST request'''

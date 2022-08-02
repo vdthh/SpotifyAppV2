@@ -21,10 +21,10 @@ import binascii
 import traceback
 import sqlite3
 from .common import addTracksToPlaylist, apiGetSpotify, changePlaylistDetails, checkIfTrackInDB, getTracksFromArtist, getTracksFromPlaylist, searchSpotify, returnSearchResults, getTrackInfo, createPlaylist, waitForGivenTimeIns
-
 from flask import current_app
-from spotr import app
+from spotr import app, globalvariables
 from spotr.db import get_db_connection
+from threading import Thread
 ########################################################################################
 
 
@@ -67,7 +67,7 @@ def watchlist_main():
     global gv_offset                  
     global gv_limit                   
     global gv_total                   
-
+    global gv_status
 
     '''--> read query parameters'''
     args=request.args      
@@ -99,13 +99,15 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template('watchlist.html', 
-                                    watchlistItems = gv_watchlistItems,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
-                                    showUserBtn = "", 
-                                    showUserTab = "")
+                                    watchlistItems      = gv_watchlistItems,
+                                    showArtistBtn       = "active", 
+                                    showArtistTab       = "show active", 
+                                    showPlaylistBtn     = "" , 
+                                    showPlaylistTab     = "", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
         except Exception as ex:
             logAction("err - watchlist.py - watchlist_main2 --> error while loading page --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
@@ -155,12 +157,14 @@ def watchlist_main():
                 logAction("err - watchlist.py - watchlist_main4 --> empty api response for searching artist.")
                 flash("Error when searching for artist " + gv_searchTerm + ", empty response.", category="error")
                 return render_template('watchlist.html', 
-                        showArtistBtn = "active", 
-                        showArtistTab = "show active", 
-                        showPlaylistBtn ="" , 
-                        showPlaylistTab = "", 
-                        showUserBtn = "", 
-                        showUserTab = "")
+                        showArtistBtn       = "active", 
+                        showArtistTab       = "show active", 
+                        showPlaylistBtn     = "" , 
+                        showPlaylistTab     = "", 
+                        showUserBtn         = "", 
+                        showUserTab         = "",
+                        status_general      = globalvariables.general_status,
+                        show_spinner        = globalvariables.general_status_show_spinner)
 
 
             '''--> retrieve pagination'''
@@ -176,20 +180,22 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template("watchlist.html", 
-                                    watchlistItems = gv_watchlistItems,
-                                    artistList = gv_artistList, 
-                                    playlistList = gv_playlistList,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
-                                    showUserBtn = "", 
-                                    showUserTab = "",
-                                    tot = total,
-                                    lim = gv_limit,
-                                    offs = gv_offset,
-                                    searchType = gv_searchType,
-                                    searchTerm = gv_searchTerm)
+                                    watchlistItems      = gv_watchlistItems,
+                                    artistList          = gv_artistList, 
+                                    playlistList        = gv_playlistList,
+                                    showArtistBtn       = "active", 
+                                    showArtistTab       = "show active", 
+                                    showPlaylistBtn     = "" , 
+                                    showPlaylistTab     = "", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    tot                 = total,
+                                    lim                 = gv_limit,
+                                    offs                = gv_offset,
+                                    searchType          = gv_searchType,
+                                    searchTerm          = gv_searchTerm,
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
         except Exception as ex:
             flash("Error while searching for artist " + gv_searchTerm + ".", category="error")
@@ -197,12 +203,14 @@ def watchlist_main():
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
                                     artistList = gv_artistList,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
-                                    showUserBtn = "", 
-                                    showUserTab = "")
+                                    showArtistBtn       = "active", 
+                                    showArtistTab       = "show active", 
+                                    showPlaylistBtn     ="" , 
+                                    showPlaylistTab     = "", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
 
     #--> SEARCH PLAYLIST - BUTTON PRESSED - PAGINATION # 
@@ -248,12 +256,14 @@ def watchlist_main():
                 logAction("err - watchlist.py - watchlist_main51 --> empty api response for searching playlist.")
                 flash("Error when searching for playlist " + gv_searchTerm + ", empty response.", category="error")
                 return render_template('watchlist.html', 
-                        showArtistBtn = "", 
-                        showArtistTab = "", 
-                        showPlaylistBtn ="active" , 
-                        showPlaylistTab = "show active", 
-                        showUserBtn = "", 
-                        showUserTab = "")
+                        showArtistBtn       = "", 
+                        showArtistTab       = "", 
+                        showPlaylistBtn     = "active" , 
+                        showPlaylistTab     = "show active", 
+                        showUserBtn         = "", 
+                        showUserTab         = "",
+                        status_general      = globalvariables.general_status,
+                        show_spinner        = globalvariables.general_status_show_spinner)
 
 
             '''--> retrieve pagination'''
@@ -269,20 +279,22 @@ def watchlist_main():
 
             '''--> return html'''
             return render_template("watchlist.html", 
-                                    watchlistItems = gv_watchlistItems,
-                                    artistList = gv_artistList, 
-                                    playlistList = gv_playlistList,
-                                    showArtistBtn = "", 
-                                    showArtistTab = "", 
-                                    showPlaylistBtn ="active" , 
-                                    showPlaylistTab = "show active", 
-                                    showUserBtn = "", 
-                                    showUserTab = "",
-                                    tot = total,
-                                    lim = gv_limit,
-                                    offs = gv_offset,
-                                    searchType = gv_searchType,
-                                    searchTerm = gv_searchTerm)
+                                    watchlistItems      = gv_watchlistItems,
+                                    artistList          = gv_artistList, 
+                                    playlistList        = gv_playlistList,
+                                    showArtistBtn       = "", 
+                                    showArtistTab       = "", 
+                                    showPlaylistBtn     = "active" , 
+                                    showPlaylistTab     = "show active", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    tot                 = total,
+                                    lim                 = gv_limit,
+                                    offs                = gv_offset,
+                                    searchType          = gv_searchType,
+                                    searchTerm          = gv_searchTerm,
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
         except Exception as ex:
             flash("Error while searching for artist " + gv_searchTerm + ".", category="error")
@@ -290,16 +302,22 @@ def watchlist_main():
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
                                     artistList = gv_artistList,
-                                    showArtistBtn = "", 
-                                    showArtistTab = "", 
-                                    showPlaylistBtn ="active" , 
-                                    showPlaylistTab = "show active", 
-                                    showUserBtn = "", 
-                                    showUserTab = "")
+                                    showArtistBtn       = "", 
+                                    showArtistTab       = "", 
+                                    showPlaylistBtn     = "active", 
+                                    showPlaylistTab     = "show active", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
 
     #--> ADD ARTIST OR PLAYLIST TO WATCHLIST - BUTTON PRESSED #
     if request.method == "GET"  and not ("delItem" in args) and not ("offs" in args) and not ("lim" in args) and not ("searchTerm" in args) and not ("searchType" in args):
+        # globalvariables.general_status = "1 - tralalalala"
+        thr = Thread(target=updateGeneralStatus, args=["1 - tralalalala"])
+        thr.start()
+       
         '''--> local variables'''
         lType       = ""
         lID         = ""
@@ -357,12 +375,18 @@ def watchlist_main():
                                         showPlaylistBtn     = lPlstBtn , 
                                         showPlaylistTab     = lPlstTab, 
                                         showUserBtn         = "", 
-                                        showUserTab         = "")
+                                        showUserTab         = "",
+                                        status_general      = globalvariables.general_status,
+                                        show_spinner        = globalvariables.general_status_show_spinner)
 
 
             '''--> db'''
             db = get_db_connection()
             cursor = db.cursor()
+
+            # globalvariables.general_status = "2 - tralalalala"
+            thr = Thread(target=updateGeneralStatus, args=["2 - tralalalala"])
+            thr.start()
 
 
             '''--> artist/playlist/... in watchlist?'''        
@@ -383,7 +407,9 @@ def watchlist_main():
                                         showPlaylistBtn     = lPlstBtn , 
                                         showPlaylistTab     = lPlstTab, 
                                         showUserBtn         = "", 
-                                        showUserTab         = "")
+                                        showUserTab         = "",
+                                        status_general      = globalvariables.general_status,
+                                        show_spinner        = globalvariables.general_status_show_spinner)
 
 
             '''--> grab tracks'''
@@ -392,6 +418,10 @@ def watchlist_main():
             elif lType == "playlist":
                 tracklist       = getTracksFromPlaylist(lID, False)
             logAction("msg - watchlist.py - watchlist_main82 --> grabbed " + lType + " " + lID + "'s tracks: " + str(len(tracklist)))
+
+            # globalvariables.general_status = "3 - tralalalala"
+            thr = Thread(target=updateGeneralStatus, args=["3 - tralalalala"])
+            thr.start()
 
 
             '''--> check data'''
@@ -426,7 +456,9 @@ def watchlist_main():
                                         showPlaylistBtn     = lPlstBtn , 
                                         showPlaylistTab     = lPlstTab, 
                                         showUserBtn         = "", 
-                                        showUserTab         = "")
+                                        showUserTab         = "",
+                                        status_general      = globalvariables.general_status,
+                                        show_spinner        = globalvariables.general_status_show_spinner)
 
 
             '''--> add artist/playlist/... to WatchList db'''
@@ -446,6 +478,12 @@ def watchlist_main():
             initLength          = len(currentTrackList)
             endLength           = 0
 
+
+            # globalvariables.general_status = "4 - tralalalala"
+            thr = Thread(target=updateGeneralStatus, args=["4 - tralalalala"])
+            thr.start()
+
+
             for trck in tracklist:
                 if not checkIfTrackInDB(trck, "ListenedTrack") and not checkIfTrackInDB(trck, "ToListenTrack") and not checkIfTrackInDB(trck, "WatchListNewTracks"):
                     #Not in db yet, update tracklist
@@ -464,6 +502,10 @@ def watchlist_main():
             gv_watchlistItems = []  #list empty, initialize it every reload
             loadWatchlistItems()
 
+            # globalvariables.general_status = "5s - tralalalala"
+            thr = Thread(target=updateGeneralStatus, args=["5s - tralalalala"])
+            thr.start()
+
 
             '''--> finished,  return html'''
             return render_template('watchlist.html', 
@@ -480,7 +522,9 @@ def watchlist_main():
                                     lim                 = gv_limit, 
                                     tot                 = gv_total, 
                                     searchTerm          = gv_searchTerm, 
-                                    searchType          = gv_searchType)
+                                    searchType          = gv_searchType,
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
 
         except Exception as ex:
@@ -501,7 +545,12 @@ def watchlist_main():
                                     lim                 = gv_limit, 
                                     tot                 = gv_total, 
                                     searchTerm          = gv_searchTerm, 
-                                    searchType          = gv_searchType)
+                                    searchType          = gv_searchType,
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
+
+
+
 
 
 #--> DELETE ITEM FROM WATCHLIST - BUTTON PRESSED #
@@ -534,24 +583,26 @@ def watchlist_main():
             '''--> (re)load watchlist items'''
             gv_watchlistItems = []  #list empty, initialize it every reload
             loadWatchlistItems() 
-
+ 
 
             '''--> return html'''
             return render_template('watchlist.html', 
-                                    watchlistItems = gv_watchlistItems,
-                                    artistList = gv_artistList,
-                                    playlistList = gv_playlistList,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
-                                    showUserBtn = "", 
-                                    showUserTab = "", 
-                                    offs = gv_offset, 
-                                    lim = gv_limit, 
-                                    tot = gv_total, 
-                                    searchTerm = gv_searchTerm, 
-                                    searchType = gv_searchType)
+                                    watchlistItems      = gv_watchlistItems,
+                                    artistList          = gv_artistList,
+                                    playlistList        = gv_playlistList,
+                                    showArtistBtn       = "active", 
+                                    showArtistTab       = "show active", 
+                                    showPlaylistBtn     = "", 
+                                    showPlaylistTab     = "", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "", 
+                                    offs                = gv_offset, 
+                                    lim                 = gv_limit, 
+                                    tot                 = gv_total, 
+                                    searchTerm          = gv_searchTerm, 
+                                    searchType          = gv_searchType,
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
 
         except Exception as ex:
@@ -560,12 +611,14 @@ def watchlist_main():
             logAction("TRACEBACK --> " + traceback.format_exc())
             return render_template('watchlist.html', 
                                     artistList = gv_artistList,
-                                    showArtistBtn = "active", 
-                                    showArtistTab = "show active", 
-                                    showPlaylistBtn ="" , 
-                                    showPlaylistTab = "", 
-                                    showUserBtn = "", 
-                                    showUserTab = "")
+                                    showArtistBtn       = "active", 
+                                    showArtistTab       = "show active", 
+                                    showPlaylistBtn     = "" , 
+                                    showPlaylistTab     = "", 
+                                    showUserBtn         = "", 
+                                    showUserTab         = "",
+                                    status_general      = globalvariables.general_status,
+                                    show_spinner        = globalvariables.general_status_show_spinner)
 
   
 ########################################################################################
@@ -582,22 +635,37 @@ def watchlist_checkForNewTracks():
         flash("checkForNewTracks - manually initiated - finished!", category="success")
 
 
+    '''--> (re)load watchlist items'''
+    loadWatchlistItems()
+
     '''--> return html'''
     return render_template('watchlist.html', 
                             watchlistItems = gv_watchlistItems,
                             artistList = gv_artistList,
                             playlistList = gv_playlistList,
-                            showArtistBtn = "active", 
-                            showArtistTab = "show active", 
-                            showPlaylistBtn ="" , 
-                            showPlaylistTab = "", 
-                            showUserBtn = "", 
-                            showUserTab = "", 
-                            offs = gv_offset, 
-                            lim = gv_limit, 
-                            tot = gv_total, 
-                            searchTerm = gv_searchTerm, 
-                            searchType = gv_searchType)
+                            showArtistBtn       = "active", 
+                            showArtistTab       = "show active", 
+                            showPlaylistBtn     = "" , 
+                            showPlaylistTab     = "", 
+                            showUserBtn         = "", 
+                            showUserTab         = "", 
+                            offs                = gv_offset, 
+                            lim                 = gv_limit, 
+                            tot                 = gv_total, 
+                            searchTerm          = gv_searchTerm, 
+                            searchType          = gv_searchType,
+                            status_general      = globalvariables.general_status,
+                            show_spinner        = globalvariables.general_status_show_spinner)
+
+########################################################################################
+@bp_watchlist.route('/update_status', methods=['GET'])
+def updateGeneralStatus(message):
+    '''--> to be called in fixed intervals by javascript in html code'''
+    globalvariables.general_status = message
+    print(globalvariables.general_status)
+    return globalvariables.general_status
+
+########################################################################################
 
 ########################################################################################
 
@@ -704,7 +772,7 @@ def checkWatchlistItems():
 
 
                 '''--> Set noOfNewItems (new tracks since last 8h)'''
-                date_limit = datetime.strptime(wl_item["last_time_checked"],'%Y-%m-%d %H:%M:%S.%f')  + timedelta(hours=8)
+                date_limit = datetime.strptime(str(wl_item["last_time_checked"]),'%Y-%m-%d %H:%M:%S.%f')  + timedelta(hours=8)
                 if datetime.now() > date_limit:
                     #more than 8 hours passed since a new item has been added, set noOfNewItems back to 0.
                     db.execute('UPDATE WatchList SET new_items_since_last_check=? WHERE id=?',(0, wl_item["id"]))
@@ -772,8 +840,7 @@ def checkToCreatePlaylist():
 
 
                 '''--> grab ID of newly created playlist'''
-                id = resultCreate["id"] 
-                print("IDIDID: " + str(id))    
+                id = resultCreate["id"]   
 
 
                 '''--> wait for given time'''
@@ -782,9 +849,13 @@ def checkToCreatePlaylist():
 
                 '''--> add grabbed tracks to new playlist'''
                 '''First create list of track IDs in WatchlistNewTracks table'''
-                id_list = []
+                '''playlist_description_list is used to add to playlist description'''
+                id_list                     = []
+                playlist_description_list   = [[],[]]   #[0] --> from_type, [1] --> from_name
                 for item in toCreateList:
                     id_list.append(item["id"])
+                    playlist_description_list[0].append(item["from_type"])
+                    playlist_description_list[1].append(item["from_name"])
                 resultAdd = addTracksToPlaylist(id,id_list)
 
 
@@ -812,7 +883,8 @@ def checkToCreatePlaylist():
 
 
                 '''--> TEST TEST TEST TEST'''
-                changePlaylistDetails(id, "", "blablabla")
+                
+                changePlaylistDetails(id, "", createPlaylistDescription(playlist_description_list))
 
 
             else:
@@ -832,5 +904,38 @@ def checkToCreatePlaylist():
 
 
 ########################################################################################
+def createPlaylistDescription(input_list):
+    '''--> Create playlist description as following:'''
+    '''for each artist/playlist/... from which tracks are added to playlist'''
+    '''add number & type in description'''
+    '''for example: playlist Daily Mix 1: 5 tracks, playlist Daily Mix 3: 2 tracks, artist Jefke: 1 track, ...'''
+    '''input_list contains 2 lists: [[from_type],[from_name]]'''
+    resultString = ""
+    tempList = [[],[],[]]   #from_type, from_name, sum of appearance
+    print("STARTINGGGGGGGGGGGGGGGG")
+    print("LIST LENGTH: " + str(len(input_list[0])))
+    for i in range(len(input_list[0])):    
+        if not input_list[1][i] in tempList[1]:
+            print("NEW NAME FOR " + str(input_list[1][i]))
+            #new name
+            tempList[0].append(input_list[0][i])        #from_type
+            tempList[1].append(input_list[1][i])        #from_name
+            tempList[2].append(1)                       #sum of appearance
+        else:
+            #only increase counter
+            print("INCREASE COUNTER FOR " + str(input_list[1][i]))
+            position = tempList[1].index(input_list[1][i])
+            tempList[2][position] = tempList[2][position] + 1      #sum of appearance
 
+    print("LENGTH TEMPLIST: " + str(len(tempList)) + ", LENGTH TEMPLIST[0]: " + str(len(tempList[0])))
+
+    '''--> create result string'''
+    for i in range(len(tempList[0])):
+        if i == 0:
+            resultString = str(tempList[2][i]) + " tracks from " + tempList[0][i] + " " + tempList[1][i]
+        else:
+            resultString = resultString + ", " + str(tempList[2][i]) + " tracks from " + tempList[0][i] + " " + tempList[1][i]
+
+    print("RESULTSTRING: " + resultString)
+    return resultString
 

@@ -1,201 +1,266 @@
 
-2022-07-27 23:19:05.263278 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:19:08.540404 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
-2022-07-27 23:19:08.540404 msg - watchlist.py - checkWatchListItems --> starting.
-2022-07-27 23:19:08.541399 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
-2022-07-27 23:19:09.887130 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
-2022-07-27 23:19:10.011261 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-27 23:19:11.438234 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-27 23:19:11.578234 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
-2022-07-27 23:19:12.075458 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h19
-2022-07-27 23:19:12.430759 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h19
-2022-07-27 23:19:14.349052 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 3JU3GPD3YUoX2X2dyFlgMj.
-2022-07-27 23:19:14.912315 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 3JU3GPD3YUoX2X2dyFlgMj.
-2022-07-27 23:19:47.498036 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 12
-2022-07-27 23:19:47.910292 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 3JU3GPD3YUoX2X2dyFlgMj
-2022-07-27 23:19:48.132028 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
-2022-07-27 23:19:48.135027 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
-    return complexjson.loads(self.text, **kwargs)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2022-07-31 16:33:42.922334 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-07-31 16:33:42.923336 msg - watchlist.py - checkWatchListItems --> starting.
+2022-07-31 16:33:42.925334 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
+2022-07-31 16:33:44.473619 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
+2022-07-31 16:33:44.473619 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-07-31 16:33:45.923949 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-07-31 16:33:45.923949 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
+2022-07-31 16:33:46.843790 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
+2022-07-31 16:33:46.844787 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
+2022-07-31 16:33:47.741419 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
+2022-07-31 16:33:47.741419 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
+2022-07-31 16:33:48.625783 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
+2022-07-31 16:33:48.626787 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
+2022-07-31 16:33:53.057757 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
+2022-07-31 16:33:53.057757 msg - common.py - getTracksFromArtist --> requesting albums from artist 5wCRRI7qiODdZ58nv2dpYR.
+2022-07-31 16:33:54.103149 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 20 tracks from artist 5wCRRI7qiODdZ58nv2dpYR
+2022-07-31 16:33:54.103149 msg - common.py - getTracksFromArtist --> requesting albums from artist 293fn93k63SDS0BPP1mDI9.
+2022-07-31 16:33:56.112645 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 3 tracks from artist 293fn93k63SDS0BPP1mDI9
+2022-07-31 16:33:56.112645 msg - common.py - getTracksFromArtist --> requesting albums from artist 3mWKMoyHj1TpA79S3XNp7e.
+2022-07-31 16:34:00.891694 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 97 tracks from artist 3mWKMoyHj1TpA79S3XNp7e
+2022-07-31 16:34:00.891694 msg - common.py - getTracksFromArtist --> requesting albums from artist 6GebWeCCtey5pbQepRYD6c.
+2022-07-31 16:36:00.871387 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 755 tracks from artist 6GebWeCCtey5pbQepRYD6c
+2022-07-31 16:36:01.049101 msg - common.py - getTracksFromArtist --> requesting albums from artist 2HPgppk2ObRzrRnckvEMMj.
+2022-07-31 16:36:06.676942 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 97 tracks from artist 2HPgppk2ObRzrRnckvEMMj
+2022-07-31 16:36:07.041897 msg - common.py - getTracksFromArtist --> requesting albums from artist 6kLLVSubRRDRMwd5eCEEI1.
+2022-07-31 16:36:08.515149 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 6kLLVSubRRDRMwd5eCEEI1
+2022-07-31 16:36:08.624144 msg - common.py - getTracksFromArtist --> requesting albums from artist 3wRHyytnYUnAnGYApMMpeo.
+2022-07-31 16:36:11.372326 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 5 tracks from artist 3wRHyytnYUnAnGYApMMpeo
+2022-07-31 16:36:11.503281 msg - common.py - getTracksFromArtist --> requesting albums from artist 6Vnfx80mTKHH8PsQ6A70Ex.
+2022-07-31 16:36:12.533855 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 10 tracks from artist 6Vnfx80mTKHH8PsQ6A70Ex
+2022-07-31 16:36:12.653206 msg - common.py - getTracksFromArtist --> requesting albums from artist 5U721HD4VTp8J2v1akUWxa.
+2022-07-31 16:36:18.624132 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 33 tracks from artist 5U721HD4VTp8J2v1akUWxa
+2022-07-31 16:36:18.760967 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
+2022-07-31 16:36:19.774050 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220731_16h36
+2022-07-31 16:36:20.057767 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220731_16h36
+2022-07-31 16:36:22.123604 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 2TZXHF6yfwDtgm4oSuFZ8e.
+2022-07-31 16:36:22.362775 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 2TZXHF6yfwDtgm4oSuFZ8e.
+2022-07-31 16:36:34.754194 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 161
+2022-07-31 16:36:35.411006 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 2TZXHF6yfwDtgm4oSuFZ8e
+2022-07-31 16:36:35.661093 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 2TZXHF6yfwDtgm4oSuFZ8e
+2022-07-31 16:36:36.257725 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220731_16h36
+2022-07-31 16:36:36.837826 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220731_16h36
+2022-07-31 16:36:39.086448 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 7I5dYR9FXUKF6ahB6RE4wL.
+2022-07-31 16:36:39.306930 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 7I5dYR9FXUKF6ahB6RE4wL.
+2022-07-31 16:37:13.155475 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 111
+2022-07-31 16:37:14.082372 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 7I5dYR9FXUKF6ahB6RE4wL
+2022-07-31 16:37:14.476804 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 7I5dYR9FXUKF6ahB6RE4wL
+2022-07-31 16:37:14.919191 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220731_16h37
+2022-07-31 16:37:15.391993 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220731_16h37
+2022-07-31 16:37:17.040283 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 2pfVofzH1EGkOAdXIvuihc.
+2022-07-31 16:37:17.575559 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 2pfVofzH1EGkOAdXIvuihc.
+2022-07-31 16:37:52.130916 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 61
+2022-07-31 16:37:52.705915 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 2pfVofzH1EGkOAdXIvuihc
+2022-07-31 16:37:52.955034 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 2pfVofzH1EGkOAdXIvuihc
+2022-07-31 16:37:53.655414 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220731_16h37
+2022-07-31 16:37:53.935311 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220731_16h37
+2022-07-31 16:37:56.025269 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 51jib2LMBviRC5zr9uvseH.
+2022-07-31 16:37:56.302104 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 51jib2LMBviRC5zr9uvseH.
+2022-07-31 16:38:30.281903 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 11
+2022-07-31 16:38:31.076920 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 51jib2LMBviRC5zr9uvseH
+2022-07-31 16:38:31.556966 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 51jib2LMBviRC5zr9uvseH
+2022-07-31 16:38:31.557966 msg - watchlist.py - checkToCreatePlaylist9 --> ended --> total of 4 playlists created.
+2022-07-31 16:38:31.557966 msg - watchlist.py - checkWatchListItems5.1 --> Succesfully created new playlist(s) of watchlist items.
+2022-07-31 16:38:31.557966 msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.
+2022-07-31 16:43:35.449484 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 16:54:53.273330 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 19:42:23.097755 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 19:42:29.968030 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 19:42:29.974029 msg - watchlist.py - watchlist_main3 --> searching for artist fgf
+2022-07-31 19:42:30.546528 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist fgf.
+2022-07-31 20:11:31.022590 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:14:30.611120 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:14:40.245601 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:15:49.885867 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:17:47.299737 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:17:53.367283 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:17:53.371282 msg - watchlist.py - watchlist_main3 --> searching for artist jaja
+2022-07-31 20:17:53.961183 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jaja.
+2022-07-31 20:20:38.386031 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:21:13.746689 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:23:44.867437 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:24:40.483174 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:25:04.689974 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:25:39.971812 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:27:20.024849 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:28:12.410018 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:29:04.141142 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:29:45.612598 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:30:30.556723 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:30:46.236568 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:34:52.102155 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:35:52.300209 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:36:56.567093 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 20:37:22.739602 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:03:48.946942 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:14:20.314269 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:14:20.340266 err - watchlist.py - watchlist_main2 --> error while loading page --> <class 'TypeError'> - ("waitForGivenTimeIns() missing 1 required positional argument: 'secondsMax'",) - waitForGivenTimeIns() missing 1 required positional argument: 'secondsMax'
+2022-07-31 21:14:20.341266 TRACEBACK --> Traceback (most recent call last):
+  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 104, in watchlist_main
+    waitForGivenTimeIns(2)
+TypeError: waitForGivenTimeIns() missing 1 required positional argument: 'secondsMax'
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 816, in checkToCreatePlaylist
-    changePlaylistDetails(id, "", "blablabla")
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 684, in changePlaylistDetails
-    fi.write(json.dumps(response.json(), indent = 4))
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
-
-2022-07-27 23:19:48.137027 err - watchlist.py - checkWatchListItems6 --> error checking watchlist items for new tracks --> <class 'UnboundLocalError'> - ("local variable 'ex' referenced before assignment",) - local variable 'ex' referenced before assignment
-2022-07-27 23:19:48.137027 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 719, in checkWatchlistItems
-    logAction("err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist() --> " + str(type(ex)) + " - " + str(ex.args) + " - " + str(ex))
-UnboundLocalError: local variable 'ex' referenced before assignment
-
-2022-07-27 23:19:48.138028 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
-2022-07-27 23:24:14.519634 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:24:19.911734 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:24:19.913724 msg - watchlist.py - watchlist_main3 --> searching for artist geertje
-2022-07-27 23:24:20.399501 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist geertje.
-2022-07-27 23:24:24.660541 msg - watchlist.py - watchlist_main80 --> add artist 3LUGEywk20Yr20WrU119S6 to watchlist --> starting.
-2022-07-27 23:24:24.660541 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:24:24.662536 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
-2022-07-27 23:24:25.574366 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
-2022-07-27 23:24:25.574366 msg - watchlist.py - watchlist_main82 --> grabbed artist 3LUGEywk20Yr20WrU119S6's tracks: 7
-2022-07-27 23:24:25.739487 msg - watchlist.py - watchlist_main84 --> artist Geertje added to watchlist.
-2022-07-27 23:24:37.234627 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 3LUGEywk20Yr20WrU119S6: 12, length after adding tracks: 19.
-2022-07-27 23:24:37.234627 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:24:51.351975 msg - watchlist.py - watchlist_main80 --> add artist 1M2F83YsIpngpkMUdYcF3O to watchlist --> starting.
-2022-07-27 23:24:51.351975 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:24:51.353938 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
-2022-07-27 23:24:52.361006 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
-2022-07-27 23:24:52.361006 msg - watchlist.py - watchlist_main82 --> grabbed artist 1M2F83YsIpngpkMUdYcF3O's tracks: 8
-2022-07-27 23:24:52.493634 msg - watchlist.py - watchlist_main84 --> artist Geertje Zasada added to watchlist.
-2022-07-27 23:25:05.505472 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 1M2F83YsIpngpkMUdYcF3O: 19, length after adding tracks: 27.
-2022-07-27 23:25:05.505472 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:25:16.658681 msg - watchlist.py - watchlist_main80 --> add artist 2cW7i9IzIsQwH7Z4Jm5eW8 to watchlist --> starting.
-2022-07-27 23:25:16.658681 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:25:16.660680 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
-2022-07-27 23:25:17.560512 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
-2022-07-27 23:25:17.560512 msg - watchlist.py - watchlist_main82 --> grabbed artist 2cW7i9IzIsQwH7Z4Jm5eW8's tracks: 6
-2022-07-27 23:25:17.734515 msg - watchlist.py - watchlist_main84 --> artist Geertje de Lange added to watchlist.
-2022-07-27 23:25:27.998382 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 2cW7i9IzIsQwH7Z4Jm5eW8: 27, length after adding tracks: 33.
-2022-07-27 23:25:27.998382 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:26:53.831802 msg - watchlist.py - watchlist_main80 --> add artist 2g7T6NQr8iPtxQAD7Bn4Eu to watchlist --> starting.
-2022-07-27 23:26:53.831802 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-2022-07-27 23:26:53.834798 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
-2022-07-27 23:26:58.014999 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
-2022-07-27 23:26:58.015991 msg - watchlist.py - watchlist_main82 --> grabbed artist 2g7T6NQr8iPtxQAD7Bn4Eu's tracks: 123
-2022-07-27 23:26:58.135715 msg - watchlist.py - watchlist_main84 --> artist Geertje Spijkerman added to watchlist.
-2022-07-27 23:30:21.328808 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 2g7T6NQr8iPtxQAD7Bn4Eu: 33, length after adding tracks: 156.
-2022-07-27 23:30:21.329808 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
-
-***********************************************************************************************************************************************************************
-2022-07-27 23:35:59.133383 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
-2022-07-27 23:35:59.134384 msg - watchlist.py - checkWatchListItems --> starting.
-2022-07-27 23:35:59.135384 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
-2022-07-27 23:36:00.744750 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
-2022-07-27 23:36:00.745750 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-27 23:36:02.226720 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-27 23:36:02.226720 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
-2022-07-27 23:36:03.198500 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
-2022-07-27 23:36:03.317498 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
-2022-07-27 23:36:04.214543 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
-2022-07-27 23:36:04.343541 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
-2022-07-27 23:36:05.353921 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
-2022-07-27 23:36:05.476858 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
-2022-07-27 23:36:10.260016 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
-2022-07-27 23:36:10.401012 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
-2022-07-27 23:36:11.553288 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h36
-2022-07-27 23:36:11.829287 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h36
-2022-07-27 23:36:14.550259 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 0bYorOKt55YLSpXXbHmaid.
-2022-07-27 23:36:14.807315 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 0bYorOKt55YLSpXXbHmaid.
-2022-07-27 23:37:05.715506 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 106
-2022-07-27 23:37:06.150506 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 0bYorOKt55YLSpXXbHmaid
-2022-07-27 23:37:06.410506 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
-2022-07-27 23:37:06.413507 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
-    return complexjson.loads(self.text, **kwargs)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 815, in checkToCreatePlaylist
-    changePlaylistDetails(id, "", "blablabla")
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 684, in changePlaylistDetails
-    fi.write(json.dumps(response.json(), indent = 4))
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
-
-2022-07-27 23:37:06.414508 err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist()
-2022-07-27 23:37:06.414508 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
-2022-07-27 23:40:36.944707 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
-2022-07-27 23:40:36.945706 msg - watchlist.py - checkWatchListItems --> starting.
-2022-07-27 23:40:36.947704 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
-2022-07-27 23:40:38.556842 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
-2022-07-27 23:40:38.557845 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-27 23:40:40.011693 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-27 23:40:40.011693 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
-2022-07-27 23:40:40.950171 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
-2022-07-27 23:40:40.950171 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
-2022-07-27 23:40:41.962494 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
-2022-07-27 23:40:41.962494 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
-2022-07-27 23:40:42.918395 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
-2022-07-27 23:40:42.919394 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
-2022-07-27 23:40:47.229604 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
-2022-07-27 23:40:47.230603 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
-2022-07-27 23:40:48.194670 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h40
-2022-07-27 23:40:48.565424 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h40
-2022-07-27 23:40:50.773192 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 37WNC4QTkAxxsBwDQqNJVM.
-2022-07-27 23:40:50.991194 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 37WNC4QTkAxxsBwDQqNJVM.
-2022-07-27 23:41:24.155493 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 56
-2022-07-27 23:41:25.254432 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 37WNC4QTkAxxsBwDQqNJVM
-2022-07-27 23:41:25.473271 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 37WNC4QTkAxxsBwDQqNJVM
-2022-07-27 23:41:25.474270 err - watchlist.py - checkToCreatePlaylist13 --> error general --> <class 'pip._vendor.requests.exceptions.JSONDecodeError'> - ('Expecting value', '') - [Errno Expecting value] : 0
-2022-07-27 23:41:25.476265 TRACEBACK --> Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 910, in json
-    return complexjson.loads(self.text, **kwargs)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\lib\json\decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\watchlist.py", line 815, in checkToCreatePlaylist
-    changePlaylistDetails(id, "", "blablabla")
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\spotr\common.py", line 702, in changePlaylistDetails
-    return response.json()
-  File "E:\docs\phyton projects\SpotifyWebAppV2.0\venv\lib\site-packages\pip\_vendor\requests\models.py", line 917, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-pip._vendor.requests.exceptions.JSONDecodeError: [Errno Expecting value] : 0
-
-2022-07-27 23:41:25.477266 err - watchlist.py - checkWatchListItems5.2 --> error checkToCreatePlaylist()
-2022-07-27 23:41:25.477266 err - watchlist.py - watchlist_checkForNewTracks2() --> failed! --> false returned.
-2022-07-27 23:44:12.271486 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
-2022-07-27 23:44:12.271486 msg - watchlist.py - checkWatchListItems --> starting.
-2022-07-27 23:44:12.273485 msg - common.py - getTracksFromArtist --> requesting albums from artist 0KRf0yRm0JrZp5cOogv63S.
-2022-07-27 23:44:13.720441 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 28 tracks from artist 0KRf0yRm0JrZp5cOogv63S
-2022-07-27 23:44:13.720441 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
-2022-07-27 23:44:15.038538 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
-2022-07-27 23:44:15.038538 msg - common.py - getTracksFromArtist --> requesting albums from artist 3LUGEywk20Yr20WrU119S6.
-2022-07-27 23:44:16.072249 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 7 tracks from artist 3LUGEywk20Yr20WrU119S6
-2022-07-27 23:44:16.072249 msg - common.py - getTracksFromArtist --> requesting albums from artist 1M2F83YsIpngpkMUdYcF3O.
-2022-07-27 23:44:16.974239 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 8 tracks from artist 1M2F83YsIpngpkMUdYcF3O
-2022-07-27 23:44:16.974239 msg - common.py - getTracksFromArtist --> requesting albums from artist 2cW7i9IzIsQwH7Z4Jm5eW8.
-2022-07-27 23:44:17.917770 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 6 tracks from artist 2cW7i9IzIsQwH7Z4Jm5eW8
-2022-07-27 23:44:17.918770 msg - common.py - getTracksFromArtist --> requesting albums from artist 2g7T6NQr8iPtxQAD7Bn4Eu.
-2022-07-27 23:44:22.125340 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 123 tracks from artist 2g7T6NQr8iPtxQAD7Bn4Eu
-2022-07-27 23:44:22.125340 msg - watchlist.py - checkToCreatePlaylist0 --> starting checkToCreatePlaylist()
-2022-07-27 23:44:23.095251 msg - common.py - createPlaylist3 --> about to create a new playlist: gnplst_watchlistItems_20220727_23h44
-2022-07-27 23:44:23.558497 msg - common.py - createPlaylist7 --> Succesfully created playlist gnplst_watchlistItems_20220727_23h44
-2022-07-27 23:44:26.246930 msg - common.py - addTracksToPlaylist3 --> about to add a total of 50 tracks to playlist 0KT3moKMrjJpU1xjNeosoC.
-2022-07-27 23:44:26.533663 msg - common.py - addTracksToPlaylist6 --> Succesfully added 50 tracks to playlist 0KT3moKMrjJpU1xjNeosoC.
-2022-07-27 23:44:58.551224 msg - watchlist.py - checkToCreatePlaylist8 --> Tracks left in table WatchListNewTracks: 6
-2022-07-27 23:44:59.084330 msg - common.py - changePlaylistDetails3 --> about to change playlist details for: 0KT3moKMrjJpU1xjNeosoC
-2022-07-27 23:44:59.401647 msg - common.py - changePlaylistDetails7 --> Succesfully changed playlist details for 0KT3moKMrjJpU1xjNeosoC
-2022-07-27 23:44:59.401647 msg - watchlist.py - checkToCreatePlaylist9 --> ended --> total of 1 playlists created.
-2022-07-27 23:44:59.402648 msg - watchlist.py - checkWatchListItems5.1 --> Succesfully created new playlist(s) of watchlist items.
-2022-07-27 23:44:59.402648 msg - watchlist.py - watchlist_checkForNewTracks3() --> finished succefully.
+2022-07-31 21:14:21.145266 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:21.145266 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #0
+2022-07-31 21:14:23.578349 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:23.579351 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #1
+2022-07-31 21:14:26.318244 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:26.318244 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #2
+2022-07-31 21:14:29.440472 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:29.440472 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #3
+2022-07-31 21:14:30.785347 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:30.786347 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #4
+2022-07-31 21:14:33.155404 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:33.156404 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #5
+2022-07-31 21:14:35.428185 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:35.428185 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #6
+2022-07-31 21:14:36.738203 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:36.738203 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #7
+2022-07-31 21:14:39.113947 msg - common.py - apiGetSpotify5 --> bad response status_code: 404
+2022-07-31 21:14:39.114950 msg - common.py - apiGetSpotify7 --> error details:  error: {'status': 404, 'message': 'Service not found'}. Retrying request #8
+2022-07-31 21:14:58.387345 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:04.593240 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:07.709214 msg - watchlist.py - watchlist_main30 --> delete item 0KRf0yRm0JrZp5cOogv63S from watchlist --> starting.
+2022-07-31 21:24:07.717213 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (0KRf0yRm0JrZp5cOogv63S) from watchlist.
+2022-07-31 21:24:07.853218 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:11.670838 msg - watchlist.py - watchlist_main30 --> delete item 3LUGEywk20Yr20WrU119S6 from watchlist --> starting.
+2022-07-31 21:24:11.672837 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (3LUGEywk20Yr20WrU119S6) from watchlist.
+2022-07-31 21:24:11.832741 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:16.155240 msg - watchlist.py - watchlist_main30 --> delete item 1M2F83YsIpngpkMUdYcF3O from watchlist --> starting.
+2022-07-31 21:24:16.156238 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (1M2F83YsIpngpkMUdYcF3O) from watchlist.
+2022-07-31 21:24:16.250239 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:19.739189 msg - watchlist.py - watchlist_main30 --> delete item 2g7T6NQr8iPtxQAD7Bn4Eu from watchlist --> starting.
+2022-07-31 21:24:19.747189 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (2g7T6NQr8iPtxQAD7Bn4Eu) from watchlist.
+2022-07-31 21:24:19.865543 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:22.468218 msg - watchlist.py - watchlist_main30 --> delete item 6GebWeCCtey5pbQepRYD6c from watchlist --> starting.
+2022-07-31 21:24:22.470221 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (6GebWeCCtey5pbQepRYD6c) from watchlist.
+2022-07-31 21:24:22.633218 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:31.506051 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:31.510049 msg - watchlist.py - watchlist_main3 --> searching for artist henkje
+2022-07-31 21:24:32.139100 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist henkje.
+2022-07-31 21:24:39.109583 msg - watchlist.py - watchlist_main80 --> add artist 7peMTGosIMq2ZGgWLmAuQW to watchlist --> starting.
+2022-07-31 21:24:39.109583 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:24:39.113583 msg - common.py - getTracksFromArtist --> requesting albums from artist 7peMTGosIMq2ZGgWLmAuQW.
+2022-07-31 21:24:45.197628 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 208 tracks from artist 7peMTGosIMq2ZGgWLmAuQW
+2022-07-31 21:24:45.197628 msg - watchlist.py - watchlist_main82 --> grabbed artist 7peMTGosIMq2ZGgWLmAuQW's tracks: 208
+2022-07-31 21:24:45.346423 msg - watchlist.py - watchlist_main84 --> artist Henk Elsink added to watchlist.
+2022-07-31 21:30:29.081481 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 7peMTGosIMq2ZGgWLmAuQW: 11, length after adding tracks: 219.
+2022-07-31 21:30:29.081481 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:31:00.384114 msg - watchlist.py - watchlist_main80 --> add artist 1ZPhRduqoNpk8d5M9lZ9Qs to watchlist --> starting.
+2022-07-31 21:31:00.385114 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:31:00.389525 msg - common.py - getTracksFromArtist --> requesting albums from artist 1ZPhRduqoNpk8d5M9lZ9Qs.
+2022-07-31 21:31:01.347922 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 1 tracks from artist 1ZPhRduqoNpk8d5M9lZ9Qs
+2022-07-31 21:31:01.347922 msg - watchlist.py - watchlist_main82 --> grabbed artist 1ZPhRduqoNpk8d5M9lZ9Qs's tracks: 1
+2022-07-31 21:31:01.483196 msg - watchlist.py - watchlist_main84 --> artist Rubberen Henkie added to watchlist.
+2022-07-31 21:31:03.047405 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 1ZPhRduqoNpk8d5M9lZ9Qs: 219, length after adding tracks: 220.
+2022-07-31 21:31:03.048425 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:31:59.808060 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:32:07.136428 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:32:07.139870 msg - watchlist.py - watchlist_main3 --> searching for artist jefri
+2022-07-31 21:32:07.732793 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jefri.
+2022-07-31 21:33:07.861389 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:33:07.866390 msg - watchlist.py - watchlist_main3 --> searching for artist geertrui
+2022-07-31 21:33:08.389880 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist geertrui.
+2022-07-31 21:33:12.137033 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:33:14.925356 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:49:31.389885 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:49:35.103116 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:49:35.107112 msg - watchlist.py - watchlist_main3 --> searching for artist joris
+2022-07-31 21:49:35.695577 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist joris.
+2022-07-31 21:49:44.193005 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:49:44.196005 msg - watchlist.py - watchlist_main3 --> searching for artist gustje
+2022-07-31 21:49:44.711700 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist gustje.
+2022-07-31 21:49:48.818497 msg - watchlist.py - watchlist_main80 --> add artist 5jk35HhyZiP61HAn3UsAzK to watchlist --> starting.
+2022-07-31 21:49:48.819499 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 21:49:48.822495 msg - common.py - getTracksFromArtist --> requesting albums from artist 5jk35HhyZiP61HAn3UsAzK.
+2022-07-31 21:49:50.706780 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 24 tracks from artist 5jk35HhyZiP61HAn3UsAzK
+2022-07-31 21:49:50.707776 msg - watchlist.py - watchlist_main82 --> grabbed artist 5jk35HhyZiP61HAn3UsAzK's tracks: 24
+2022-07-31 21:49:50.888070 msg - watchlist.py - watchlist_main84 --> artist Guustje added to watchlist.
+2022-07-31 21:50:30.090044 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 5jk35HhyZiP61HAn3UsAzK: 220, length after adding tracks: 244.
+2022-07-31 21:50:30.091039 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:03:07.401662 msg - watchlist.py - watchlist_main80 --> add artist 5jk35HhyZiP61HAn3UsAzK to watchlist --> starting.
+2022-07-31 23:03:07.401662 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:03:07.406663 msg - watchlist.py - watchlist_main80.1 --> artist Guustje already in watchlist.
+2022-07-31 23:03:21.797508 msg - watchlist.py - watchlist_main30 --> delete item 2cW7i9IzIsQwH7Z4Jm5eW8 from watchlist --> starting.
+2022-07-31 23:03:21.799507 msg - watchlist.py - watchlist_main31 --> succesfully deleted 1 item (2cW7i9IzIsQwH7Z4Jm5eW8) from watchlist.
+2022-07-31 23:03:21.982044 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:03:28.818277 msg - watchlist.py - watchlist_main80 --> add artist 5jk35HhyZiP61HAn3UsAzK to watchlist --> starting.
+2022-07-31 23:03:28.819275 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:03:28.823277 msg - watchlist.py - watchlist_main80.1 --> artist Guustje already in watchlist.
+2022-07-31 23:03:39.243565 msg - watchlist.py - watchlist_main80 --> add artist 4RyEGSqsz5Wdhzqt7iETRj to watchlist --> starting.
+2022-07-31 23:03:39.243565 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:03:39.246564 msg - common.py - getTracksFromArtist --> requesting albums from artist 4RyEGSqsz5Wdhzqt7iETRj.
+2022-07-31 23:03:42.485421 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 100 tracks from artist 4RyEGSqsz5Wdhzqt7iETRj
+2022-07-31 23:03:42.486422 msg - watchlist.py - watchlist_main82 --> grabbed artist 4RyEGSqsz5Wdhzqt7iETRj's tracks: 100
+2022-07-31 23:03:42.628916 msg - watchlist.py - watchlist_main84 --> artist Gus Jenkins Orchestra added to watchlist.
+2022-07-31 23:06:27.264333 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 4RyEGSqsz5Wdhzqt7iETRj: 244, length after adding tracks: 344.
+2022-07-31 23:06:27.264333 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-07-31 23:21:41.052579 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:16:07.657039 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:16:10.787126 msg - watchlist.py - watchlist_checkForNewTracks() --> started via button press.
+2022-08-01 19:16:10.787126 msg - watchlist.py - checkWatchListItems --> starting.
+2022-08-01 19:16:10.788132 msg - common.py - getTracksFromArtist --> requesting albums from artist 7rp3ZBRdcc2YwIV74pwlXt.
+2022-08-01 19:16:12.405528 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 7rp3ZBRdcc2YwIV74pwlXt
+2022-08-01 19:16:12.406533 msg - common.py - getTracksFromArtist --> requesting albums from artist 5wCRRI7qiODdZ58nv2dpYR.
+2022-08-01 19:16:13.308511 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 20 tracks from artist 5wCRRI7qiODdZ58nv2dpYR
+2022-08-01 19:16:13.309508 msg - common.py - getTracksFromArtist --> requesting albums from artist 293fn93k63SDS0BPP1mDI9.
+2022-08-01 19:16:15.166504 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 3 tracks from artist 293fn93k63SDS0BPP1mDI9
+2022-08-01 19:16:15.167509 msg - common.py - getTracksFromArtist --> requesting albums from artist 3mWKMoyHj1TpA79S3XNp7e.
+2022-08-01 19:16:19.925385 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 97 tracks from artist 3mWKMoyHj1TpA79S3XNp7e
+2022-08-01 19:16:19.926385 msg - common.py - getTracksFromArtist --> requesting albums from artist 2HPgppk2ObRzrRnckvEMMj.
+2022-08-01 19:16:25.704617 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 97 tracks from artist 2HPgppk2ObRzrRnckvEMMj
+2022-08-01 19:16:25.705619 msg - common.py - getTracksFromArtist --> requesting albums from artist 6kLLVSubRRDRMwd5eCEEI1.
+2022-08-01 19:16:27.156316 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 34 tracks from artist 6kLLVSubRRDRMwd5eCEEI1
+2022-08-01 19:16:27.157314 msg - common.py - getTracksFromArtist --> requesting albums from artist 3wRHyytnYUnAnGYApMMpeo.
+2022-08-01 19:16:38.063602 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:16:43.292688 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:16:43.296689 msg - watchlist.py - watchlist_main3 --> searching for artist dirkje
+2022-08-01 19:16:44.081491 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist dirkje.
+2022-08-01 19:16:51.174742 msg - watchlist.py - watchlist_main80 --> add artist 7gfFvGgogIi2P8bgv3mfWP to watchlist --> starting.
+2022-08-01 19:16:51.175741 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:16:51.182742 msg - common.py - getTracksFromArtist --> requesting albums from artist 7gfFvGgogIi2P8bgv3mfWP.
+2022-08-01 19:16:53.543575 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 47 tracks from artist 7gfFvGgogIi2P8bgv3mfWP
+2022-08-01 19:16:53.543575 msg - watchlist.py - watchlist_main82 --> grabbed artist 7gfFvGgogIi2P8bgv3mfWP's tracks: 47
+2022-08-01 19:16:53.688402 msg - watchlist.py - watchlist_main84 --> artist Dirkje Cil added to watchlist.
+2022-08-01 19:18:11.306384 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 7gfFvGgogIi2P8bgv3mfWP: 344, length after adding tracks: 391.
+2022-08-01 19:18:11.306384 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:21:16.066847 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:21:16.070847 msg - watchlist.py - watchlist_main3 --> searching for artist jantje
+2022-08-01 19:21:17.021843 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist jantje.
+2022-08-01 19:21:26.433474 msg - watchlist.py - watchlist_main80 --> add artist 7kWzP2xz6opIX3MYqwHTJl to watchlist --> starting.
+2022-08-01 19:21:26.433474 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:21:26.437473 msg - common.py - getTracksFromArtist --> requesting albums from artist 7kWzP2xz6opIX3MYqwHTJl.
+2022-08-01 19:21:28.396069 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 60 tracks from artist 7kWzP2xz6opIX3MYqwHTJl
+2022-08-01 19:21:28.396069 msg - watchlist.py - watchlist_main82 --> grabbed artist 7kWzP2xz6opIX3MYqwHTJl's tracks: 60
+2022-08-01 19:21:28.723673 msg - watchlist.py - watchlist_main84 --> artist De Twee Jantjes added to watchlist.
+2022-08-01 19:23:07.145272 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 7kWzP2xz6opIX3MYqwHTJl: 391, length after adding tracks: 451.
+2022-08-01 19:23:07.145272 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:23:25.991498 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:23:25.995496 msg - watchlist.py - watchlist_main3 --> searching for artist grietje
+2022-08-01 19:23:26.730150 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist grietje.
+2022-08-01 19:23:32.284332 msg - watchlist.py - watchlist_main80 --> add artist 0Qt0yCOrpwyg4ZllCiYkFw to watchlist --> starting.
+2022-08-01 19:23:32.284332 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:23:32.289333 msg - common.py - getTracksFromArtist --> requesting albums from artist 0Qt0yCOrpwyg4ZllCiYkFw.
+2022-08-01 19:23:33.201705 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 20 tracks from artist 0Qt0yCOrpwyg4ZllCiYkFw
+2022-08-01 19:23:33.201705 msg - watchlist.py - watchlist_main82 --> grabbed artist 0Qt0yCOrpwyg4ZllCiYkFw's tracks: 20
+2022-08-01 19:23:33.389091 msg - watchlist.py - watchlist_main84 --> artist Grietje Scholten added to watchlist.
+2022-08-01 19:23:45.739542 msg - watchlist.py - watchlist_main80 --> add artist 7kWzP2xz6opIX3MYqwHTJl to watchlist --> starting.
+2022-08-01 19:23:45.740548 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:23:45.751543 msg - watchlist.py - watchlist_main80.1 --> artist De Twee Jantjes already in watchlist.
+2022-08-01 19:24:07.197651 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 0Qt0yCOrpwyg4ZllCiYkFw: 451, length after adding tracks: 471.
+2022-08-01 19:24:07.198661 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:35:13.036805 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:35:13.047807 msg - watchlist.py - watchlist_main3 --> searching for artist henkje
+2022-08-01 19:35:13.914320 msg - common.py - searchSpotify3 --> Succesfully returning search results for artist henkje.
+2022-08-01 19:35:20.907525 msg - watchlist.py - watchlist_main80 --> add artist 7peMTGosIMq2ZGgWLmAuQW to watchlist --> starting.
+2022-08-01 19:35:20.907525 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:35:20.912528 msg - watchlist.py - watchlist_main80.1 --> artist Henk Elsink already in watchlist.
+2022-08-01 19:35:30.737556 msg - watchlist.py - watchlist_main80 --> add artist 0FkOed4NWX7JMfQLKe0N9h to watchlist --> starting.
+2022-08-01 19:35:30.737556 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items
+2022-08-01 19:35:30.742029 msg - common.py - getTracksFromArtist --> requesting albums from artist 0FkOed4NWX7JMfQLKe0N9h.
+2022-08-01 19:35:32.312643 msg - common.py - getTracksFromArtist6 --> Succesfully returned list of 40 tracks from artist 0FkOed4NWX7JMfQLKe0N9h
+2022-08-01 19:35:32.312643 msg - watchlist.py - watchlist_main82 --> grabbed artist 0FkOed4NWX7JMfQLKe0N9h's tracks: 40
+2022-08-01 19:35:32.990289 msg - watchlist.py - watchlist_main84 --> artist Henkie Heesbeen added to watchlist.
+2022-08-01 19:36:51.073836 msg - watchlist.py - watchlist_main85 --> Finished - tracks in tracklist before adding artist 0FkOed4NWX7JMfQLKe0N9h: 471, length after adding tracks: 511.
+2022-08-01 19:36:51.074832 msg - watchlist.py - watchlist_main40 --> (re)loading watchlist items

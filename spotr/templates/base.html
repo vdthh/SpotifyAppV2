@@ -50,6 +50,7 @@
             </div>
         </nav>
 
+        <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %} 
             {% if messages %} 
                 {% for category, message in messages %} 
@@ -71,6 +72,29 @@
                 {% endfor %} 
             {% endif %} 
         {% endwith %}
+
+
+        <!-- Display general status  -->
+        <div class="container">                   
+            <div class="row">
+                <div class="col-1">
+                    {% if show_spinner %}
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    {% endif %} 
+                </div>
+                <div class="col-11">
+                    <script src="https://code.jquery.com/jquery-3.6.0.js"></script> 
+                        <p class="fs-6 fst-italic" id="loading_status">{{ status_general }}</p>
+                    <script>
+                        setInterval(function(){ 
+                            $("#loading_status").load("/update_status")},500)
+                    </script>
+                </div>
+            </div>
+        </div>
+
 
         <div class="container bg-dark">{% block content %} {% endblock %}</div>
 

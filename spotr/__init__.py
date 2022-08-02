@@ -10,7 +10,7 @@
 ########################################################################################
 import os
 from flask import Flask
-from . import db
+from . import db, globalvariables
 import sqlite3
 
 #Removes request warnings from console
@@ -54,6 +54,11 @@ from . import watchlist, home, database   #blueprints
 app.register_blueprint(watchlist.bp_watchlist)
 app.register_blueprint(home.bp_home)
 app.register_blueprint(database.bp_database)
+
+
+
+'''--> initialize global variables'''
+globalvariables.init()
 ########################################################################################
 
 #To run app from terminal, first set FLASK_APP via command: $env:FLASK_APP = "spotr"
